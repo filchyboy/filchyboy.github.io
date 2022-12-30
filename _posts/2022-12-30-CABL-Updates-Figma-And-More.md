@@ -9,3 +9,6 @@
 >> * outreach and relationship-building in communities where it is challenging to access such education and materials, both in the US and globally, in order to create the most culturally sensitive, responsive and relevant materials possible;
 >> * platforming leading and emerging educators to teach on these and other relevant topics for the community;
 >> * building and maintaining a well-designed, resilient online platform to host all educational content and aggregated resources.
+
+* Added [Calendly](https://calendly.com/christopher-filkins) access to [Khlebnik](https://khlebnik.com).
+* Added [unset to CSS](https://javascript.plainenglish.io/5-css-tips-that-make-your-life-easier-18ff45d39b8) as well. Fun little tip from Enrico Gruner.
