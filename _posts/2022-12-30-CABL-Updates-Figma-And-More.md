@@ -1,4 +1,3 @@
-## Synopsis
 
 * Update from our founder today on the CABL project. Super jazzed by these words:
 

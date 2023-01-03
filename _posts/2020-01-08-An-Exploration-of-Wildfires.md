@@ -1,13 +1,18 @@
-<h3>Examining US Forest Service Data - RDS-2019-0005</h3>
-<p>
+## Examining US Forest Service Data - RDS-2019-0005
+
+
 I've been exploring a data set from the Joint Fire Science Program: Project ID: 14-1-02-27
-<br/>
+
+
 Here's a few pieces of the work:
-<br/>
-  <ol>
-<li> <a href="https://github.com/filchyboy/Examining-US-Forest-Service-Data---RDS-2019-0005">A github repository.</a>
-<li> <a href="https://medium.com/@christopherfilkins/examining-us-forest-service-data-to-learn-about-normalized-burn-ratio-2004cd98500a">A post about my exploration on Medium.</a>
-<li> <a href="https://colab.research.google.com/drive/15wQKkfEkI3sKQzGjy43nHCni1g5uFdSp">A python notebook of some of my code.</a>
+
+
+1. [A github repository](https://github.com/filchyboy/Examining-US-Forest-Service-Data---RDS-2019-0005)
+
+2. [A post about my exploration on Medium.](https://medium.com/@christopherfilkins/examining-us-forest-service-data-to-learn-about-normalized-burn-ratio-2004cd98500a)
+
+3. [A python notebook of some of my code.](https://colab.research.google.com/drive/15wQKkfEkI3sKQzGjy43nHCni1g5uFdSp)
+
 </ol>
 <p>
 Also here's a picture of Solstice Canyon I took in early April of 2019. In the picture you can see the blackened remains of a massive wildfire which consumed the Malibu Hills in 2018.

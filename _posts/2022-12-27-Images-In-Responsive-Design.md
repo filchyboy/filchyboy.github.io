@@ -1,4 +1,3 @@
-## Synopsis
 
 * Today I spent some time working on details around [WebP](https://developers.google.com/speed/webp/docs/using) & [ImageMagik](https://formulae.brew.sh/formula/imagemagick) for the use of responsive design.
 
