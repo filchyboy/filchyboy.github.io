@@ -1,0 +1,1 @@
+* I wonder at what point in your career it becomes less important to have details about the various tech stacks you know. I've been working in numerous stacks over the years and can easily bring myself up to speed with any stack thrown my way. But my roles never really revolve around using the stack as much as understanding it and working directly with IC who use it directly.
