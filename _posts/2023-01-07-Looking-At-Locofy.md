@@ -1,5 +1,3 @@
-#
-
 * Found this really interesting tool called [Locofy](https://www.locofy.ai/). It's interesting. I can see using this a bit for some projects I have in mind.
 * OpenAI's ChatGPT keeps a record of your "conversations" with it. But if you want to use it effectively, you need to track the initial prompt or log out and then back in after each engagement. As it stands, if you have a wide-ranging conversation over several topics, it will be hard to find your way back to it, as the first prompt might be pretty different from the eventual topic space to which you wish to return.
 * Pep8online appears to have died.

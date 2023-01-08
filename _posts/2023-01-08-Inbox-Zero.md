@@ -1,5 +1,3 @@
-#
-
 * In the fall I decided it was time to focus a bit of my energy towards tackling a huge backlog of emails. I learned serveral things in this process:
 
   * Unsubscribe these days is even more unreliable than it was a few years ago.
