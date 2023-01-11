@@ -1,0 +1,1 @@
+* Today I led a branding exercise for CABL. Back in December, we did the first step in the process. Today we got to the second step. It turned out to be helpful for the team. Quite jazzed at our progress.
