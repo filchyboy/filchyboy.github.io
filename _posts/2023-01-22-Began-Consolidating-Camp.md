@@ -1,0 +1,2 @@
+* I began using OpenAI ChatGPT, in addition to my other toolsets, for developing a deck and business plan. Crazy useful this tool.
+* It's that time of the season when camps begin spinning up. I am enthusiastic that I can do a better job this year. I know, though, that in the end, I'll be frustrated with my inability to move things forward and will look back at all my mistakes and wonder why I still do this.
