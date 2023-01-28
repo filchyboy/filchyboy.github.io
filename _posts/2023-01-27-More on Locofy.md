@@ -1,0 +1,3 @@
+* I'm really jazzed by this [Locofy](https://www.locofy.ai/)
+ product. It's so great. I can see lots of use-cases for it in my path. It is not, however, gong to work for the purpose I had hoped. I'm going to keep using it though. Such a great tool.
+* Spent a lot of time over the last few days digging deep in to developing some "sophisticated" VLOOKUP type formulas in some spreadsheets on which I'm working. I fially solved some problems I've dealt with on previous projects and feel a lot more comfort with the tool.
