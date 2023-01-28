@@ -1,0 +1,1 @@
+* One of the founders of Locofy sent me a message thanking me for the feedback I have offered. This is delightful. It wasn't a form letter as they so often are. I'm a big fan of this product and team so far.
