@@ -1,0 +1,1 @@
+* Spent quite a bit of time today debugging and developing strategies for handling the 419 structures for Laravel's framework to deal with CSRF mismatches.
