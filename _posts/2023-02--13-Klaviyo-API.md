@@ -1,0 +1,1 @@
+* I have had more medical issues that have put a strain on my ability to work towards my goals. Today though I was able to attend a developers presentation on the new Klaviyo API. Next I'm going to get back to my Figma course.
