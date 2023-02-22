@@ -1,0 +1,1 @@
+* I survived my third shoulder surgery on Monday. I am so tired of all of this. I want my health back. When this shoulder is finally healed it's going to be a long raod back to the level of fitness I once had. At the moment it's hard to focus on anything but I remain undaunted. 
