@@ -1,0 +1,3 @@
+* Wow, the [Arc Browser](https://thebrowser.company/) is amazing. I tried it several weeks ago and got distracted by other concerns and didn't use it for any amount of time. But yesterday I went back to it, read through the guides, and began moving some of my projects over to it. This is a game changer. (Such a cliche) Huge fan!
+* Today was the end of Steward Tickets for Burning Man so I've been particularly busy herding all of the cats. Good stuff coming!
+* Spent some time this morning speaking with a fellow entrepreneur about the accelerator and incubator ecosystem. This was a great talk and gave me some good insight into fine tuning my current efforts.
