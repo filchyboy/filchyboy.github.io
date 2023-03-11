@@ -1,0 +1,1 @@
+* Set up a new droplet and gave access to one of our engineers this morning. We are moving forward.
