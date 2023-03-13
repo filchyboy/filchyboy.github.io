@@ -1,0 +1,1 @@
+* Today we began setting up a couple of droplets at [Digital Ocean](https://digitalocean.com) for our new project. Completely empty instances where we have to install everything above the operating system is today's vibe.
