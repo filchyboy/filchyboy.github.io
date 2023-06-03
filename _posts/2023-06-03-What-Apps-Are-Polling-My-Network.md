@@ -1,0 +1,3 @@
+# Today
+
+* I recently saw a reference to an app that could run on my Mac that would create an interface where I could see which apps were polling my network. I have been having this issue where one of the servers I manage keeps registering my machine as a problem and blocking it because of failed IMAP connections. But I do not have any apps attempting IMAP connections. I do however have my Gmail account set up to pull some email from the server. I just disabled that feature on Gmail. Hopefully this solves the issue. I used Wireshark to poll my network but found nothing of value. This has been a perplexing issue for a while now.
