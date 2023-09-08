@@ -1,0 +1,4 @@
+# Today
+
+* I have come back to default here in LA after the burn. It was a huge success. All of the time I spent planning out the details and logistics for the camp served us well. The team was hitting on all cylinders and I couldn't be prouder. Even with all of the challenges posed by the end of week rain we met every challenge and surpassed all of my expectations. By next year I intend to rebuild our tool set and finally move off of [Typeform](https://typeform.com) &amp; Google Sheets.
+* A potential investor has asked that the executive summary I am writing include a competitive analysis. It's so curious how every potential investor wants more details. It's almost like either they don't really want the executive summary to be a summary or they are thinking I am actually showing them the white paper. So much left to do.
