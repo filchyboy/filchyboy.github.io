@@ -1,0 +1,4 @@
+# Today
+
+* I attended The Browser Company's unveiling of new AI capabilities in their browser yesterday and it was both tongue in cheek fun and, it turns out, the browser's new capabilities are very impressive. Now, these chages, are definitely not fully cooked: the smart tab naming leaves much to be desired. It requires the original name of the web page to follow a specific type of format for useful renaming to occur. But this function holds promise and as you can still rename the tabs it could potentially cut down time having to do that, if renaming helps you. Looking forward to more incremental updates to the use of AI across the board in all sorts of products. We are using this approach in Colossal.
+ 
