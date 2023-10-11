@@ -1,0 +1,4 @@
+# Today
+
+* Almost every time I read Jason Knight's development thoughts I come away impressed with his ability to regularly pull the chain of the entire development community. He's right about most everything most of the time. He's got lots of detractors who take issue with his language and manner (much like my detractors do for me and mine) but he's usually right, in my book. When he writes, "Civility is the tool of the oppressor and a weapon of choice for the con men," I really can't argue (of course there is the Orange Gibbon as a counter case). [Another Client, Another Garbage “Framework” Template In Need Of Fixing. (Part 1 of 2)](https://medium.com/codex/another-client-another-garbage-framework-template-in-need-of-fixing-part-1-of-2-941cda0fa9b1)
+* It appears we are going to be adding a new engineer to our team.
