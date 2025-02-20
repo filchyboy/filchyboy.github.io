@@ -1,0 +1,3 @@
+# Today
+
+* I wrote an article on [Burning Man & Yield Management](https://medium.com/@christopherfilkins/burning-man-has-long-been-perceived-as-a-temporary-city-built-on-radical-self-expression-41618299189d) that I posted to Medium. My goal this year is to write more and share more of my thinking around things. I also put together a simple [Python script](https://github.com/filchyboy/tick_calc) to provide an example of the kind of sales system yield management is trying to optimize.
