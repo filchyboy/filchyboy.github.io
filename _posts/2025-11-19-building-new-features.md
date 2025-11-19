@@ -10,7 +10,6 @@
   * update adapter guide time estimate, add HTTP timeouts, and implement GroundhoggCrmAdapter with WordPress REST API bridge
   * improve HubSpot rate limit handling and FluentCRM adapter implementation
   * add ADR-0072 for CRM integration fabric architecture with unified adapter pattern
-  * correct artifact authorship from Claude Code to Christopher Filkins
   * archive email system rebuild project and relocate artifacts to completed-plans directory
   * remove Phase 6A verification summary reference and fix relative paths
   * add planning workflow guide and relocate Phase 6A artifacts to project directory
