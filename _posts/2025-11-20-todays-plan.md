@@ -2,7 +2,7 @@
 
 ## Too Much
 
-*This is entirely too much. I'm going to pare this down to a map of what is the low hanging fruit based on priorities and not a blow by blow on an hourly basis. I'll let the roll until after Thanksgiving but this will change.*
+*This is entirely too much. I'm going to pare this down to a map of what is the low hanging fruit based on priorities and not a blow by blow on an hourly basis. I'll let this roll until after Thanksgiving but this structure must change.*
 
 ## Summary
 - **Total items planned**: 5 focus areas
