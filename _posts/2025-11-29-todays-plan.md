@@ -1,5 +1,9 @@
 # Daily Plan - Saturday, November 29, 2025
 
+*I'm working on a plan to reform this function. Hopefully this will be the last output on this format. Tomorrow is a travel day and I expect the new format will out on Monday.*
+
+
+
 **Focus:** Continue calendaring feature work from recent commits, and close out synthetic data emitters (96% complete)
 
 ---
