@@ -1,174 +1,26 @@
-# Daily Plan - 2025-12-04
+# Daily Plan - Thursday, December 04, 2025
 
-**Generated:** 2025-12-04 20:22 UTC
-**Total Time:** 11 hours
+## Today's Theme
+You're in the home stretch of the build-in-public automation. Most of the heavy lifting is done - today is about connecting the pieces, testing the flow, and getting your first real blog post published automatically.
 
-## Focus Items
+## The Main Work
 
-1. 📋 **Create performance baseline tests**
-   - Feature: dsr-security
-   - Why: High priority, high business value, urgent, quick win
-   - Time: ~1h
+**Finish the publishing script foundation** - You've got the CLI structure mapped out, now build the core functions that actually do the work. Start with loading the accomplished.json data and grouping completed units by feature. This is the data transformation heart of the whole system.
 
-2. 📋 **Create publish_to_jekyll.py base file with CLI structure**
-   - Feature: reform-build-in-public
-   - Why: Highest priority, high business value, quick win
-   - Time: ~1h
+**Wire up the Jekyll post creation** - Once you can group the data, focus on generating the actual markdown content and creating the Jekyll post file. This is where your daily progress becomes a real blog post that people can read.
 
-3. 📋 **Create SubmitDSRRequestAction**
-   - Feature: dsr-security
-   - Why: High priority, high business value, urgent, quick win
-   - Time: ~1h
+**Test the full end-to-end workflow** - Don't just test pieces in isolation. Run the complete flow from accomplished.json through to a generated post file. You'll likely discover integration issues that aren't obvious when testing functions individually.
 
-4. 📋 **Create ADR if architectural decision needed**
-   - Feature: agnostic-ui
-   - Why: Quick win
-   - Time: ~1h
+**Add the Makefile targets** - Create both the publish and preview targets so you have clean commands for your daily routine. The preview mode will be crucial for checking your posts before they go live.
 
-5. 📋 **Design database schema changes**
-   - Feature: agnostic-ui
-   - Why: Quick win
-   - Time: ~1h
+**Push your first automated post** - If everything works, actually publish to your filchyboy.github.io blog. There's something satisfying about seeing automation you built actually work in production.
 
-6. 📋 **Design API endpoints**
-   - Feature: agnostic-ui
-   - Why: Quick win
-   - Time: ~1h
+## Housekeeping
 
-7. 📋 **Design UI/UX mockups**
-   - Feature: agnostic-ui
-   - Why: Quick win
-   - Time: ~1h
+**Check that PHPStan StripeAdapter mess** - StripeAdapter.php has 68 errors sitting at the top of your quality report. Even spending 30 minutes understanding what's broken there could prevent bigger issues later.
 
-8. 📋 **Review architecture with team**
-   - Feature: agnostic-ui
-   - Why: Quick win
-   - Time: ~1h
+**Look at the porto-compliance planning** - You've got scaffolded research sitting there, and with Porto audit showing only 7% compliance, this technical debt is growing. At least scan through what needs investigation so you know the scope.
 
-## Stretch Goals
+## Parked
 
-- Create feature branch (agnostic-ui)
-- Set up development environment (agnostic-ui)
-- Configure any needed services (agnostic-ui)
-
-## Blocked
-
-- ⛔ Update CodebaseMetricsParser to match JSON schema
-  - Waiting on: codebase-metrics-analysis
-- ⛔ Verify Phase 7 acceptance criteria met
-  - Waiting on: dsr-security-p7-create-performance-test
-- ⛔ Add build-in-public-publish Makefile target
-  - Waiting on: reform-bip-git-operations
-- ⛔ Import existing schemas from utils/schemas.py
-  - Waiting on: reform-bip-create-script-base
-- ⛔ Add function to load accomplished.json file (--from-accomplished mode)
-  - Waiting on: reform-bip-import-schemas
-- ⛔ Add function to load work_units.json and filter by completed_at date
-  - Waiting on: reform-bip-import-schemas
-- ⛔ Add function to group completed units by feature_set
-  - Waiting on: reform-bip-load-accomplished, reform-bip-load-work-units
-- ⛔ Add --dry-run flag for preview mode
-  - Waiting on: reform-bip-generate-markdown
-- ⛔ Add --from-accomplished flag to use accomplished.json instead of work_units.json
-  - Waiting on: reform-bip-load-accomplished
-- ⛔ Add function to create new Jekyll post file
-  - Waiting on: reform-bip-generate-markdown
-- ⛔ Add git add/commit/push operations
-  - Waiting on: reform-bip-create-post
-- ⛔ Test full workflow: accomplished → publish
-  - Waiting on: reform-bip-makefile-publish
-- ⛔ Test actual publish to filchyboy.github.io
-  - Waiting on: reform-bip-test-e2e-workflow
-- ⛔ Create SendVerificationEmailAction
-  - Waiting on: dsr-security-p5-create-submit-action
-- ⛔ Create SubmitDSRRequest form request
-  - Waiting on: dsr-security-p5-create-email-action
-- ⛔ Verify controller methods work correctly
-  - Waiting on: dsr-security-p5-create-form-request
-- ⛔ Add function to generate Jekyll markdown from grouped data
-  - Waiting on: reform-bip-group-by-feature
-- ⛔ Complete deployment signoff
-  - Waiting on: dsr-security-p10-create-runbook
-- ⛔ Create DSRVerificationNotification
-  - Waiting on: dsr-security-p5-verify-controller-tests
-- ⛔ Update .env.example with DSR config
-  - Waiting on: dsr-security-p8-update-changelog
-- ⛔ Create DSRConfigTest
-  - Waiting on: dsr-security-p9-create-config-file
-- ⛔ Deploy UUID migration to staging
-  - Waiting on: dsr-security-p9-create-config-tests
-- ⛔ Deploy UUID migration to production
-  - Waiting on: dsr-security-p10-deploy-staging-uuid
-- ⛔ Enable full verification enforcement
-  - Waiting on: dsr-security-p10-deploy-prod-token
-- ⛔ Create operations runbook
-  - Waiting on: dsr-security-p10-setup-monitoring
-- ⛔ Add --date flag to specify which day to publish
-  - Waiting on: reform-bip-create-script-base
-- ⛔ Add --output flag to specify Jekyll blog directory
-  - Waiting on: reform-bip-create-script-base
-- ⛔ Add function to locate existing Jekyll post for the day
-  - Waiting on: reform-bip-generate-markdown
-- ⛔ Add --skip-git flag to skip git operations
-  - Waiting on: reform-bip-git-operations
-- ⛔ Add error handling for missing Jekyll blog directory
-  - Waiting on: reform-bip-create-script-base
-- ⛔ Create test_publish_to_jekyll.py test file
-  - Waiting on: reform-bip-generate-markdown
-- ⛔ Test: Transform accomplished.json to markdown
-  - Waiting on: reform-bip-create-tests
-- ⛔ Test: Group units by feature_set
-  - Waiting on: reform-bip-create-tests
-- ⛔ Test: Generate correct post filename from date
-  - Waiting on: reform-bip-create-tests
-- ⛔ Add build-in-public-preview Makefile target
-  - Waiting on: reform-bip-makefile-publish
-- ⛔ Test --dry-run mode produces valid preview
-  - Waiting on: reform-bip-makefile-preview
-- ⛔ Create ADR-0081 for build-in-public reform
-  - Waiting on: reform-bip-test-real-publish
-- ⛔ Update docs/build_in_public/user-guide.md
-  - Waiting on: reform-bip-test-real-publish
-- ⛔ Update docs/build_in_public/README.md
-  - Waiting on: reform-bip-update-user-guide
-- ⛔ Create config/dsr.php
-  - Waiting on: dsr-security-p9-update-env-example
-- ⛔ Deploy verification token to staging
-  - Waiting on: dsr-security-p10-deploy-prod-uuid
-- ⛔ Deploy verification token to production
-  - Waiting on: dsr-security-p10-deploy-staging-token
-- ⛔ Setup monitoring and alerts
-  - Waiting on: dsr-security-p10-enable-full-enforcement
-- ⛔ Add function to determine post title from accomplished data
-  - Waiting on: reform-bip-group-by-feature
-- ⛔ Test: Handle empty accomplished report
-  - Waiting on: reform-bip-create-tests
-- ⛔ Update CLAUDE.md with DSR patterns
-  - Waiting on: dsr-security-p8-create-security-docs
-- ⛔ Update CHANGELOG.md
-  - Waiting on: dsr-security-p8-update-claude-md
-- ⛔ Test: Handle report with no completed units
-  - Waiting on: reform-bip-create-tests
-- ⛔ Add function to merge new content into existing post
-  - Waiting on: reform-bip-locate-existing-post
-- ⛔ Update make help to include new targets
-  - Waiting on: reform-bip-makefile-publish
-- ⛔ Add deprecation header to publish-to-jekyll-blog.sh
-  - Waiting on: reform-bip-update-user-guide
-- ⛔ Add deprecation header to generate-build-in-public-summary.sh
-  - Waiting on: reform-bip-update-user-guide
-- ⛔ Add deprecation header to publish-build-in-public.sh
-  - Waiting on: reform-bip-update-user-guide
-- ⛔ Create API documentation
-  - Waiting on: dsr-security-p7-verify-acceptance-criteria
-- ⛔ Create security documentation
-  - Waiting on: dsr-security-p8-create-api-docs
-- ⛔ Add deprecation header to extract-commit-info.py
-  - Waiting on: reform-bip-update-user-guide
-- ⛔ Add deprecation header to extract-tweets.py
-  - Waiting on: reform-bip-update-user-guide
-
-## Notes
-
-- 57 item(s) blocked - check dependencies
-- Total estimated time: 8 hours
+The DSR security work can wait another day - you're so close to finishing the build-in-public automation that switching contexts would kill your momentum. Better to ship this feature completely than to half-finish two things.
