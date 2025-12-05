@@ -7,25 +7,24 @@ date: 2025-12-05
 # Daily Plan - Friday, December 05, 2025
 
 ## Today's Theme
-
-I'm wrapping up the week by polishing the build-in-public tooling. I've got a solid set of small, focused tasks that will make my daily publishing workflow much smoother. It feels good to spend a Friday building developer experience improvements that I'll benefit from immediately.
+I'm wrapping up Phase 7 of the DSR security work and getting my build-in-public automation across the finish line. This feels like a good "close the loops" day before the weekend—tying off some loose ends and making sure my automated blog posts are working reliably.
 
 ## The Main Work
 
-**Build out the core publish_to_jekyll.py script structure.** I need to create the base file with proper CLI argument parsing. This is the foundation for everything else - getting the flags right (`--dry-run`, `--from-accomplished`) and setting up a clean command structure will make the subsequent work much easier for me. I'll use Click or argparse to keep it simple.
+**Verify Phase 7 acceptance criteria met** - I need to actually confirm that Phase 7 is done-done. I've built the features, but I should walk through the acceptance criteria systematically and make sure nothing slipped through the cracks. This is the difference between "it works on my machine" and "it's actually complete."
 
-**Implement the data loading functions.** I need two separate paths: one that loads `accomplished.json` directly when I use the `--from-accomplished` flag, and another that loads `work_units.json` and filters by `completed_at` date for the default behavior. These are distinct use cases and I want both available depending on how I'm working that day.
+**Test: Group units by feature_set** - My build-in-public system needs to intelligently group work units by feature set in the daily posts. Right now I suspect it's just listing them chronologically, which doesn't tell a coherent story. I'll write the test first to define the expected behavior, then implement the grouping logic.
 
-**Add the grouping logic.** Once I can load completed work units, I need to group them by `feature_set` so my blog posts have a nice structure. This is where the schemas from `utils/schemas.py` come in - I should import those validation utilities to make sure I'm working with clean data.
+**Test: Generate correct post filename from date** - I've been manually checking that filenames are correct, but I should have a test that proves the date-to-filename conversion works properly. This is foundational for the whole system—if filenames are wrong, posts end up in the wrong place or don't get picked up by the blog engine.
 
-**Wire up the Makefile target.** I want a simple `make build-in-public-publish` command that I can run without thinking. This ties everything together and makes the tool actually usable in my daily workflow.
+**Update docs/build_in_public/README.md** - Once those tests are in and passing, I need to update the README to reflect how the system actually works now. I've made enough changes that the docs are probably stale, and future-me (or anyone else looking at this) needs accurate documentation.
 
 ## Housekeeping
 
-**Import those existing schemas from utils/schemas.py.** I know there's validation logic already written - I should reuse it rather than reinventing the wheel. This will also help me maintain consistency across my tooling.
+**SendAnomalyAlertJobTest.php (67 PHPStan errors)** - This file is at the top of my PHPStan violations list and it's been bothering me. I should spend some time working through at least some of these errors. I don't need to fix all 67 today, but I can probably knock out the most obvious ones—missing type hints, undefined variables, that kind of thing.
 
-**Implement the --dry-run flag properly.** I'll inevitably want to preview what's going to be published before it actually writes files or pushes to Git. Building this in from the start will save me headaches when I accidentally publish something incomplete.
+**Jest test failures (94 failed tests)** - My JavaScript test pass rate dropped to 92.4%, which means something broke recently. I should at least investigate what's failing and whether it's a real problem or flaky tests. I might not fix everything, but I need to know what I'm dealing with.
 
 ## Parked
 
-Nothing's explicitly blocked right now, which is nice. The quality reports show plenty that needs attention - PHPStan errors, failing tests, Porto compliance issues - but those aren't urgent for today. I'm choosing to invest in my own productivity tooling instead, and I'm comfortable with that trade-off on a Friday.
+The performance baseline tests and DSR Phase 5 actions are all sitting there ready to go, but I'm deliberately pushing those to next week. I want to finish what I've started first—Phase 7 verification and the build-in-public system—rather than context-switching into new feature work. Those Phase 5 tasks will be a good Monday morning kickoff.
