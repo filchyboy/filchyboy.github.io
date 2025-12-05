@@ -4,177 +4,28 @@ title: "Daily Plan - 2025-12-05"
 date: 2025-12-05
 ---
 
-# Daily Plan - 2025-12-05
+# Daily Plan - Friday, December 05, 2025
 
-**Generated:** 2025-12-05 15:11 UTC
-**Total Time:** 11 hours
+## Today's Theme
 
-## Focus Items
+I'm wrapping up the week by polishing the build-in-public tooling. I've got a solid set of small, focused tasks that will make my daily publishing workflow much smoother. It feels good to spend a Friday building developer experience improvements that I'll benefit from immediately.
 
-1. 📋 **Create performance baseline tests**
-   - Feature: dsr-security
-   - Why: High priority, high business value, urgent, quick win
-   - Time: ~1h
+## The Main Work
 
-2. 📋 **Create publish_to_jekyll.py base file with CLI structure**
-   - Feature: reform-build-in-public
-   - Why: Highest priority, high business value, quick win
-   - Time: ~1h
+**Build out the core publish_to_jekyll.py script structure.** I need to create the base file with proper CLI argument parsing. This is the foundation for everything else - getting the flags right (`--dry-run`, `--from-accomplished`) and setting up a clean command structure will make the subsequent work much easier for me. I'll use Click or argparse to keep it simple.
 
-3. 📋 **Create SubmitDSRRequestAction**
-   - Feature: dsr-security
-   - Why: High priority, high business value, urgent, quick win
-   - Time: ~1h
+**Implement the data loading functions.** I need two separate paths: one that loads `accomplished.json` directly when I use the `--from-accomplished` flag, and another that loads `work_units.json` and filters by `completed_at` date for the default behavior. These are distinct use cases and I want both available depending on how I'm working that day.
 
-4. 📋 **Create ADR if architectural decision needed**
-   - Feature: agnostic-ui
-   - Why: Quick win
-   - Time: ~1h
+**Add the grouping logic.** Once I can load completed work units, I need to group them by `feature_set` so my blog posts have a nice structure. This is where the schemas from `utils/schemas.py` come in - I should import those validation utilities to make sure I'm working with clean data.
 
-5. 📋 **Design database schema changes**
-   - Feature: agnostic-ui
-   - Why: Quick win
-   - Time: ~1h
+**Wire up the Makefile target.** I want a simple `make build-in-public-publish` command that I can run without thinking. This ties everything together and makes the tool actually usable in my daily workflow.
 
-6. 📋 **Design API endpoints**
-   - Feature: agnostic-ui
-   - Why: Quick win
-   - Time: ~1h
+## Housekeeping
 
-7. 📋 **Design UI/UX mockups**
-   - Feature: agnostic-ui
-   - Why: Quick win
-   - Time: ~1h
+**Import those existing schemas from utils/schemas.py.** I know there's validation logic already written - I should reuse it rather than reinventing the wheel. This will also help me maintain consistency across my tooling.
 
-8. 📋 **Review architecture with team**
-   - Feature: agnostic-ui
-   - Why: Quick win
-   - Time: ~1h
+**Implement the --dry-run flag properly.** I'll inevitably want to preview what's going to be published before it actually writes files or pushes to Git. Building this in from the start will save me headaches when I accidentally publish something incomplete.
 
-## Stretch Goals
+## Parked
 
-- Create feature branch (agnostic-ui)
-- Set up development environment (agnostic-ui)
-- Configure any needed services (agnostic-ui)
-
-## Blocked
-
-- ⛔ Update CodebaseMetricsParser to match JSON schema
-  - Waiting on: codebase-metrics-analysis
-- ⛔ Verify Phase 7 acceptance criteria met
-  - Waiting on: dsr-security-p7-create-performance-test
-- ⛔ Add build-in-public-publish Makefile target
-  - Waiting on: reform-bip-git-operations
-- ⛔ Import existing schemas from utils/schemas.py
-  - Waiting on: reform-bip-create-script-base
-- ⛔ Add function to load accomplished.json file (--from-accomplished mode)
-  - Waiting on: reform-bip-import-schemas
-- ⛔ Add function to load work_units.json and filter by completed_at date
-  - Waiting on: reform-bip-import-schemas
-- ⛔ Add function to group completed units by feature_set
-  - Waiting on: reform-bip-load-accomplished, reform-bip-load-work-units
-- ⛔ Add --dry-run flag for preview mode
-  - Waiting on: reform-bip-generate-markdown
-- ⛔ Add --from-accomplished flag to use accomplished.json instead of work_units.json
-  - Waiting on: reform-bip-load-accomplished
-- ⛔ Add function to create new Jekyll post file
-  - Waiting on: reform-bip-generate-markdown
-- ⛔ Add git add/commit/push operations
-  - Waiting on: reform-bip-create-post
-- ⛔ Test full workflow: accomplished → publish
-  - Waiting on: reform-bip-makefile-publish
-- ⛔ Test actual publish to filchyboy.github.io
-  - Waiting on: reform-bip-test-e2e-workflow
-- ⛔ Create SendVerificationEmailAction
-  - Waiting on: dsr-security-p5-create-submit-action
-- ⛔ Create SubmitDSRRequest form request
-  - Waiting on: dsr-security-p5-create-email-action
-- ⛔ Verify controller methods work correctly
-  - Waiting on: dsr-security-p5-create-form-request
-- ⛔ Add function to generate Jekyll markdown from grouped data
-  - Waiting on: reform-bip-group-by-feature
-- ⛔ Complete deployment signoff
-  - Waiting on: dsr-security-p10-create-runbook
-- ⛔ Create DSRVerificationNotification
-  - Waiting on: dsr-security-p5-verify-controller-tests
-- ⛔ Update .env.example with DSR config
-  - Waiting on: dsr-security-p8-update-changelog
-- ⛔ Create DSRConfigTest
-  - Waiting on: dsr-security-p9-create-config-file
-- ⛔ Deploy UUID migration to staging
-  - Waiting on: dsr-security-p9-create-config-tests
-- ⛔ Deploy UUID migration to production
-  - Waiting on: dsr-security-p10-deploy-staging-uuid
-- ⛔ Enable full verification enforcement
-  - Waiting on: dsr-security-p10-deploy-prod-token
-- ⛔ Create operations runbook
-  - Waiting on: dsr-security-p10-setup-monitoring
-- ⛔ Add --date flag to specify which day to publish
-  - Waiting on: reform-bip-create-script-base
-- ⛔ Add --output flag to specify Jekyll blog directory
-  - Waiting on: reform-bip-create-script-base
-- ⛔ Add function to locate existing Jekyll post for the day
-  - Waiting on: reform-bip-generate-markdown
-- ⛔ Add --skip-git flag to skip git operations
-  - Waiting on: reform-bip-git-operations
-- ⛔ Add error handling for missing Jekyll blog directory
-  - Waiting on: reform-bip-create-script-base
-- ⛔ Create test_publish_to_jekyll.py test file
-  - Waiting on: reform-bip-generate-markdown
-- ⛔ Test: Transform accomplished.json to markdown
-  - Waiting on: reform-bip-create-tests
-- ⛔ Test: Group units by feature_set
-  - Waiting on: reform-bip-create-tests
-- ⛔ Test: Generate correct post filename from date
-  - Waiting on: reform-bip-create-tests
-- ⛔ Add build-in-public-preview Makefile target
-  - Waiting on: reform-bip-makefile-publish
-- ⛔ Test --dry-run mode produces valid preview
-  - Waiting on: reform-bip-makefile-preview
-- ⛔ Create ADR-0081 for build-in-public reform
-  - Waiting on: reform-bip-test-real-publish
-- ⛔ Update docs/build_in_public/user-guide.md
-  - Waiting on: reform-bip-test-real-publish
-- ⛔ Update docs/build_in_public/README.md
-  - Waiting on: reform-bip-update-user-guide
-- ⛔ Create config/dsr.php
-  - Waiting on: dsr-security-p9-update-env-example
-- ⛔ Deploy verification token to staging
-  - Waiting on: dsr-security-p10-deploy-prod-uuid
-- ⛔ Deploy verification token to production
-  - Waiting on: dsr-security-p10-deploy-staging-token
-- ⛔ Setup monitoring and alerts
-  - Waiting on: dsr-security-p10-enable-full-enforcement
-- ⛔ Add function to determine post title from accomplished data
-  - Waiting on: reform-bip-group-by-feature
-- ⛔ Test: Handle empty accomplished report
-  - Waiting on: reform-bip-create-tests
-- ⛔ Update CLAUDE.md with DSR patterns
-  - Waiting on: dsr-security-p8-create-security-docs
-- ⛔ Update CHANGELOG.md
-  - Waiting on: dsr-security-p8-update-claude-md
-- ⛔ Test: Handle report with no completed units
-  - Waiting on: reform-bip-create-tests
-- ⛔ Add function to merge new content into existing post
-  - Waiting on: reform-bip-locate-existing-post
-- ⛔ Update make help to include new targets
-  - Waiting on: reform-bip-makefile-publish
-- ⛔ Add deprecation header to publish-to-jekyll-blog.sh
-  - Waiting on: reform-bip-update-user-guide
-- ⛔ Add deprecation header to generate-build-in-public-summary.sh
-  - Waiting on: reform-bip-update-user-guide
-- ⛔ Add deprecation header to publish-build-in-public.sh
-  - Waiting on: reform-bip-update-user-guide
-- ⛔ Create API documentation
-  - Waiting on: dsr-security-p7-verify-acceptance-criteria
-- ⛔ Create security documentation
-  - Waiting on: dsr-security-p8-create-api-docs
-- ⛔ Add deprecation header to extract-commit-info.py
-  - Waiting on: reform-bip-update-user-guide
-- ⛔ Add deprecation header to extract-tweets.py
-  - Waiting on: reform-bip-update-user-guide
-
-## Notes
-
-- 57 item(s) blocked - check dependencies
-- Total estimated time: 8 hours
+Nothing's explicitly blocked right now, which is nice. The quality reports show plenty that needs attention - PHPStan errors, failing tests, Porto compliance issues - but those aren't urgent for today. I'm choosing to invest in my own productivity tooling instead, and I'm comfortable with that trade-off on a Friday.
