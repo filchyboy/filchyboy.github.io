@@ -1,0 +1,31 @@
+---
+layout: post
+title: "Daily Plan - 2025-12-06"
+date: 2025-12-06
+---
+
+# Daily Plan - Saturday, December 06, 2025
+
+## Today's Theme
+
+I need to wrap up the Jest test debugging work I've been on and then shift into building out the cross-regional sync API layer. The routes are the foundation for everything else in CRS, so getting those solid today will unblock a bunch of downstream work.
+
+## The Main Work
+
+**Finish the Jest test verification and merge that PR**. I've got this sitting at the finish line and I need to get it across. The test suite is at 92.4% pass rate, which isn't terrible, but I want to verify my fixes actually solved the issues I was debugging and get this merged so it stops taking up mental space.
+
+**Build the broker route POST /api/v1/broker/resolve**. This is the entry point for the entire cross-regional sync system. Without this route, nothing else in CRS can function. I'll need to set up the controller, wire up the routing in Porto's structure, and make sure the authentication middleware is properly attached.
+
+**Create the two sync routes: GET /sync/{resource}/changes and POST /sync/{resource}/ops**. These are the workhorses of the sync system - one for fetching changes, one for applying operations. They're both straightforward CRUD-style routes, so I should be able to knock them both out once I have the pattern established from the broker route.
+
+**Implement token expiry enforcement in the security layer**. I can't ship CRS without proper token expiry. This is a security fundamental and I need it in place before I start testing the actual sync flows. It should integrate cleanly with whatever auth middleware I set up for the broker route.
+
+## Housekeeping
+
+**Dig into why index.ts has 88 ESLint errors**. That's an absurd number for a single file and it's been sitting at the top of my ESLint report for too long. I should at least understand what's going on there - maybe it's a configuration issue, maybe it's genuinely messy code that needs attention.
+
+**Look at the test-refactor planning directory**. It has research done and mentions that ADR-0001 requires container-scoped test directories, but there's no implementation plan yet. Since I'm working in the API layer today with routes and controllers, I should at least read through what's there and see if it affects how I'm structuring my new test files.
+
+## Parked
+
+Nothing's explicitly blocked right now, which is nice. I'm consciously setting aside the changelog models and scheduler work - those come after the routes are established. Same with the database migrations for domain tables. I want to get the API surface area defined first before I start touching data models.
