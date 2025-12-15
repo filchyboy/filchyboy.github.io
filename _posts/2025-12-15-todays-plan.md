@@ -7,22 +7,24 @@ date: 2025-12-15
 # Daily Plan - Monday, December 15, 2025
 
 ## Today's Theme
-I'm wrapping up the DSR security work that's been in flight and then pivoting to some foundation layer improvements that keep bubbling up. The configuration system needs some love, and I want to knock out a few quality issues that have been staring at me from the reports.
+I'm focusing on closing out some small but important tasks that'll set up better foundations for the work ahead. Nothing here is particularly glamorous, but I've got a mix of accessibility verification, feature flagging for safer rollouts, and some helper methods that'll make my life easier down the road.
 
 ## The Main Work
 
-**Finish the DSR verification email flow** - I've got two tasks in progress here: the `SendVerificationEmailAction` and the `SubmitDSRRequest` form request. I'm close on both, and I want to close them out before they go stale in my head. Once these are done, I can verify the Phase 7 acceptance criteria and actually call this feature complete.
+**Generate accessibility report for location views** - I need to get visibility into how the location views are performing from an accessibility standpoint. Given that my overall a11y score is at 30% (ouch), I need to start chipping away at this systematically. This feels like a good place to establish a baseline for one specific area before I tackle broader improvements.
 
-**Add those configuration helpers** - The `getBoolean` and `getTenantAware` helpers keep coming up as I work through features. I'm tired of writing the same logic over and over, so I'm going to properly add these to the foundation layer. This is one of those things that will make my life easier immediately.
+**Guard the resilience panel behind a feature flag** - This is part of my unified build health dashboard work, and I want to make sure I can roll this out gradually. I've learned the hard way that putting new panels in front of users without the ability to toggle them off is a recipe for scrambling when something breaks. This should be straightforward - wrap it, test it, done.
 
-**Create the SystemSettingPolicy** - I need RBAC on the configuration system. It's been bothering me that there's no proper policy in place, and with the helpers going in, now's the right time to add the policy layer. This is a 3-effort task but it's foundational work that unblocks future configuration features.
+**Add getBoolean/getTenantAware helpers to the configuration foundation** - I keep running into situations where I'm writing the same type-checking and tenant-aware logic for configuration access. These helper methods will make the codebase more consistent and save me from repeating myself. Plus, it sets up nicely for the RBAC policy work that's queued up behind it.
+
+**Verify Phase 7 acceptance criteria for DSR security** - I need to actually confirm that Phase 7 is truly done. I've been moving fast on the DSR security work, and it's easy to check off work without validating that it actually meets the requirements I set out. A quick verification pass will give me confidence to mark this phase complete and move on.
 
 ## Housekeeping
 
-**Tackle FluentCrmAdapter PHPStan errors** - This file is sitting at 37 errors and it's the top offender in the PHPStan report. I should carve out some time to work through at least a portion of these. Even getting it down to 20 errors would feel like progress.
+**ESLint cleanup in index.ts** - That file has 88 errors showing up in my ESLint report, which is just ridiculous. I'm not going to fix all 279 ESLint issues today, but knocking out the worst offender will make a dent and probably reveal some patterns I can address more broadly later.
 
-**Review the test-refactor planning directory** - The research is done and it explicitly calls out that ADR-0001 and the PHPUnit structure docs require container-scoped test directories. I should spend some time creating an implementation plan so this doesn't just sit in "needs implementation plan" limbo forever.
+**Review one of the "Needs Implementation Plan" items** - I've got a long list of directories that have research done but no concrete plan. I should pick one - maybe `re-enable-etl-sync-scheduler` or `centralized-toast-ux-for-sso-logout-errors` - and at least outline what the implementation would look like. Even 30 minutes of planning work today means less friction when I'm ready to actually build it.
 
 ## Parked
 
-Nothing's technically blocked right now, but I'm deliberately setting aside the Groundhogg idempotency work and the accessibility report generation. Both are important, but the DSR security finish line is more urgent, and I want to get those foundation helpers in place before I context-switch to integration patterns or accessibility work.
+Nothing is explicitly blocked right now, which is nice. I'm deliberately not diving into the Groundhogg idempotency work today even though it's priority 1 - those tasks are 3-effort each and I want to tackle them when I have a clear block of time without context switching. Same goes for the SystemSettingPolicy RBAC work. Those will be better served by dedicated focus later this week.
