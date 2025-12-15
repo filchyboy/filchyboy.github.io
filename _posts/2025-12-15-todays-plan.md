@@ -7,24 +7,24 @@ date: 2025-12-15
 # Daily Plan - Monday, December 15, 2025
 
 ## Today's Theme
-I'm focusing on closing out some small but important tasks that'll set up better foundations for the work ahead. Nothing here is particularly glamorous, but I've got a mix of accessibility verification, feature flagging for safer rollouts, and some helper methods that'll make my life easier down the road.
+I'm tackling foundational work today that'll make my life easier down the road. There's a solid mix of accessibility improvements, configuration helpers, and feature flag work that's been waiting for attention. I want to close out the day feeling like I've strengthened the platform's core rather than just adding more surface area.
 
 ## The Main Work
 
-**Generate accessibility report for location views** - I need to get visibility into how the location views are performing from an accessibility standpoint. Given that my overall a11y score is at 30% (ouch), I need to start chipping away at this systematically. This feels like a good place to establish a baseline for one specific area before I tackle broader improvements.
+**Generate accessibility report for location views** - I need to start with this because my accessibility score is sitting at 30% and that's honestly embarrassing. The location views are a good contained scope to test my reporting approach, and it'll give me concrete data about what needs fixing rather than just working blind. This feeds directly into raising that compliance number.
 
-**Guard the resilience panel behind a feature flag** - This is part of my unified build health dashboard work, and I want to make sure I can roll this out gradually. I've learned the hard way that putting new panels in front of users without the ability to toggle them off is a recipe for scrambling when something breaks. This should be straightforward - wrap it, test it, done.
+**Add getBoolean/getTenantAware helpers to the configuration foundation** - I keep writing the same conditional logic over and over when I'm working with system settings. These helper methods will clean up so much repetitive code across the platform. It's the kind of thing that seems small but will save me mental cycles every single time I touch configuration code going forward.
 
-**Add getBoolean/getTenantAware helpers to the configuration foundation** - I keep running into situations where I'm writing the same type-checking and tenant-aware logic for configuration access. These helper methods will make the codebase more consistent and save me from repeating myself. Plus, it sets up nicely for the RBAC policy work that's queued up behind it.
+**Guard the resilience panel behind a feature flag** - The unified build health dashboard is coming together, but I need to be careful about rolling it out. Getting the feature flag in place now means I can ship to production without worrying about exposing unfinished work. It's a practice I should be doing more consistently anyway.
 
-**Verify Phase 7 acceptance criteria for DSR security** - I need to actually confirm that Phase 7 is truly done. I've been moving fast on the DSR security work, and it's easy to check off work without validating that it actually meets the requirements I set out. A quick verification pass will give me confidence to mark this phase complete and move on.
+**Create SystemSettingPolicy for RBAC** - My RBAC implementation has been inconsistent, and system settings are sensitive enough that I need proper authorization checks. This will establish a pattern I can follow for other policies, and it'll prevent me from shipping security gaps around configuration management.
 
 ## Housekeeping
 
-**ESLint cleanup in index.ts** - That file has 88 errors showing up in my ESLint report, which is just ridiculous. I'm not going to fix all 279 ESLint issues today, but knocking out the worst offender will make a dent and probably reveal some patterns I can address more broadly later.
+**Address those Jest test failures** - I'm at 98.2% pass rate with 6 failing tests. That's close enough to feel good but far enough that something's definitely broken. I should dig into what's actually failing rather than letting it slide another day.
 
-**Review one of the "Needs Implementation Plan" items** - I've got a long list of directories that have research done but no concrete plan. I should pick one - maybe `re-enable-etl-sync-scheduler` or `centralized-toast-ux-for-sso-logout-errors` - and at least outline what the implementation would look like. Even 30 minutes of planning work today means less friction when I'm ready to actually build it.
+**Start documenting the tailwind-migration planning directory** - It's 39.1% complete but the planning docs need updating with current status. I should spend some time refreshing the implementation plan so I know where I actually stand and what's left to do. Future me will thank present me for this.
 
 ## Parked
 
-Nothing is explicitly blocked right now, which is nice. I'm deliberately not diving into the Groundhogg idempotency work today even though it's priority 1 - those tasks are 3-effort each and I want to tackle them when I have a clear block of time without context switching. Same goes for the SystemSettingPolicy RBAC work. Those will be better served by dedicated focus later this week.
+Nothing's explicitly blocked today, which is a nice change. I'm deliberately setting aside the Groundhogg idempotency work - that reserve/release pattern needs focused time and I want to knock out these foundational pieces first. The PHPStan work with 8,408 errors is also staying parked; that's a marathon effort that needs its own dedicated sprint.
