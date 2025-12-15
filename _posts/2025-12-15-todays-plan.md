@@ -7,30 +7,22 @@ date: 2025-12-15
 # Daily Plan - Monday, December 15, 2025
 
 ## Today's Theme
-I need to push the DSR security feature across the finish line for Phase 7. I've got four actions in progress that are all interconnected, and I want to close them out as a cohesive unit today. If I can get those wrapped up and verify the acceptance criteria, I'll have a complete security workflow ready to test.
+I'm wrapping up the DSR security work that's been in flight and then pivoting to some foundation layer improvements that keep bubbling up. The configuration system needs some love, and I want to knock out a few quality issues that have been staring at me from the reports.
 
 ## The Main Work
 
-**Finish the DSR submission workflow**
-I've got three actions partially built—`SubmitDSRRequestAction`, `SendVerificationEmailAction`, and the `SubmitDSRRequest` form request. These need to work together seamlessly, so I'll finish implementing them in sequence and make sure the validation flows correctly from the form request through to the actions. This is the core user-facing workflow for data subject requests, so getting it right matters.
+**Finish the DSR verification email flow** - I've got two tasks in progress here: the `SendVerificationEmailAction` and the `SubmitDSRRequest` form request. I'm close on both, and I want to close them out before they go stale in my head. Once these are done, I can verify the Phase 7 acceptance criteria and actually call this feature complete.
 
-**Complete the performance baseline tests**
-I started these to make sure the DSR system can handle reasonable load without degrading. I need to finish writing the test scenarios and establish what "good" looks like for response times. This will give me a reference point if performance issues crop up later.
+**Add those configuration helpers** - The `getBoolean` and `getTenantAware` helpers keep coming up as I work through features. I'm tired of writing the same logic over and over, so I'm going to properly add these to the foundation layer. This is one of those things that will make my life easier immediately.
 
-**Verify Phase 7 acceptance criteria**
-Once the actions and tests are done, I'll methodically go through the Phase 7 acceptance criteria document and check off each requirement. I want to make sure nothing's been overlooked before I consider this phase complete. Better to catch gaps now than during integration.
-
-**Guard the build health dashboard behind a feature flag**
-This is from a different feature set, but it's straightforward and important. The unified build health dashboard shouldn't be visible to everyone yet—I need to add the feature flag guard so I can control rollout. This should be a quick win that makes the system more resilient.
+**Create the SystemSettingPolicy** - I need RBAC on the configuration system. It's been bothering me that there's no proper policy in place, and with the helpers going in, now's the right time to add the policy layer. This is a 3-effort task but it's foundational work that unblocks future configuration features.
 
 ## Housekeeping
 
-**Tackle some of the FluentCrmAdapter PHPStan errors**
-FluentCrmAdapter.php is sitting at the top of the PHPStan offenders list with 37 errors. I don't need to fix all of them today, but I should knock out at least a handful while I'm in the codebase. Even fixing 5-10 would make a dent and improve type safety in a critical integration point.
+**Tackle FluentCrmAdapter PHPStan errors** - This file is sitting at 37 errors and it's the top offender in the PHPStan report. I should carve out some time to work through at least a portion of these. Even getting it down to 20 errors would feel like progress.
 
-**Review the test-refactor planning directory**
-This directory has research done and references ADR-0001 about container boundaries. I should read through what's there and see if I can draft an implementation plan. My test structure needs work, and having a clear plan will make it easier to chip away at this over time.
+**Review the test-refactor planning directory** - The research is done and it explicitly calls out that ADR-0001 and the PHPUnit structure docs require container-scoped test directories. I should spend some time creating an implementation plan so this doesn't just sit in "needs implementation plan" limbo forever.
 
 ## Parked
 
-Nothing's technically blocked right now, which is good. I'm deliberately setting aside the accessibility report for location views and the Groundhogg idempotency work—both are priority 1, but they require fresh mental space that I don't have today while I'm finishing DSR security. The configuration opportunities work (helpers, policy, seeder) is also going to wait until I've closed out this phase completely.
+Nothing's technically blocked right now, but I'm deliberately setting aside the Groundhogg idempotency work and the accessibility report generation. Both are important, but the DSR security finish line is more urgent, and I want to get those foundation helpers in place before I context-switch to integration patterns or accessibility work.
