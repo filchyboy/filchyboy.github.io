@@ -7,33 +7,32 @@ date: 2025-12-17
 # Daily Plan - Wednesday, December 17, 2025
 
 ## Today's Theme
-I touched two feature sets today - the unified build health dashboard and the Groundhogg idempotency adapter - so I've got fresh context loaded on both. But I also have three feature sets with serious momentum this week (23-29 commits each) that are close to completion. Today is about finishing what's nearly done while the context is hot, then capitalizing on the momentum I've already built this week.
+I've got fresh context loaded on two feature sets that I touched today - the unified build health dashboard and the Groundhogg idempotency work. Both are showing high momentum (3.0 momentum score), which tells me I've been strategically focused here this week. I also want to knock out that location-regulatory-coupling accessibility report since it's sitting at 75%+ completion and has strong momentum (23 commits this week). Time to ride these waves of context and momentum.
 
 ## The Main Work
 
-**1. Generate accessibility report for location views (location-regulatory-coupling)**
-This feature set has 23 commits this week and is sitting at 75%+ completion. I last touched it 4 days ago, so the context isn't completely cold. This is the last remaining task in the set, and finishing it would clear an entire feature set off my board. The accessibility score is at 30% overall, so this report will help me understand where the location views specifically are falling short. It's scored at 23.0 - the highest priority item I have today.
+**1. resilience-rollout-feature-flag: Guard panel behind feature flag**
+I touched the unified-build-health-dashboard today (that ⚡ indicator), so the context is completely fresh in my head. This scored 21.0 with +5.0 recency boost and +3.0 momentum, which means I've been actively investing in this feature set. Getting the resilience panel behind a feature flag is the smart next step - it lets me control rollout and gives me confidence to keep building without worrying about half-baked features hitting production.
 
-**2. Guard resilience panel behind feature flag (unified-build-health-dashboard)**
-I touched this today, so the context is absolutely fresh. This feature set has strong momentum (3 commits this week) and this task scored 21.0. I need to wrap the resilience monitoring panel in a feature flag before it goes live - it's a safety measure that lets me control the rollout. Since I'm already in this codebase today, it makes sense to knock this out while my mental model is loaded.
+**2. groundhogg-idempotency-reserve-release: Implement reserve/release pattern in batchSync transform loop**
+Another one I touched today with that +5.0 recency boost and 20.0 total score. The idempotency work is critical infrastructure - I've been seeing duplicate contact creation issues and this reserve/release pattern will prevent that race condition in the batch sync. Since I'm already in this codebase with fresh context, it makes sense to tackle the core implementation now while the mental model is loaded.
 
-**3. Confirm Resilience RouteServiceProvider registration (unified-build-health-dashboard)**
-Same feature set as above - I touched it today and the context is hot. This is about verifying that the RouteServiceProvider is properly registered so the resilience endpoints actually work. It scored 19.0, which is still high priority. Since I'll already be working on the feature flag for this panel, it makes sense to confirm the routing is solid at the same time.
+**3. test-accessibility-report: Generate accessibility report for location views**
+This one's sitting at 75%+ completion (that 🏁 signal) with a completion boost of +2.0, and the location-regulatory-coupling feature set has 23 commits this week. I last touched it 4 days ago, so the context isn't completely cold. I'd love to finish this and clear it off the board - there's something satisfying about taking nearly-done work across the finish line, and it'll give me a clean slate for the location compliance work.
 
-**4. Phase 5: Final validation and review (lint-frontend)**
-This feature set has massive momentum - 25 commits this week. I last touched it 4 days ago and it's 75%+ complete (scored 20.0). Phase 5 is the final validation step, which means I'm one task away from completing the entire frontend linting initiative. That's worth pushing through even though the context is a few days old. Getting this done would be a huge milestone.
-
-**5. Implement reserve/release pattern in batchSync transform loop (add-idempotency-into-groundhogg-adapter)**
-I touched this feature set today, so I've got fresh context. This scored 20.0 and it's the core implementation work for the idempotency pattern. The reserve/release pattern will prevent duplicate contact syncs in Groundhogg, which has been causing data integrity issues. Since I'm already thinking about this system today, I want to get the core pattern in place.
+**4. resilience-backend-route-provider-registration: Confirm Resilience RouteServiceProvider registration**
+Bundling this with the feature flag work since I touched it today (+5.0 recency) and it's part of the same unified-build-health-dashboard feature set. This is really validation work - I need to confirm the routes are actually wired up correctly before I put the feature flag in place. Better to catch routing issues now than after I've gated everything.
 
 ## Housekeeping
 
-**Get tech lead approval for container docs template (container-docs)**
-This feature set has 29 commits this week - the highest momentum of anything I'm working on - and I touched it just yesterday. The template is ready but I need sign-off before I start documenting all the containers. I'll send it over for review today so it doesn't become a blocker.
+**container-docs-template-approval: Get tech lead approval for template**
+The container-docs feature set has 29 commits this week and I touched it yesterday (4.5 recency boost). I've been building momentum here and I don't want that to stall out waiting for approval. I'll shoot over the template for review today so that approval can happen async while I'm heads-down on other work.
 
-**Fix AdminLoginController.php PHPStan error**
-PHPStan is showing 8 errors across 8 files, which means each file has exactly one issue. AdminLoginController is one of them, and since I care about keeping the admin auth flow clean, I'll knock this out. Should be straightforward.
+**Scan through the planning pipeline "Needs Implementation Plan" section**
+I've got 15 directories sitting in "needs implementation plan" limbo. I'm not going to tackle all of them today, but I should at least triage a couple - maybe `re-enable-etl-sync-scheduler` or `jwt-helper-hardening` since those sound like infrastructure concerns that could bite me later. Just enough to turn research into actionable next steps.
 
 ## Parked
 
-I'm deliberately setting aside the Groundhogg idempotency tests today even though I touched that feature set. I want to get the core reserve/release pattern implemented first - the tests will be more meaningful once I have the actual implementation to test against. The container docs audit (scanning Core/ directory) is also high priority (18.5 score, 29 commits this week) but I need the template approved before I start auditing containers, so that's naturally blocked until I hear back from my tech lead.
+I'm deliberately setting aside the `lint-frontend-phase-5-validation` work even though it has strong momentum (25 commits this week, 20.0 score). It's at the final validation stage, but I last touched it 4 days ago and the context has cooled off. The unified-build-health-dashboard and Groundhogg work both have hotter context (touched today), so I'm prioritizing those. The linting validation will still be there tomorrow, and it's not blocking anything critical.
+
+The `groundhogg-idempotency-tests` task (19.0 score) is also getting parked. I want to get the core reserve/release implementation working first before I write tests - otherwise I'm just testing against a guess of how it should work. Better to have the implementation validated by actually running it, then write tests that lock in the correct behavior.
