@@ -7,40 +7,34 @@ date: 2025-12-29
 # Daily Plan - Monday, December 29, 2025
 
 ## Today's Theme
-I'm riding two strong waves of momentum today. The **container-docs** feature set has seen 20 commits this week and I last touched it 4 days ago - I'm close to wrapping this up and getting tech lead approval. The **update-accessibility-thresholds** work has 18 commits this week, and while I haven't touched it in 5 days, I've built enough context that pushing it forward should feel natural. My goal is to keep both these feature sets moving while they're hot.
+I'm coming back from the holiday weekend with two high-momentum feature sets demanding attention. Both **container-docs** and **update-accessibility-thresholds** have been getting serious investment (20 and 18 commits this week respectively), and I've got fresh context from work I did just 4-5 days ago. The container-docs work is at 90% completion, so I'm feeling the pull to knock that out completely. I also need to address some accessibility infrastructure work that's been building momentum.
 
 ## The Main Work
 
-**1. Get tech lead final approval for container documentation (container-docs-review-tech-lead-approval)**
+**1. Get final tech lead approval for container documentation (container-docs-review-tech-lead-approval)**
 
-This is the capstone of my container-docs push. I've made 20 commits this week on this feature set, and this task is sitting at the top of my queue with a completion bonus - the docs are nearly done. I need to compile what I've written, make sure it's coherent, and get the final sign-off. Finishing this would clear an entire feature set off my board, which feels like the right way to start the week.
+I've been deep in the container-docs feature set this week (20 commits), and this work is 90% complete. I touched this just 4 days ago, so the context is still loaded in my head. Getting this approval would let me close out this entire feature set, which would feel fantastic. The score of 18.0 reflects that completion bonus - the system knows I'm close to the finish line here.
 
-**2. Document the Core/Notification container (container-docs-document-notification)**
+**2. Document Core/Notification container (container-docs-document-notification)**
 
-While the context from my container-docs work is still fresh (last touched 4 days ago), I want to knock out one more container. The Notification container is core infrastructure, and documenting it now keeps the momentum going on this feature set. I'm already in the headspace of Porto container documentation patterns, so this should flow naturally.
+Same feature set, same momentum. Since I'm already in the container documentation headspace and likely interacting with the tech lead today for approval, it makes sense to tackle one of the remaining container docs. The Notification container is fundamental enough that having it documented will help with future integration work. All three remaining docs have identical scores (17.0), so I'm picking Notification based on its cross-cutting nature.
 
-**3. Migrate Storybook test-runner hooks (a11y-storybook-hooks-migration)**
+**3. Migrate Storybook test-runner hooks from preRender/postRender to preVisit/postVisit (a11y-storybook-hooks-migration)**
 
-My accessibility work has 18 commits this week, and this migration from preRender/postRender to preVisit/postVisit is blocking other a11y improvements. The recency score shows I was working on this 5 days ago, so the context isn't completely cold. Getting this done unblocks the threshold updates and fixes I've been planning. It's technical but necessary infrastructure work.
+This is part of the update-accessibility-thresholds feature set that's been getting heavy attention (18 commits this week). I last touched this 5 days ago, and it's got the highest score (19.5) in that set. This is infrastructure work that needs to happen before I can properly update the coverage thresholds - it's a dependency for the other accessibility tasks. The migration is technical but necessary for the Month 1 milestone work.
 
 **4. Install @storybook/addon-links package (a11y-install-addon-links)**
 
-This is part of the same accessibility feature set, and it's a straightforward dependency installation that supports the broader Storybook testing infrastructure. Since I'll already be in the Storybook configuration for the hooks migration, it makes sense to handle this at the same time. Keeping related changes together minimizes context switching.
+Still riding the accessibility momentum. This has a score of 18.5 and is part of the same feature set I've been investing in. It's a straightforward installation task that will support the broader Storybook infrastructure improvements. Since I'm already in the Storybook configuration space from the hooks migration, the context overlap makes this efficient to tackle.
 
 ## Housekeeping
 
-**Address PHPStan errors in ToonTokenVerifierTest.php (37 errors)**
+**Review PHPStan top offenders** - With 2,225 errors across 639 files, I need to at least understand what's happening in ToonTokenVerifierTest.php (37 errors). I'm not committing to fixing everything today, but I should look at whether there are patterns I can address incrementally.
 
-I've got 2,225 PHPStan errors across the codebase, but ToonTokenVerifierTest.php is the single worst offender with 37 errors. While my main focus is on container docs and accessibility, spending 30 minutes cleaning up the most egregious file would make a visible dent in the overall count. It's also in the testing layer, which tends to have straightforward fixes.
-
-**Review the task-management planning directory**
-
-The task-management directory has been scaffolded but needs research before I can plan actual work. Since I'm thinking about workflow and prioritization today anyway (writing this plan), it's a good time to at least skim through what's there and identify what investigation is needed. I don't need to complete the research today, just understand the shape of the problem.
+**Check the Jest test failures** - 25 failed tests out of 4,156 isn't catastrophic, but the 97.8% pass rate could slip if I ignore it. I'll spend 30 minutes identifying what's broken and whether any failures relate to the Storybook work I'm doing today.
 
 ## Parked
 
-I'm deliberately setting aside the **Core/Email** and **Core/Idempotency** container documentation today, even though they're part of the high-momentum container-docs feature set. I want to finish strong with the tech lead approval and one more container (Notification), rather than spread myself thin across all four remaining tasks. Better to complete two things well than half-finish four.
+I'm deliberately setting aside the other two accessibility tasks (threshold update and hit-area false positives) even though they're part of my high-momentum feature set. The hooks migration and addon installation are prerequisites, so it doesn't make sense to jump ahead. I'll save those for tomorrow when the infrastructure is properly in place.
 
-The **a11y-threshold-30-percent** and **a11y-fix-hit-area-false-positives** tasks are also parked for now. They're both part of my active accessibility feature set, but they depend on the hooks migration being done first. Once I get that infrastructure piece sorted, these will be ready to tackle.
-
-Nothing is blocked by external dependencies today - the main constraint is my own time and focus.
+The Core/Email and Core/Idempotency container docs are also parked - I want to see how the Notification doc and tech lead review go before committing to more documentation work today. If the approval process reveals changes needed, I'd rather find out before documenting two more containers.
