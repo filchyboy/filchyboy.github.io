@@ -7,32 +7,36 @@ date: 2025-12-31
 # Daily Plan - Wednesday, December 31, 2025
 
 ## Today's Theme
-I'm ending the year focused on pricing infrastructure - I've made 15 commits to the pricing-and-metering-scaffolds feature set this week and touched it just yesterday, so the context is completely fresh. I also want to knock out a couple of high-momentum items from the decision-layer work (82 commits this week!) before they lose steam. It's the last day of the year, so I'm being realistic about 8 hours of focused work.
+It's the last day of the year, and I'm deep in the pricing-and-metering-scaffolds work with 15 commits this week and fresh context from yesterday. I want to maintain that momentum and knock out the foundational database layer while I have the mental model loaded. The decision-layer work is also hot (82 commits this week!), so if I have energy left, I'll tackle the conversations migration to keep that parallel track moving.
 
 ## The Main Work
 
-**1. Create monoliths migration (pricing-1a-1-monoliths-migration)**
-I touched the pricing scaffolds yesterday and I've been deep in this feature set all week (15 commits). The recency score of +4.5 and momentum of +3.0 tell the story - I have all the context loaded about how pricing structures will work in the platform. Starting with the monoliths migration makes sense because it's the foundation for the entire pricing model. I need to get this table structure right before I can build the Monolith model on top of it.
+**pricing-1a-1-monoliths-migration: Create monoliths migration**
+I touched the pricing-and-metering-scaffolds feature set yesterday (recency +4.5) and I've been heads-down on it all week with 15 commits (momentum +3.0). The database foundation needs to go in before anything else can move forward, and I have the schema design fresh in my head. This is the critical path for the entire pricing system, so starting here makes complete sense.
 
-**2. Create Monolith model (pricing-1a-2-monolith-model)**
-This follows directly from the migration work and benefits from the same fresh context. Since I'm already in the pricing domain with momentum, it makes sense to complete this pairing while I understand exactly how the table structure maps to the model layer. These two tasks together will give me a complete monoliths foundation.
+**pricing-1a-2-monolith-model: Create Monolith model**
+Since I'll have just created the migration, the context for building the Eloquent model will be loaded and ready to go. Same behavioral signals apply here (score 22.5), and it's a natural continuation - migrations without models are useless. I want to get both the table structure and the model layer done together while I'm in that headspace.
 
-**3. Create migration for conversations table (p1-migration-conversations)**
-The decision-layer has been my dominant focus this week with 82 commits - that's massive momentum I don't want to lose. I touched this feature set 2 days ago, so the context is still reasonably fresh (recency +4.0). The conversations migration is foundational for the decision layer architecture, and getting this in place keeps that strategic work moving forward even as I'm also advancing pricing.
+**pricing-1b-1-meters-migration: Create meters migration**
+This rounds out the database scaffolding for the pricing system. With the same momentum and recency signals (score 22.5), it makes sense to complete the foundational migrations in one focused session. Meters and monoliths are the two core tables that everything else depends on, and I'd rather have all the schema work done together than context-switch back to migrations later.
 
-**4. Create meters migration (pricing-1b-1-meters-migration)**
-Coming back to pricing after the conversations work, this meters migration is the next logical step in the scaffolding sequence. I've got the momentum and context from working on monoliths earlier in the day, and meters are the counterpart to monoliths in the pricing architecture. Keeping both migrations moving forward together maintains my strategic focus on pricing infrastructure.
+**p1-migration-conversations: Create migration for conversations table**
+The decision-layer feature set has been my primary focus this week with 82 commits, and I worked on it two days ago (recency +4.0). While the pricing work is getting the database foundation, I can weave this in if I hit a good stopping point - it's a similar type of work (migration creation) and keeps my other high-momentum track active. The conversations table is foundational for the decision system, and getting it in place unlocks model work on that side.
 
 ## Housekeeping
 
-**Review PHPStan errors in ToonTokenVerifierTest.php**
-This file has 38 errors and is the top offender in my PHPStan report. Since I'm touching foundational code today with migrations and models, it's a good moment to clean up some technical debt in the test suite. I don't need to fix all 38, but I should understand what's breaking and maybe knock out a few.
+**PHPStan baseline review for ToonTokenVerifierTest.php**
+With 2,128 PHPStan errors and ToonTokenVerifierTest.php showing 38 errors at the top of the list, I should spend 20 minutes seeing if any of these are actual bugs versus just type annotation issues. The test suite shows 0% pass rate, which feels like a configuration problem, but the PHPStan errors might reveal real issues in the authentication layer.
 
-**Check accessibility violations**
-My a11y score is at 30% when the threshold is 90% - that's rough. I should at least review the 51 violations to understand what categories are causing problems. I won't fix them all today, but I need awareness before this gets worse.
+**Quick scan of the 51 accessibility violations**
+30% accessibility score is pretty rough, and with 51 violations flagged, I should at least understand what the critical issues are. I won't fix them all today, but knowing whether they're in core components or edge cases helps me prioritize future work.
 
 ## Parked
 
-I'm deliberately setting aside the slice-02-customer-analytics and slice-05-crm-mailchimp tasks even though they both have good momentum (6 commits this week, touched 2 days ago). They're smaller cleanup items, and I want to maintain my strategic focus on pricing infrastructure and decision-layer foundations. Those slices can wait until next week when I have fresh energy in the new year.
+**slice-02-customer-analytics cleanup** - Even though this has momentum signals (6 commits this week, score 22.0), it's a deletion task that doesn't block anything. I'll keep the pricing scaffolds as my primary focus since they're more foundational.
 
-The Meter model (pricing-1b-3-meter-model) is also parked for today - if I get through the four main tasks, I'll be thrilled. I'd rather complete migrations and one model thoroughly than rush through everything and lose quality on the last day of the year.
+**slice-05-crm-mailchimp review** - Same deal here - 6 commits this week but it's a review task, not a blocker. The database migrations are more critical path work.
+
+**p4-observer-decision-record-immutability** - This is part of the decision-layer work (82 commits this week), but it's an enhancement rather than foundational infrastructure. I'll come back to this after the conversations migration if I have time, but the table schema comes first.
+
+Happy New Year to me - let's ship some database migrations and end 2025 with clean foundational work in place. 🚀
