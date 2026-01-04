@@ -7,35 +7,33 @@ date: 2026-01-04
 # Daily Plan - Sunday, January 04, 2026
 
 ## Today's Theme
-I'm riding two strong waves of momentum today: the emailservicerecords refactoring (6 commits this week, touched yesterday) and internationalization work (17 commits this week, touched 2 days ago). Both feature sets are scoring high on my priority list, and I have fresh context on both. I want to close out the repository pattern work for email service records while keeping the i18n translation momentum going.
+I'm going to ride the wave of momentum I've built across two feature sets. I touched the emailservicerecords work today, so that context is loaded and fresh. The internationalization work has been a major focus this week (17 commits) with my last commit just yesterday - I've got strong momentum there and I'm in the zone. Both feature sets have multiple ready-to-start tasks at the same score level, which means I can flow between them naturally.
 
 ## The Main Work
 
-**1. Design EmailServiceHealthRepositoryInterface contract**
-I touched the emailservicerecords feature set yesterday, so the context is loaded and fresh. With 6 commits this week, this has been a clear area of focus for me. The repository pattern refactoring is the right architectural move to decouple my email service health checking from direct model access. Starting with the interface design sets the foundation for the rest of this work.
+**emailservicerecords-design-repository-interface: Design EmailServiceHealthRepositoryInterface contract**
+I literally touched this today - the context is hot and I've been thinking about the repository pattern for email service health. This is the foundation for the rest of the emailservicerecords work, so starting here makes sense. I need to define the contract that'll guide the other three tasks in this set.
 
-**2. Add repository binding in EmailServiceProvider**
-This is the natural next step after designing the interface - I need to wire up the dependency injection so the rest of the container can use the repository. Since I'm already deep in the emailservicerecords context, knocking out both the interface design and the provider binding in one session makes sense. These two tasks are tightly coupled and will flow naturally together.
+**emailservicerecords-add-service-provider-binding: Add repository binding in EmailServiceProvider**
+Once I have the interface designed, this is the natural next step. I'm maintaining my flow within the same feature set, and this binding work will let me actually use the repository pattern I just designed. The momentum score of +3.0 shows I've been investing in this area.
 
-**3. Update ChannelHealthAction constructor with repository injection**
-Once the repository is bound, I need to update ChannelHealthAction to use it. This continues the refactoring momentum and gets me closer to eliminating direct model access. The emailservicerecords work is scoring consistently high (22.5 across all four tasks), which tells me this is where my strategic focus has been lately.
+**i18n-p5-invoice-header: Translate invoice header**
+Switching gears to internationalization, where I've been heads-down this week. 17 commits in the past week and I worked on this just yesterday - the context is still warm. This is part of a clear set of invoice translation work, and starting with the header gives me a logical entry point into the billing UI translations.
 
-**4. Translate invoice header (i18n-p5-invoice-header)**
-The internationalization feature set has massive momentum - 17 commits this week. I touched it 2 days ago, so the context is still relatively warm. The invoice translation work is part of Phase 5, and tackling the header first gives me a concrete entry point back into the i18n flow. This keeps both of my high-momentum feature sets moving forward today.
+**i18n-p5-invoice-line-items: Translate invoice line items**
+Following the natural flow from invoice headers to line items. I'm staying in the same area of the codebase, keeping my mental context tight. All four i18n tasks have identical scores (22.5), so I'm picking the logical sequence through the invoice translation work.
 
-**5. Replace direct EmailService model access with repository calls**
-This is the payoff task that completes the repository pattern refactoring. Once I've got the interface, the binding, and the constructor updated, replacing the direct model calls should be straightforward. Finishing this would feel good - it closes out the architectural improvement and lets me move on with a cleaner codebase.
+**emailservicerecords-update-channelhealthaction-constructor: Update ChannelHealthAction constructor with repository injection**
+Coming back to emailservicerecords to keep both threads moving. With the interface designed and the service provider binding in place, I can now inject the repository into the Action class. This maintains the architectural pattern I'm establishing.
 
 ## Housekeeping
 
-**Review top PHPStan offenders in coppa.php (22 errors)**
-My PHPStan compliance is at 2,232 errors across 711 files, which is rough. The coppa.php file is the worst offender with 22 errors. I should at least look at what's breaking there - it might be something simple I can knock out while my mind is warming up or cooling down between feature work.
+**Jest test failures (22 failed tests)**
+My Jest suite is at 97.8% pass rate but those 22 failures are technical debt I should chip away at. I'll spot-check a couple of the failing tests to see if they're quick fixes or if they need deeper investigation.
 
-**Check the 22 failed Jest tests**
-I've got a 97.8% pass rate on Jest, which is pretty good, but 22 tests are failing. I should at least identify what's broken - it might be related to recent changes in either emailservicerecords or internationalization work. If they're quick fixes, I'll handle them. If not, I'll document them for later.
+**Blade A11y violations review**
+3,092 violations is a lot, and at 57% compliance I'm well below my 90% target. Most of these are inputWithoutId (1792) and clickWithoutKeyboard (1288) issues. I won't fix them all today, but I should at least understand the pattern and maybe fix a few in the components I'm touching for internationalization.
 
 ## Parked
 
-I'm deliberately setting aside the rest of the i18n Phase 5 work (invoice line items, totals, payment card labels) for now. Even though that feature set has huge momentum (17 commits), I want to close out the emailservicerecords repository refactoring completely before diving deeper into translations. The i18n work isn't going anywhere, and finishing the architectural improvement feels more important right now.
-
-The planning pipeline has a lot of items needing implementation plans (tailwind-migration, mobile-views, phpstan-work, etc.), but those are future-focused. Today is about maintaining my current momentum on active feature sets, not starting new research threads.
+The rest of the emailservicerecords tasks (replace direct model access) will wait until tomorrow - I need to see how the first three tasks shake out before diving into the refactoring work. The remaining i18n tasks (invoice totals and payment card labels) are also ready to go, but I'm being realistic about my 8 hours today. Better to finish what I start than leave everything half-done.
