@@ -7,30 +7,28 @@ date: 2026-01-04
 # Daily Plan - Sunday, January 04, 2026
 
 ## Today's Theme
-I'm at an interesting inflection point today. I touched the emailservicerecords work this morning, so that context is completely fresh in my head. Meanwhile, the internationalization feature set has been getting serious attention (17 commits this week), and I don't want to lose that momentum. I'm going to split my focus between advancing the repository pattern work I started and keeping the i18n effort moving forward.
+I'm riding two parallel streams of momentum today. The emailservicerecords refactoring has been my focus this week (6 commits) and I just touched it yesterday, so that context is hot. Meanwhile, the internationalization work has been even more active (17 commits this week), though I haven't touched it in 2 days. Both are at the implementation stage with clear next steps, so I want to knock out concrete tasks in both areas while the architecture decisions are still fresh in my head.
 
 ## The Main Work
 
-**emailservicerecords-design-repository-interface** - Design EmailServiceHealthRepositoryInterface contract
-I literally touched this today (recency +5.0), so the context is loaded and hot. I've been working through the repository pattern for email service health checks, and right now I need to nail down the interface contract. This is foundational work - everything else in this feature set depends on getting this contract right. The momentum score (+3.0) tells me I've been consistently investing in this area, so I want to keep that energy going while it's fresh.
+**emailservicerecords-design-repository-interface** - Design the EmailServiceHealthRepositoryInterface contract. I touched this feature set yesterday (recency: +4.5) and I've been actively working it this week (6 commits, momentum: +3.0). The context is loaded and I need to nail down this interface before the rest of the refactoring can proceed. This is the foundational piece that everything else depends on.
 
-**emailservicerecords-add-service-provider-binding** - Add repository binding in EmailServiceProvider
-This is the natural next step after designing the interface. Since I touched the emailservicerecords work today, I have all the context about how the service provider structure works and where this binding needs to live. It's a straightforward implementation once the interface is solid, and it keeps me in the same mental context I'm already loaded into.
+**emailservicerecords-add-service-provider-binding** - Add the repository binding in EmailServiceProvider. Same momentum signals as above - I'm deep in this refactoring work and this is the natural next step after designing the interface. These tasks flow together and I want to complete the service provider setup while I have the architecture clear in my mind.
 
-**i18n-p5-invoice-header** - Translate invoice header
-The internationalization feature set is on fire right now - 17 commits this week with work as recent as yesterday (recency +4.5). I've built serious momentum here (+3.0), and I don't want to let that cool off. The invoice translation work is well-understood at this point, and I can knock out the header translations while keeping that momentum alive. This also moves me closer to having the entire invoice flow translated, which would be a meaningful milestone.
+**i18n-p5-invoice-header** - Translate the invoice header. This internationalization work has been my most active feature set this week (17 commits, momentum: +3.0). I haven't touched it in 2 days but the pattern is well-established now. I'm on phase 5 of the internationalization work and knocking out these invoice translations will keep that momentum going. The pattern is repetitive at this point, which makes it good Sunday work.
 
-**i18n-p5-invoice-line-items** - Translate invoice line items
-If I'm already in the invoice translation context, it makes sense to continue with the line items. Same feature set, same momentum (17 commits this week), and it's part of completing a cohesive piece of functionality. I'd rather finish the invoice translation as a unit than leave it half-done and context-switch away.
+**i18n-p5-invoice-line-items** - Translate invoice line items. Continuing the invoice translation work from the previous task. Since I'm already in the invoice context, I want to batch these translations together. The internationalization feature set has strong momentum and these tasks are straightforward applications of the established pattern.
+
+**i18n-p5-invoice-totals** - Translate invoice subtotal/tax/total fields. Completing the invoice translation trio. This will close out the invoice section entirely and give me a clear win on the internationalization front. With 17 commits this week, I'm clearly invested in this feature set and I want to see visible progress.
 
 ## Housekeeping
 
-**PHPStan - coppa.php** - This file has 22 errors and sits at the top of the PHPStan report. I've been doing a lot of work across the codebase, and I should spend 30-45 minutes cleaning up these errors while my general context is good. It's the kind of focused maintenance that prevents technical debt from accumulating.
+**Jest test failures** - I've got 22 failing Jest tests (97.8% pass rate). That's not terrible but it's been nagging at me. I should spend 30 minutes investigating what's breaking. The pass rate is high enough that it's probably a small subset of related failures rather than systemic issues.
 
-**Planning Pipeline - vite-7-migration** - This has research done but needs an implementation plan. Vite 7 is going to become increasingly important, and I should sketch out a concrete migration strategy while I'm thinking about infrastructure. Not a full implementation today, but at least a roadmap I can reference later.
+**Blade accessibility violations** - The clickWithoutKeyboard violations (1,288 occurrences) keep showing up in my accessibility reports. I'm at 57% compliance and need to get to 90%. I won't fix all of them today, but I should document a pattern for addressing these systematically. Maybe create a task in the planning pipeline for a focused accessibility sprint.
 
 ## Parked
 
-I'm deliberately setting aside the rest of the emailservicerecords tasks (update constructor, replace direct model access) even though they're scored identically to the ones I'm tackling. I need to get the interface and binding right first - rushing through all four tasks would compromise quality. Better to do two well than four poorly.
+The **emailservicerecords** feature set has two more tasks (update-channelhealthaction-constructor and replace-direct-model-access) but I'm intentionally stopping after the service provider binding. I want to see how the first two implementations feel before committing to the full refactoring today. If the interface design needs adjustment, I'd rather discover that before I've wired it through the entire container.
 
-The jest test failures (22 failing tests) are nagging at me, but I'm not going to chase them today unless they're directly related to the work I'm doing. The 97.8% pass rate means the suite is generally healthy, and Sunday isn't the day for a testing deep-dive.
+The code quality reports show PHPStan needs serious attention (2,232 errors), but that's a separate effort that needs dedicated focus. I'm not going to context-switch into static analysis work while I have momentum on feature development. That's a future sprint.
