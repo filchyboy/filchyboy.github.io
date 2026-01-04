@@ -7,33 +7,35 @@ date: 2026-01-04
 # Daily Plan - Sunday, January 04, 2026
 
 ## Today's Theme
-I'm going to ride the wave of momentum I've built across two feature sets. I touched the emailservicerecords work today, so that context is loaded and fresh. The internationalization work has been a major focus this week (17 commits) with my last commit just yesterday - I've got strong momentum there and I'm in the zone. Both feature sets have multiple ready-to-start tasks at the same score level, which means I can flow between them naturally.
+I'm riding two waves of momentum today - the emailservicerecords refactoring that I literally just touched yesterday, and the internationalization work that's been dominating my week (17 commits in the last 7 days). Both feature sets are showing strong behavioral signals, and I want to capitalize on that fresh context before it fades. I'm going to split my focus between pushing the repository pattern forward and knocking out the remaining invoice/payment translations.
 
 ## The Main Work
 
-**emailservicerecords-design-repository-interface: Design EmailServiceHealthRepositoryInterface contract**
-I literally touched this today - the context is hot and I've been thinking about the repository pattern for email service health. This is the foundation for the rest of the emailservicerecords work, so starting here makes sense. I need to define the contract that'll guide the other three tasks in this set.
+**emailservicerecords-design-repository-interface** - Design EmailServiceHealthRepositoryInterface contract
+This is the top-priority task in my most recently active feature set (last 24h), and for good reason. I've been working on extracting the email service health logic into a proper repository pattern, and I need to get the interface designed before I can wire up the rest of the dependency injection. The fact that all four emailservicerecords tasks have identical scores (23.0) tells me they're sequential - this interface design is the foundation for the service provider binding, constructor injection, and model access replacement that follow. I've got the context loaded right now, so I need to strike while the iron is hot.
 
-**emailservicerecords-add-service-provider-binding: Add repository binding in EmailServiceProvider**
-Once I have the interface designed, this is the natural next step. I'm maintaining my flow within the same feature set, and this binding work will let me actually use the repository pattern I just designed. The momentum score of +3.0 shows I've been investing in this area.
+**emailservicerecords-add-service-provider-binding** - Add repository binding in EmailServiceProvider
+This is the natural next step after designing the interface. I'm already deep in the emailservicerecords work (recency +5.0, momentum +3.0), and getting the service provider binding in place will let me actually use the repository pattern I'm building. This is classic Porto architecture work - proper container bindings, clean dependency injection. I want to get through at least these first two emailservicerecords tasks to establish the foundation.
 
-**i18n-p5-invoice-header: Translate invoice header**
-Switching gears to internationalization, where I've been heads-down this week. 17 commits in the past week and I worked on this just yesterday - the context is still warm. This is part of a clear set of invoice translation work, and starting with the header gives me a logical entry point into the billing UI translations.
+**i18n-p5-invoice-header** - Translate invoice header
+I've been absolutely crushing the internationalization work this week - 17 commits is my highest momentum feature set right now. The recency score of +4.5 shows I was working on this just yesterday. I'm in the payment-related translations phase (p5 prefix), and the invoice components are what's left. Starting with the header makes sense as a logical entry point, and I've got all the translation patterns fresh in my head from the work I did yesterday.
 
-**i18n-p5-invoice-line-items: Translate invoice line items**
-Following the natural flow from invoice headers to line items. I'm staying in the same area of the codebase, keeping my mental context tight. All four i18n tasks have identical scores (22.5), so I'm picking the logical sequence through the invoice translation work.
+**i18n-p5-invoice-line-items** - Translate invoice line items
+Keeping the i18n momentum going. All four of these payment-related translation tasks have identical scores (22.5), which tells me they're roughly equivalent in priority. Line items are the meat of the invoice, so this naturally follows the header work. I want to get at least two of these invoice translations done today to maintain the velocity I've built up this week.
 
-**emailservicerecords-update-channelhealthaction-constructor: Update ChannelHealthAction constructor with repository injection**
-Coming back to emailservicerecords to keep both threads moving. With the interface designed and the service provider binding in place, I can now inject the repository into the Action class. This maintains the architectural pattern I'm establishing.
+**i18n-p5-invoice-totals** - Translate invoice subtotal/tax/total
+If I get through the header and line items, tackling the totals section would complete the invoice translation work entirely. That would feel really good - I could check off a whole logical chunk of the payment flow. Given that I have 8 hours today and I'm already in the flow state with these translations, I think I can push through all three invoice-related tasks.
 
 ## Housekeeping
 
-**Jest test failures (22 failed tests)**
-My Jest suite is at 97.8% pass rate but those 22 failures are technical debt I should chip away at. I'll spot-check a couple of the failing tests to see if they're quick fixes or if they need deeper investigation.
+**Jest test failures** - I've got 22 failing tests out of 4,156 (97.8% pass rate). That's not terrible, but it's not great either. I should spend 30 minutes investigating what's broken - could be related to some of the recent i18n work or other changes from this week. The pass rate suggests these might be isolated failures rather than systemic issues.
 
-**Blade A11y violations review**
-3,092 violations is a lot, and at 57% compliance I'm well below my 90% target. Most of these are inputWithoutId (1792) and clickWithoutKeyboard (1288) issues. I won't fix them all today, but I should at least understand the pattern and maybe fix a few in the components I'm touching for internationalization.
+**Blade A11y violations** - 3,092 violations at 57% compliance is... rough. The top offenders are inputWithoutId (1,792) and clickWithoutKeyboard (1,288). I'm not going to tackle this today given my feature momentum, but I should at least look at the specific files that are the worst offenders and add a task to the planning pipeline for a focused accessibility sprint.
 
 ## Parked
 
-The rest of the emailservicerecords tasks (replace direct model access) will wait until tomorrow - I need to see how the first three tasks shake out before diving into the refactoring work. The remaining i18n tasks (invoice totals and payment card labels) are also ready to go, but I'm being realistic about my 8 hours today. Better to finish what I start than leave everything half-done.
+I'm deliberately setting aside the **emailservicerecords-update-channelhealthaction-constructor** and **emailservicerecords-replace-direct-model-access** tasks even though they have high scores. I want to get the interface and service provider binding rock-solid first, and these later steps depend on that foundation. I'll pick them up tomorrow or later this week once I've validated the architecture decisions.
+
+The **i18n-p5-payment-card-labels** task is also parked for now - if I get through the three invoice translations, I'll consider picking this up, but I don't want to overcommit. Better to finish the invoice work completely than to half-finish four things.
+
+I'm also ignoring the PHPStan situation (2,232 errors) for today. That's a bigger lift that needs dedicated focus, and with the emailservicerecords and i18n momentum I've built, now's not the time to context-switch into static analysis fixes.
