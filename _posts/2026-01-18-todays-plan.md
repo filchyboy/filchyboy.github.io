@@ -1,0 +1,38 @@
+---
+layout: post
+title: "Daily Plan - 2026-01-18"
+date: 2026-01-18
+---
+
+# Daily Plan - Sunday, January 18, 2026
+
+## Today's Theme
+I'm riding the wave of my internationalization momentum - 108 commits this week shows where my strategic focus has been. I last touched this work 3 days ago, so the context is still reasonably fresh. I've got 8 unit test tasks all sitting at the same priority score, which tells me it's time to just pick them up and knock them out systematically. Today is about finishing what I started and clearing these i18n tests off my board.
+
+## The Main Work
+
+**Complete locale resolution testing (i18n-p7-unit-locale-resolution-2 & i18n-p7-unit-locale-resolution-3)**
+These are part of the massive i18n feature set I've been building - 108 commits this week speaks to how much energy I've invested here. I need to test both Accept-Language header handling and user preference resolution. These are foundational pieces that everything else depends on, so getting them solid makes sense before I move further into the formatting tests.
+
+**Build out currency formatting tests (i18n-p7-unit-currency-1 & i18n-p7-unit-currency-2)**
+Still in that same feature set where I've got strong momentum. Testing USD and EUR formatting separately gives me good coverage of the currency handling system. Since I've been deep in this internationalization work, the mental model of how the currency system should behave is fresh in my head. These should flow naturally.
+
+**Add number formatting tests (i18n-p7-unit-number-1 & i18n-p7-unit-number-2)**
+Another pair from my active i18n work - testing thousands separators and decimal handling. These complement the currency tests and round out the numeric formatting coverage. With 108 commits invested in this feature set, I can see the finish line for the core testing suite, and these are part of getting there.
+
+**Implement date formatting test (i18n-p7-unit-date-1)**
+One more from the i18n suite - testing short date format. This is part of the same logical grouping as the currency and number tests. Since I'm already in that headspace and have momentum on this feature set, it makes sense to keep pushing through these test tasks while the context is loaded.
+
+## Housekeeping
+
+**Fix that one ESLint error in colorUtils.ts**
+This is the only ESLint error I have in the entire codebase right now - 1 error total. That's actually pretty clean, so knocking this out would get me to a fully passing ESLint run. It's in colorUtils.ts, so it's probably something straightforward.
+
+**Review the Blade A11y compliance status**
+I'm at 57% compliance with 3,092 violations - mostly inputWithoutId (1,792) and clickWithoutKeyboard (1,288) issues. I don't need to fix all of these today, but I should at least scan through a few of the files to understand the patterns. Maybe I can spot some quick patterns to address in commonly-used components.
+
+## Parked
+
+I've got a huge planning pipeline - 26 different feature sets that need either research or implementation plans. I'm deliberately not touching any of those today because my behavioral signals are crystal clear: I'm deep in internationalization work with massive momentum (108 commits this week). Context-switching to planning work would kill that momentum. Those planning directories will still be there tomorrow.
+
+The 1,696 PHPStan errors are also staying parked. That's a bigger systemic issue that needs focused attention, not something to squeeze into a day where I'm trying to finish my i18n testing suite. I can see there's a phpstan-work planning directory that already has artifacts, so when I'm ready to tackle that, I'll have a place to start.
