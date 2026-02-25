@@ -1,0 +1,867 @@
+---
+layout: post
+title: "Daily Plan - 2026-02-25"
+date: 2026-02-25
+---
+
+# Daily Plan - 2026-02-25
+
+**Generated:** 2026-02-25 16:44 UTC
+**Total Time:** 11 hours
+
+## 🎯 Focus Work
+
+### 🔥 frontend-gate-implementation (3 items, 3h) - 11 commits this week, 1 day since last commit
+
+📂 `docs/work/planning/frontend-gate-implementation/`
+
+1. 📋 **Verify codebase passes npm run test:ci** (~1h)
+   - Score: 21.8 (recency: +4.5, momentum: +3.0)
+   - Why: Highest priority, high business value, urgent, quick win, can start immediately, unblocks 1 downstream item
+
+2. 📋 **Verify codebase passes ESLint with --max-warnings=0** (~1h)
+   - Score: 20.8 (recency: +4.5, momentum: +3.0)
+   - Why: Highest priority, high business value, urgent, quick win, can start immediately, unblocks 1 downstream item
+
+3. 📋 **Verify codebase passes TypeScript type-check** (~1h)
+   - Score: 20.8 (recency: +4.5, momentum: +3.0)
+   - Why: Highest priority, high business value, urgent, quick win, can start immediately, unblocks 1 downstream item
+
+### 🔥 postmark-template (2 items, 2h) - 18 commits this week, 1 day since last commit
+
+📂 `docs/work/planning/postmark-template/`
+
+1. 📋 **Refactor PostmarkApiClient::listTemplates() to return metadata-only** (~1h)
+   - Score: 21.8 (recency: +4.5, momentum: +3.0)
+   - Why: Highest priority, high business value, urgent, quick win, can start immediately, unblocks 3 downstream items
+
+2. 📋 **Refactor SendgridApiClient::listTemplates() to return metadata-only** (~1h)
+   - Score: 21.8 (recency: +4.5, momentum: +3.0)
+   - Why: Highest priority, high business value, urgent, quick win, can start immediately, unblocks 3 downstream items
+
+### 🔥 services-directory-not-recognized-in-porto-architecture-specification (2 items, 2h) - 12 commits this week, 3 days since last commit
+
+📂 `docs/work/planning/services-directory-not-recognized-in-porto-architecture-specification/`
+
+1. 📋 **Add 8 directories to porto_rules.yaml optional_directories** (~1h)
+   - Score: 21.8 (recency: +3.5, momentum: +3.0)
+   - Why: Highest priority, high business value, urgent, quick win, can start immediately, unblocks 5 downstream items
+
+2. 📋 **Update container structure template in agents/10_architecture.md** (~1h)
+   - Score: 21.8 (recency: +3.5, momentum: +3.0)
+   - Why: Highest priority, high business value, urgent, quick win, can start immediately, unblocks 3 downstream items
+
+### 🔥 comms-baseline-stabilization (1 items, 1h) - 6 commits this week, 1 day since last commit
+
+📂 `docs/work/planning/comms-baseline-stabilization/`
+
+1. 📋 **Capture canonical Comms baseline failure artifact** (~1h)
+   - Score: 21.8 (recency: +4.5, momentum: +3.0)
+   - Why: Highest priority, high business value, urgent, quick win, can start immediately, unblocks 1 downstream item
+
+
+## 🎁 Stretch Goals
+
+- Update .github/ci-config.yml with toggle and eslint_max_warnings=0 (frontend-gate-implementation, ~1h)
+- Populate implementation-plan.md from template (frontend-gate-implementation, ~1h)
+- Populate implementation-checklist.md from template (frontend-gate-implementation, ~1h)
+
+## 📋 Planning Work Needed
+
+### 🔬 Needs Research (5 directories)
+
+- `thin-slice-contact-provenance-timeline/` - ticket-details.md missing/empty
+- `task-management/` - ticket-details.md missing/empty
+- `integration/` - ticket-details.md missing/empty
+- `performance/` - ticket-details.md missing/empty
+- `metadata/` - ticket-details.md missing/empty
+
+### 📝 Needs Implementation Plan (19 directories)
+
+- `tailwind-migration/` - has research, needs plan
+- `mobile-views/` - has research, needs plan
+- `deprecate-administrator-role/` - has research, needs plan
+- `woocommerce/` - has research, needs plan
+- `vite-7-migration/` - has research, needs plan
+- ...and 14 more
+
+## 🚫 Blocked
+
+- **Group failing tests by root-cause cluster** — blocked by: comms-baseline-capture-failure-baseline
+- **Close deferred COL-7921 validation item after green rerun** — blocked by: comms-baseline-rerun-full-comms-gate
+- **Rerun focused failing Comms suites after fixes** — blocked by: comms-baseline-fix-external-identity-contract, comms-baseline-fix-comms-model-test-contracts, comms-baseline-fix-webhook-route-assertions, comms-baseline-fix-token-and-shorturl-tests
+- **Run full Comms validation gate to green** — blocked by: comms-baseline-rerun-focused-comms-tests
+- **Resolve ExternalIdentity `external_id` contract drift in tests/factories** — blocked by: comms-baseline-group-failures-by-root-cause
+- **Create .github/workflows/frontend.yml CI gate workflow** — blocked by: fgate-verify-lint-clean, fgate-verify-typecheck-clean, fgate-verify-tests-clean, fgate-verify-tokens-build
+- **Create CachingProviderApiClientDecorator class structure** — blocked by: pm-tpl-config-template-cache
+- **Implement getTemplate() caching logic in decorator** — blocked by: pm-tpl-create-decorator-structure
+- **Update ProviderApiClientFactory to wrap clients with caching decorator** — blocked by: pm-tpl-create-decorator-structure
+- **Add fillable and casts to ProvenanceToken model** — blocked by: prov-create-migration
+- **Rewrite resolveToolName() with test-expected mappings** — blocked by: prov-update-model-fillable
+- **Extract environment from X-TOON-Graph header scopes** — blocked by: prov-update-model-fillable
+- **Register middleware alias and add to MCP route group** — blocked by: prov-middleware-create-token
+- **Generalize body-fetch in ImportTemplatesFromProviderAction for all providers** — blocked by: pm-tpl-refactor-postmark-list, pm-tpl-refactor-sendgrid-list
+- **Pass accountId to ProviderApiClientFactory in ImportTemplatesFromProviderAction** — blocked by: pm-tpl-factory-decorator-wrap
+- **Sync all porto_rules.yaml changes to porto_rules.json** — blocked by: porto-yaml-add-optional-dirs, porto-yaml-add-naming-conventions, porto-yaml-add-naming-conventions-extended, porto-yaml-add-namespace-patterns
+- **Run full validation suite on all changed files** — blocked by: porto-json-sync-all-changes, inventory-add-summary-stats, audit-verify-optional-handling, test-inventory-core-dirs, test-inventory-extended-dirs, test-audit-optional-dirs
+- **Update DashboardServiceProvider with dual route registration** — blocked by: locale-route-service-create
+- **Update AuthenticationServiceProvider with dual route registration** — blocked by: locale-route-service-create
+- **Test CI workflow by opening PR to develop** — blocked by: fgate-ci-workflow-create
+- **Update ProvenanceToken model with new fields** — blocked by: mcp-workflow-migration-provenance-fields
+- **Remove markTestIncomplete() from all 12 tests** — blocked by: prov-test-add-headers-trait, prov-test-mock-actions
+- **Fix logReplayAttackDetected() to store plain nonce in nonce column** — blocked by: toon-err-model-event-constants
+- **Update malformed JSON error response and add audit logging** — blocked by: toon-err-audit-log-malformed-graph, toon-err-mcpauth-testing-bypass
+- **Add token expiry validation to middleware** — blocked by: toon-err-audit-log-token-expired, toon-err-middleware-scope-structure
+- **Add capability revocation checking to middleware** — blocked by: toon-err-audit-log-revoked-capability, toon-err-middleware-token-expiry
+- **Add secure error response helper to middleware** — blocked by: toon-err-middleware-missing-header
+- **Add replay attack detection response handling** — blocked by: toon-err-middleware-nonce-tracking
+- **Enable toon_error_handling_tests feature flag** — blocked by: toon-err-middleware-rate-limiting, toon-err-middleware-function-authorization, toon-err-middleware-replay-detection
+- **Run existing policy tests** — blocked by: grep-verification
+- **Add Services vs Tasks usage guidance to agents/10_architecture.md** — blocked by: arch-md-update-container-template
+- **Update SendGridConfigController constructor to inject all Actions** — blocked by: implement-sync-lists-action-error-handling
+- **Run PHPStan and fix any violations** — blocked by: test-lists-kpi-tracking, test-invalid-entity-type
+- **Run all SendGrid tests for regression check** — blocked by: run-phpstan-validation
+- **Create UpdateScenarioAction** — blocked by: scenario-actions-create-update-scenario-task
+- **Create DeleteScenarioAction** — blocked by: scenario-actions-create-delete-scenario-task
+- **Integrate GetIntegrationsOverviewAction into controller** — blocked by: overview-action-structure, overview-status-task-logic, overview-activity-task-logic, overview-health-task-logic
+- **Create RecordsWorkflowProvenance trait** — blocked by: mcp-workflow-update-provenance-token-model, mcp-workflow-add-extract-regional-scope
+- **Add POST /api/v1/mcp/etl/sync endpoint** — blocked by: mcp-workflow-create-records-provenance-trait
+- **Create AnalyticsController with GET /api/v1/mcp/analytics/metrics** — blocked by: mcp-workflow-create-records-provenance-trait
+- **Run all 12 provenance tests individually and fix failures** — blocked by: prov-test-remove-incomplete, prov-middleware-registration, prov-api-repository-filtering, prov-api-resource-output
+- **Add event type constants and fillable fields to SecurityAuditLog model** — blocked by: toon-err-migration-nonce-column
+- **Update missing header error response format in middleware** — blocked by: toon-err-mcpauth-testing-bypass
+- **Add empty header validation to middleware** — blocked by: toon-err-mcpauth-testing-bypass
+- **Add signature verification to middleware** — blocked by: toon-err-audit-log-signature-tampering, toon-err-audit-log-verification-failed
+- **Add nonce tracking infrastructure for replay protection** — blocked by: toon-err-audit-fix-replay-nonce-storage, toon-err-audit-log-nonce-collision
+- **Build context JSON with request, response, agent, chain_id** — blocked by: prov-middleware-tool-name-mapping, prov-middleware-env-extraction
+- **Capture 403/500 responses and extract error details** — blocked by: prov-middleware-context-building
+- **Create ProvenanceToken record in middleware handle()** — blocked by: prov-middleware-error-handling
+- **Run PHPStan level 5 on all modified files** — blocked by: prov-verify-tests-pass
+- **Implement cache invalidation methods on decorator** — blocked by: pm-tpl-decorator-cache-logic
+- **Add cache invalidation after successful import in action** — blocked by: pm-tpl-decorator-invalidation, pm-tpl-action-pass-account-id
+- **Grep verification for remaining hardcoded strings** — blocked by: run-phpstan-verification
+- **PHPStan level 5 validation** — blocked by: col-7914-5-5-remaining-controllers
+- **Register SetLocaleFromRouteMiddleware in Kernel** — blocked by: set-locale-from-route-middleware-create
+- **Align Comms model tests with current model fillable/casts contracts** — blocked by: comms-baseline-group-failures-by-root-cause
+- **Stabilize webhook route/feature tests** — blocked by: comms-baseline-group-failures-by-root-cause
+- **Repair token generation and short URL service test setup** — blocked by: comms-baseline-group-failures-by-root-cause
+- **Test pre-commit hook with lint and token violations** — blocked by: fgate-precommit-rewrite
+- **Test pre-push hook with frontend and backend-only changes** — blocked by: fgate-prepush-create
+- **Create CompareScenarioAction** — blocked by: scenario-actions-create-compare-scenarios-task
+- **Implement UsageHourly query with fallback to UsageEvent** — blocked by: col7898-update-todo-references
+- **Build structureUsageData() method for internal format** — blocked by: col7898-get-usage-data-query
+- **Implement GetAllIntegrationsStatusTask query logic** — blocked by: overview-status-task-structure
+- **Manual UI verification for all tabs** — blocked by: porto-audit-admin-container
+- **Verify header validation tests pass (tests 4, 5, 3)** — blocked by: toon-err-enable-feature-flag
+- **Verify schema validation tests pass (tests 14, 11, 12)** — blocked by: toon-err-enable-feature-flag
+- **Verify token security tests pass (tests 1, 2, 6, 13, 10)** — blocked by: toon-err-enable-feature-flag
+- **Verify replay protection tests pass (tests 7, 16)** — blocked by: toon-err-enable-feature-flag
+- **Verify rate limiting test passes (test 15)** — blocked by: toon-err-enable-feature-flag
+- **Integrate provenance recording into existing MCP controllers** — blocked by: mcp-workflow-create-records-provenance-trait
+- **Add GET /api/v1/mcp/finops/anomalies endpoint** — blocked by: mcp-workflow-create-records-provenance-trait
+- **Create AlertsController with POST /api/v1/mcp/alerts** — blocked by: mcp-workflow-create-records-provenance-trait
+- **Add POST /api/v1/mcp/compliance/gdpr/audit endpoint** — blocked by: mcp-workflow-create-records-provenance-trait
+- **Add POST /api/v1/mcp/etl/pipelines (create) endpoint** — blocked by: mcp-workflow-create-records-provenance-trait
+- **Enable MCP workflow tests in phpunit.xml** — blocked by: mcp-workflow-create-tests-config
+- **Run PHPStan on all new and modified files** — blocked by: mcp-workflow-run-tests-iteratively
+- **Add setUp() with user, billing account, and agent fixtures** — blocked by: prov-update-factory
+- **Add CreatesMcpHeaders trait and update request headers** — blocked by: prov-test-setup-fixtures
+- **Mock ETL/FinOps/Compliance/Chat/Health action classes** — blocked by: prov-test-setup-fixtures
+- **Unit test: SendgridApiClient refactored listTemplates()** — blocked by: pm-tpl-refactor-sendgrid-list
+- **Implement entity_type routing in triggerSync()** — blocked by: update-controller-constructor
+- **Configure branch protection rules on GitHub** — blocked by: fgate-ci-workflow-test-pr
+- **Add logSignatureTampering() method to SecurityAuditLogService** — blocked by: toon-err-model-event-constants
+- **Add logNonceCollision() method to SecurityAuditLogService** — blocked by: toon-err-model-event-constants
+- **Run PHPStan and PHP CS Fixer on all modified files** — blocked by: toon-err-regression-testing
+- **Run all 13 workflow tests and fix failures** — blocked by: mcp-workflow-etl-sync-endpoint, mcp-workflow-create-analytics-controller, mcp-workflow-finops-anomalies-endpoint, mcp-workflow-create-alerts-controller, mcp-workflow-gdpr-audit-endpoint, mcp-workflow-create-pipeline-endpoint, mcp-workflow-documentation-search-get-endpoint, mcp-workflow-modify-reports-endpoint-capability, mcp-workflow-relax-pipeline-id-regex, mcp-workflow-health-endpoint-error-rate, mcp-workflow-compliance-framework-response, mcp-workflow-chat-message-id-response, mcp-workflow-pipeline-details-config-key, mcp-workflow-enable-phpunit-flag
+- **Run existing MCP and Toon test suites for regressions** — blocked by: mcp-workflow-run-tests-iteratively
+- **Add query scopes to ProvenanceToken model** — blocked by: prov-update-model-fillable
+- **Integrate RateLimitingService into decorator for cache-miss API calls** — blocked by: pm-tpl-decorator-cache-logic, pm-tpl-config-rate-limits
+- **Feature tests: non-prefixed routes** — blocked by: col-7914-2-3-dual-route-tests
+- **Feature tests: prefixed routes** — blocked by: col-7914-2-3-dual-route-tests
+- **Feature tests: locale preservation through redirects** — blocked by: col-7914-4-4-controllers-part1-tests
+- **Add naming conventions for Services, Contracts, Drivers to porto_rules.yaml** — blocked by: porto-yaml-add-optional-dirs
+- **Add naming conventions for DTOs, Enums, Traits, Middleware, Exceptions** — blocked by: porto-yaml-add-optional-dirs
+- **Add namespace patterns for all 8 directories to porto_rules.yaml** — blocked by: porto-yaml-add-optional-dirs
+- **Add Services/Contracts/Drivers detection in porto_inventory.py** — blocked by: inventory-add-dataclass-fields-core
+- **Add DTOs/Enums/Traits/Middleware/Exceptions detection in porto_inventory.py** — blocked by: inventory-add-dataclass-fields-extended
+- **WU-5: Verify all previously-skipped tests pass** — blocked by: etl-metrics-remove-skip-helpers
+- **Test empty data, single day, division by zero scenarios** — blocked by: analytics-test-setup
+- **Register internal.auth middleware in Kernel.php** — blocked by: scenario-actions-create-internal-auth-middleware
+- **Update forecasting routes with internal.auth middleware** — blocked by: scenario-actions-register-middleware-kernel
+- **Remove @phpstan-ignore comments from ScenarioController** — blocked by: scenario-actions-create-update-scenario-action, scenario-actions-create-delete-scenario-action, scenario-actions-create-compare-scenario-action
+- **PHPStan level 5 validation and lint fixes** — blocked by: scenario-actions-controller-cleanup
+- **Implement calculateCostMetrics() with all 4 outputs** — blocked by: col7898-calculate-total-usage
+- **Phase 5: Final validation and review** — blocked by: lint-frontend-phase-4b-refactor-500-plus
+- **Verify authorization tests pass (tests 8, 9)** — blocked by: toon-err-enable-feature-flag
+- **Run regression tests on existing MCP TOON test suites** — blocked by: toon-err-test-header-validation, toon-err-test-schema-validation, toon-err-test-token-security, toon-err-test-authorization, toon-err-test-replay-protection, toon-err-test-rate-limiting
+- **Refactor controller to delegate to all Actions (~150 lines target)** — blocked by: mc-consolidate-duplicates
+- **Unit test: CachingProviderApiClientDecorator cache hit behavior** — blocked by: pm-tpl-decorator-cache-logic
+- **Unit test: CachingProviderApiClientDecorator cache miss and write behavior** — blocked by: pm-tpl-decorator-cache-logic
+- **Unit test: CachingProviderApiClientDecorator invalidation methods** — blocked by: pm-tpl-decorator-invalidation
+- **Unit test: PostmarkApiClient refactored listTemplates()** — blocked by: pm-tpl-refactor-postmark-list
+- **Unit test: ImportTemplatesFromProviderAction with caching integration** — blocked by: pm-tpl-generalize-body-fetch, pm-tpl-action-cache-invalidation
+- **Unit test: ProviderApiClientFactory decorator wrapping** — blocked by: pm-tpl-factory-decorator-wrap
+- **Python Embedding Microservice Scaffold** — blocked by: COL-7879-1-1-pgvector-docker
+- **Database Migration for Embedding Column** — blocked by: COL-7879-1-1-pgvector-docker
+- **Embedding Client Service (PHP)** — blocked by: COL-7879-1-5-laravel-config
+- **PrecedentSearchService Implementation** — blocked by: COL-7879-1-4-migration-embedding, COL-7879-1-6-embedding-client
+- **Create locale_route() helper function** — blocked by: col-7914-1-1-create-locale-route-task
+- **Update AuthenticationServiceProvider with dual route registration** — blocked by: col-7914-1-3-register-helper
+- **Update DashboardServiceProvider with dual route registration** — blocked by: col-7914-2-1-auth-service-provider
+- **Update AuthenticatedSessionController redirects** — blocked by: col-7914-3-1-update-route-resolver
+- **Update MfaVerificationController redirects** — blocked by: col-7914-3-1-update-route-resolver
+- **Update auth controllers for locale-aware redirects** — blocked by: locale-aware-redirector-trait
+- **Implement webhook status query logic** — blocked by: stripe-telemetry-webhook-task-create
+- **Implement metrics computation logic** — blocked by: stripe-telemetry-metrics-task-create
+- **Implement recent transactions retrieval logic** — blocked by: stripe-telemetry-transactions-task-create
+- **Implement SyncSendGridListsAction::run() method** — blocked by: create-sync-lists-action-structure
+- **Add error handling to SyncSendGridListsAction** — blocked by: implement-sync-lists-action-run
+- **Create Dashboard locale routing feature tests** — blocked by: dashboard-provider-dual-registration
+- **Create auth flow locale preservation tests** — blocked by: auth-controllers-locale-redirect
+- **Add test: entity_type=lists routes to SyncListsAction** — blocked by: create-feature-test-file, implement-entity-type-routing
+- **Add test: null entity_type defaults to campaigns** — blocked by: create-feature-test-file, implement-entity-type-routing
+- **Add test: invalid entity_type returns 422** — blocked by: create-feature-test-file
+- **WU-3: Remove skipUnlessEtlSchemaReady from ETLIntelligenceToonAuthenticationTest** — blocked by: etl-metrics-billing-account-id-migration
+- **Test edge cases and full integration** — blocked by: col7898-test-setup
+- **Add logTokenExpired() method to SecurityAuditLogService** — blocked by: toon-err-model-event-constants
+- **Add logMalformedGraph() method to SecurityAuditLogService** — blocked by: toon-err-model-event-constants
+- **Add logRevokedCapabilityUsed() method to SecurityAuditLogService** — blocked by: toon-err-model-event-constants
+- **Add logTokenVerificationFailed() method to SecurityAuditLogService** — blocked by: toon-err-model-event-constants
+- **Add required field validation for TOON graph schema** — blocked by: toon-err-middleware-malformed-json
+- **Add capability structure validation in middleware** — blocked by: toon-err-middleware-required-fields
+- **Add scope structure validation in middleware** — blocked by: toon-err-middleware-required-fields
+- **Add rate limiting for failed verification attempts** — blocked by: toon-err-audit-fix-rate-limit-severity, toon-err-phpunit-rate-limit-override
+- **Update ProvenanceTokenFactory with new field defaults** — blocked by: prov-update-model-fillable
+- **Add tool_name to GetProvenanceTokensRequest validation** — blocked by: prov-update-model-fillable
+- **Add test: entity_type=campaigns routes to SyncMessagesAction** — blocked by: create-feature-test-file, implement-entity-type-routing
+- **Add test: entity_type=templates routes to SyncTemplatesAction** — blocked by: create-feature-test-file, implement-entity-type-routing
+- **Add Contracts/Drivers usage guidance to agents/10_architecture.md** — blocked by: arch-md-update-container-template
+- **Verify porto_audit.py handles new optional dirs; add strength recognition** — blocked by: porto-yaml-add-optional-dirs
+- **Add usage patterns and decision tree to ADR-0118** — blocked by: write-adr-0118-context-and-decision
+- **Update RedirectIfAuthenticated middleware** — blocked by: locale-aware-redirector-trait
+- **Verify lint-harness workflow runs on PR** — blocked by: fgate-lint-harness-move
+- **Build structureUsageData() method for internal format** — blocked by: analytics-get-usage-data-query
+- **Implement calculateCostMetrics() with all 4 outputs** — blocked by: analytics-calculate-total-usage
+- **Implement calculateTotalUsage() method** — blocked by: col7898-structure-usage-data
+- **Implement calculatePeakUsage() method** — blocked by: col7898-structure-usage-data
+- **Run PHPStan level 5 and fix errors** — blocked by: col7898-test-basic-calculations, col7898-test-scoring, col7898-test-analysis, col7898-test-edge-cases
+- **Implement cost impact calculation for seasonal optimization** — blocked by: implement-seasonal-seasonality-analysis
+- **Implement rightsizing calculation for downscaling recommendations** — blocked by: implement-downscaling-trend-analysis
+- **Implement GetRecentIntegrationActivityTask query logic** — blocked by: overview-activity-task-structure
+- **Implement CalculateIntegrationsHealthTask aggregation logic** — blocked by: overview-health-task-structure
+- **Integrate GetEcommerceIntegrationsAction into controller** — blocked by: ecommerce-action-structure, ecommerce-shopify-task, ecommerce-woocommerce-task, ecommerce-sync-status-task, ecommerce-orders-task, ecommerce-product-stats-task
+- **Integrate GetPaymentIntegrationsAction into controller** — blocked by: payments-action-structure, payments-stripe-task, payments-transaction-stats-task, payments-recent-transactions-task, payments-methods-task
+- **Integrate GetAnalyticsIntegrationsAction into controller** — blocked by: analytics-action-structure, analytics-segment-task, analytics-gtm-task, analytics-tracking-stats-task, analytics-recent-events-task, analytics-dataflow-task
+- **Integrate GetSystemTestingIntegrationsAction into controller** — blocked by: system-action-structure, system-mock-http-task, system-test-results-task, system-mock-endpoints-task, system-dev-tools-task
+- **Add message_id to chat message response** — blocked by: mcp-workflow-create-records-provenance-trait
+- **Verify no regressions in existing MCP and TOON tests** — blocked by: prov-verify-phpstan
+- **Register helper in LocalizationServiceProvider** — blocked by: col-7914-1-2-create-locale-route-helper
+- **Write Python tests for inventory Services/Contracts/Drivers detection** — blocked by: inventory-add-detection-logic-core, inventory-add-summary-stats
+- **Write Python tests for inventory DTOs/Enums/Traits/Middleware/Exceptions detection** — blocked by: inventory-add-detection-logic-extended, inventory-add-summary-stats
+- **Write Python tests for porto_audit.py optional directory handling** — blocked by: audit-verify-optional-handling
+- **Create TenantContext DTO for observability** — blocked by: validation-create-environment-enum, validation-create-region-enum, validation-create-cloud-provider-enum
+- **WU-4: Remove COL-7844 TODO comments from test file** — blocked by: etl-metrics-remove-skip-helpers
+- **WU-7: PHPStan analysis on all modified files** — blocked by: etl-metrics-remove-todo-comments
+- **WU-8: Verify no COL-7844 TODOs remain** — blocked by: etl-metrics-remove-todo-comments
+- **Execute unit tests and verify 80%+ coverage** — blocked by: run-phpstan-linting
+- **Create LocaleRouteService unit tests** — blocked by: locale-route-service-create
+- **Create SyncSendGridListsActionTest.php unit test file** — blocked by: implement-sync-lists-action-error-handling
+- **Add unit test: lists sync success scenario** — blocked by: create-unit-test-file
+- **Add unit test: unconfigured integration throws exception** — blocked by: create-unit-test-file
+- **WU-2: Backfill existing rows from pipeline relationship** — blocked by: etl-metrics-billing-account-id-migration
+- **Update capability error response for write operations** — blocked by: toon-err-route-post-etl-pipelines, toon-err-middleware-signature-verification
+- **Add function token authorization to middleware** — blocked by: toon-err-middleware-write-capability
+- **Add tool_name, environment, JSON agent_id filtering to repository** — blocked by: prov-add-model-scopes
+- **Add new fields to ProvenanceTokenResource response** — blocked by: prov-update-model-fillable
+- **Unit tests for all extracted Actions** — blocked by: mc-refactor-controller
+- **Log cache metrics after import completion in action** — blocked by: pm-tpl-decorator-metrics, pm-tpl-action-pass-account-id
+- **Integration test: full auth flow with locale switching** — blocked by: col-7914-6-3-feature-tests-preservation
+- **Run all affected tests and PHPStan verification** — blocked by: col7896-test-currency-conv, col7896-test-task-tax-update, col7896-test-tax-svc
+- **Add DTOs/Enums/Traits/Middleware usage guidance to agents/10_architecture.md** — blocked by: arch-md-update-container-template
+- **Create DeadLetterRecord model with custom builder and unit tests** — blocked by: dlq-enum-status, dlq-migration
+- **Create DeadLetterDispatchJob with unit tests** — blocked by: dlq-payload-dto, dlq-model
+- **Create DeadLetterQueueService with unit tests** — blocked by: dlq-dispatch-job, dlq-config
+- **Create API routes file for Decision Kernel** — blocked by: dk-p0-controller-intent, dk-p0-controller-record, dk-p0-controller-policy, dk-p0-controller-channel, dk-p0-controller-analytics
+- **WU-6: Verify MCP ETL endpoints work end-to-end** — blocked by: etl-metrics-billing-account-id-migration
+- **PHPStan validation for all new files** — blocked by: overview-controller-integration, ecommerce-controller-integration, payments-controller-integration, analytics-controller-integration, system-controller-integration
+- **Delete Core/Analytics/Tasks/GenerateCustomerAnalyticsTask** — blocked by: slice-02-update-callers
+- **Run PHPStan level 5 and fix errors** — blocked by: analytics-test-edge-cases
+- **Implement countActiveDays() method** — blocked by: col7898-structure-usage-data
+- **Add calculateStandardDeviation() and calculateCoefficientOfVariation() helpers** — blocked by: col7898-structure-usage-data
+- **Update ETLController: add use statements, remove phpstan-ignore comments, validate PHPStan** — blocked by: etl-action-transform, etl-action-load, etl-action-validate, etl-action-schedule, etl-action-status
+- **Implement seasonality analysis logic in createSeasonalOptimizationRecommendation** — blocked by: create-seasonal-method-signature
+- **Build seasonal recommendation array structure** — blocked by: implement-seasonal-cost-calculation
+- **Implement declining trend analysis in createDownscalingRecommendation** — blocked by: create-downscaling-method-signature
+- **Build downscaling recommendation array structure** — blocked by: implement-downscaling-rightsizing-logic
+- **Implement growth trend projection in createGrowthPlanningRecommendation** — blocked by: create-growth-method-signature
+- **Implement capacity planning logic for growth recommendations** — blocked by: implement-growth-trend-projection
+- **Build growth planning recommendation array structure** — blocked by: implement-growth-capacity-planning
+- **Run PHPStan linting and resolve issues** — blocked by: create-seasonal-unit-tests, create-downscaling-unit-tests, create-growth-unit-tests
+- **Execute quality gates (PHP CS Fixer, Porto audit)** — blocked by: run-unit-tests-coverage
+- **Porto architecture audit for Admin container** — blocked by: lint-phpstan-validation
+- **Add GET /api/v1/mcp/documentation/search endpoint** — blocked by: mcp-workflow-create-records-provenance-trait
+- **Add compliance_framework to compliance status response** — blocked by: mcp-workflow-add-extract-regional-scope
+- **Docker Compose Integration for Embedding Service** — blocked by: COL-7879-1-2-python-microservice
+- **SearchPrecedentsAction** — blocked by: COL-7879-2-1-precedent-service
+- **Update RouteResolver to use locale_route()** — blocked by: col-7914-1-3-register-helper
+- **Update RedirectIfAuthenticated middleware** — blocked by: col-7914-3-1-update-route-resolver
+- **Update RegisteredUserController redirects** — blocked by: col-7914-3-1-update-route-resolver
+- **Update getWebhookStatus() in StripeConfigController** — blocked by: stripe-telemetry-webhook-task-logic
+- **Update getRecentMetrics() in StripeConfigController** — blocked by: stripe-telemetry-metrics-task-logic
+- **Update getRecentTransactions() in StripeConfigController** — blocked by: stripe-telemetry-transactions-task-logic
+- **Design shared error envelope model** — blocked by: scaffold-fe-sdk-009, scaffold-fe-sdk-010
+- **Define Next 3 Implementation Steps** — blocked by: scaffold-fe-sdk-028
+- **Integration tests for DLQ service lifecycle** — blocked by: dlq-service
+- **Create EnvironmentRule validation rule** — blocked by: validation-create-environment-enum
+- **Create RegionRule validation rule** — blocked by: validation-create-region-enum
+- **Update GetProvenanceTokensRequest to use standardized validation** — blocked by: validation-create-helper-trait
+- **Write developer documentation for frontend quality gates** — blocked by: fgate-ci-workflow-create, fgate-precommit-rewrite, fgate-prepush-create
+- **Create unit tests for createSeasonalOptimizationRecommendation** — blocked by: implement-seasonal-recommendation-structure
+- **Create unit tests for createDownscalingRecommendation** — blocked by: implement-downscaling-recommendation-structure
+- **Create unit tests for createGrowthPlanningRecommendation** — blocked by: implement-growth-recommendation-structure
+- **Feature test: Overview tab endpoint** — blocked by: overview-controller-integration
+- **Integrate CacheAnalyticsCollector into decorator** — blocked by: pm-tpl-decorator-cache-logic
+- **Create ADR-0119: Email Template Body Caching** — blocked by: pm-tpl-decorator-cache-logic
+- **Remove TODO comments COL-7874 and COL-7871 from source** — blocked by: pm-tpl-refactor-postmark-list, pm-tpl-refactor-sendgrid-list
+- **Integration tests for dual route pattern** — blocked by: col-7914-2-1-auth-service-provider
+- **Document convention in TenantPolicy PHPDoc** — blocked by: run-policy-tests
+- **Update planning documents with completion status** — blocked by: document-convention
+- **Fix TaxCalculationService call in PriceCatalogueService** — blocked by: col7896-tax-calculate-details
+- **Fix TaxCalculationService call in CalculatePriceTask** — blocked by: col7896-tax-calculate-details
+- **Final @phpstan-ignore audit and code review checklist** — blocked by: col7896-run-tests-phpstan
+- **Add summary statistics for all 8 directory types to porto_inventory.py** — blocked by: inventory-add-detection-logic-core, inventory-add-detection-logic-extended
+- **Add consequences and references to ADR-0118** — blocked by: write-adr-0118-context-and-decision
+- **Integrate DLQ in ProcessWebhookDataTask catch block** — blocked by: dlq-enqueue-task
+- **Create StatusBadge component** — blocked by: dk-p2-css-badges-cards, dk-p1-types-enums
+- **Create ApprovalCard component** — blocked by: dk-p2-badge-approval
+- **Create IntentFilters component** — blocked by: dk-p2-css-base
+- **Create ApprovalList with virtualized scrolling** — blocked by: dk-p3-approval-header, dk-p2-card-approval
+- **Create ApprovalActions component** — blocked by: dk-p3-approval-list
+- **Update tracker.json with completion metadata** — blocked by: run-quality-gates
+- **Implement calculateCustomerSegmentation() with RFM analysis** — blocked by: slice-02-analyze-implementations
+- **Implement calculateCustomerGrowth() with date range queries** — blocked by: slice-02-analyze-implementations
+- **Implement calculateCustomerEngagement() with interaction scoring** — blocked by: slice-02-analyze-implementations
+- **Update all Actions to use Core/Billing task** — blocked by: slice-02-implement-segmentation, slice-02-implement-growth, slice-02-implement-engagement, slice-02-implement-satisfaction, slice-02-implement-referrals, slice-02-implement-support, slice-02-implement-feedback, slice-02-implement-loyalty, slice-02-implement-preferences, slice-02-implement-behavior
+- **Create integration tests for Action → Task flow** — blocked by: slice-02-unit-tests
+- **Create GetAgeVerificationAuditLogsAction** — blocked by: slice-08-add-report-filtering
+- **Update AgeVerificationReportsController** — blocked by: slice-08-add-audit-pagination
+- **Create EcommerceHubController** — blocked by: slice-10-review-slice-01-patterns
+- **Wire all Actions to controller methods** — blocked by: slice-10-create-active-integrations-action, slice-10-create-health-action, slice-10-create-sync-activity-action, slice-10-create-errors-action, slice-10-create-usage-action
+- **Create DecisionIntentController with index, show, store** — blocked by: dk-p0-resource-intent
+- **Create DK API CRUD functions** — blocked by: dk-p1-client-endpoints, dk-p1-types-api
+- **Create React Query hooks for Decision data** — blocked by: dk-p1-client-functions, dk-p1-types-api
+- **Create badge and card CSS styles** — blocked by: dk-p2-css-base
+- **Create IntentCard component** — blocked by: dk-p2-badge-status, dk-p2-badge-urgency
+- **Implement calculateTotalUsage() method** — blocked by: analytics-get-usage-data-structure
+- **Implement calculatePeakUsage() method** — blocked by: analytics-get-usage-data-structure
+- **Test calculateTotalUsage(), calculatePeakUsage(), countActiveDays()** — blocked by: analytics-test-setup, analytics-calculate-total-usage, analytics-calculate-peak-usage, analytics-count-active-days
+- **Test calculateCostMetrics() with edge cases** — blocked by: analytics-test-setup, analytics-calculate-cost-metrics
+- **Add calculateOffPeakOptimizationFactor() helper** — blocked by: col7898-structure-usage-data
+- **Implement calculateEfficiencyScore() with 3 weighted factors** — blocked by: col7898-calculate-total-usage, col7898-calculate-peak-usage, col7898-statistical-helpers, col7898-efficiency-helpers
+- **Add calculatePatternRegularity() helper** — blocked by: col7898-structure-usage-data
+- **Implement calculateConsistencyScore() with 3 weighted factors** — blocked by: col7898-count-active-days, col7898-statistical-helpers, col7898-pattern-regularity
+- **Add performLinearRegression(), classifyVolatility(), detectSeasonality()** — blocked by: col7898-statistical-helpers
+- **Implement calculateTrends() with direction, growth rate, volatility, seasonality** — blocked by: col7898-trend-helpers
+- **Implement calculateResourceBreakdown() by_type and top_consumers** — blocked by: col7898-structure-usage-data
+- **Implement calculateTimePatterns() peak hours and day patterns** — blocked by: col7898-structure-usage-data
+- **Implement calculateTax() method logic** — blocked by: col-7901-resolve-tax-rule-task-logic, col-7901-service-resolve-region, col-7901-service-resolve-category
+- **Unit test: CachingProviderApiClientDecorator rate limiting** — blocked by: pm-tpl-decorator-rate-limiting
+- **Laravel Configuration for Embedding Service** — blocked by: COL-7879-1-2-python-microservice
+- **Batch Embedding Generation Job** — blocked by: COL-7879-1-4-migration-embedding, COL-7879-1-6-embedding-client
+- **Similarity Search with Filtering** — blocked by: COL-7879-2-1-precedent-service
+- **Incremental Embedding Generation** — blocked by: COL-7879-1-6-embedding-client, COL-7879-2-1-precedent-service
+- **Service Provider Updates** — blocked by: COL-7879-2-1-precedent-service, COL-7879-2-3-incremental-embedding
+- **Unit Tests for PrecedentSearchService** — blocked by: COL-7879-2-1-precedent-service, COL-7879-2-2-filtering
+- **PrecedentSearchController** — blocked by: COL-7879-3-1-search-action, COL-7879-3-2-form-request
+- **Integration Tests for API** — blocked by: COL-7879-3-3-controller, COL-7879-3-4-routes
+- **CI/CD Pipeline Updates** — blocked by: COL-7879-1-1-pgvector-docker, COL-7879-1-2-python-microservice, COL-7879-1-3-docker-integration
+- **Update MfaEnrollmentController redirects** — blocked by: col-7914-3-1-update-route-resolver
+- **Run PHPStan and fix any issues** — blocked by: stripe-telemetry-controller-webhook-update, stripe-telemetry-controller-metrics-update, stripe-telemetry-controller-transactions-update
+- **Run PHP CS Fixer and fix any issues** — blocked by: stripe-telemetry-lint-phpstan
+- **Assess FE SDK readiness (safe-to-expose analysis)** — blocked by: scaffold-fe-sdk-008
+- **Design canonical capability spec format (YAML structure)** — blocked by: scaffold-fe-sdk-008, scaffold-fe-sdk-009, scaffold-fe-sdk-010
+- **Create prototype capability spec for identity.session_whoami** — blocked by: scaffold-fe-sdk-012, scaffold-fe-sdk-013, scaffold-fe-sdk-014
+- **Create prototype capability spec for compliance.policy_get** — blocked by: scaffold-fe-sdk-012, scaffold-fe-sdk-013, scaffold-fe-sdk-014
+- **Write ADR-0115: Capability-Driven SDK Architecture** — blocked by: scaffold-fe-sdk-012, scaffold-fe-sdk-019
+- **Write Findings Summary document** — blocked by: scaffold-fe-sdk-009, scaffold-fe-sdk-010, scaffold-fe-sdk-011
+- **Update implementation-plan.md with comprehensive plan** — blocked by: scaffold-fe-sdk-028, scaffold-fe-sdk-029
+- **Generate implementation-checklist.md from tracker** — blocked by: scaffold-fe-sdk-048
+- **Update README.md with navigation and current status** — blocked by: scaffold-fe-sdk-048
+- **Verify admin functionality with CSP changes** — blocked by: csp-automated-header-tests
+- **Update admin dashboard Blade template** — blocked by: frontend-blade-partial
+- **Unit tests for InternalAuthMiddleware** — blocked by: scenario-actions-create-internal-auth-middleware
+- **Unit tests for UpdateScenarioTask** — blocked by: scenario-actions-create-update-scenario-task
+- **Unit tests for UpdateScenarioAction** — blocked by: scenario-actions-create-update-scenario-action
+- **Unit tests for DeleteScenarioTask** — blocked by: scenario-actions-create-delete-scenario-task
+- **Unit tests for DeleteScenarioAction** — blocked by: scenario-actions-create-delete-scenario-action
+- **Unit tests for CompareScenariosTask** — blocked by: scenario-actions-create-compare-scenarios-task
+- **Unit tests for CompareScenarioAction** — blocked by: scenario-actions-create-compare-scenario-action
+- **Feature test for PUT /scenarios/{id} endpoint** — blocked by: scenario-actions-create-update-scenario-action, scenario-actions-update-routes-middleware
+- **Feature test for DELETE /scenarios/{id} endpoint** — blocked by: scenario-actions-create-delete-scenario-action, scenario-actions-update-routes-middleware
+- **Feature test for POST /scenarios/compare endpoint** — blocked by: scenario-actions-create-compare-scenario-action, scenario-actions-update-routes-middleware
+- **Test basic calculations and cost metrics** — blocked by: col7898-test-setup, col7898-calculate-cost-metrics
+- **Test efficiency and consistency score bounds and behavior** — blocked by: col7898-test-setup, col7898-calculate-efficiency-score, col7898-calculate-consistency-score
+- **Test trends, resource breakdown, and time patterns** — blocked by: col7898-test-setup, col7898-calculate-trends, col7898-calculate-resource-breakdown, col7898-calculate-time-patterns
+- **Unit tests: GetAllIntegrationsStatusTask** — blocked by: overview-status-task-logic
+- **Unit tests: GetRecentIntegrationActivityTask** — blocked by: overview-activity-task-logic
+- **Unit tests: CalculateIntegrationsHealthTask** — blocked by: overview-health-task-logic
+- **Unit tests: E-commerce Tasks** — blocked by: ecommerce-shopify-task, ecommerce-woocommerce-task
+- **Feature test: E-commerce tab endpoint** — blocked by: ecommerce-controller-integration
+- **Unit tests: Payments Tasks** — blocked by: payments-stripe-task
+- **Feature test: Payments tab endpoint** — blocked by: payments-controller-integration
+- **Unit tests: Analytics Tasks** — blocked by: analytics-segment-task, analytics-gtm-task
+- **Feature test: Analytics tab endpoint** — blocked by: analytics-controller-integration
+- **Unit tests: System Testing Tasks** — blocked by: system-mock-http-task
+- **Feature test: System Testing tab endpoint** — blocked by: system-controller-integration
+- **Unit tests for GenerateLocaleAwareRouteTask** — blocked by: col-7914-1-1-create-locale-route-task
+- **Tests for updated controllers (Part 1)** — blocked by: col-7914-4-1-auth-session-controller, col-7914-4-2-registered-user-controller, col-7914-4-3-mfa-verification-controller
+- **Remove scope-related @phpstan-ignore comments from PriceCatalogueService** — blocked by: col7896-price-model-phpdoc, col7896-currency-model-phpdoc, col7896-product-model-phpdoc, col7896-region-model-phpdoc
+- **Fix CurrencyConversionService call in buildPriceResponse** — blocked by: col7896-remove-scope-ignores
+- **Update PriceCatalogueServiceTest to remove PriceVersioningService mock** — blocked by: col7896-remove-versioning-svc
+- **Unit test: GetStripeWebhookStatusTask** — blocked by: stripe-telemetry-webhook-task-logic
+- **Unit test: GetStripeMetricsTask** — blocked by: stripe-telemetry-metrics-task-logic
+- **Unit test: GetStripeRecentTransactionsTask** — blocked by: stripe-telemetry-transactions-task-logic
+- **Create YAML/JSON sync validation script** — blocked by: porto-json-sync-all-changes
+- **Create EnqueueDeadLetterTask with unit tests** — blocked by: dlq-service
+- **Create unmerge API endpoint** — blocked by: cdp-p4-unmerge-request
+- **Create API response and pagination types** — blocked by: dk-p1-types-entities
+- **Create DK API endpoint definitions** — blocked by: dk-p1-client-base
+- **Create ApprovalStatusBadge component** — blocked by: dk-p2-css-badges-cards, dk-p1-types-enums
+- **Create PolicyCreateModal with form validation** — blocked by: dk-p4-policy-list, dk-p2-form-policy
+- **Create DashboardHeader with period selector** — blocked by: dk-p5-dashboard-shell
+- **Create HreflangTags Blade component** — blocked by: hreflang-middleware-create
+- **Update ADR-0116 with re-enablement documentation** — blocked by: dashboard-provider-dual-registration
+- **Create locale routing developer guide** — blocked by: dashboard-locale-routing-tests
+- **Create comprehensive test suite** — blocked by: slice-01-task-01, slice-01-task-02, slice-01-task-03, slice-01-task-04, slice-01-task-05, slice-01-task-06
+- **Create comprehensive unit tests for all calculation methods** — blocked by: slice-02-update-callers
+- **Create GenerateAgeVerificationReportTask** — blocked by: slice-08-create-report-action
+- **Implement report generation logic** — blocked by: slice-08-create-report-task
+- **Create GetAgeVerificationAuditLogsTask** — blocked by: slice-08-create-audit-action
+- **Implement audit log retrieval logic** — blocked by: slice-08-create-audit-task
+- **Create tests for report generation** — blocked by: slice-08-update-controller
+- **Create tests for audit log retrieval** — blocked by: slice-08-update-controller
+- **Implement calculateTotalRequests()** — blocked by: slice-09-analyze-placeholders
+- **Implement calculateAverageResponseTime()** — blocked by: slice-09-analyze-placeholders
+- **Implement calculateErrorRate()** — blocked by: slice-09-analyze-placeholders
+- **Implement calculateSuccessRate()** — blocked by: slice-09-analyze-placeholders
+- **Implement calculateThroughput()** — blocked by: slice-09-analyze-placeholders
+- **Create integration tests for analytics report generation** — blocked by: slice-09-unit-tests
+- **Create GetActiveEcommerceIntegrationsAction and Task** — blocked by: slice-10-create-controller
+- **Create GetEcommerceIntegrationHealthAction and Task** — blocked by: slice-10-create-controller
+- **Create GetEcommerceRecentSyncActivityAction and Task** — blocked by: slice-10-create-controller
+- **Create GetEcommerceIntegrationErrorsAction and Task** — blocked by: slice-10-create-controller
+- **Create GetEcommerceIntegrationUsageAction and Task** — blocked by: slice-10-create-controller
+- **Create EcommerceHub.tsx component** — blocked by: slice-10-wire-controller
+- **Integrate frontend with backend APIs** — blocked by: slice-10-create-frontend-component
+- **Create unit tests for Actions and Tasks** — blocked by: slice-10-wire-controller
+- **Create integration tests for e-commerce hub** — blocked by: slice-10-integrate-apis, slice-10-unit-tests
+- **Create DecisionPolicyController with full CRUD** — blocked by: dk-p0-resource-policy
+- **Create KPICards component** — blocked by: dk-p5-dashboard-header
+- **Implement countActiveDays() method** — blocked by: analytics-get-usage-data-structure
+- **Implement calculateEfficiencyScore() with 3 weighted factors** — blocked by: analytics-calculate-peak-usage, analytics-calculate-efficiency-helpers
+- **Add calculateOffPeakOptimizationFactor() and calculateConsistencyFactor()** — blocked by: analytics-get-usage-data-structure
+- **Implement calculateConsistencyScore() with 3 weighted factors** — blocked by: analytics-count-active-days, analytics-calculate-consistency-helpers
+- **Add calculatePatternRegularity() helper** — blocked by: analytics-get-usage-data-structure
+- **Implement calculateTrends() direction and growth rate** — blocked by: analytics-calculate-trends-helpers
+- **Implement calculateResourceBreakdown() by_type and top_consumers** — blocked by: analytics-get-usage-data-structure
+- **Implement calculateTimePatterns() peak hours and day patterns** — blocked by: analytics-get-usage-data-structure
+- **Test calculateEfficiencyScore() and calculateConsistencyScore() bounds** — blocked by: analytics-test-setup, analytics-calculate-efficiency-score, analytics-calculate-consistency-score
+- **Test calculateTrends(), calculateResourceBreakdown(), calculateTimePatterns()** — blocked by: analytics-test-setup, analytics-calculate-trends, analytics-calculate-resource-breakdown, analytics-calculate-time-patterns
+- **Final planning artifact updates** — blocked by: scenario-actions-phpstan-validation
+- **Create TransformCostDataAction with unit tests** — blocked by: etl-task-transform
+- **Create LoadProcessedDataAction with unit tests** — blocked by: etl-task-load
+- **Create ValidateDataQualityAction with unit tests** — blocked by: etl-task-validate
+- **Create AbstractTargetAdapter base class with shared DB logic** — blocked by: load-target-adapter-interface, load-target-tables-migration
+- **Create ReportingTargetAdapter and WarehouseTargetAdapter** — blocked by: abstract-target-adapter
+- **Create ArchiveTargetAdapter and AnalyticsTargetAdapter** — blocked by: abstract-target-adapter
+- **Create LoadTargetAdapterFactory and wire ServiceProvider bindings** — blocked by: reporting-warehouse-adapters, archive-analytics-adapters
+- **Refactor LoadProcessedDataTask: replace simulated logic with real adapter calls** — blocked by: load-target-adapter-factory, resolve-source-data-task, validate-load-input-task
+- **Create ResolveTaxRuleTask class structure** — blocked by: col-7901-add-tax-config
+- **Implement fallback logic in ResolveTaxRuleTask** — blocked by: col-7901-resolve-tax-rule-task-structure
+- **Implement region resolution helper in TaxCalculationService** — blocked by: col-7901-add-tax-config
+- **SearchPrecedentsRequest Form Request** — blocked by: COL-7879-3-1-search-action
+- **API Routes for Precedent Search** — blocked by: COL-7879-3-3-controller
+- **Update NewPasswordController redirects** — blocked by: col-7914-3-1-update-route-resolver
+- **Update VerifyEmailController redirects** — blocked by: col-7914-3-1-update-route-resolver
+- **Update EmailVerificationPromptController redirects** — blocked by: col-7914-3-1-update-route-resolver
+- **Update remaining authentication controllers** — blocked by: col-7914-3-1-update-route-resolver
+- **Update ADR-0116 status** — blocked by: col-7914-6-4-phpstan-validation
+- **Add developer guide for locale-aware routing** — blocked by: col-7914-6-5-integration-test-full-flow
+- **Update CalculatePriceTaskTest mock for calculateTaxDetails** — blocked by: col7896-fix-task-tax-call
+- **Manual verification of admin dashboard** — blocked by: stripe-telemetry-lint-style, stripe-telemetry-test-webhook-status, stripe-telemetry-test-metrics, stripe-telemetry-test-transactions
+- **Assess HTTP contract maturity** — blocked by: scaffold-fe-sdk-008
+- **Design capability naming conventions** — blocked by: scaffold-fe-sdk-012
+- **Define MCP tool generation targets** — blocked by: scaffold-fe-sdk-012, scaffold-fe-sdk-013
+- **Define HTTP/OpenAPI generation targets** — blocked by: scaffold-fe-sdk-012, scaffold-fe-sdk-013
+- **Define TypeScript FE SDK generation targets** — blocked by: scaffold-fe-sdk-012, scaffold-fe-sdk-013
+- **Design parity enforcement strategy** — blocked by: scaffold-fe-sdk-018
+- **Create capability inventory table** — blocked by: scaffold-fe-sdk-008, scaffold-fe-sdk-011
+- **Create backend capability surface audit table** — blocked by: scaffold-fe-sdk-003, scaffold-fe-sdk-004, scaffold-fe-sdk-005, scaffold-fe-sdk-006, scaffold-fe-sdk-007
+- **Write Scaffolding Proposal document** — blocked by: scaffold-fe-sdk-015, scaffold-fe-sdk-016, scaffold-fe-sdk-017, scaffold-fe-sdk-018, scaffold-fe-sdk-019
+- **Create error code taxonomy** — blocked by: scaffold-fe-sdk-013
+- **Design CapabilityContext bridge object** — blocked by: scaffold-fe-sdk-040
+- **Verify SecurityHeaders middleware admin route detection** — blocked by: csp-remove-unsafe-from-default-config
+- **Integration tests for webhook failure to DLQ** — blocked by: dlq-webhook-integration
+- **Create CloudProviderRule validation rule** — blocked by: validation-create-cloud-provider-enum
+- **Create HasStandardValidation trait for Form Requests** — blocked by: validation-create-environment-rule, validation-create-region-rule, validation-create-cloud-provider-rule, validation-create-tenant-id-rule, validation-create-tenant-context-dto
+- **Update VerifiesEnvironmentScope trait to use Environment enum** — blocked by: validation-create-environment-enum
+- **Update VerifiesScopeFormat trait to use canonical enums** — blocked by: validation-create-environment-enum, validation-create-region-enum
+- **Add Laravel feature test for dashboard** — blocked by: blade-integration-dashboard-update
+- **Guard panel behind feature flag** — blocked by: testing-laravel-feature-test
+- **Align Redux ecosystem dependencies** — blocked by: rtk-upgrade-inventory
+- **Build validation loop** — blocked by: rtk-upgrade-extrareducers, rtk-upgrade-action-types, rtk-upgrade-selectors, rtk-upgrade-thunks, rtk-upgrade-immer, rtk-upgrade-component-refs, rtk-upgrade-component-props, rtk-upgrade-css-properties, rtk-upgrade-services, rtk-upgrade-storybook-stories, rtk-upgrade-token-validator
+- **Test suite validation** — blocked by: rtk-upgrade-build-validation
+- **Lock dependencies and document** — blocked by: rtk-upgrade-quality-gates
+- **Authorization and permission tests** — blocked by: dk-p0-routes
+- **Accessibility tests for Phase 2 components** — blocked by: dk-p2-form-filters, dk-p2-form-policy
+- **Accessibility tests for Phase 3 pages** — blocked by: dk-p3-test-approval, dk-p3-test-detail
+- **Accessibility tests for Phase 4 pages** — blocked by: dk-p4-test-policy, dk-p4-test-prefs
+- **Accessibility tests for Phase 5 pages** — blocked by: dk-p5-test-dashboard, dk-p5-test-analytics, dk-p5-test-history
+- **Add unit test: KPI metrics are tracked** — blocked by: create-unit-test-file
+- **Test payment forms in all 5 locales** — blocked by: i18n-bpc-card-form-labels, i18n-bpc-billing-address-fields, i18n-bpc-payment-method-select, i18n-bpc-security-notices
+- **Unit tests: exclusive tax calculation** — blocked by: col-7901-service-calculate-tax
+- **Unit tests: inclusive tax calculation** — blocked by: col-7901-service-calculate-tax
+- **Update planning documents to completion status** — blocked by: prov-verify-no-regressions
+- **Tests for middleware locale handling** — blocked by: col-7914-3-2-update-redirect-middleware
+- **Tests for updated controllers (Part 2)** — blocked by: col-7914-5-1-mfa-enrollment-controller, col-7914-5-2-new-password-controller, col-7914-5-3-verify-email-controller, col-7914-5-4-email-verification-prompt-controller, col-7914-5-5-remaining-controllers
+- **Delete PriceVersioningService.php stub file** — blocked by: col7896-remove-versioning-svc
+- **Create dlq:cleanup artisan command with unit tests** — blocked by: dlq-model, dlq-config
+- **Create admin Actions and register DLQ routes** — blocked by: dlq-admin-controller
+- **Replace RecordUsageEventsJob DLQ dispatch with shared service** — blocked by: dlq-service
+- **Create DecisionRecordController with index by intent, show** — blocked by: dk-p0-resource-record
+- **Create ModeBadge component** — blocked by: dk-p2-css-badges-cards, dk-p1-types-enums
+- **Create ApprovalQueueHeader component** — blocked by: dk-p3-approval-shell
+- **Implement polling-based real-time updates** — blocked by: dk-p3-approval-list, dk-p1-hooks
+- **Create IntentHeader with status, actions, breadcrumb** — blocked by: dk-p3-detail-shell, dk-p2-badge-status
+- **Create IntentSummary component** — blocked by: dk-p3-detail-header
+- **Create PolicyList component with filtering** — blocked by: dk-p4-policy-shell, dk-p2-card-policy
+- **Create DecisionVolumeChart with Recharts BarChart** — blocked by: dk-p5-dashboard-kpis
+- **Remove TODO comment from triggerSync()** — blocked by: implement-entity-type-routing
+- **Implement calculateCustomerSatisfaction() with feedback aggregation** — blocked by: slice-02-analyze-implementations
+- **Implement calculateCustomerReferrals() with referral counting** — blocked by: slice-02-analyze-implementations
+- **Implement calculateCustomerSupport() with ticket metrics** — blocked by: slice-02-analyze-implementations
+- **Implement calculateCustomerFeedback() with score aggregation** — blocked by: slice-02-analyze-implementations
+- **Implement calculateCustomerLoyalty() with loyalty points** — blocked by: slice-02-analyze-implementations
+- **Implement calculateCustomerPreferences() with purchase patterns** — blocked by: slice-02-analyze-implementations
+- **Implement calculateCustomerBehavior() with activity tracking** — blocked by: slice-02-analyze-implementations
+- **Add report filtering and sorting** — blocked by: slice-08-implement-report-logic
+- **Add pagination and filtering for audit logs** — blocked by: slice-08-implement-audit-logic
+- **Implement calculateLatencyP50()** — blocked by: slice-09-impl-throughput
+- **Implement calculateLatencyP95()** — blocked by: slice-09-impl-latency-p50
+- **Implement calculateLatencyP99()** — blocked by: slice-09-impl-latency-p95
+- **Implement calculateCacheHitRate()** — blocked by: slice-09-impl-latency-p99
+- **Implement calculateCacheMissRate()** — blocked by: slice-09-impl-cache-hit-rate
+- **Create comprehensive unit tests for all metrics** — blocked by: slice-09-impl-business-metrics
+- **Migrate MFA Configuration** — blocked by: foundation-rbac-policy, foundation-seeder-extension
+- **Migrate Adaptive Rate Limiting** — blocked by: foundation-rbac-policy, foundation-seeder-extension
+- **Add performLinearRegression(), classifyVolatility(), detectSeasonality()** — blocked by: analytics-get-usage-data-structure
+- **Add debug-level logging for operational visibility** — blocked by: col7898-get-usage-data-query
+- **Create ScheduleETLJobAction with unit tests** — blocked by: etl-task-manage-job
+- **Create GetETLJobStatusAction with unit tests** — blocked by: etl-task-manage-job
+- **Create ValidateLoadInputTask for pre-load data validation** — blocked by: load-target-adapter-interface
+- **PHPStan level 5 compliance pass and remove COL-7902 TODOs** — blocked by: refactor-load-task-core
+- **Run PHPStan level 5 validation** — blocked by: col-7901-service-calculate-tax, col-7901-cleanup-phpmd
+- **Update planning documentation with completion status** — blocked by: manual-ui-verification
+- **Validation - Verify all configs and run Porto audit** — blocked by: config-migrate-telemetry
+- **Artisan Command for Batch Embedding** — blocked by: COL-7879-1-7-batch-job
+- **Unit Tests for Embedding Client** — blocked by: COL-7879-1-6-embedding-client
+- **Decision Workflow Integration** — blocked by: COL-7879-3-1-search-action
+- **Performance Testing Setup** — blocked by: COL-7879-2-1-precedent-service
+- **Create PHPMD ruleset configuration** — blocked by: qa-tooling-1-1-install-phpmd
+- **Generate PHPMD baseline** — blocked by: qa-tooling-1-2-phpmd-ruleset
+- **Add currency conversion integration tests to PriceCatalogueServiceTest** — blocked by: col7896-fix-currency-call, col7896-fix-pcs-tax-call, col7896-update-pcs-test-setup
+- **Add calculateTaxDetails tests to TaxCalculationServiceTest** — blocked by: col7896-tax-calculate-details, col7896-tax-build-hierarchy
+- **Identify implicit capability boundaries** — blocked by: scaffold-fe-sdk-003, scaffold-fe-sdk-004, scaffold-fe-sdk-005, scaffold-fe-sdk-006, scaffold-fe-sdk-007
+- **Define conformance test generation targets** — blocked by: scaffold-fe-sdk-012, scaffold-fe-sdk-013
+- **Design capability versioning strategy** — blocked by: scaffold-fe-sdk-012
+- **Create JSON Schema for capability spec format** — blocked by: scaffold-fe-sdk-012
+- **Write Capability Specification Guide** — blocked by: scaffold-fe-sdk-012, scaffold-fe-sdk-014, scaffold-fe-sdk-020
+- **Write Generator Architecture document** — blocked by: scaffold-fe-sdk-015, scaffold-fe-sdk-016, scaffold-fe-sdk-017, scaffold-fe-sdk-018
+- **Identify migration candidates (Phase 1 capabilities)** — blocked by: scaffold-fe-sdk-025, scaffold-fe-sdk-011
+- **Assess IdempotencyService integration requirements** — blocked by: scaffold-fe-sdk-008
+- **Design ExecuteCapabilityAction orchestration pattern** — blocked by: scaffold-fe-sdk-012, scaffold-fe-sdk-039
+- **Create sample MCP tool output from capability spec** — blocked by: scaffold-fe-sdk-015
+- **Create sample OpenAPI output from capability spec** — blocked by: scaffold-fe-sdk-016
+- **Create sample TypeScript SDK output from capability spec** — blocked by: scaffold-fe-sdk-017
+- **Create sample conformance test from capability spec** — blocked by: scaffold-fe-sdk-018
+- **Identify technical risks and mitigation strategies** — blocked by: scaffold-fe-sdk-028
+- **Create automated CSP header verification tests** — blocked by: csp-verify-middleware-admin-detection
+- **Implement security configuration validators** — blocked by: audit-command-structure
+- **Feature tests for admin DLQ endpoints** — blocked by: dlq-admin-actions
+- **Update EvaluateCapabilityRequest to use standardized validation** — blocked by: validation-create-helper-trait
+- **Update CreateDomainRequest to use standardized region validation** — blocked by: validation-create-helper-trait
+- **Update CreateSDKInstanceRequest to use standardized environment validation** — blocked by: validation-create-helper-trait
+- **Update InitiateRemoteWipeRequest to use UUID tenant_id validation** — blocked by: validation-create-helper-trait
+- **Add dedicated Vite entry point for admin dashboard** — blocked by: frontend-build-strategy-decision
+- **Update coverage thresholds to 30% (Month 1 milestone)** — blocked by: a11y-core-components-batch-1
+- **Fix hit-area rule false positives with CSS custom properties** — blocked by: a11y-core-components-batch-1
+- **Convert extraReducers to builder callbacks** — blocked by: rtk-upgrade-dependencies
+- **Fix custom action types** — blocked by: rtk-upgrade-dependencies
+- **Fix thunk and hook typing** — blocked by: rtk-upgrade-dependencies
+- **Fix service layer typing** — blocked by: rtk-upgrade-dependencies
+- **Run quality gates** — blocked by: rtk-upgrade-test-validation
+- **Code review and approval** — blocked by: rtk-upgrade-documentation
+- **Feature tests for end-to-end API flows** — blocked by: dk-p0-routes
+- **Integration tests for Approval Queue page** — blocked by: dk-p3-approval-polling
+- **Unit tests for ResolveSourceDataTask and ValidateLoadInputTask** — blocked by: resolve-source-data-task, validate-load-input-task
+- **Unit tests for refactored LoadProcessedDataTask (all 4 strategies + dry-run)** — blocked by: refactor-load-task-core
+- **Integration tests for end-to-end data load flow** — blocked by: refactor-load-task-core
+- **Unit tests: region resolution** — blocked by: col-7901-service-resolve-region
+- **Unit tests: category resolution** — blocked by: col-7901-service-resolve-category
+- **Unit tests: tax rule fallback chain** — blocked by: col-7901-resolve-tax-rule-task-logic
+- **Unit tests: rounding behavior** — blocked by: col-7901-service-calculate-tax
+- **Unit tests: edge cases** — blocked by: col-7901-service-calculate-tax
+- **Create DeadLetterController with Form Requests and API Resource** — blocked by: dlq-service
+- **Create ADR and developer documentation** — blocked by: dlq-integration-tests
+- **Integrate conflict detection into FindOrCreateContactAction** — blocked by: cdp-p4-conflict-resolution
+- **Create PolicyCard component** — blocked by: dk-p2-css-badges-cards
+- **Create PolicyEditor component** — blocked by: dk-p2-css-base
+- **Create ApprovalDetailModal for quick review** — blocked by: dk-p3-approval-actions
+- **Create ApprovalTimeline component** — blocked by: dk-p3-detail-summary
+- **Create PolicyEditModal with version comparison** — blocked by: dk-p4-policy-create
+- **Add PHPMD Composer scripts** — blocked by: qa-tooling-1-4-phpmd-makefile
+- **Update API documentation** — blocked by: slice-01-task-07
+- **Implement resource usage metrics (memory, CPU, disk, network)** — blocked by: slice-09-impl-cache-miss-rate
+- **Implement business metrics (users, sessions, engagement, retention, churn)** — blocked by: slice-09-impl-resource-metrics
+- **Migrate CSP Configuration** — blocked by: foundation-rbac-policy, foundation-seeder-extension
+- **Migrate Session Security Configuration** — blocked by: foundation-rbac-policy, foundation-seeder-extension
+- **Migrate COPPA Rate Limiting** — blocked by: foundation-rbac-policy, foundation-seeder-extension
+- **Migrate COPPA Compliance Configuration** — blocked by: foundation-rbac-policy, foundation-seeder-extension
+- **Migrate Compliance Bypass Controls** — blocked by: foundation-rbac-policy, foundation-seeder-extension
+- **Create decisionSlice Redux state** — blocked by: dk-p1-types-entities
+- **Create async thunks for Decision API calls** — blocked by: dk-p1-redux-slice, dk-p1-client-functions
+- **Phase 2: Backend audit logging** — blocked by: mfa-audit-logs-phase-1-database-and-model
+- **Add PHPMD Makefile targets** — blocked by: qa-tooling-1-3-phpmd-baseline
+- **Assess refactoring requirements for unsafe capabilities** — blocked by: scaffold-fe-sdk-011
+- **Write Conformance Testing Guide** — blocked by: scaffold-fe-sdk-018, scaffold-fe-sdk-019
+- **Write FE SDK Usage Guide** — blocked by: scaffold-fe-sdk-017
+- **Add Shopify and WordPress webhook failure DLQ integration tests** — blocked by: dlq-webhook-integration
+- **Update VerifyRegionFieldsCommand to use Region enum** — blocked by: validation-create-region-enum
+- **Create unit tests for Environment enum** — blocked by: validation-create-environment-enum
+- **Create unit tests for Region enum with cloud mappings** — blocked by: validation-create-region-enum
+- **Create unit tests for CloudProvider enum** — blocked by: validation-create-cloud-provider-enum
+- **Create unit tests for TenantContext DTO** — blocked by: validation-create-tenant-context-dto
+- **Create unit tests for all validation rules** — blocked by: validation-create-environment-rule, validation-create-region-rule, validation-create-cloud-provider-rule, validation-create-tenant-id-rule
+- **Implement Blade partial for resilience analytics panel** — blocked by: frontend-build-strategy-decision
+- **Add accessibility tests for 30 core components (Button, Input, Select, etc.)** — blocked by: a11y-storybook-hooks-migration, a11y-install-addon-links, a11y-fix-jest-haste-collisions
+- **Create reusable accessibility test templates** — blocked by: a11y-core-components-batch-1
+- **Fix selector memoization and typing** — blocked by: rtk-upgrade-dependencies
+- **Fix Immer and event map typings** — blocked by: rtk-upgrade-dependencies
+- **Fix component ref typing issues** — blocked by: rtk-upgrade-dependencies
+- **Fix component prop type mismatches** — blocked by: rtk-upgrade-dependencies
+- **Fix custom CSS property typing** — blocked by: rtk-upgrade-dependencies
+- **Fix Storybook server startup** — blocked by: rtk-upgrade-storybook-stories
+- **Update documentation** — blocked by: rtk-upgrade-dependency-lockdown
+- **Unit tests for DecisionIntent API endpoints** — blocked by: dk-p0-controller-intent
+- **Unit tests for DecisionPolicy CRUD** — blocked by: dk-p0-controller-policy
+- **Unit tests for badge components** — blocked by: dk-p2-badge-status, dk-p2-badge-mode, dk-p2-badge-approval, dk-p2-badge-urgency
+- **Integration tests for Intent Detail page** — blocked by: dk-p3-detail-payload
+- **Unit tests for target adapters and adapter factory** — blocked by: load-target-adapter-factory
+- **Add OpenAPI documentation annotations** — blocked by: dk-p0-routes
+- **Create Redux selectors for computed state** — blocked by: dk-p1-redux-slice
+- **Create UrgencyIndicator component** — blocked by: dk-p2-css-badges-cards
+- **Create Storybook stories for Phase 2 components** — blocked by: dk-p2-test-a11y
+- **Create ExecutionTimeline component** — blocked by: dk-p3-detail-approval-timeline, dk-p2-card-step
+- **Create RulesJsonEditor with syntax highlighting** — blocked by: dk-p4-policy-edit
+- **Create PolicyActivationToggle with confirmation** — blocked by: dk-p4-policy-json-editor
+- **Create ChannelProfileList component** — blocked by: dk-p4-prefs-shell, dk-p2-card-channel
+- **Create ChannelPreferencesEditor component** — blocked by: dk-p4-prefs-list, dk-p2-form-channel
+- **Create QuickActionsPanel component** — blocked by: dk-p5-dashboard-recent
+- **Create DecisionTrendsChart with Recharts LineChart** — blocked by: dk-p5-analytics-shell
+- **Create ExportControls component** — blocked by: dk-p5-chart-policy
+- **Create DecisionHistoryTable with sorting, pagination** — blocked by: dk-p5-history-shell
+- **Create AuditTrailExport component** — blocked by: dk-p5-history-filters
+- **Migrate Core/MCP: Configs → Config** — blocked by: config-migrate-core-forecasting
+- **Migrate Admin: Configs → Config** — blocked by: config-migrate-core-userprofile
+- **Update Makefile to use Pint** — blocked by: qa-tooling-2-4-pint-fixes
+- **Design real email monitoring data integration** — blocked by: slice-03-review-current-implementation
+- **Implement real email delivery metrics** — blocked by: slice-03-design-monitoring-integration
+- **Implement real bounce rate metrics** — blocked by: slice-03-design-monitoring-integration
+- **Implement real-time email health checks** — blocked by: slice-03-implement-delivery-metrics, slice-03-implement-bounce-metrics
+- **Update tests for real data integration** — blocked by: slice-03-add-alerting
+- **Design real usage data integration** — blocked by: slice-07-review-current-implementation
+- **Implement real resource usage tracking** — blocked by: slice-07-design-usage-integration
+- **Improve baseline calculation accuracy** — blocked by: slice-07-implement-resource-tracking
+- **Add historical trend analysis** — blocked by: slice-07-improve-baseline-calculations
+- **Update tests for real data integration** — blocked by: slice-07-update-dashboard
+- **Update documentation for age verification reports** — blocked by: slice-08-report-tests, slice-08-audit-tests
+- **Update documentation for e-commerce hub** — blocked by: slice-10-integration-tests
+- **Create DecisionAnalyticsController for overview, trends** — blocked by: dk-p0-resource-intent, dk-p0-resource-record
+- **Update getTaxRate() method** — blocked by: col-7901-resolve-tax-rule-task-logic
+- **Run PHP CS Fixer** — blocked by: col-7901-service-calculate-tax
+- **Refactor & JSDoc 301-400 line files (39 files)** — blocked by: lint-frontend-phase-4a-refactor-226-300
+- **Refactor & JSDoc 401-500 line files (36 files)** — blocked by: lint-frontend-phase-4a-refactor-301-400
+- **Refactor & JSDoc 500+ line files (43 files)** — blocked by: lint-frontend-phase-4a-refactor-401-500
+- **Phase 3: API enhancement** — blocked by: mfa-audit-logs-phase-2-backend-audit-logging
+- **Migrate Core/Authentication/Sso: Configs → Config** — blocked by: config-standardization-preparation
+- **Migrate Core/DesignSystem: Configs → Config** — blocked by: config-migrate-core-auth-sso
+- **Migrate Core/Forecasting: Configs → Config** — blocked by: config-migrate-core-designsystem
+- **Migrate Core/UserProfile: Configs → Config** — blocked by: config-migrate-core-mcp
+- **Migrate Documentation: Configs → Config** — blocked by: config-migrate-admin
+- **Migrate LoginHistory: Configs → Config** — blocked by: config-migrate-documentation
+- **Migrate Monitoring: Configs → Config** — blocked by: config-migrate-loginhistory
+- **Migrate SystemSettings: Configs → Config** — blocked by: config-migrate-monitoring
+- **Migrate Telemetry: Configs → Config** — blocked by: config-migrate-systemsettings
+- **Cursor-Based Pagination** — blocked by: COL-7879-3-3-controller
+- **HNSW Index Optimization** — blocked by: COL-7879-1-4-migration-embedding
+- **Query Plan Analysis** — blocked by: COL-7879-4-2-index-optimization
+- **API Documentation** — blocked by: COL-7879-3-3-controller
+- **Create Pint configuration** — blocked by: qa-tooling-1-5-phpmd-composer
+- **Baseline PHPStan at Level 5** — blocked by: qa-tooling-2-5-pint-makefile
+- **Enable staging branch protection** — blocked by: qa-tooling-5-4-ci-migration-plan
+- **Update TODO comments in service providers** — blocked by: col-7914-2-2-dashboard-service-provider
+- **Verify password policy enforcement** — blocked by: env-password-policy-defaults
+- **Update ListDomainsRequest to use standardized region validation** — blocked by: validation-create-helper-trait
+- **Update build pipeline for new entry point** — blocked by: frontend-vite-entry-point
+- **Run token validation scripts** — blocked by: css-token-scss-audit
+- **Monitor admin dashboard metrics post-deploy** — blocked by: rollout-feature-flag
+- **Prepare release notes** — blocked by: rollout-feature-flag
+- **Update coverage thresholds to 50% (Month 2 milestone)** — blocked by: a11y-dashboard-components-batch-1
+- **Add accessibility tests for 25 dashboard KPI & chart components** — blocked by: a11y-core-components-batch-1
+- **Implement enhanced color contrast custom axe rule** — blocked by: a11y-core-components-batch-1
+- **Implement focus indicator visibility custom axe rule** — blocked by: a11y-color-contrast-rule
+- **Create CLI tool for accessibility test scaffolding** — blocked by: a11y-test-templates
+- **Add Storybook story typing** — blocked by: rtk-upgrade-dependencies
+- **Fix token validator and Ajv typing** — blocked by: rtk-upgrade-dependencies
+- **API client unit tests with MSW mocking** — blocked by: dk-p1-client-functions
+- **Redux slice unit tests** — blocked by: dk-p1-redux-thunks
+- **React Query hooks tests** — blocked by: dk-p1-hooks
+- **Unit tests for card components** — blocked by: dk-p2-card-intent, dk-p2-card-approval, dk-p2-card-policy
+- **Integration tests for Policy Management page** — blocked by: dk-p4-policy-activation
+- **Integration tests for Dashboard page** — blocked by: dk-p5-dashboard-quick
+- **Add conflict detection/resolution tests** — blocked by: cdp-p4-conflict-integration
+- **Resource transformation tests** — blocked by: dk-p0-resource-intent, dk-p0-resource-record, dk-p0-resource-policy
+- **Deprecate DeadLetterRecordUsageEventsJob and update docs** — blocked by: dlq-replace-usage-events
+- **Create ExecutionStepCard component** — blocked by: dk-p2-css-badges-cards
+- **Create ChannelPreferencesForm component** — blocked by: dk-p2-css-base
+- **Create QuietHoursEditor component** — blocked by: dk-p2-css-base
+- **Create PayloadViewer component** — blocked by: dk-p3-detail-exec-timeline
+- **Create PolicyVersionHistory component** — blocked by: dk-p4-policy-list
+- **Create QuietHoursScheduler with visual time picker** — blocked by: dk-p4-prefs-editor, dk-p2-form-quiethours
+- **Create ContentClassificationManager component** — blocked by: dk-p4-prefs-quiethours
+- **Create StatusDistributionChart with Recharts PieChart** — blocked by: dk-p5-chart-volume
+- **Create RecentDecisionsList component** — blocked by: dk-p5-chart-status
+- **Create ModeDistributionChart showing human vs agent** — blocked by: dk-p5-chart-trends
+- **Create ApproverPerformanceTable component** — blocked by: dk-p5-chart-mode
+- **Create PolicyUsageChart showing policy effectiveness** — blocked by: dk-p5-analytics-approvers
+- **Create HistoryFilters with advanced filtering** — blocked by: dk-p5-history-table
+- **Implement repository getSummary** — blocked by: gca-repo-query
+- **Test: Transform accomplished.json to markdown** — blocked by: reform-bip-create-tests
+- **Test: Group units by feature_set** — blocked by: reform-bip-create-tests
+- **Test: Generate correct post filename from date** — blocked by: reform-bip-create-tests
+- **Update docs/build_in_public/README.md** — blocked by: reform-bip-update-user-guide
+- **Update API documentation and add PHPDoc** — blocked by: slice-02-integration-tests
+- **Add alerting for channel degradation** — blocked by: slice-03-implement-health-checks
+- **Update dashboard to display real metrics** — blocked by: slice-07-add-historical-trends
+- **Update documentation for MCP analytics** — blocked by: slice-09-integration-tests
+- **Admin UI for Security Settings** — blocked by: foundation-ui-components, sec-1-1-mfa-config, sec-1-2-csp-config, sec-1-3-session-security, sec-2-1-rate-limiting
+- **Migrate Billing Resource Limits** — blocked by: sec-ui-pages
+- **Migrate Budget Alert Thresholds** — blocked by: sec-ui-pages
+- **Expand Feature Toggle System** — blocked by: bill-ui-pages
+- **Create ChannelProfileCard component** — blocked by: dk-p2-css-badges-cards
+- **Implement GetCostAnomaliesAction** — blocked by: gca-provider, gca-validation
+- **Tenant isolation tests** — blocked by: gca-action
+- **Documentation - Create ADR and update architecture docs** — blocked by: config-standardization-validation
+- **Scaling Guide Documentation** — blocked by: COL-7879-4-1-performance-tests, COL-7879-4-2-index-optimization, COL-7879-4-3-query-analysis
+- **Load Testing** — blocked by: COL-7879-3-3-controller, COL-7879-4-1-performance-tests
+- **Set up parallel Pint/PHP-CS-Fixer testing** — blocked by: qa-tooling-2-1-pint-config
+- **Run Pint dry-run analysis** — blocked by: qa-tooling-2-2-pint-parallel
+- **Apply initial Pint fixes** — blocked by: qa-tooling-2-3-pint-analysis
+- **Migrate PHPStan to Level 6** — blocked by: qa-tooling-3-1-phpstan-baseline
+- **Migrate PHPStan to Level 7** — blocked by: qa-tooling-3-2-phpstan-level6
+- **Migrate PHPStan to Level 9** — blocked by: qa-tooling-3-4-phpstan-level8
+- **Document manual browser CSP verification steps** — blocked by: csp-automated-header-tests
+- **Implement audit command output formatting** — blocked by: audit-command-validators
+- **Add unit tests for security:audit command** — blocked by: audit-command-output
+- **Update CSP documentation with new defaults** — blocked by: csp-automated-header-tests
+- **Update API documentation with valid values** — blocked by: validation-update-toon-provenance-request
+- **Provide non-JS fallback skeleton** — blocked by: frontend-blade-partial
+- **Implement keyboard trap detection custom axe rule** — blocked by: a11y-focus-indicator-rule
+- **Unit tests for Analytics endpoints** — blocked by: dk-p0-controller-analytics
+- **Integration tests for User Preferences page** — blocked by: dk-p4-prefs-classification
+- **Integration tests for Analytics page** — blocked by: dk-p5-analytics-export
+- **Integration tests for History page** — blocked by: dk-p5-history-export
+- **Implement chunked batch processing** — blocked by: cdp-p5-memory-profiling
+- **Test: Handle empty accomplished report** — blocked by: reform-bip-create-tests
+- **Migrate Billing API Rate Limits** — blocked by: sec-ui-pages
+- **Migrate ETL Driver Rate Limits** — blocked by: bill-ui-pages
+- **Implement repository findByBillingAccount** — blocked by: gca-interface, gca-dto
+- **Implement repository filter logic** — blocked by: gca-repo-query
+- **Register repository in ServiceProvider** — blocked by: gca-repo-filters, gca-repo-summary
+- **Unit tests for DatabaseCostAnomalyRepository** — blocked by: gca-repo-filters, gca-repo-summary
+- **API integration tests** — blocked by: gca-action
+- **Remove PHPMD suppression and TODO comment** — blocked by: col-7901-service-calculate-tax
+- **Migrate PHPStan to Level 8** — blocked by: qa-tooling-3-3-phpstan-level7
+- **Create manual QA GitHub workflow** — blocked by: qa-tooling-3-5-phpstan-level9
+- **Create staging QA GitHub workflow** — blocked by: qa-tooling-4-1-qa-manual-workflow
+- **Add unified QA Composer script** — blocked by: qa-tooling-4-2-qa-staging-workflow
+- **Update PR template with QA checklist** — blocked by: qa-tooling-4-3-composer-qa-script
+- **Create ADR for QA tooling decisions** — blocked by: qa-tooling-4-4-pr-template
+- **Create developer onboarding guide** — blocked by: qa-tooling-5-1-adr
+- **Create CI migration plan document** — blocked by: qa-tooling-5-3-update-agents-md
+- **Add Scribe/OpenAPI entries for resilience analytics endpoints** — blocked by: backend-route-provider-registration
+- **Add JS/Playwright coverage for interactions** — blocked by: frontend-blade-partial
+- **Update operations and admin dashboard docs** — blocked by: blade-integration-dashboard-update
+- **Update coverage thresholds to 70% (Month 3 milestone)** — blocked by: a11y-admin-components-batch-2
+- **Add accessibility tests for 25 dashboard data table & filter components** — blocked by: a11y-dashboard-components-batch-1
+- **Create TenantCdpConfigService** — blocked by: cdp-p5-tenant-config-model
+- **Documentation and PHPStan compliance** — blocked by: gca-test-api, gca-test-tenant
+- **Test: Handle report with no completed units** — blocked by: reform-bip-create-tests
+- **Update documentation for email monitoring** — blocked by: slice-03-update-tests
+- **Update documentation for usage metrics** — blocked by: slice-07-update-tests
+- **Migrate Invoice Generation Settings** — blocked by: sec-ui-pages
+- **Migrate FinOps Waste Detection** — blocked by: sec-ui-pages
+- **Admin UI for Billing Settings** — blocked by: sec-ui-pages, bill-4-1-resource-limits, bill-4-2-budget-alerts
+- **Migrate ETL KPI Thresholds** — blocked by: bill-ui-pages
+- **Migrate ETL Sync Configuration** — blocked by: bill-ui-pages
+- **Admin UI for Feature Flags & ETL Settings** — blocked by: bill-ui-pages, etl-8-1-feature-toggles, etl-5-1-driver-rate-limits
+- **Create ValidateGetCostAnomaliesParametersTask** — blocked by: gca-dto
+- **Unit tests for CostAnomalyFilterDTO** — blocked by: gca-dto
+- **Unit tests for validation task** — blocked by: gca-validation
+- **Unit tests for GetCostAnomaliesAction** — blocked by: gca-action
+- **Phase 4: Frontend integration** — blocked by: mfa-audit-logs-phase-3-api-enhancement
+- **Update CLAUDE.md and AGENTS.md** — blocked by: qa-tooling-5-2-onboarding-guide
+- **Add security configuration section with production guidelines** — blocked by: env-debug-mode-hardening, env-password-policy-defaults, env-session-encryption-docs
+- **Create environment profiles documentation** — blocked by: env-security-section-header
+- **Ensure localization strings exist** — blocked by: blade-integration-dashboard-update
+- **Update coverage thresholds to 90% (Final production target)** — blocked by: a11y-utility-components-final-batch
+- **Add accessibility tests for 50 admin components (user management, settings)** — blocked by: a11y-dashboard-components-batch-2
+- **Implement ARIA live region validation custom axe rule** — blocked by: a11y-keyboard-trap-rule
+- **Update accessibility testing guide documentation** — blocked by: a11y-test-generation-cli
+- **Create TenantCdpConfig Eloquent model** — blocked by: cdp-p5-tenant-config-migration
+- **Add function to merge new content into existing post** — blocked by: reform-bip-locate-existing-post
+- **Add deprecation header to publish-to-jekyll-blog.sh** — blocked by: reform-bip-update-user-guide
+- **Add deprecation header to generate-build-in-public-summary.sh** — blocked by: reform-bip-update-user-guide
+- **Add deprecation header to publish-build-in-public.sh** — blocked by: reform-bip-update-user-guide
+- **Migrate Slack Notification Settings** — blocked by: bill-ui-pages
+- **Migrate User State Timeouts** — blocked by: etl-ui-pages
+- **Migrate Approval Workflow Settings** — blocked by: etl-ui-pages
+- **Migrate Business Rules Configuration** — blocked by: etl-ui-pages
+- **Migrate Email Notification Configuration** — blocked by: etl-ui-pages
+- **Migrate Webhook Configuration** — blocked by: etl-ui-pages
+- **Migrate Cache TTL Configuration** — blocked by: wf-ui-pages
+- **Migrate DPIA Thresholds** — blocked by: wf-ui-pages
+- **Final Regression Testing & Documentation** — blocked by: perf-ui-pages
+- **Phase 5: Testing and documentation** — blocked by: mfa-audit-logs-phase-4-frontend-integration
+- **Update planning documents with completion status** — blocked by: verification-admin-functionality, verification-password-policy, audit-command-tests
+- **Document new design tokens** — blocked by: css-token-validation
+- **Create ADR for accessibility testing standards** — blocked by: a11y-threshold-90-percent
+- **Update accessibility compliance report generation** — blocked by: a11y-threshold-90-percent
+- **Add performance benchmark tests** — blocked by: cdp-p5-chunked-processing
+- **Add tenant config tests** — blocked by: cdp-p5-tenant-config-service
+- **Phase 6: Admin reporting interface** — blocked by: mfa-audit-logs-phase-5-testing-and-docs
+- **Add deprecation header to extract-commit-info.py** — blocked by: reform-bip-update-user-guide
+- **Add deprecation header to extract-tweets.py** — blocked by: reform-bip-update-user-guide
+- **Admin UI for Workflow & Notification Settings** — blocked by: etl-ui-pages, wf-6-1-state-timeouts, wf-6-2-approval-settings
+- **Migrate Queue Configuration** — blocked by: wf-ui-pages
+- **Migrate Testing Mode Toggles** — blocked by: wf-ui-pages
+- **Add accessibility tests for 50 admin components (config, monitoring, access)** — blocked by: a11y-admin-components-batch-1
+- **Admin UI for Performance & Testing Settings** — blocked by: wf-ui-pages, perf-7-1-cache-ttl, perf-3-3-dpia-thresholds
+- **Add accessibility tests for 87 utility & helper components (template-based)** — blocked by: a11y-test-generation-cli, a11y-admin-components-batch-2
+- **Add accessibility tests for final 88 utility components** — blocked by: a11y-utility-components-batch-1
+
+## 📌 Notes
+
+- 773 item(s) blocked - check dependencies
+- Total estimated time: 8 hours
