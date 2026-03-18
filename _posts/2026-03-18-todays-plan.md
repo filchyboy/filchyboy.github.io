@@ -1,0 +1,36 @@
+---
+layout: post
+title: "Daily Plan - 2026-03-18"
+date: 2026-03-18
+---
+
+# Daily Plan - Wednesday, March 18, 2026
+
+## Today's Theme
+I'm seeing clear momentum across three feature sets that I touched yesterday - docs-quality-improvement, market-insight-tooling, and financial-services-3. Since I have fresh context loaded on all of these, today feels like the right day to push forward on the tooling and infrastructure work that's been building up. I want to make meaningful progress on the market insight capabilities while also strengthening my development harnesses.
+
+## The Main Work
+
+**mi-task-extract-pasted-text: Implement ExtractPastedTextTask** - I was working on the market-insight-tooling feature set yesterday, so the domain context is fresh in my head. This task feels like a natural next step in building out the core data processing pipeline for market insights.
+
+**mi-migration-artifacts: Create artifacts table migration with Schema::hasTable guard** - Since I'm already in the market insight domain today, I'll tackle the database foundation work. The Schema::hasTable guard pattern is something I've been using consistently, so this should flow smoothly.
+
+**ratchet-add-markdownlint-utils: Add markdownlint parsing to lint harness get_current_state()** - I was working on docs-quality-improvement yesterday, and with 5523 markdownlint issues across 120 files, I really need better tooling to track progress. Building this into my lint harness will give me the visibility I need.
+
+**fin3-config-token-auth-retry: Extend financial config with token_url, auth_url, retry** - I touched the financial-services-3 feature set yesterday, so the configuration patterns are still loaded in my working memory. This feels like a straightforward extension of existing config structures.
+
+**ratchet-add-markdownlint-compare: Add markdownlint comparison section to lint harness compare.py** - Following up on the markdownlint utils work, this will complete the comparison capability I need to track markdown quality improvements over time.
+
+## Housekeeping
+
+**Run `make lint-fix` to auto-fix 48 ESLint warnings** - This is a single command that will clean up a bunch of automatic issues and give me a cleaner baseline.
+
+**Draft implementation plan for market-insight0** - Since I'm already working heavily in the market insight domain today, this planning work aligns perfectly. I can leverage the context I'm building to think through the broader feature architecture.
+
+**Refresh route health check** - The route health report is 53 days stale and showing as failed. Since I've been working across multiple feature sets, I should get a current picture of the routing landscape.
+
+**Run todo-cleanup script** - The TODO inventory is 55 days old, and with all the recent development activity, I probably have new items that need tracking.
+
+## Parked
+
+I'm deliberately setting aside the TypeScript errors and PHPStan issues today. While they're important, I want to maintain momentum on the feature development work where I have fresh context. The test failures can wait another day too - I'd rather make solid progress on the market insight tooling than get bogged down in debugging existing functionality.
