@@ -6,8 +6,6 @@ categories: [weekly, retrospective]
 tags: [build-in-public, weekly-digest]
 ---
 
-# Week 13 in Review
-
 ## The Big Picture
 
 This was a massive infrastructure hardening and testing week — 865 items completed across just 6 days, with the highest throughput I've seen in a while. While my plans called for gradual progress on docs and customer analytics, I found myself deep in the platform's foundational layers, shoring up security, observability, and test coverage.
