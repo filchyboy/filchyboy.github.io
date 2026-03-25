@@ -1,28 +1,26 @@
----
-layout: post
-title: "Week 13 Retrospective"
-date: 2026-03-25
-categories: [weekly, retrospective]
-tags: [build-in-public, weekly-digest]
----
+## Today's Theme
 
-## The Big Picture
-This was a massive infrastructure hardening and foundation-building week, with 865 items completed across a sprawling array of platform strengthening initiatives. What looked like scattered work was actually a coordinated push to mature the platform's core systems before the next major feature development cycle.
+Split between two completely different types of work - automated daily planning infrastructure and the forecasting scenario builder feature. One felt like building the tools that build the product, the other felt like building the actual product.
 
-## What Happened
-The week kicked off with a focused push on my test remediation harness, knocking out 132 items across two days as I worked to stabilize the testing infrastructure. This dovetailed perfectly with the market insight tooling work (61 items), where I built out analytics capabilities that will inform future product decisions.
+## The Main Work
 
-Tuesday was the standout velocity day with 374 completed items, driven by an imperatives audit (32 items) and configuration opportunities sweep (25 items) that weren't in my original plan but emerged as critical blockers. I also made significant progress on the coupon system foundation, with both the catalog/governance API (16 items) and eligibility validation components (16 items) moving forward in parallel.
+The humanize-daily-plan work was all about making my daily planning system smarter and more contextual. I built out a dynamic voice rubric loader that can pull different writing guidelines depending on what type of post I'm generating. The daily_plan.md prompt template got a complete rewrite - the old one was producing too much formulaic output, so I redesigned it around a multi-axis work model using a new WorkAxis enum.
 
-The middle of the week saw me diving deep into infrastructure modernization across multiple fronts simultaneously. I tackled timezone handling, frontend architecture updates, search infrastructure foundation, and error handling standardization - each pulling 13-15 items of completion. The security-focused work was particularly intensive, with rate limiting, webhook resilience, API gateway hardening, and multi-tenancy improvements all getting attention. What struck me was how interconnected these systems are - fixing one area often required touching three others.
+The context loading got more sophisticated too. Added weekly context loading so the daily planner can see patterns across longer timeframes, and a prior posts loader that helps avoid repeating the same phrasing across consecutive posts. That cross-post entropy problem was bugging me - I kept generating daily plans that sounded identical to yesterday's, just with different task names.
 
-By week's end, I'd also pushed forward a constellation of loyalty program vertical slices and subscription/event management features, each representing 8 items of foundational work. These weren't planned priorities, but they became necessary as I discovered gaps in the customer journey orchestration.
+Had to fix some annoying weekly digest issues. The week number calculation was off by one, and I had duplicate validation code scattered around publish_to_jekyll.py. Also moved the weekly trigger from Monday to Wednesday after realizing Monday digests were missing too much weekend work.
 
-## The Plan Gap
-My 17% item adherence tells a clear story: the planning system recommended one set of priorities while the actual codebase demanded another. I'd planned to focus on documentation quality improvements, CSS modules migration, and production readiness work, but instead found myself pulled into urgent infrastructure hardening and security posture improvements. The 27% feature-set adherence was slightly better, suggesting I stayed roughly in the right domains even when specific work items diverged. This gap isn't a failure - it's the reality of working on a complex platform where emergent priorities often trump planned ones. My Tuesday burst day exemplifies this perfectly: high throughput on critical but unplanned work that couldn't wait.
+TV276 was a completely different beast - the forecasting scenario builder went through its full implementation sequence. Started with contract scope baseline, worked through backend orchestration and data determinism, then hardened the API contracts before tackling frontend integration. The observability instrumentation was trickier than expected - getting the metrics to align with what the business actually cares about took some back-and-forth. Finished with focused tests, accessibility checks, and quality gates.
 
-## Under the Radar
-The 409 untracked commits across six categories reveal the hidden infrastructure work that makes everything else possible. I spent considerable effort on tracker validation fixes, test configuration updates, and style enforcement automation - mundane but essential work that doesn't map neatly to feature development but keeps the development experience smooth. The dependency management and code structure refactoring commits particularly reflect the ongoing maintenance tax of a mature codebase.
+## Looking Ahead
 
-## Setting Up Next Week
-This week's infrastructure hardening creates a solid foundation for more focused feature development. The completed coupon system groundwork positions me well to tackle the remaining pricing and redemption workflows, while the security and observability improvements should reduce the operational friction that's been slowing down deployment cycles. I'm particularly curious whether the test remediation and market insight tooling investments will pay dividends in faster feedback loops. The challenge will be maintaining momentum on the foundational work while not losing sight of the customer-facing features that were deferred this week.
+The daily planning infrastructure should produce much more varied and contextual posts now. TV276 is ready for user testing, which means I'll finally see if this approach to scenario modeling actually makes sense to real users.
+
+## The Numbers
+- Completed: 18 tasks
+- Feature areas: humanize-daily-plan, thin-vslice-276-forecasting-scenario-builder
+
+
+<!-- Generated by dev-tracker publish_to_jekyll.py (AI mode) -->
+<!-- accomplished-date: 2026-03-25 -->
+<!-- unit-ids: hdp-rubric-loader,hdp-daily-plan-prompt-rewrite,hdp-work-axis-enum,hdp-weekly-context-loader,hdp-prior-posts-loader,hdp-strip-redundant-header,hdp-weekly-publishing,hdp-wednesday-trigger,hdp-fix-week-number,hdp-remove-duplicate-code,tv276-contract-scope-baseline,tv276-backend-orchestration,tv276-data-determinism,tv276-api-contract-hardening,tv276-frontend-integration,tv276-observability-instrumentation,tv276-focused-tests-a11y,tv276-quality-gates-handoff -->
