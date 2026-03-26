@@ -5,29 +5,30 @@ date: 2026-03-26
 ---
 
 ## Today's Theme
-I'm staring at a classic cleanup day. Yesterday was a marathon - 67 items completed across test remediation, planning work, and some forecasting scenarios I didn't expect to touch. The test remediation harness has been my clear focus with 132 items done this week, but I also need to acknowledge that my plans lately have been missing the mark entirely. 0% adherence yesterday tells me I'm either planning wrong or my instincts are pulling me toward different work than I think I should be doing.
+
+I'm staring at a test remediation harness that I just worked on yesterday but somehow still has 2 items sitting there waiting for me. With all the baseline reconciliation drama after that TestCase rebase, I need to actually execute this thing and see what breaks. The production readiness work is also calling - I've got 6 commits this week in that area and touched it yesterday, so the security patterns are still bouncing around in my head.
 
 ## The Main Work
 
-**Finish reconciling that remediation ledger baseline** - I've been circling this for days and it's blocking everything downstream in the harness. The TestCase rebase left things in a weird state, and until I get a clean baseline, I can't trust any of the remediation results. This has been nagging at me every time I look at the test suite.
+**Reconcile the ledger baseline once and for all** - This has been bugging me since yesterday's work. The TestCase rebase threw everything off and I can't trust any remediation results until the baseline is clean. I hate having systems I can't trust, and this is exactly that kind of nagging technical debt that makes me question every test result.
 
-**Execute the actual remediation sweep** - Assuming I get the baseline sorted, I want to see this thing work on real failing tests. I've built all this infrastructure but haven't actually driven it through the queue of broken files. Time to find out if my architecture holds up under real workload.
+**Execute the actual remediation sweep** - I've built this harness infrastructure, now I want to see it work. The failing-file queue is sitting there waiting, and I'm genuinely curious what patterns emerge when I run the full sweep. Will it find real issues or just stale noise from the rebase?
 
-**Draft that implementation plan for sanctum-security** - I'm already thinking about production readiness (worked on it recently), and security configuration is exactly the kind of thing that bites you if you don't plan it properly. The planning pipeline shows this aligns with my current work, so it makes sense to get the research converted into actionable tasks.
+**Lock down TRUSTED_PROXIES for production** - Security configuration is one of those things that keeps me up at night if it's wrong. I was thinking about proxy configuration yesterday, so the networking patterns are fresh. Better to get this bulletproof now than debug it at 2 AM when something breaks in production.
 
-**Tackle one of those pagination guardrails tasks** - The MAX_PER_PAGE constants work has been sitting there for 3 days, and it's the kind of foundational API work that prevents stupid mistakes later. Plus it's concrete - add some constants to ApiController, implement a helper method, done.
+**Start the tenant isolation audit** - This terrifies me in the best way. If tenant data leaks, the entire platform is compromised. I need to know where the weak spots are before they become actual problems. The sooner I audit this, the better I'll sleep.
 
 ## Housekeeping
 
-**Run that route health check** - 61 days stale is embarrassing, and it's literally one make target to refresh the data. I'm curious what's actually broken versus what's just old information.
+**Run that stale route health check** - It's 61 days old and I'm curious what's actually broken versus what's just old data. One `make route-health-check` command should give me current reality.
 
-**Refresh the TODO inventory** - 63 days old means it's completely useless. The todo-cleanup script should give me a real picture of what technical debt is lurking in comments.
+**Clear the TODO inventory staleness** - 63 days is embarrassingly stale for a TODO tracker. The `todo-cleanup` script should refresh this quickly and show me what's actually on my plate.
 
-**Check if any of those 11,464 markdownlint issues are in files I'm touching today** - If I'm already editing documentation as part of the remediation work, might as well fix the formatting warnings while I'm there.
+**Draft contract scope baseline for TV277** - Since I'm thinking about scoping and boundaries with the tenant isolation work, this flows naturally. Getting the DSR request management portal properly scoped early prevents the usual feature creep disasters.
+
+**Auto-fix those 11464 markdownlint issues** - Just kidding, that's not auto-fixable. But I can at least run `make lint-fix` on whatever is auto-fixable to reduce the noise.
 
 ## Parked
 
-The thin vertical slice work keeps appearing in my plans but not my actual commits. I think I'm avoiding it because the scope baseline step feels vague and I'm not sure what concrete artifact I'm supposed to produce. Need to figure out what "contract scope baseline" actually means before I keep pretending I'm going to work on it.
-
-I'm also noticing I keep deferring the production readiness work even though it has momentum. Maybe the trusted proxies configuration is more complex than I'm admitting, or maybe I don't actually understand the requirements well enough to start coding. Either way, something's blocking me there that I haven't identified yet.
+The API pagination guardrails and widget cache optimization work can wait. I'm not in optimization mode today - I'm in "make the foundation solid" mode. Those performance improvements matter, but not as much as having trustworthy tests and secure tenant isolation.
 
