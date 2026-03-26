@@ -5,29 +5,29 @@ date: 2026-03-26
 ---
 
 ## Today's Theme
-The test remediation harness is demanding my attention - I was deep in it yesterday and left some unfinished business around that baseline reconciliation. With 84% of tests passing (11,747 out of 14,109), I need to understand which failures are real versus just artifacts from the rebase. I'm also sitting on fresh context from the production readiness work I've been investing in this week.
+I'm staring at a classic cleanup day. Yesterday was a marathon - 67 items completed across test remediation, planning work, and some forecasting scenarios I didn't expect to touch. The test remediation harness has been my clear focus with 132 items done this week, but I also need to acknowledge that my plans lately have been missing the mark entirely. 0% adherence yesterday tells me I'm either planning wrong or my instincts are pulling me toward different work than I think I should be doing.
 
 ## The Main Work
 
-**Fix that damn baseline reconciliation** - I left this hanging yesterday after the TestCase rebase, and it's been gnawing at me. The remediation ledger is out of sync and I can't trust any of the harness results until this is clean. I hate having broken infrastructure just sitting there.
+**Finish reconciling that remediation ledger baseline** - I've been circling this for days and it's blocking everything downstream in the harness. The TestCase rebase left things in a weird state, and until I get a clean baseline, I can't trust any of the remediation results. This has been nagging at me every time I look at the test suite.
 
-**Execute the remediation sweep through the failing queue** - Once the baseline is solid, I want to see what this harness can actually do. I've built all this infrastructure and it's time to put it to work on those 2,362 failing tests. I'm genuinely curious which failures are legitimate versus just stale noise.
+**Execute the actual remediation sweep** - Assuming I get the baseline sorted, I want to see this thing work on real failing tests. I've built all this infrastructure but haven't actually driven it through the queue of broken files. Time to find out if my architecture holds up under real workload.
 
-**Lock down the TRUSTED_PROXIES production configuration** - I touched the production-readiness work yesterday, so all the proxy and load balancer patterns are still fresh in my brain. This is the kind of config that fails spectacularly in production if you get it wrong. Better to nail it down while I'm thinking about it.
+**Draft that implementation plan for sanctum-security** - I'm already thinking about production readiness (worked on it recently), and security configuration is exactly the kind of thing that bites you if you don't plan it properly. The planning pipeline shows this aligns with my current work, so it makes sense to get the research converted into actionable tasks.
 
-**Draft the cross-tenant isolation audit plan** - The sanctum-security planning work aligns perfectly with this, and tenant data leaks would be catastrophic for the platform. I want to get the audit scope defined while I'm already in security mode. Not sure yet if I'll find anything scary, but I'd rather know.
+**Tackle one of those pagination guardrails tasks** - The MAX_PER_PAGE constants work has been sitting there for 3 days, and it's the kind of foundational API work that prevents stupid mistakes later. Plus it's concrete - add some constants to ApiController, implement a helper method, done.
 
 ## Housekeeping
 
-**Run the auto-fix on those 48 ESLint warnings** - One `make lint-fix` command to clear the noise. Since I'm already thinking about code quality with the test work, this fits naturally.
+**Run that route health check** - 61 days stale is embarrassing, and it's literally one make target to refresh the data. I'm curious what's actually broken versus what's just old information.
 
-**Regenerate that ancient route health report** - 61 days stale is embarrassing. A quick `make route-health-check` will give me current data instead of whatever was true two months ago.
+**Refresh the TODO inventory** - 63 days old means it's completely useless. The todo-cleanup script should give me a real picture of what technical debt is lurking in comments.
 
-**Draft implementation plan for cache-strategy** - This connects to the widget cache optimization work that's been sitting in my ready queue. While the caching patterns are fresh from recent performance thinking, I should capture the approach.
-
-**Update that stale TODO inventory** - 63 days old means it's basically fiction at this point. The `todo-cleanup` script should surface what actually needs tracking.
+**Check if any of those 11,464 markdownlint issues are in files I'm touching today** - If I'm already editing documentation as part of the remediation work, might as well fix the formatting warnings while I'm there.
 
 ## Parked
 
-The thin vertical slices can wait another day. I've got 132 completed items on the test harness this week, and when something has that much momentum, it deserves to be finished properly. The contract scope baselines aren't going anywhere, but broken test infrastructure affects everything I build.
+The thin vertical slice work keeps appearing in my plans but not my actual commits. I think I'm avoiding it because the scope baseline step feels vague and I'm not sure what concrete artifact I'm supposed to produce. Need to figure out what "contract scope baseline" actually means before I keep pretending I'm going to work on it.
+
+I'm also noticing I keep deferring the production readiness work even though it has momentum. Maybe the trusted proxies configuration is more complex than I'm admitting, or maybe I don't actually understand the requirements well enough to start coding. Either way, something's blocking me there that I haven't identified yet.
 
