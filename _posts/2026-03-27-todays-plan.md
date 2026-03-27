@@ -6,7 +6,7 @@ date: 2026-03-27
 
 # Daily Plan - 2026-03-27
 
-**Generated:** 2026-03-27 14:58 UTC
+**Generated:** 2026-03-27 15:02 UTC
 **Total Time:** 11 hours
 
 ## 🎯 Focus Work
@@ -163,9 +163,6 @@ date: 2026-03-27
 - **TV282: Frontend integration** — blocked by: tv282-api-contract-hardening
 - **TV283: Data determinism** — blocked by: tv283-backend-orchestration
 - **TV283: API contract hardening** — blocked by: tv283-data-determinism
-- **TV284: Backend orchestration** — blocked by: tv284-contract-scope-baseline
-- **TV284: Data determinism** — blocked by: tv284-backend-orchestration
-- **TV284: API contract hardening** — blocked by: tv284-data-determinism
 - **Create PredictionController with ~12 prediction endpoints** — blocked by: analytics-document-methods
 - **Add eager loading to remaining 15+ controllers** — blocked by: eager-fix-merge-suggestion, eager-fix-event-audience, eager-fix-changeset
 - **TV277: Focused tests and accessibility** — blocked by: tv277-frontend-integration, tv277-observability-instrumentation
@@ -192,7 +189,6 @@ date: 2026-03-27
 - **TV282: Observability instrumentation** — blocked by: tv282-api-contract-hardening
 - **TV283: Frontend integration** — blocked by: tv283-api-contract-hardening
 - **TV283: Observability instrumentation** — blocked by: tv283-api-contract-hardening
-- **TV284: Frontend integration** — blocked by: tv284-api-contract-hardening
 - **Update admin dashboard Blade template** — blocked by: frontend-blade-partial
 - **Refresh lockfiles after dependency upgrades** — blocked by: vite7-upgrade-root-workspace-dependencies, vite7-upgrade-frontend-workspace-dependencies, vite7-upgrade-laravel-workspace-dependencies, vite7-upgrade-frontend-admin-workspace-dependencies, vite7-upgrade-frontend-remote-workspace-dependencies
 - **Align Node versions in GitHub Actions workflows** — blocked by: vite7-pin-node-runtime-contract, vite7-refresh-lockfiles-and-workspace-installs
@@ -229,8 +225,6 @@ date: 2026-03-27
 - **TV281: Quality gates and handoff** — blocked by: tv281-focused-tests-a11y
 - **TV282: Quality gates and handoff** — blocked by: tv282-focused-tests-a11y
 - **TV283: Quality gates and handoff** — blocked by: tv283-focused-tests-a11y
-- **TV284: Observability instrumentation** — blocked by: tv284-api-contract-hardening
-- **TV284: Quality gates and handoff** — blocked by: tv284-focused-tests-a11y
 - **Add Laravel feature test for dashboard** — blocked by: blade-integration-dashboard-update
 - **Guard panel behind feature flag** — blocked by: testing-laravel-feature-test
 - **Decide module-federation upgrade path for Vite 7** — blocked by: vite7-verify-upstream-compatibility-matrix
@@ -254,7 +248,6 @@ date: 2026-03-27
 - **Update frontend to poll batch status** — blocked by: chunk-status-endpoint
 - **Add cache metrics to monitoring dashboard** — blocked by: cache-unit-tests
 - **Add correlation ID search to log dashboard** — blocked by: correlation-integration-tests
-- **TV284: Focused tests and accessibility** — blocked by: tv284-frontend-integration, tv284-observability-instrumentation
 - **Create DecisionRecordController with index by intent, show** — blocked by: dk-p0-resource-record
 - **Create ModeBadge component** — blocked by: dk-p2-css-badges-cards, dk-p1-types-enums
 - **Create ApprovalQueueHeader component** — blocked by: dk-p3-approval-shell
@@ -493,5 +486,5 @@ date: 2026-03-27
 
 ## 📌 Notes
 
-- 406 item(s) blocked - check dependencies
+- 399 item(s) blocked - check dependencies
 - Total estimated time: 8 hours
