@@ -40,30 +40,203 @@ The route health warning with 2539 routes feels like something that could eat my
 
 
 <!-- SECTION: ACCOMPLISHED START -->
-<!-- accomplished-generated: 2026-04-03T04:04:27.943193+00:00 -->
-<!-- accomplished-updated: 2026-04-03T04:04:27.943193+00:00 -->
+<!-- accomplished-generated: 2026-04-03T13:53:50.803772+00:00 -->
+<!-- accomplished-updated: 2026-04-03T13:53:50.803772+00:00 -->
 
-## Today's Update
+* Completed 86 tasks today on the Colossalistic Platform project.
 
-Today was dominated by what turned out to be a massive UI surface reorganization - the kind of architectural overhaul that sounds reasonable when you scope it but becomes a sprawling beast once you actually start moving things around. I spent most of my time completely restructuring how the admin interface is organized, breaking it down into 11 logical surface categories instead of the hodgepodge of random pages we had before.
+## What I Built
 
-The core of the work was building out a proper navigation system with surface hubs for everything from Infrastructure & Operations to Agentic & Programmable tools. Each hub needed its own landing page, navigation component, and routing structure. The Domain Management UI turned out to be more involved than expected - I built the list view, CRUD forms, DNS configuration wizard, and migration status viewer, but the DNS wizard kept fighting me on the validation logic. The Tenant Administration interfaces were similarly complex, requiring a full provisioning wizard and invitation system on top of the basic CRUD operations.
+### accessibility-pipeline-enforceable-storybook-gates-component-coverage-kpi-reform
+* Create feature branch from develop
 
-I also managed to implement dashboard metrics caching, which was long overdue. Created a proper service layer for cached retrieval of billing overviews and analytics, integrated it with the admin dashboard controller, and set up cache invalidation hooks. The monitoring integration was straightforward once I had the service layer in place, but getting the invalidation timing right took some iteration.
+### admin-surface
+* Add admin surface overview component and refactor overview pages
 
-The accessibility pipeline setup branch is ready to go, and I knocked out a bunch of smaller enhancements across forms, branding surfaces, and component organization. Updated Storybook to 10.3.3 and cleaned up some queue configuration files that were cluttering things up. The role binding console got a refresh, and I implemented soft delete lifecycle management for bookings and related payments.
+### branding
+* Enhance admin middleware documentation for clarity
 
-Tomorrow I'll probably need to write integration tests for the new surface navigation system and see how the dashboard caching performs under actual load. The UI reorganization creates some interesting possibilities for more granular permission controls, but that's a problem for another day.
+### ci
+* Restore phpunit xml to branch
 
-**The Numbers:**
-- Completed: 77 tasks
-- Feature areas: accessibility-pipeline-enforceable-storybook-gates-component-coverage-kpi-reform, ui-surface-reorganization, dashboard-metrics-caching, enhance-forms, enhance-branding-surface, surface-scheduling, branding, enhance-accessibility-testing, reorganize-components, admin-surface, surface-type, streamline-domain, enhance-authorization, improve-accessibility, navigation-guide, test-directories, streamline-uuid-lookup, enhance-storedecisionpolicyaction, implement-branding, enhance-redis-cache, enhance-role-binding, implement-fallback, enhance-logging-management, implement-soft-delete, enhance-domain, decisionkerneladminapitest, implement-flows, storybook-version, known-limitations, enhance-navigation-tests, clean-queue, enhance-drawer-accessibility, policy, reorganize-forms
+### clean-queue
+* Clean up queue and phpunit configuration files by removing unused connections...
+
+### dashboard-metrics-caching
+* Create dashboard metrics caching service layer
+* Implement cached billing overview retrieval
+* Implement cached analytics retrieval
+* Update Admin dashboard API controller to use cached actions
+* Add dashboard cache invalidation hooks for data refresh paths
+* Add focused cache regression tests
+* Integrate dashboard cache metrics with existing monitoring
+
+### decisionkerneladminapitest
+* Update decisionkerneladminapitest to assert policy visibility and enhance sto...
+
+### enhance-accessibility-testing
+* Enhance accessibility testing with dedicated shared rule coverage and update ...
+
+### enhance-authorization
+* Enhance authorization and add tests for decision policies and timeline actions
+
+### enhance-branding-surface
+* Enhance branding surface navigation tests with additional assertions
+
+### enhance-domain
+* Enhance domain and tenant management components with abort signal handling an...
+
+### enhance-drawer-accessibility
+* Enhance drawer accessibility tests and improve rendering logic
+
+### enhance-forms
+* Enhance forms and flows creation/editing with dynamic data resolution
+
+### enhance-logging-management
+* Enhance logging management mocks and improve error handling in compliance tests
+
+### enhance-migration-status
+* Enhance migration status tests and improve transition handling
+
+### enhance-migrationstatusviewer
+* Enhance migrationstatusviewer to support non-terminal degraded migrations and...
+
+### enhance-navigation-tests
+* Enhance navigation tests and add rel attribute for security in product surfac...
+
+### enhance-redis-cache
+* Enhance redis cache store integration and improve archive file detection logic
+
+### enhance-role-binding
+* Enhance role binding console and tenant administration
+
+### enhance-storedecisionpolicyaction
+* Enhance storedecisionpolicyaction to resolve billing account id from attribut...
+
+### enhance-workflow
+* Enhance ci workflow with phpunit config validation  and template synchronization
+
+### implement-branding
+* Implement branding and surfaces navigation tests and ui updates
+
+### implement-fallback
+* Implement fallback for created_at in product updates and add uuid lookup for ...
+
+### implement-flows
+* Implement flows and forms management enhancements, including improved data ha...
+
+### implement-soft-delete
+* Implement soft delete lifecycle for bookings and related payments
+
+### improve-accessibility
+* Improve accessibility and mock implementations  in compliance components
+
+### improve-logging-management
+* Improve logging management mock and enhance loading state handling
+
+### known-limitations
+* Update known-limitations.md to clarify phpstan tenantscopedmodelrule enforcement
+
+### metrics
+* Enhance dashboard metrics caching and validation logic
+
+### navigation-guide
+* Update navigation guide with new redirect urls, refactor readme closing instr...
+
+### phpunit-configuration
+* Update phpunit configuration and sync script  for improved test discovery aut...
+
+### policy
+* Update role requirements for message history access fix(dialog): escape opene...
+
+### reorganize-components
+* Reorganize ui components and enhance session handling with new error page
+
+### reorganize-forms
+* Reorganize forms and flows ui components, enhance loading states, and update ...
+
+### resolveactivestepindex-function
+* Add resolveactivestepindex function to determine highlighted migration step
+
+### rollback-state
+* Add rollback state support in migrationstatusviewer  and related styles
+
+### storybook-version
+* Update storybook version to 10.3.3
+
+### streamline-domain
+* Streamline domain and tenant loading functions, enhance logging in routeservi...
+
+### streamline-uuid-lookup
+* Streamline uuid lookup by removing global scope and improve archive file dete...
+
+### surface-scheduling
+* Add surface scheduling overview page and categorized navigation
+
+### surface-type
+* Update surface type handling and improve test coverage
+
+### test-directories
+* Add test directories for agentsurface and productsurface
+
+### ui-surface-reorganization
+* Create navigation configuration system
+* Build Domain Management UI - List View
+* Create complete route inventory document
+* Build Tenant Administration UI - List with Hierarchy
+* Design AdminNavigation component for 11 surface categories
+* Create Infrastructure & Operations surface hub
+* Build Domain Management UI - CRUD Forms
+* Build Tenant Administration UI - Detail View
+* Build Tenant Administration UI - Provisioning Wizard
+* Create WEB routes for Tenant Administration
+* Remove old hub pages and add redirects
+* Run full navigation audit
+* Run PHPStan on all new backend code
+* Run ESLint on all new frontend code
+* Create SurfaceCategoryNav component
+* Create Commerce & Monetization surface hub
+* Create Governance & Compliance surface hub
+* Build Role Binding Console (NEW UI)
+* Add integration tests for route redirects
+* Create Design & Theming surface hub
+* Create Monitoring & Analytics surface hub
+* Create Development Tools hub
+* Update all internal links to new surface URLs
+* Update CLAUDE.md with new navigation structure
+* Create Publishing & Content surface hub
+* Create Customer Data Management surface hub
+* Create Marketing & Communications surface hub
+* Add unit tests for navigation components
+* Run accessibility audit on all new UI components
+* Build Domain Management UI - DNS Configuration Wizard
+* Implement breadcrumb system for deep navigation
+* Build Tenant Administration UI - Invitation System
+* Create Agentic & Programmable surface hub
+* Create Cross-Cutting & Utilities surface hub
+* Create Scheduling & Time-Based surface hub
+* Update tracker, checklist, and README with final status
+* Create admin navigation guide
+* Build Domain Management UI - Migration Status Viewer
+
+## Progress Made
+
+* Populate planning artifacts (tracker.json, plan, checklist, README) (in progress)
+
+## Notes
+
+* Completed 86 work unit(s)
+* Made progress on 1 work unit(s)
+* Item adherence: 14% (1/7 focus items)
+* Feature set adherence: 20% (1/5 planned feature sets had work)
+* Weighted adherence: 146% (with partial credit)
+* Untracked activity: 50 commit(s) not mapped to any feature set
 
 
-<!-- Generated by dev-tracker publish_to_jekyll.py (AI mode) -->
+<!-- Generated by dev-tracker publish_to_jekyll.py -->
 <!-- accomplished-date: 2026-04-02 -->
-<!-- unit-ids: a11y-setup-branch,usr-nav-config,usr-domain-mgmt-list,usr-route-inventory,usr-tenant-admin-list,usr-admin-nav-component,usr-infrastructure-surface,usr-domain-mgmt-crud,usr-tenant-admin-detail,usr-tenant-admin-provision,usr-tenant-web-routes,usr-remove-old-hubs,usr-navigation-audit,usr-phpstan-check,usr-eslint-check,usr-surface-category-nav,usr-commerce-surface,usr-governance-surface,usr-role-binding-ui,usr-redirect-tests,usr-design-surface,usr-monitoring-surface,usr-development-surface,usr-update-internal-links,usr-update-claude-md,usr-publishing-surface,usr-customer-data-surface,usr-marketing-surface,usr-nav-tests,usr-a11y-audit,usr-domain-mgmt-dns,usr-breadcrumb-system,usr-tenant-admin-invite,usr-agentic-surface,usr-crosscutting-surface,usr-scheduling-surface,usr-closeout,usr-navigation-guide,usr-domain-mgmt-migration,cache-create-service-class,cache-billing-overview-method,cache-analytics-method,cache-controller-integration,cache-invalidation-observers,cache-unit-tests,cache-monitoring-metrics,enhance-forms-enhance-forms-flows-creation-editing-with,enhance-branding-surface-enhance-branding-surface-navigation-tests,surface-scheduling-surface-scheduling-overview-page-categorized,branding-enhance-admin-middleware-documentation-clarity,enhance-accessibility-testing-enhance-accessibility-testing-with-dedicated,reorganize-components-reorganize-components-enhance-session-handling,admin-surface-admin-surface-overview-component-refactor,surface-type-surface-type-handling-improve-test,streamline-domain-streamline-domain-tenant-loading-functions,enhance-authorization-enhance-authorization-tests-decision-policies,improve-accessibility-improve-accessibility-mock-implementations-compliance,navigation-guide-navigation-guide-with-new-redirect,test-directories-test-directories-agentsurface-productsurface,streamline-uuid-lookup-streamline-uuid-lookup-removing-global,enhance-storedecisionpolicyaction-enhance-storedecisionpolicyaction-resolve-billing-account,implement-branding-branding-surfaces-navigation-tests-updates,enhance-redis-cache-enhance-redis-cache-store-integration,enhance-role-binding-enhance-role-binding-console-tenant,implement-fallback-fallback-created-at-product-updates-uuid,enhance-logging-management-enhance-logging-management-mocks-improve,implement-soft-delete-soft-delete-lifecycle-bookings-related,enhance-domain-enhance-domain-tenant-management-components,decisionkerneladminapitest-decisionkerneladminapitest-assert-policy-visibility-enhance,implement-flows-flows-forms-management-enhancements-including,storybook-version-storybook-version-10-3-3,known-limitations-known-limitations-md-clarify-phpstan-tenantscopedmodelrule-enforcement,enhance-navigation-tests-enhance-navigation-tests-rel-attribute,clean-queue-clean-queue-phpunit-configuration-files,enhance-drawer-accessibility-enhance-drawer-accessibility-tests-improve,policy-role-requirements-message-history-access,reorganize-forms-reorganize-forms-flows-components-enhance -->
+<!-- unit-ids: a11y-setup-branch,usr-nav-config,usr-domain-mgmt-list,usr-route-inventory,usr-tenant-admin-list,usr-admin-nav-component,usr-infrastructure-surface,usr-domain-mgmt-crud,usr-tenant-admin-detail,usr-tenant-admin-provision,usr-tenant-web-routes,usr-remove-old-hubs,usr-navigation-audit,usr-phpstan-check,usr-eslint-check,usr-surface-category-nav,usr-commerce-surface,usr-governance-surface,usr-role-binding-ui,usr-redirect-tests,usr-design-surface,usr-monitoring-surface,usr-development-surface,usr-update-internal-links,usr-update-claude-md,usr-publishing-surface,usr-customer-data-surface,usr-marketing-surface,usr-nav-tests,usr-a11y-audit,usr-domain-mgmt-dns,usr-breadcrumb-system,usr-tenant-admin-invite,usr-agentic-surface,usr-crosscutting-surface,usr-scheduling-surface,usr-closeout,usr-navigation-guide,usr-domain-mgmt-migration,cache-create-service-class,cache-billing-overview-method,cache-analytics-method,cache-controller-integration,cache-invalidation-observers,cache-unit-tests,cache-monitoring-metrics,metrics-enhance-dashboard-metrics-caching-validation,enhance-forms-enhance-forms-flows-creation-editing-with,enhance-branding-surface-enhance-branding-surface-navigation-tests,surface-scheduling-surface-scheduling-overview-page-categorized,branding-enhance-admin-middleware-documentation-clarity,enhance-accessibility-testing-enhance-accessibility-testing-with-dedicated,reorganize-components-reorganize-components-enhance-session-handling,enhance-migration-status-enhance-migration-status-tests-improve,admin-surface-admin-surface-overview-component-refactor,surface-type-surface-type-handling-improve-test,streamline-domain-streamline-domain-tenant-loading-functions,resolveactivestepindex-function-resolveactivestepindex-function-determine-highlighted-migration,enhance-authorization-enhance-authorization-tests-decision-policies,ci-restore-phpunit-xml-branch,improve-accessibility-improve-accessibility-mock-implementations-compliance,enhance-migrationstatusviewer-enhance-migrationstatusviewer-support-non-terminal-degraded,improve-logging-management-improve-logging-management-mock-enhance,navigation-guide-navigation-guide-with-new-redirect,test-directories-test-directories-agentsurface-productsurface,streamline-uuid-lookup-streamline-uuid-lookup-removing-global,rollback-state-rollback-state-support-migrationstatusviewer-related,enhance-storedecisionpolicyaction-enhance-storedecisionpolicyaction-resolve-billing-account,enhance-workflow-enhance-workflow-with-phpunit-config,implement-branding-branding-surfaces-navigation-tests-updates,enhance-redis-cache-enhance-redis-cache-store-integration,enhance-role-binding-enhance-role-binding-console-tenant,implement-fallback-fallback-created-at-product-updates-uuid,enhance-logging-management-enhance-logging-management-mocks-improve,phpunit-configuration-phpunit-configuration-sync-script-improved,implement-soft-delete-soft-delete-lifecycle-bookings-related,enhance-domain-enhance-domain-tenant-management-components,decisionkerneladminapitest-decisionkerneladminapitest-assert-policy-visibility-enhance,implement-flows-flows-forms-management-enhancements-including,storybook-version-storybook-version-10-3-3,known-limitations-known-limitations-md-clarify-phpstan-tenantscopedmodelrule-enforcement,enhance-navigation-tests-enhance-navigation-tests-rel-attribute,clean-queue-clean-queue-phpunit-configuration-files,enhance-drawer-accessibility-enhance-drawer-accessibility-tests-improve,policy-role-requirements-message-history-access,reorganize-forms-reorganize-forms-flows-components-enhance -->
 
-<!-- accomplished-unit-ids: a11y-setup-branch,admin-surface-admin-surface-overview-component-refactor,branding-enhance-admin-middleware-documentation-clarity,cache-analytics-method,cache-billing-overview-method,cache-controller-integration,cache-create-service-class,cache-invalidation-observers,cache-monitoring-metrics,cache-unit-tests,clean-queue-clean-queue-phpunit-configuration-files,decisionkerneladminapitest-decisionkerneladminapitest-assert-policy-visibility-enhance,enhance-accessibility-testing-enhance-accessibility-testing-with-dedicated,enhance-authorization-enhance-authorization-tests-decision-policies,enhance-branding-surface-enhance-branding-surface-navigation-tests,enhance-domain-enhance-domain-tenant-management-components,enhance-drawer-accessibility-enhance-drawer-accessibility-tests-improve,enhance-forms-enhance-forms-flows-creation-editing-with,enhance-logging-management-enhance-logging-management-mocks-improve,enhance-navigation-tests-enhance-navigation-tests-rel-attribute,enhance-redis-cache-enhance-redis-cache-store-integration,enhance-role-binding-enhance-role-binding-console-tenant,enhance-storedecisionpolicyaction-enhance-storedecisionpolicyaction-resolve-billing-account,implement-branding-branding-surfaces-navigation-tests-updates,implement-fallback-fallback-created-at-product-updates-uuid,implement-flows-flows-forms-management-enhancements-including,implement-soft-delete-soft-delete-lifecycle-bookings-related,improve-accessibility-improve-accessibility-mock-implementations-compliance,known-limitations-known-limitations-md-clarify-phpstan-tenantscopedmodelrule-enforcement,navigation-guide-navigation-guide-with-new-redirect,policy-role-requirements-message-history-access,reorganize-components-reorganize-components-enhance-session-handling,reorganize-forms-reorganize-forms-flows-components-enhance,storybook-version-storybook-version-10-3-3,streamline-domain-streamline-domain-tenant-loading-functions,streamline-uuid-lookup-streamline-uuid-lookup-removing-global,surface-scheduling-surface-scheduling-overview-page-categorized,surface-type-surface-type-handling-improve-test,test-directories-test-directories-agentsurface-productsurface,usr-a11y-audit,usr-admin-nav-component,usr-agentic-surface,usr-breadcrumb-system,usr-closeout,usr-commerce-surface,usr-crosscutting-surface,usr-customer-data-surface,usr-design-surface,usr-development-surface,usr-domain-mgmt-crud,usr-domain-mgmt-dns,usr-domain-mgmt-list,usr-domain-mgmt-migration,usr-eslint-check,usr-governance-surface,usr-infrastructure-surface,usr-marketing-surface,usr-monitoring-surface,usr-nav-config,usr-nav-tests,usr-navigation-audit,usr-navigation-guide,usr-phpstan-check,usr-publishing-surface,usr-redirect-tests,usr-remove-old-hubs,usr-role-binding-ui,usr-route-inventory,usr-scheduling-surface,usr-surface-category-nav,usr-tenant-admin-detail,usr-tenant-admin-invite,usr-tenant-admin-list,usr-tenant-admin-provision,usr-tenant-web-routes,usr-update-claude-md,usr-update-internal-links -->
+<!-- accomplished-unit-ids: a11y-setup-branch,admin-surface-admin-surface-overview-component-refactor,branding-enhance-admin-middleware-documentation-clarity,cache-analytics-method,cache-billing-overview-method,cache-controller-integration,cache-create-service-class,cache-invalidation-observers,cache-monitoring-metrics,cache-unit-tests,ci-restore-phpunit-xml-branch,clean-queue-clean-queue-phpunit-configuration-files,decisionkerneladminapitest-decisionkerneladminapitest-assert-policy-visibility-enhance,enhance-accessibility-testing-enhance-accessibility-testing-with-dedicated,enhance-authorization-enhance-authorization-tests-decision-policies,enhance-branding-surface-enhance-branding-surface-navigation-tests,enhance-domain-enhance-domain-tenant-management-components,enhance-drawer-accessibility-enhance-drawer-accessibility-tests-improve,enhance-forms-enhance-forms-flows-creation-editing-with,enhance-logging-management-enhance-logging-management-mocks-improve,enhance-migration-status-enhance-migration-status-tests-improve,enhance-migrationstatusviewer-enhance-migrationstatusviewer-support-non-terminal-degraded,enhance-navigation-tests-enhance-navigation-tests-rel-attribute,enhance-redis-cache-enhance-redis-cache-store-integration,enhance-role-binding-enhance-role-binding-console-tenant,enhance-storedecisionpolicyaction-enhance-storedecisionpolicyaction-resolve-billing-account,enhance-workflow-enhance-workflow-with-phpunit-config,implement-branding-branding-surfaces-navigation-tests-updates,implement-fallback-fallback-created-at-product-updates-uuid,implement-flows-flows-forms-management-enhancements-including,implement-soft-delete-soft-delete-lifecycle-bookings-related,improve-accessibility-improve-accessibility-mock-implementations-compliance,improve-logging-management-improve-logging-management-mock-enhance,known-limitations-known-limitations-md-clarify-phpstan-tenantscopedmodelrule-enforcement,metrics-enhance-dashboard-metrics-caching-validation,navigation-guide-navigation-guide-with-new-redirect,phpunit-configuration-phpunit-configuration-sync-script-improved,policy-role-requirements-message-history-access,reorganize-components-reorganize-components-enhance-session-handling,reorganize-forms-reorganize-forms-flows-components-enhance,resolveactivestepindex-function-resolveactivestepindex-function-determine-highlighted-migration,rollback-state-rollback-state-support-migrationstatusviewer-related,storybook-version-storybook-version-10-3-3,streamline-domain-streamline-domain-tenant-loading-functions,streamline-uuid-lookup-streamline-uuid-lookup-removing-global,surface-scheduling-surface-scheduling-overview-page-categorized,surface-type-surface-type-handling-improve-test,test-directories-test-directories-agentsurface-productsurface,usr-a11y-audit,usr-admin-nav-component,usr-agentic-surface,usr-breadcrumb-system,usr-closeout,usr-commerce-surface,usr-crosscutting-surface,usr-customer-data-surface,usr-design-surface,usr-development-surface,usr-domain-mgmt-crud,usr-domain-mgmt-dns,usr-domain-mgmt-list,usr-domain-mgmt-migration,usr-eslint-check,usr-governance-surface,usr-infrastructure-surface,usr-marketing-surface,usr-monitoring-surface,usr-nav-config,usr-nav-tests,usr-navigation-audit,usr-navigation-guide,usr-phpstan-check,usr-publishing-surface,usr-redirect-tests,usr-remove-old-hubs,usr-role-binding-ui,usr-route-inventory,usr-scheduling-surface,usr-surface-category-nav,usr-tenant-admin-detail,usr-tenant-admin-invite,usr-tenant-admin-list,usr-tenant-admin-provision,usr-tenant-web-routes,usr-update-claude-md,usr-update-internal-links -->
 <!-- SECTION: ACCOMPLISHED END -->
 <!-- Generated by dev-tracker build_today_plan.py -->
