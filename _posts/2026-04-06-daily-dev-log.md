@@ -6,6 +6,38 @@ categories: [daily, build-in-public]
 tags: [dev-tracker]
 ---
 
+<!-- SECTION: DAILY-PLAN START -->
+<!-- plan-generated: 2026-04-06T18:58:14.740573+00:00 -->
+
+## Today's Theme
+
+Yesterday I shipped 182 items across 22 feature sets, which tells me I was in scattered cleanup mode rather than focused building. But buried in that chaos, I can see the decision-kernel work got some real attention (8 items), and I've got 23 commits this week in decision-kernel-ui2. The accessibility planning I barely touched yesterday is gnawing at me - I set up the skeleton but never figured out what "enforceable gates" actually means.
+
+## The Main Work
+
+**Create those DecisionApprovalResource and ExecutionStepResource** - I've been building React components that mock their data, which is stupid. These API resources are the foundation that seven other decision-kernel tasks depend on. Without proper data models, my approval queue interface is just an expensive mockup that can't actually save anything.
+
+**Build TypeScript enum types for decision statuses** - I'm tired of TypeScript screaming at me every time I reference approval states or decision types. Yesterday I probably wrote "pending" as a string literal fifty times, and half of those are probably wrong. These enums unlock the component work without the constant guessing game.
+
+**Figure out what accessibility pipeline enforceable gates means** - This has been sitting in planning for weeks because I don't understand the requirement. Component coverage KPIs sound important, but I can't build something I can't define. I'm genuinely worried I'm shipping interfaces that screen reader users can't navigate.
+
+**Copy those pretext type definitions from starter code** - With 36 commits this week, I clearly care about this abstraction, but I keep reinventing patterns the starter code already solved. Their type system might fix the rendering context bugs that have been driving me insane for days.
+
+## Housekeeping
+
+**Auto-fix those 3 ESLint warnings** - Simple `make lint-fix` command while I'm already in the codebase. No reason to live with fixable noise.
+
+**Draft implementation plan for cognitive assessments** - This has research artifacts sitting there, and it aligns with the decision-kernel domain I'm already deep in. Better to plan it now while the mental model is loaded.
+
+**Regenerate that route health report** - 2539 routes with "warning" status tells me the report is stale. Quick `make routes-health` command to get current data.
+
+## Parked
+
+The thin vertical slice work that got touched yesterday (TV298, TV300) feels like planning busy-work. Contract scope baselines don't actually build features, and I'd rather ship one working approval queue than have five perfectly scoped contracts that do nothing.
+
+<!-- plan-unit-ids: a11y-setup-planning-artifacts,dk-p0-resource-approval-step,dk-p1-types-enums,dk-p2-css-base,tv298-contract-scope-baseline,tv300-contract-scope-baseline,tv302-contract-scope-baseline,tv303-contract-scope-baseline -->
+<!-- SECTION: DAILY-PLAN END -->
+
 <!-- SECTION: ACCOMPLISHED START -->
 <!-- accomplished-generated: 2026-04-06T18:56:46.305903+00:00 -->
 
