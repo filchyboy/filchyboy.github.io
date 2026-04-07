@@ -39,20 +39,20 @@ The thin vertical slice work that got touched yesterday (TV298, TV300) feels lik
 <!-- SECTION: DAILY-PLAN END -->
 
 <!-- SECTION: ACCOMPLISHED START -->
-<!-- accomplished-generated: 2026-04-07T02:07:08.932176+00:00 -->
-<!-- accomplished-updated: 2026-04-07T02:07:08.932176+00:00 -->
+<!-- accomplished-generated: 2026-04-07T02:07:52.780445+00:00 -->
+<!-- accomplished-updated: 2026-04-07T02:07:52.780445+00:00 -->
 
 ## Today's Update
 
-Today was dominated by a complete implementation of API client correlation infrastructure - something I've been planning for weeks but finally had the architecture clear enough to build end-to-end. I worked through the entire stack systematically: started by inventorying all our frontend API client modules and fetch entrypoints to understand what I was working with, then defined the correlation header contract using traceparent and X-Request-Id standards for browser clients.
+Today was fundamentally about correlation - building the infrastructure to trace requests through the entire stack from browser click to backend response. I've been frustrated with debugging user-reported issues where I can't connect frontend errors to backend logs, so I finally tackled the API client correlation envelope system from end to end.
 
-The shared fetch wrapper turned out to be more involved than I expected. Getting the correlation headers to play nicely with our standard error envelope parsing took some debugging - the browser's fetch API has some quirks around header propagation that aren't obvious until you're deep in the implementation. Once that was solid, I wired it into our default React Query paths as a pilot. This is where the rubber meets the road - if the wrapper breaks React Query's caching or retry logic, the whole thing falls apart. But the integration went smoothly, which gives me confidence the abstraction is right.
+I started by inventorying all our frontend API client modules and fetch entrypoints, which was more scattered than I expected. We had at least six different patterns for making API calls, some bypassing our standard error handling entirely. Once I mapped that mess, I defined a correlation header contract using traceparent and X-Request-Id - standard stuff, but it needed to be consistent across all our client code. The shared fetch wrapper was the real meat of the work. It automatically injects correlation headers, parses our standard error envelope format, and provides a single chokepoint for request/response logging. Getting this wired into React Query's default paths was trickier than anticipated because their mutation hooks have different signatures than the query hooks.
 
-I also spent time on the test remediation harness, recording a new full-suite baseline after yesterday's 358-batch run. This baseline captures the current state of all our test suites, which will be crucial for tracking regression patterns as we continue the API correlation rollout. The baseline showed some interesting patterns in our test stability that I'll need to investigate further.
+The accessibility testing for any UI that surfaces the new error strings caught a few issues I wouldn't have thought about - screen reader announcements for correlation IDs don't make sense, so I had to add proper aria-labels. I also documented the new API module patterns for future development and noted the observability verification steps we'll need in staging. This correlation work should make debugging so much easier once it's fully deployed.
 
-The Service Hub admin work rounded out the day - mounted the admin UI in the host app shell and documented how it relates to our main admin MFE. The documentation piece was tedious but necessary since we now have two different admin surfaces and developers need to know which one to use for what. I also synced the Service Hub planning index with the main tracker, which uncovered some gaps in our task prioritization that I'll need to address.
+Meanwhile, I cleaned up some housekeeping that was bothering me - updated our lazy loading syntax for better readability, stopped tracking that phpunit.xml file that keeps getting auto-modified, and got the Service Hub admin UI properly mounted in the host app shell. I also recorded a new full-suite baseline after yesterday's 358-batch test run, which gives us a clean starting point for the remediation harness going forward.
 
-This correlation infrastructure should significantly improve our debugging capabilities once it's fully rolled out. Being able to trace a request from the browser all the way through our backend services has been a major blind spot, especially when investigating user-reported issues.
+The Service Hub documentation is finally integrated into our MkDocs nav, and I synced the planning index with the actual tracker. Small wins, but they remove friction that accumulates over time.
 
 **The Numbers:**
 - Completed: 14 tasks  
