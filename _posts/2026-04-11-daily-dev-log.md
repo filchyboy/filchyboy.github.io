@@ -40,29 +40,68 @@ The csp-alpine-extraction work sits there with no recent activity, and honestly 
 
 
 <!-- SECTION: ACCOMPLISHED START -->
-<!-- accomplished-generated: 2026-04-11T21:35:32.664510+00:00 -->
+<!-- accomplished-generated: 2026-04-12T14:40:16.519544+00:00 -->
+<!-- accomplished-updated: 2026-04-12T14:40:16.519544+00:00 -->
 
-## Today's Update
+* Completed 29 tasks today on the Colossalistic Platform project.
 
-I made a serious dent in the Tailwind migration today, working through 25 different batches of views across the platform. This was pure conversion work - taking existing CSS and translating it into Tailwind utility classes, file by file. Not the most intellectually stimulating work, but necessary to get the design system modernized.
+## What I Built
 
-The admin section dominated my time, as expected. I migrated everything from the root dashboard view (~328 Tailwind classes) through specialized areas like the design system views (~1,959 classes), performance monitoring (~1,599 classes), and logging interfaces (~1,271 classes). The admin area is sprawling - user management, billing configuration, system settings, security views, integrations. Some of these were straightforward conversions, but the design system and performance views required more thought since they have complex layouts and interactive elements.
+### core-accessibility
+* Migrate admin kpi views to semantic styles
 
-The most interesting discovery came from the spike work I did on two legacy edit views in Core and the routes-overview page in Admin. These files are monsters - the Core legacy edit views weigh in at ~2,205 Tailwind classes after conversion, and the routes-overview is a staggering ~5,449 classes. These aren't just big files; they're architectural problems. Single-responsibility principle went out the window somewhere along the way. I recalibrated the estimates for these because the initial tooling didn't account for the complexity of nested components and conditional rendering blocks.
+### core-authentication
+* Migrate mfa views to semantic component styles
 
-I also knocked out a big batch of 53 trivial admin pages that only needed minimal changes - mostly simple forms and static content pages. Those added up to just ~147 Tailwind classes total, which shows how much the complexity varies across the codebase. The UserProfile token and profile views were in the middle range, requiring ~799 and ~627 classes respectively. Reasonable amounts for what they do.
+### core-workflow
+* Migrate core component views to semantic styles
 
-This migration work is revealing patterns in how the UI has evolved over time. The newer admin components are much cleaner and more modular, while some of the older core views have grown into these unwieldy behemoths. Getting everything onto Tailwind is step one, but those legacy edit views are going to need serious refactoring once the migration is complete.
+### styles
+* Migrate userprofile profile views to semantic design-system classes
 
-**The Numbers:**
-- Completed: 25 tasks
-- Feature areas: tailwind-migration
+### tailwind-migration
+* Migrate Core MFA views (2 files, ~366 TW)
+* Migrate Admin root dashboard view (1 file, ~328 TW)
+* Migrate Admin system settings pages (7 files, ~124 TW)
+* Migrate Admin billing configuration pages (3 files, ~111 TW)
+* Migrate Admin user management pages (6 files, ~524 TW)
+* Migrate Core admin KPI views (4 files, ~923 TW)
+* Migrate Admin documentation audit pages (2 files, ~647 TW)
+* Migrate Admin reports, storybook, health pages (3 files, ~570 TW)
+* Migrate Admin developer-tools views (1 file, ~391 TW)
+* Migrate Admin compliance hub view (1 file, ~201 TW)
+* Migrate UserProfile token views (6 files, ~799 TW)
+* Migrate UserProfile profile views (8 files, ~627 TW)
+* Migrate Core component views (7 files, ~1153 TW)
+* Migrate Admin design-system views (5 files, ~1959 TW)
+* Migrate Admin performance views (5 files, ~1599 TW)
+* Migrate Admin logging views (3 files, ~1271 TW)
+* Migrate Admin dashboard pages (8 files, ~909 TW)
+* Migrate Admin trivial pages batch (53 files, ~147 TW)
+* Migrate Admin integrations views (12 files, ~385 TW)
+* Migrate Admin security views (5 files, ~278 TW)
+* Migrate Admin component views (20 files, ~185 TW)
+* Migrate Admin partial views (11 files, ~162 TW)
+* Spike: Audit Core legacy edit views for decomposition (2 files, ~2,205 TW recalibrated)
+* Spike: Audit Admin pages/system (routes-overview) for decomposition (1 file, ~5,449 TW recalibrated)
+* Migrate Admin remaining trivial views (5 files, ~48 TW)
+
+## Notes
+
+* Completed 29 work unit(s)
+* Removed/archived 8 incomplete unit(s)
+* Archived 38 previously completed unit(s)
+* Item adherence: 0% (0/7 focus items)
+* Feature set adherence: 17% (1/6 planned feature sets had work)
+* Weighted adherence: 89% (with partial credit)
+* Untracked activity: 52 commit(s) not mapped to any feature set
+* Auto-archived 1 retroactive feature sets from untracked commits
 
 
-<!-- Generated by dev-tracker publish_to_jekyll.py (AI mode) -->
+<!-- Generated by dev-tracker publish_to_jekyll.py -->
 <!-- accomplished-date: 2026-04-11 -->
-<!-- unit-ids: tw-p6-core-mfa,tw-p7-admin-dashboard-root,tw-p7-admin-pages-system-settings,tw-p7-admin-pages-billing-config,tw-p7-admin-pages-user-mgmt,tw-p6-core-admin-kpi,tw-p7-admin-pages-doc-audit,tw-p7-admin-pages-reports-storybook-health,tw-p7-admin-developer-tools,tw-p7-admin-compliance-hub,tw-p5-userprofile-tokens,tw-p5-userprofile-profile,tw-p6-core-components,tw-p7-admin-design-system,tw-p7-admin-performance,tw-p7-admin-logging,tw-p7-admin-pages-dashboards,tw-p7-admin-pages-trivial-batch,tw-p7-admin-integrations,tw-p7-admin-security,tw-p7-admin-components,tw-p7-admin-partials,tw-p6-core-edit-legacy,tw-p7-admin-pages-system-spike,tw-p7-admin-trivial-singles -->
+<!-- unit-ids: tw-p6-core-mfa,tw-p7-admin-dashboard-root,tw-p7-admin-pages-system-settings,tw-p7-admin-pages-billing-config,tw-p7-admin-pages-user-mgmt,tw-p6-core-admin-kpi,tw-p7-admin-pages-doc-audit,tw-p7-admin-pages-reports-storybook-health,tw-p7-admin-developer-tools,tw-p7-admin-compliance-hub,tw-p5-userprofile-tokens,tw-p5-userprofile-profile,tw-p6-core-components,tw-p7-admin-design-system,tw-p7-admin-performance,tw-p7-admin-logging,tw-p7-admin-pages-dashboards,tw-p7-admin-pages-trivial-batch,tw-p7-admin-integrations,tw-p7-admin-security,tw-p7-admin-components,tw-p7-admin-partials,tw-p6-core-edit-legacy,tw-p7-admin-pages-system-spike,tw-p7-admin-trivial-singles,core-accessibility-migrate-admin-kpi-views-semantic,core-authentication-migrate-mfa-views-semantic-component,styles-migrate-userprofile-profile-views-semantic,core-workflow-migrate-core-component-views-semantic -->
 
-<!-- accomplished-unit-ids: tw-p5-userprofile-profile,tw-p5-userprofile-tokens,tw-p6-core-admin-kpi,tw-p6-core-components,tw-p6-core-edit-legacy,tw-p6-core-mfa,tw-p7-admin-compliance-hub,tw-p7-admin-components,tw-p7-admin-dashboard-root,tw-p7-admin-design-system,tw-p7-admin-developer-tools,tw-p7-admin-integrations,tw-p7-admin-logging,tw-p7-admin-pages-billing-config,tw-p7-admin-pages-dashboards,tw-p7-admin-pages-doc-audit,tw-p7-admin-pages-reports-storybook-health,tw-p7-admin-pages-system-settings,tw-p7-admin-pages-system-spike,tw-p7-admin-pages-trivial-batch,tw-p7-admin-pages-user-mgmt,tw-p7-admin-partials,tw-p7-admin-performance,tw-p7-admin-security,tw-p7-admin-trivial-singles -->
+<!-- accomplished-unit-ids: core-accessibility-migrate-admin-kpi-views-semantic,core-authentication-migrate-mfa-views-semantic-component,core-workflow-migrate-core-component-views-semantic,styles-migrate-userprofile-profile-views-semantic,tw-p5-userprofile-profile,tw-p5-userprofile-tokens,tw-p6-core-admin-kpi,tw-p6-core-components,tw-p6-core-edit-legacy,tw-p6-core-mfa,tw-p7-admin-compliance-hub,tw-p7-admin-components,tw-p7-admin-dashboard-root,tw-p7-admin-design-system,tw-p7-admin-developer-tools,tw-p7-admin-integrations,tw-p7-admin-logging,tw-p7-admin-pages-billing-config,tw-p7-admin-pages-dashboards,tw-p7-admin-pages-doc-audit,tw-p7-admin-pages-reports-storybook-health,tw-p7-admin-pages-system-settings,tw-p7-admin-pages-system-spike,tw-p7-admin-pages-trivial-batch,tw-p7-admin-pages-user-mgmt,tw-p7-admin-partials,tw-p7-admin-performance,tw-p7-admin-security,tw-p7-admin-trivial-singles -->
 <!-- SECTION: ACCOMPLISHED END -->
 <!-- Generated by dev-tracker build_today_plan.py -->
