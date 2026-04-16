@@ -40,30 +40,257 @@ The form flow builder save functionality (TV328) is tempting because identity an
 
 
 <!-- SECTION: ACCOMPLISHED START -->
-<!-- accomplished-generated: 2026-04-16T03:52:42.796725+00:00 -->
-<!-- accomplished-updated: 2026-04-16T03:52:42.796725+00:00 -->
+<!-- accomplished-generated: 2026-04-16T13:38:50.154697+00:00 -->
+<!-- accomplished-updated: 2026-04-16T13:38:50.154697+00:00 -->
 
-## Today's Update
+* Completed 170 tasks today on the Colossalistic Platform project.
 
-Today was essentially a massive feature completion marathon - I closed out complete implementation cycles for 20 horizontal slices and 10 thin vertical slices, plus several refactoring efforts. What started as routine baseline work turned into one of those rare days where everything just clicks into place and you can actually see the platform taking shape.
+## What I Built
 
-The horizontal slice work followed a consistent pattern across HS21 through HS40. For each slice, I moved through baseline evidence gathering, contract definition, backend pilot implementation, quality gates, frontend integration, observability instrumentation, and rollout documentation. The queue retry backoff work (HS23) was particularly satisfying because I'd been dealing with inconsistent job failure handling for weeks. The accessibility expansion (HS32) required building out shared A11Y test helpers and working through two batches of critical components - the kind of foundational work that makes everything else more accessible by default. The CSP inline script extraction (HS38) was more tedious than I expected, requiring systematic extraction of inline scripts into proper modules before I could tighten the content security policy.
+### assertion-method
+* Update assertion method to assertequalscanonicalizing in getmeteredanalyticsa...
 
-The thin vertical slices covered a lot of ground in the billing and tenant admin areas. The billing management cost allocation dashboard (TV334) involved connecting live analytics data to the frontend, which meant wrestling with the data pipeline to ensure deterministic behavior. The tenant admin hierarchy listing (TV329) required careful control plane wiring to avoid accidentally exposing data across tenant boundaries. The form flow builder work (TV328) was interesting because I had to solve some tricky version determinism issues - ensuring that saved flows maintain consistent identity even when the underlying schema evolves.
+### hooks
+* Ignore deleted frontend files in pre-push gates
 
-I also completed several standalone refactoring efforts that had been accumulating technical debt. The billing management controller refactor eliminated some gnarly state management issues, and the affiliate campaign partner section cleanup simplified what had become an overly complex React component tree. The queue work to adopt the shared retry backoff contract should make job failures much more predictable across the platform.
+### horizontal-slice-hs21-admin-placeholder-surface-burn-down
+* Baseline evidence and ownership map
+* Contract and acceptance criteria
+* Backend pilot cohort implementation
+* Targeted test and quality gate run
+* Consumer/UI pilot cohort integration
+* Rollout and rollback playbook
+* Observability and reliability instrumentation
+* Tracker and checklist synchronization
 
-This puts me in a strong position for the next phase of platform development. Having proper observability instrumentation across all these features means I'll actually know when things break, and the completed rollout documentation should make deployment much smoother than the ad-hoc approach I've been using.
+### horizontal-slice-hs22-billing-cost-dashboard-stub-completion
+* Baseline evidence and ownership map
+* Contract and acceptance criteria
+* Backend pilot cohort implementation
+* Targeted test and quality gate run
+* Consumer/UI pilot cohort integration
+* Rollout and rollback playbook
+* Observability and reliability instrumentation
+* Tracker and checklist synchronization
 
-**The Numbers:**
-- Completed: 232 tasks
-- Feature areas: horizontal-slice-hs21-admin-placeholder-surface-burn-down, horizontal-slice-hs22-billing-cost-dashboard-stub-completion, horizontal-slice-hs23-queue-retry-backoff-contract-adoption, horizontal-slice-hs24-frontend-direct-fetch-drain-wave2, horizontal-slice-hs25-raw-sql-portability-risk-cohort, horizontal-slice-hs26-user-model-import-guardrail-enforcement, horizontal-slice-hs27-controller-request-formrequest-hardening, horizontal-slice-hs28-kms-blockchain-production-key-path, horizontal-slice-hs29-domain-migration-stub-provider-exit, horizontal-slice-hs30-mcp-toon-incomplete-test-feature-closure, horizontal-slice-hs32-accessibility-coverage-expansion-high-traffic, horizontal-slice-hs38-csp-inline-script-extraction-wave2, horizontal-slice-hs39-observability-trace-context-normalization, horizontal-slice-hs31-phpstan-high-signal-type-remediation, horizontal-slice-hs33-route-scribe-contract-sync, horizontal-slice-hs36-formrequest-adoption-controller-hardening, horizontal-slice-hs37-frontend-loc-decomposition-wave1, horizontal-slice-hs34-tenant-isolation-guardrail-enforcement, horizontal-slice-hs40-route-health-parameter-fixture-expansion, horizontal-slice-hs35-api-token-redaction-log-safety, thin-vslice-327-flow-definition-detail-funnel-and-step-output-observability, thin-vslice-334-billing-management-cost-allocation-live-breakdown-and-trends, refactor-billing-management, refactor-affiliate-campaign, thin-vslice-329-tenant-admin-hierarchy-list-control-plane-wiring, thin-vslice-333-billing-management-alerts-tab-live-risk-signals, hooks, thin-vslice-331-tenant-admin-audit-and-support-session-control-loop, queue, thin-vslice-325-forms-index-live-tenant-safe-listing, thin-vslice-328-form-flow-builder-save-identity-and-version-determinism, thin-vslice-326-form-definition-detail-and-compile-preview, simplify-rollback-uniqueness, thin-vslice-332-billing-management-usage-tab-live-analytics-integration, thin-vslice-330-tenant-admin-portfolio-health-usage-risk-integration
+### horizontal-slice-hs23-queue-retry-backoff-contract-adoption
+* Baseline evidence and ownership map
+* Contract and acceptance criteria
+* Backend pilot cohort implementation
+* Targeted test and quality gate run
+* Consumer/UI pilot cohort integration
+* Rollout and rollback playbook
+* Observability and reliability instrumentation
+* Tracker and checklist synchronization
+
+### horizontal-slice-hs24-frontend-direct-fetch-drain-wave2
+* Baseline evidence and ownership map
+* Contract and acceptance criteria
+* Backend pilot cohort implementation
+* Targeted test and quality gate run
+* Consumer/UI pilot cohort integration
+* Rollout and rollback playbook
+* Observability and reliability instrumentation
+* Tracker and checklist synchronization
+
+### horizontal-slice-hs25-raw-sql-portability-risk-cohort
+* Baseline evidence and ownership map
+* Contract and acceptance criteria
+* Backend pilot cohort implementation
+* Targeted test and quality gate run
+* Consumer/UI pilot cohort integration
+* Rollout and rollback playbook
+* Observability and reliability instrumentation
+* Tracker and checklist synchronization
+
+### horizontal-slice-hs26-user-model-import-guardrail-enforcement
+* Baseline evidence and ownership map
+* Contract and acceptance criteria
+* Backend pilot cohort implementation
+* Targeted test and quality gate run
+* Consumer/UI pilot cohort integration
+* Rollout and rollback playbook
+* Observability and reliability instrumentation
+* Tracker and checklist synchronization
+
+### horizontal-slice-hs27-controller-request-formrequest-hardening
+* Baseline evidence and ownership map
+* Contract and acceptance criteria
+* Backend pilot cohort implementation
+* Targeted test and quality gate run
+* Consumer/UI pilot cohort integration
+* Rollout and rollback playbook
+* Observability and reliability instrumentation
+* Tracker and checklist synchronization
+
+### horizontal-slice-hs28-kms-blockchain-production-key-path
+* Baseline evidence and ownership map
+* Contract and acceptance criteria
+* Backend pilot cohort implementation
+* Targeted test and quality gate run
+* Consumer/UI pilot cohort integration
+* Rollout and rollback playbook
+* Observability and reliability instrumentation
+* Tracker and checklist synchronization
+
+### horizontal-slice-hs29-domain-migration-stub-provider-exit
+* Baseline evidence and ownership map
+* Contract and acceptance criteria
+* Backend pilot cohort implementation
+* Targeted test and quality gate run
+* Consumer/UI pilot cohort integration
+* Rollout and rollback playbook
+* Observability and reliability instrumentation
+* Tracker and checklist synchronization
+
+### horizontal-slice-hs30-mcp-toon-incomplete-test-feature-closure
+* Baseline evidence and ownership map
+* Contract and acceptance criteria
+* Backend pilot cohort implementation
+* Targeted test and quality gate run
+* Consumer/UI pilot cohort integration
+* Rollout and rollback playbook
+* Observability and reliability instrumentation
+* Tracker and checklist synchronization
+
+### normalization
+* Add normalization for metric types in getmeteredanalyticsactiontest
+
+### outdated-horizontal
+* Remove outdated horizontal slices planning documents for 2026-04-14 and 2026-...
+
+### partners-section
+* Add tests for stale partner recovery and notification handling
+
+### queue
+* Adopt shared retry backoff contract for hs23 pilot
+
+### refactor-affiliate-campaign
+* Refactor affiliate campaign and partner sections for improved state managemen...
+
+### refactor-billing-management
+* Refactor billing management controller to utilize
+
+### simplify-rollback-uniqueness
+* Simplify rollback uniqueness check and improve duplicate admin id query
+
+### tenant-scope
+* Implement validatestenantscope trait and refactor related actions for tenant ...
+
+### thin-vslice-325-forms-index-live-tenant-safe-listing
+* Define slice contract and acceptance scope
+* Implement backend orchestration path
+* Harden deterministic data behavior
+* Harden API and validation contracts
+* Integrate frontend and UI path
+* Add observability instrumentation
+* Add focused tests and accessibility coverage
+* Run quality gates and publish handoff
+
+### thin-vslice-326-form-definition-detail-and-compile-preview
+* Define slice contract and acceptance scope
+* Implement backend orchestration path
+* Harden deterministic data behavior
+* Harden API and validation contracts
+* Integrate frontend and UI path
+* Add observability instrumentation
+* Add focused tests and accessibility coverage
+* Run quality gates and publish handoff
+
+### thin-vslice-327-flow-definition-detail-funnel-and-step-output-observability
+* Define slice contract and acceptance scope
+* Implement backend orchestration path
+* Harden deterministic data behavior
+* Harden API and validation contracts
+* Integrate frontend and UI path
+* Add observability instrumentation
+* Add focused tests and accessibility coverage
+* Run quality gates and publish handoff
+
+### thin-vslice-328-form-flow-builder-save-identity-and-version-determinism
+* Define slice contract and acceptance scope
+* Implement backend orchestration path
+* Harden deterministic data behavior
+* Harden API and validation contracts
+* Integrate frontend and UI path
+* Add observability instrumentation
+* Add focused tests and accessibility coverage
+* Run quality gates and publish handoff
+
+### thin-vslice-329-tenant-admin-hierarchy-list-control-plane-wiring
+* Define slice contract and acceptance scope
+* Implement backend orchestration path
+* Harden deterministic data behavior
+* Harden API and validation contracts
+* Integrate frontend and UI path
+* Add observability instrumentation
+* Add focused tests and accessibility coverage
+* Run quality gates and publish handoff
+
+### thin-vslice-330-tenant-admin-portfolio-health-usage-risk-integration
+* Define slice contract and acceptance scope
+* Implement backend orchestration path
+* Harden deterministic data behavior
+* Harden API and validation contracts
+* Integrate frontend and UI path
+* Add observability instrumentation
+* Add focused tests and accessibility coverage
+* Run quality gates and publish handoff
+
+### thin-vslice-331-tenant-admin-audit-and-support-session-control-loop
+* Define slice contract and acceptance scope
+* Implement backend orchestration path
+* Harden deterministic data behavior
+* Harden API and validation contracts
+* Integrate frontend and UI path
+* Add observability instrumentation
+* Add focused tests and accessibility coverage
+* Run quality gates and publish handoff
+
+### thin-vslice-332-billing-management-usage-tab-live-analytics-integration
+* Define slice contract and acceptance scope
+* Implement backend orchestration path
+* Harden deterministic data behavior
+* Harden API and validation contracts
+* Integrate frontend and UI path
+* Add observability instrumentation
+* Add focused tests and accessibility coverage
+* Run quality gates and publish handoff
+
+### thin-vslice-333-billing-management-alerts-tab-live-risk-signals
+* Define slice contract and acceptance scope
+* Implement backend orchestration path
+* Harden deterministic data behavior
+* Harden API and validation contracts
+* Integrate frontend and UI path
+* Add observability instrumentation
+* Add focused tests and accessibility coverage
+* Run quality gates and publish handoff
+
+### thin-vslice-334-billing-management-cost-allocation-live-breakdown-and-trends
+* Define slice contract and acceptance scope
+* Implement backend orchestration path
+* Harden deterministic data behavior
+* Harden API and validation contracts
+* Integrate frontend and UI path
+* Add observability instrumentation
+* Add focused tests and accessibility coverage
+* Run quality gates and publish handoff
+
+## Notes
+
+* Completed 170 work unit(s)
+* Item adherence: 100% (8/8 focus items)
+* Feature set adherence: 100% (8/8 planned feature sets had work)
+* Weighted adherence: 200% (with partial credit)
+* Untracked activity: 27 commit(s) not mapped to any feature set
+* Auto-archived 1 retroactive feature sets from untracked commits
 
 
-<!-- Generated by dev-tracker publish_to_jekyll.py (AI mode) -->
+<!-- Generated by dev-tracker publish_to_jekyll.py -->
 <!-- accomplished-date: 2026-04-15 -->
-<!-- unit-ids: hs21-baseline-evidence,hs22-baseline-evidence,hs23-baseline-evidence,hs24-baseline-evidence,hs25-baseline-evidence,hs26-baseline-evidence,hs27-baseline-evidence,hs28-baseline-evidence,hs29-baseline-evidence,hs30-baseline-evidence,hs21-contract-scope,hs21-backend-pilot-cohort,hs22-contract-scope,hs22-backend-pilot-cohort,hs23-contract-scope,hs23-backend-pilot-cohort,hs24-contract-scope,hs24-backend-pilot-cohort,hs25-contract-scope,hs25-backend-pilot-cohort,hs26-contract-scope,hs26-backend-pilot-cohort,hs27-contract-scope,hs27-backend-pilot-cohort,hs28-contract-scope,hs28-backend-pilot-cohort,hs29-contract-scope,hs29-backend-pilot-cohort,hs30-contract-scope,hs30-backend-pilot-cohort,hs21-targeted-quality-gates,hs22-targeted-quality-gates,hs23-targeted-quality-gates,hs24-targeted-quality-gates,hs25-targeted-quality-gates,hs26-targeted-quality-gates,hs27-targeted-quality-gates,hs28-targeted-quality-gates,hs29-targeted-quality-gates,hs30-targeted-quality-gates,hs21-consumer-pilot-cohort,hs22-consumer-pilot-cohort,hs23-consumer-pilot-cohort,hs24-consumer-pilot-cohort,hs25-consumer-pilot-cohort,hs26-consumer-pilot-cohort,hs27-consumer-pilot-cohort,hs28-consumer-pilot-cohort,hs29-consumer-pilot-cohort,hs30-consumer-pilot-cohort,hs21-rollout-rollback-playbook,hs22-rollout-rollback-playbook,hs23-rollout-rollback-playbook,hs24-rollout-rollback-playbook,hs25-rollout-rollback-playbook,hs26-rollout-rollback-playbook,hs27-rollout-rollback-playbook,hs28-rollout-rollback-playbook,hs29-rollout-rollback-playbook,hs30-rollout-rollback-playbook,hs21-observability-ops,hs22-observability-ops,hs23-observability-ops,hs24-observability-ops,hs25-observability-ops,hs26-observability-ops,hs27-observability-ops,hs28-observability-ops,hs29-observability-ops,hs30-observability-ops,hs21-tracker-checklist-sync,hs22-tracker-checklist-sync,hs23-tracker-checklist-sync,hs24-tracker-checklist-sync,hs25-tracker-checklist-sync,hs26-tracker-checklist-sync,hs27-tracker-checklist-sync,hs28-tracker-checklist-sync,hs29-tracker-checklist-sync,hs30-tracker-checklist-sync,hs32-component-priority-inventory,hs32-shared-a11y-test-helper,hs32-batch-1-critical-components,hs32-batch-2-forms-dashboard-components,hs32-a11y-gate-script-hardening,hs32-manual-audit-evidence-pack,hs32-targeted-quality-gates,hs32-rollout-handoff,hs38-inline-script-baseline,hs38-wave1-script-module-extraction,hs38-wave2-script-module-extraction,hs38-csp-policy-tightening-cohort,hs38-csp-regression-tests,hs38-ui-smoke-and-a11y-checks,hs38-targeted-quality-gates,hs38-rollout-handoff,hs39-trace-contract-baseline,hs39-shared-context-helper-updates,hs39-http-middleware-normalization,hs39-queue-webhook-propagation-normalization,hs39-log-field-cohort-migration,hs39-trace-propagation-tests,hs39-observability-quality-gates,hs39-rollout-handoff,hs31-type-baseline-matrix,hs31-billing-finops-cohort-remediation,hs31-etl-adapter-cohort-remediation,hs31-compliance-cohort-remediation,hs31-targeted-guardrail-script,hs31-focused-regression-tests,hs31-targeted-quality-gates,hs31-rollout-handoff,hs33-discrepancy-baseline-export,hs33-changed-route-parity-check,hs33-doc-regression-tests,hs33-targeted-quality-gates,hs33-rollout-handoff,hs36-controller-validation-baseline,hs36-inline-validation-guardrail,hs36-rollout-handoff,hs37-loc-priority-baseline,hs37-cohort-1-component-decomposition,hs37-cohort-1-hook-service-extraction,hs37-cohort-2-component-decomposition,hs37-test-storybook-alignment,hs37-loc-policy-doc-update,hs37-targeted-quality-gates,hs37-rollout-handoff,hs34-tenant-risk-baseline,hs34-targeted-security-gates,hs34-rollout-handoff,hs40-parameter-route-baseline,hs40-fixture-registry-foundation,hs40-public-route-fixture-cohort,hs40-admin-route-fixture-cohort,hs40-user-route-fixture-cohort,hs40-route-health-regression-tests,hs40-route-health-delta-run,hs40-rollout-handoff,hs35-token-log-baseline,hs35-redaction-rules-extension,hs35-high-risk-callsite-remediation,hs35-secure-exception-message-policy,hs35-redaction-observability-metrics,hs35-token-safety-tests,hs35-targeted-security-gates,hs35-rollout-handoff,tv327-contract-scope-baseline,tv327-backend-orchestration,tv327-data-determinism,tv327-api-contract-hardening,tv327-frontend-integration,tv327-observability-instrumentation,tv327-focused-tests-a11y,tv327-quality-gates-handoff,tv334-contract-scope-baseline,tv334-backend-orchestration,tv334-data-determinism,tv334-api-contract-hardening,tv334-frontend-integration,tv334-observability-instrumentation,tv334-focused-tests-a11y,tv334-quality-gates-handoff,refactor-billing-management-refactor-billing-management-controller-utilize,refactor-affiliate-campaign-refactor-affiliate-campaign-partner-sections,tv329-contract-scope-baseline,tv329-backend-orchestration,tv329-data-determinism,tv329-api-contract-hardening,tv329-frontend-integration,tv329-observability-instrumentation,tv329-focused-tests-a11y,tv329-quality-gates-handoff,tv333-contract-scope-baseline,tv333-backend-orchestration,tv333-data-determinism,tv333-api-contract-hardening,tv333-frontend-integration,tv333-observability-instrumentation,tv333-focused-tests-a11y,tv333-quality-gates-handoff,hooks-ignore-deleted-frontend-files-pre-push,tv331-contract-scope-baseline,tv331-backend-orchestration,tv331-data-determinism,tv331-api-contract-hardening,tv331-frontend-integration,tv331-observability-instrumentation,tv331-focused-tests-a11y,tv331-quality-gates-handoff,queue-adopt-shared-retry-backoff-contract,tv325-contract-scope-baseline,tv325-backend-orchestration,tv325-data-determinism,tv325-api-contract-hardening,tv325-frontend-integration,tv325-observability-instrumentation,tv325-focused-tests-a11y,tv325-quality-gates-handoff,tv328-contract-scope-baseline,tv328-backend-orchestration,tv328-data-determinism,tv328-api-contract-hardening,tv328-frontend-integration,tv328-observability-instrumentation,tv328-focused-tests-a11y,tv328-quality-gates-handoff,tv326-contract-scope-baseline,tv326-backend-orchestration,tv326-data-determinism,tv326-api-contract-hardening,tv326-frontend-integration,tv326-observability-instrumentation,tv326-focused-tests-a11y,tv326-quality-gates-handoff,simplify-rollback-uniqueness-simplify-rollback-uniqueness-check-improve,tv332-contract-scope-baseline,tv332-backend-orchestration,tv332-data-determinism,tv332-api-contract-hardening,tv332-frontend-integration,tv332-observability-instrumentation,tv332-focused-tests-a11y,tv332-quality-gates-handoff,tv330-contract-scope-baseline,tv330-backend-orchestration,tv330-data-determinism,tv330-api-contract-hardening,tv330-frontend-integration,tv330-observability-instrumentation,tv330-focused-tests-a11y,tv330-quality-gates-handoff -->
+<!-- unit-ids: hs21-baseline-evidence,hs22-baseline-evidence,hs23-baseline-evidence,hs24-baseline-evidence,hs25-baseline-evidence,hs26-baseline-evidence,hs27-baseline-evidence,hs28-baseline-evidence,hs29-baseline-evidence,hs30-baseline-evidence,hs21-contract-scope,hs21-backend-pilot-cohort,hs22-contract-scope,hs22-backend-pilot-cohort,hs23-contract-scope,hs23-backend-pilot-cohort,hs24-contract-scope,hs24-backend-pilot-cohort,hs25-contract-scope,hs25-backend-pilot-cohort,hs26-contract-scope,hs26-backend-pilot-cohort,hs27-contract-scope,hs27-backend-pilot-cohort,hs28-contract-scope,hs28-backend-pilot-cohort,hs29-contract-scope,hs29-backend-pilot-cohort,hs30-contract-scope,hs30-backend-pilot-cohort,hs21-targeted-quality-gates,hs22-targeted-quality-gates,hs23-targeted-quality-gates,hs24-targeted-quality-gates,hs25-targeted-quality-gates,hs26-targeted-quality-gates,hs27-targeted-quality-gates,hs28-targeted-quality-gates,hs29-targeted-quality-gates,hs30-targeted-quality-gates,hs21-consumer-pilot-cohort,hs22-consumer-pilot-cohort,hs23-consumer-pilot-cohort,hs24-consumer-pilot-cohort,hs25-consumer-pilot-cohort,hs26-consumer-pilot-cohort,hs27-consumer-pilot-cohort,hs28-consumer-pilot-cohort,hs29-consumer-pilot-cohort,hs30-consumer-pilot-cohort,hs21-rollout-rollback-playbook,hs22-rollout-rollback-playbook,hs23-rollout-rollback-playbook,hs24-rollout-rollback-playbook,hs25-rollout-rollback-playbook,hs26-rollout-rollback-playbook,hs27-rollout-rollback-playbook,hs28-rollout-rollback-playbook,hs29-rollout-rollback-playbook,hs30-rollout-rollback-playbook,hs21-observability-ops,hs22-observability-ops,hs23-observability-ops,hs24-observability-ops,hs25-observability-ops,hs26-observability-ops,hs27-observability-ops,hs28-observability-ops,hs29-observability-ops,hs30-observability-ops,hs21-tracker-checklist-sync,hs22-tracker-checklist-sync,hs23-tracker-checklist-sync,hs24-tracker-checklist-sync,hs25-tracker-checklist-sync,hs26-tracker-checklist-sync,hs27-tracker-checklist-sync,hs28-tracker-checklist-sync,hs29-tracker-checklist-sync,hs30-tracker-checklist-sync,tv327-contract-scope-baseline,tv327-backend-orchestration,tv327-data-determinism,tv327-api-contract-hardening,tv327-frontend-integration,tv327-observability-instrumentation,tv327-focused-tests-a11y,tv327-quality-gates-handoff,tv334-contract-scope-baseline,tv334-backend-orchestration,tv334-data-determinism,tv334-api-contract-hardening,tv334-frontend-integration,tv334-observability-instrumentation,tv334-focused-tests-a11y,tv334-quality-gates-handoff,tenant-scope-validatestenantscope-trait-refactor-related-actions,refactor-billing-management-refactor-billing-management-controller-utilize,refactor-affiliate-campaign-refactor-affiliate-campaign-partner-sections,tv329-contract-scope-baseline,tv329-backend-orchestration,tv329-data-determinism,tv329-api-contract-hardening,tv329-frontend-integration,tv329-observability-instrumentation,tv329-focused-tests-a11y,tv329-quality-gates-handoff,normalization-normalization-metric-types-getmeteredanalyticsactiontest,assertion-method-assertion-method-assertequalscanonicalizing-getmeteredanalyticsactiontest,tv333-contract-scope-baseline,tv333-backend-orchestration,tv333-data-determinism,tv333-api-contract-hardening,tv333-frontend-integration,tv333-observability-instrumentation,tv333-focused-tests-a11y,tv333-quality-gates-handoff,partners-section-tests-stale-partner-recovery-notification,hooks-ignore-deleted-frontend-files-pre-push,tv331-contract-scope-baseline,tv331-backend-orchestration,tv331-data-determinism,tv331-api-contract-hardening,tv331-frontend-integration,tv331-observability-instrumentation,tv331-focused-tests-a11y,tv331-quality-gates-handoff,queue-adopt-shared-retry-backoff-contract,tv325-contract-scope-baseline,tv325-backend-orchestration,tv325-data-determinism,tv325-api-contract-hardening,tv325-frontend-integration,tv325-observability-instrumentation,tv325-focused-tests-a11y,tv325-quality-gates-handoff,tv328-contract-scope-baseline,tv328-backend-orchestration,tv328-data-determinism,tv328-api-contract-hardening,tv328-frontend-integration,tv328-observability-instrumentation,tv328-focused-tests-a11y,tv328-quality-gates-handoff,outdated-horizontal-remove-outdated-horizontal-slices-planning,tv326-contract-scope-baseline,tv326-backend-orchestration,tv326-data-determinism,tv326-api-contract-hardening,tv326-frontend-integration,tv326-observability-instrumentation,tv326-focused-tests-a11y,tv326-quality-gates-handoff,simplify-rollback-uniqueness-simplify-rollback-uniqueness-check-improve,tv332-contract-scope-baseline,tv332-backend-orchestration,tv332-data-determinism,tv332-api-contract-hardening,tv332-frontend-integration,tv332-observability-instrumentation,tv332-focused-tests-a11y,tv332-quality-gates-handoff,tv330-contract-scope-baseline,tv330-backend-orchestration,tv330-data-determinism,tv330-api-contract-hardening,tv330-frontend-integration,tv330-observability-instrumentation,tv330-focused-tests-a11y,tv330-quality-gates-handoff -->
 
-<!-- accomplished-unit-ids: hooks-ignore-deleted-frontend-files-pre-push,hs21-backend-pilot-cohort,hs21-baseline-evidence,hs21-consumer-pilot-cohort,hs21-contract-scope,hs21-observability-ops,hs21-rollout-rollback-playbook,hs21-targeted-quality-gates,hs21-tracker-checklist-sync,hs22-backend-pilot-cohort,hs22-baseline-evidence,hs22-consumer-pilot-cohort,hs22-contract-scope,hs22-observability-ops,hs22-rollout-rollback-playbook,hs22-targeted-quality-gates,hs22-tracker-checklist-sync,hs23-backend-pilot-cohort,hs23-baseline-evidence,hs23-consumer-pilot-cohort,hs23-contract-scope,hs23-observability-ops,hs23-rollout-rollback-playbook,hs23-targeted-quality-gates,hs23-tracker-checklist-sync,hs24-backend-pilot-cohort,hs24-baseline-evidence,hs24-consumer-pilot-cohort,hs24-contract-scope,hs24-observability-ops,hs24-rollout-rollback-playbook,hs24-targeted-quality-gates,hs24-tracker-checklist-sync,hs25-backend-pilot-cohort,hs25-baseline-evidence,hs25-consumer-pilot-cohort,hs25-contract-scope,hs25-observability-ops,hs25-rollout-rollback-playbook,hs25-targeted-quality-gates,hs25-tracker-checklist-sync,hs26-backend-pilot-cohort,hs26-baseline-evidence,hs26-consumer-pilot-cohort,hs26-contract-scope,hs26-observability-ops,hs26-rollout-rollback-playbook,hs26-targeted-quality-gates,hs26-tracker-checklist-sync,hs27-backend-pilot-cohort,hs27-baseline-evidence,hs27-consumer-pilot-cohort,hs27-contract-scope,hs27-observability-ops,hs27-rollout-rollback-playbook,hs27-targeted-quality-gates,hs27-tracker-checklist-sync,hs28-backend-pilot-cohort,hs28-baseline-evidence,hs28-consumer-pilot-cohort,hs28-contract-scope,hs28-observability-ops,hs28-rollout-rollback-playbook,hs28-targeted-quality-gates,hs28-tracker-checklist-sync,hs29-backend-pilot-cohort,hs29-baseline-evidence,hs29-consumer-pilot-cohort,hs29-contract-scope,hs29-observability-ops,hs29-rollout-rollback-playbook,hs29-targeted-quality-gates,hs29-tracker-checklist-sync,hs30-backend-pilot-cohort,hs30-baseline-evidence,hs30-consumer-pilot-cohort,hs30-contract-scope,hs30-observability-ops,hs30-rollout-rollback-playbook,hs30-targeted-quality-gates,hs30-tracker-checklist-sync,hs31-billing-finops-cohort-remediation,hs31-compliance-cohort-remediation,hs31-etl-adapter-cohort-remediation,hs31-focused-regression-tests,hs31-rollout-handoff,hs31-targeted-guardrail-script,hs31-targeted-quality-gates,hs31-type-baseline-matrix,hs32-a11y-gate-script-hardening,hs32-batch-1-critical-components,hs32-batch-2-forms-dashboard-components,hs32-component-priority-inventory,hs32-manual-audit-evidence-pack,hs32-rollout-handoff,hs32-shared-a11y-test-helper,hs32-targeted-quality-gates,hs33-changed-route-parity-check,hs33-discrepancy-baseline-export,hs33-doc-regression-tests,hs33-rollout-handoff,hs33-targeted-quality-gates,hs34-rollout-handoff,hs34-targeted-security-gates,hs34-tenant-risk-baseline,hs35-high-risk-callsite-remediation,hs35-redaction-observability-metrics,hs35-redaction-rules-extension,hs35-rollout-handoff,hs35-secure-exception-message-policy,hs35-targeted-security-gates,hs35-token-log-baseline,hs35-token-safety-tests,hs36-controller-validation-baseline,hs36-inline-validation-guardrail,hs36-rollout-handoff,hs37-cohort-1-component-decomposition,hs37-cohort-1-hook-service-extraction,hs37-cohort-2-component-decomposition,hs37-loc-policy-doc-update,hs37-loc-priority-baseline,hs37-rollout-handoff,hs37-targeted-quality-gates,hs37-test-storybook-alignment,hs38-csp-policy-tightening-cohort,hs38-csp-regression-tests,hs38-inline-script-baseline,hs38-rollout-handoff,hs38-targeted-quality-gates,hs38-ui-smoke-and-a11y-checks,hs38-wave1-script-module-extraction,hs38-wave2-script-module-extraction,hs39-http-middleware-normalization,hs39-log-field-cohort-migration,hs39-observability-quality-gates,hs39-queue-webhook-propagation-normalization,hs39-rollout-handoff,hs39-shared-context-helper-updates,hs39-trace-contract-baseline,hs39-trace-propagation-tests,hs40-admin-route-fixture-cohort,hs40-fixture-registry-foundation,hs40-parameter-route-baseline,hs40-public-route-fixture-cohort,hs40-rollout-handoff,hs40-route-health-delta-run,hs40-route-health-regression-tests,hs40-user-route-fixture-cohort,queue-adopt-shared-retry-backoff-contract,refactor-affiliate-campaign-refactor-affiliate-campaign-partner-sections,refactor-billing-management-refactor-billing-management-controller-utilize,simplify-rollback-uniqueness-simplify-rollback-uniqueness-check-improve,tv325-api-contract-hardening,tv325-backend-orchestration,tv325-contract-scope-baseline,tv325-data-determinism,tv325-focused-tests-a11y,tv325-frontend-integration,tv325-observability-instrumentation,tv325-quality-gates-handoff,tv326-api-contract-hardening,tv326-backend-orchestration,tv326-contract-scope-baseline,tv326-data-determinism,tv326-focused-tests-a11y,tv326-frontend-integration,tv326-observability-instrumentation,tv326-quality-gates-handoff,tv327-api-contract-hardening,tv327-backend-orchestration,tv327-contract-scope-baseline,tv327-data-determinism,tv327-focused-tests-a11y,tv327-frontend-integration,tv327-observability-instrumentation,tv327-quality-gates-handoff,tv328-api-contract-hardening,tv328-backend-orchestration,tv328-contract-scope-baseline,tv328-data-determinism,tv328-focused-tests-a11y,tv328-frontend-integration,tv328-observability-instrumentation,tv328-quality-gates-handoff,tv329-api-contract-hardening,tv329-backend-orchestration,tv329-contract-scope-baseline,tv329-data-determinism,tv329-focused-tests-a11y,tv329-frontend-integration,tv329-observability-instrumentation,tv329-quality-gates-handoff,tv330-api-contract-hardening,tv330-backend-orchestration,tv330-contract-scope-baseline,tv330-data-determinism,tv330-focused-tests-a11y,tv330-frontend-integration,tv330-observability-instrumentation,tv330-quality-gates-handoff,tv331-api-contract-hardening,tv331-backend-orchestration,tv331-contract-scope-baseline,tv331-data-determinism,tv331-focused-tests-a11y,tv331-frontend-integration,tv331-observability-instrumentation,tv331-quality-gates-handoff,tv332-api-contract-hardening,tv332-backend-orchestration,tv332-contract-scope-baseline,tv332-data-determinism,tv332-focused-tests-a11y,tv332-frontend-integration,tv332-observability-instrumentation,tv332-quality-gates-handoff,tv333-api-contract-hardening,tv333-backend-orchestration,tv333-contract-scope-baseline,tv333-data-determinism,tv333-focused-tests-a11y,tv333-frontend-integration,tv333-observability-instrumentation,tv333-quality-gates-handoff,tv334-api-contract-hardening,tv334-backend-orchestration,tv334-contract-scope-baseline,tv334-data-determinism,tv334-focused-tests-a11y,tv334-frontend-integration,tv334-observability-instrumentation,tv334-quality-gates-handoff -->
+<!-- accomplished-unit-ids: assertion-method-assertion-method-assertequalscanonicalizing-getmeteredanalyticsactiontest,hooks-ignore-deleted-frontend-files-pre-push,hs21-backend-pilot-cohort,hs21-baseline-evidence,hs21-consumer-pilot-cohort,hs21-contract-scope,hs21-observability-ops,hs21-rollout-rollback-playbook,hs21-targeted-quality-gates,hs21-tracker-checklist-sync,hs22-backend-pilot-cohort,hs22-baseline-evidence,hs22-consumer-pilot-cohort,hs22-contract-scope,hs22-observability-ops,hs22-rollout-rollback-playbook,hs22-targeted-quality-gates,hs22-tracker-checklist-sync,hs23-backend-pilot-cohort,hs23-baseline-evidence,hs23-consumer-pilot-cohort,hs23-contract-scope,hs23-observability-ops,hs23-rollout-rollback-playbook,hs23-targeted-quality-gates,hs23-tracker-checklist-sync,hs24-backend-pilot-cohort,hs24-baseline-evidence,hs24-consumer-pilot-cohort,hs24-contract-scope,hs24-observability-ops,hs24-rollout-rollback-playbook,hs24-targeted-quality-gates,hs24-tracker-checklist-sync,hs25-backend-pilot-cohort,hs25-baseline-evidence,hs25-consumer-pilot-cohort,hs25-contract-scope,hs25-observability-ops,hs25-rollout-rollback-playbook,hs25-targeted-quality-gates,hs25-tracker-checklist-sync,hs26-backend-pilot-cohort,hs26-baseline-evidence,hs26-consumer-pilot-cohort,hs26-contract-scope,hs26-observability-ops,hs26-rollout-rollback-playbook,hs26-targeted-quality-gates,hs26-tracker-checklist-sync,hs27-backend-pilot-cohort,hs27-baseline-evidence,hs27-consumer-pilot-cohort,hs27-contract-scope,hs27-observability-ops,hs27-rollout-rollback-playbook,hs27-targeted-quality-gates,hs27-tracker-checklist-sync,hs28-backend-pilot-cohort,hs28-baseline-evidence,hs28-consumer-pilot-cohort,hs28-contract-scope,hs28-observability-ops,hs28-rollout-rollback-playbook,hs28-targeted-quality-gates,hs28-tracker-checklist-sync,hs29-backend-pilot-cohort,hs29-baseline-evidence,hs29-consumer-pilot-cohort,hs29-contract-scope,hs29-observability-ops,hs29-rollout-rollback-playbook,hs29-targeted-quality-gates,hs29-tracker-checklist-sync,hs30-backend-pilot-cohort,hs30-baseline-evidence,hs30-consumer-pilot-cohort,hs30-contract-scope,hs30-observability-ops,hs30-rollout-rollback-playbook,hs30-targeted-quality-gates,hs30-tracker-checklist-sync,normalization-normalization-metric-types-getmeteredanalyticsactiontest,outdated-horizontal-remove-outdated-horizontal-slices-planning,partners-section-tests-stale-partner-recovery-notification,queue-adopt-shared-retry-backoff-contract,refactor-affiliate-campaign-refactor-affiliate-campaign-partner-sections,refactor-billing-management-refactor-billing-management-controller-utilize,simplify-rollback-uniqueness-simplify-rollback-uniqueness-check-improve,tenant-scope-validatestenantscope-trait-refactor-related-actions,tv325-api-contract-hardening,tv325-backend-orchestration,tv325-contract-scope-baseline,tv325-data-determinism,tv325-focused-tests-a11y,tv325-frontend-integration,tv325-observability-instrumentation,tv325-quality-gates-handoff,tv326-api-contract-hardening,tv326-backend-orchestration,tv326-contract-scope-baseline,tv326-data-determinism,tv326-focused-tests-a11y,tv326-frontend-integration,tv326-observability-instrumentation,tv326-quality-gates-handoff,tv327-api-contract-hardening,tv327-backend-orchestration,tv327-contract-scope-baseline,tv327-data-determinism,tv327-focused-tests-a11y,tv327-frontend-integration,tv327-observability-instrumentation,tv327-quality-gates-handoff,tv328-api-contract-hardening,tv328-backend-orchestration,tv328-contract-scope-baseline,tv328-data-determinism,tv328-focused-tests-a11y,tv328-frontend-integration,tv328-observability-instrumentation,tv328-quality-gates-handoff,tv329-api-contract-hardening,tv329-backend-orchestration,tv329-contract-scope-baseline,tv329-data-determinism,tv329-focused-tests-a11y,tv329-frontend-integration,tv329-observability-instrumentation,tv329-quality-gates-handoff,tv330-api-contract-hardening,tv330-backend-orchestration,tv330-contract-scope-baseline,tv330-data-determinism,tv330-focused-tests-a11y,tv330-frontend-integration,tv330-observability-instrumentation,tv330-quality-gates-handoff,tv331-api-contract-hardening,tv331-backend-orchestration,tv331-contract-scope-baseline,tv331-data-determinism,tv331-focused-tests-a11y,tv331-frontend-integration,tv331-observability-instrumentation,tv331-quality-gates-handoff,tv332-api-contract-hardening,tv332-backend-orchestration,tv332-contract-scope-baseline,tv332-data-determinism,tv332-focused-tests-a11y,tv332-frontend-integration,tv332-observability-instrumentation,tv332-quality-gates-handoff,tv333-api-contract-hardening,tv333-backend-orchestration,tv333-contract-scope-baseline,tv333-data-determinism,tv333-focused-tests-a11y,tv333-frontend-integration,tv333-observability-instrumentation,tv333-quality-gates-handoff,tv334-api-contract-hardening,tv334-backend-orchestration,tv334-contract-scope-baseline,tv334-data-determinism,tv334-focused-tests-a11y,tv334-frontend-integration,tv334-observability-instrumentation,tv334-quality-gates-handoff -->
 <!-- SECTION: ACCOMPLISHED END -->
 <!-- Generated by dev-tracker build_today_plan.py -->
