@@ -7,33 +7,33 @@ tags: [dev-tracker]
 ---
 
 <!-- SECTION: DAILY-PLAN START -->
-<!-- plan-generated: 2026-04-21T14:35:45.893842+00:00 -->
+<!-- plan-generated: 2026-04-21T14:42:22.571882+00:00 -->
 
 ## Today's Theme
 
-Eight feature sets all hit with activity yesterday but every single one is stuck at the contract baseline phase - I've been scaffolding planning directories instead of making the hard architectural decisions. The auth API security log redaction work particularly confuses me because I created the directory but have zero clarity on what data actually needs to be redacted or how the reliability contract fits together.
+I created eight new thin vertical slice directories yesterday - tv375 through tv382 - but every single one is just empty scaffolding sitting at the contract baseline phase. This pattern is becoming obvious: I'm generating planning infrastructure at high velocity while dodging the actual requirement definition work. The auth API security log redaction (tv375) particularly confuses me because I don't have a clear picture of what data needs redacting or where redaction should happen in the pipeline.
 
 ## The Main Work
 
-**Define what log redaction actually means for the auth API** - The tv375 contract baseline is completely hollow because I genuinely don't understand what security data needs redacting. Are we talking about request payloads, JWT tokens, or something else entirely? I can't design redaction rules for concepts I don't grasp, and this uncertainty has been nagging at me since I created the directory yesterday. Either the requirements make sense or they're architectural nonsense.
+**Complete the tv375 contract baseline for auth log redaction** - The first work unit defines what gets stripped from auth logs, but the contract-scope-baseline.md artifact is hollow. I need to decide whether to redact at the logging layer or sanitize before storage. This has been nagging at me because auth logs touch sensitive data everywhere - request payloads, tokens, user identifiers. Getting the redaction scope wrong creates either security holes or useless logs.
 
-**Map RBAC enforcement points across existing routes** - The tv376 authorization middleware work assumes I know where route-level permissions are currently checked, but I suspect our existing auth is scattered chaos. Before building unified RBAC enforcement, I need to inventory every controller that makes authorization decisions. This archaeological work is tedious but if I get the enforcement points wrong, security holes appear everywhere.
+**Map existing authorization touchpoints for tv376 RBAC middleware** - Before adding route enforcement, I need to inventory where auth checks currently live. I suspect it's scattered across individual controllers rather than centralized, which would make middleware integration messy. The backend orchestration and API contract sections exist in the implementation plan but I've been avoiding this archaeological work because finding fragmented auth logic is tedious.
 
-**Research what admin capability manifest data we actually collect** - TV377 mentions navigation parity but I have no idea what admin capabilities are currently tracked or how they map to UI navigation. The admin surface is complex enough that guessing about capability data could break entire workflows. I'm curious whether we have this information at all or if I'm designing around non-existent infrastructure.
+**Research what admin capability manifest should actually contain** - The tv377 navigation parity work assumes we can generate a capability manifest, but I don't know what capabilities we're tracking or how they map to navigation elements. Are we talking about feature flags, user permissions, or something else? This uncertainty is blocking any real progress on the admin navigation consistency problem.
 
-**Auto-fix those 306 ESLint warnings** - Simple `make lint-fix` command that eliminates noise I keep scanning past when looking for real issues. These auto-fixable warnings clutter every lint report and waste mental energy during code review.
+**Auto-fix the 306 ESLint warnings** - Simple `make lint-fix` command that eliminates noise from development workflow. These auto-fixable issues create visual clutter during code review, and I keep scanning past them when hunting for real problems.
 
 ## Housekeeping
 
-**Draft implementation plan for feature flags remediation** - The quality gates document is already researched and waiting for concrete next steps. Since I'm already thinking about admin surfaces today, planning the feature flag cleanup complements the capability manifest work.
+**Refresh the 8-day-old lint harness snapshot** - Run `make lint-harness-snapshot` to get current metrics instead of stale data. The snapshot dates are getting long enough that the quality reports don't reflect recent changes.
 
-**Refresh the 8-day-old lint harness snapshot** - Simple `make lint-harness-snapshot` command that updates stale quality metrics. Having accurate baseline numbers matters when making decisions about technical debt priorities.
+**Draft implementation plan for route parity maintenance** - This planning directory relates to the authorization work I'm focusing on today. The quality-gates.md artifact exists but needs concrete work units for the route consistency checking.
 
-**Investigate the 111 PHP test failures** - With an 88% pass rate, something significant is broken in the test suite. These failures might reveal integration problems that affect the auth and admin work I'm planning to tackle.
+**Research the tailwind migration scope** - This planning directory is scaffolded but needs investigation before it can move to implementation. Since I'm already thinking about frontend infrastructure through the admin navigation work, now's a good time to scope what the Tailwind conversion actually involves.
 
 ## Parked
 
-The SAML encrypted assertion work (tv378) and threat intelligence feed ingestion (tv379) both sound important but I'm deliberately avoiding them until I understand the simpler auth patterns first. Building complex federation features on top of poorly understood security foundations is asking for trouble.
+The SAML encrypted assertion work (tv378) and threat intelligence feed ingestion (tv379) are complex security domains that need deeper research. I'm deliberately avoiding these until I have cleaner mental models of what those systems should accomplish. The publication federation work (tv380-382) can wait until the admin surface patterns are more established.
 
 <!-- plan-unit-ids: tv375-contract-scope-baseline,tv376-contract-scope-baseline,tv377-contract-scope-baseline,tv378-contract-scope-baseline,tv379-contract-scope-baseline,tv380-contract-scope-baseline,tv381-contract-scope-baseline,tv382-contract-scope-baseline -->
 <!-- SECTION: DAILY-PLAN END -->
