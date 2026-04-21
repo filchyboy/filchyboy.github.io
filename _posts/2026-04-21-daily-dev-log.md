@@ -7,33 +7,35 @@ tags: [dev-tracker]
 ---
 
 <!-- SECTION: DAILY-PLAN START -->
-<!-- plan-generated: 2026-04-21T13:30:46.845022+00:00 -->
+<!-- plan-generated: 2026-04-21T14:06:06.405622+00:00 -->
 
 ## Today's Theme
 
-I'm dealing with eight newly-created vertical slice directories all sitting at contract baseline phase - clearly yesterday was a planning infrastructure day where I avoided the hard requirement definition work. Every single one of these (tv375-tv382) is just an empty shell with placeholder content, which means I've been scaffolding at velocity while dodging the unglamorous work of figuring out what these features actually need to accomplish.
+I've got eight vertical slices that I touched yesterday - all sitting at contract baseline phase, which means I was busy scaffolding but avoided the actual requirement definition work. The numbering jumped from tv375 through tv382, classic pattern of me creating planning shells when I should be making hard decisions about what these features actually need to accomplish.
 
 ## The Main Work
 
-**Define what "log redaction" actually means for the auth API security** - The tv375 contract baseline is completely hollow because I genuinely don't understand what security logs should be redacted or why. Are we talking about PII removal, credential scrubbing, or compliance requirements? I can't design an API for something this conceptually vague, and this ambiguity has been nagging at me since I created the directory yesterday.
+**Define what "log redaction and contract reliability" means for auth API security** - The tv375 baseline is completely hollow because I genuinely don't understand what security logs we're supposed to be redacting or why contract reliability is paired with it. Are we talking about sanitizing PII from auth failure logs, or something about API response consistency? I can't design an implementation for concepts this vague, and this confusion has been bothering me since I created the directory.
 
-**Map the RBAC route enforcement requirements for authorization middleware** - TV376 mentions "route enforcement" but I have zero clue what routes need protection or what roles should gate them. The authorization domain is dangerous territory - if I guess wrong about access controls, I could create security holes or lock out legitimate users. This requires actual research into our current authorization patterns, not wishful thinking about clean middleware.
+**Research the current RBAC route enforcement gaps** - TV376 assumes we need middleware-level route enforcement, but I don't actually know where our current authorization checks happen or what routes are unprotected. Before building new middleware, I need to map what authorization logic already exists and where it's scattered throughout the codebase. This archaeological work is tedious but essential - I suspect there are routes with no authorization at all.
 
-**Research what "capability manifest" means for admin navigation** - The tv377 admin surface activation work assumes we have a coherent capability model, but I suspect our current admin permissions are a mess of scattered checks. Before building new navigation logic, I need to understand what capabilities actually exist and how they're currently being verified. This archaeological work is tedious but I'm curious what organizational disasters I'll uncover.
+**Map the admin capability manifest requirements** - The tv377 work mentions "navigation parity" but I have zero clue what capabilities should be manifested or how navigation relates to permissions. Is this about dynamic menu generation based on user roles, or something about feature flag visibility? Without understanding the current admin permission model, I'm designing around assumptions that might be completely wrong.
 
-**Auto-fix those 306 ESLint warnings** - Simple `make lint-fix` command that eliminates visual noise from my development workflow. These auto-fixable issues create clutter that makes it harder to spot real problems during code review, and frankly, scanning past the same warnings every day is getting annoying.
+**Auto-fix those 306 ESLint warnings with make lint-fix** - Simple command that eliminates visual noise from my development workflow. These auto-fixable issues clutter the lint output and make it harder to spot real problems that need manual attention. Takes one command and clears the deck.
 
 ## Housekeeping
 
-**Refresh the 8-day-old lint harness snapshot** - Run `make lint-harness-snapshot` to get current data instead of stale metrics that don't reflect recent changes. Working with week-old quality reports makes it impossible to track whether my fixes are actually improving anything.
+**Draft implementation plan for route parity maintenance** - This planning directory aligns with the RBAC and admin capability work I'm already researching. Since I'm going to be digging into route authorization anyway, mapping out the maintenance approach for route parity makes sense while the routing concerns are active.
 
-**Draft implementation plan for route parity maintenance** - This planning directory aligns with the authorization and route work I'm already thinking about. If I'm going to be deep in route enforcement logic anyway, might as well advance the parity maintenance planning while the routing concerns are loaded in my head.
+**Regenerate the 8-day-old lint harness snapshot** - The current snapshot is stale enough that the numbers might not reflect recent changes. Running `make lint-harness-snapshot` gives me current baseline data instead of working from outdated metrics.
 
-**Clean up those 47 Markdownlint issues across 8 files** - The documentation quality has clearly degraded, and broken markdown makes the planning directories harder to navigate. Since I'll be reading and writing a lot of planning docs today, fixing the formatting issues will improve my own workflow.
+**Research feature flags finding remediation approach** - This planning directory has quality gates defined but needs investigation into what the actual remediation work involves. Better to understand the scope now than discover the complexity later when I'm ready to implement.
 
 ## Parked
 
-The SAML encrypted assertion work (tv378) and threat intelligence feed ingestion (tv379) are both complex enough that they deserve dedicated focus days. I'm not going to pretend I can make meaningful progress on identity protocols while simultaneously figuring out basic authorization patterns. The publication syndication slices (tv380-tv382) are even more abstract - I don't have enough context about our federation architecture to tackle those meaningfully.
+The SAML encrypted assertion work and threat intelligence feed ingestion are both complex enough that I'd spend all day just understanding the requirements. Those can wait until I've made actual progress on the auth API and RBAC enforcement work that's more foundational.
+
+I'm also deliberately avoiding the publication syndication and federation work - those domains are huge rabbit holes that would derail the security and admin focus I've established. The fact that I created eight contract baselines yesterday instead of defining one properly tells me I need to slow down and think harder rather than keep scaffolding.
 
 <!-- plan-unit-ids: tv375-contract-scope-baseline,tv376-contract-scope-baseline,tv377-contract-scope-baseline,tv378-contract-scope-baseline,tv379-contract-scope-baseline,tv380-contract-scope-baseline,tv381-contract-scope-baseline,tv382-contract-scope-baseline -->
 <!-- SECTION: DAILY-PLAN END -->
