@@ -40,28 +40,339 @@ The billing overview autowiring and analytics customer context work can wait - I
 
 
 <!-- SECTION: ACCOMPLISHED START -->
-<!-- accomplished-generated: 2026-04-21T03:13:32.185759+00:00 -->
-<!-- accomplished-updated: 2026-04-21T03:13:32.185759+00:00 -->
+<!-- accomplished-generated: 2026-04-21T13:30:15.275726+00:00 -->
+<!-- accomplished-updated: 2026-04-21T13:30:15.275726+00:00 -->
 
-## Today's Update
+* Completed 244 tasks today on the Colossalistic Platform project.
 
-Today was about shipping complete features rather than incremental progress - I managed to close out 13 different feature areas with full implementation cycles, from contract baseline through rollout documentation.
+## What I Built
 
-The live cost widget finally made it into production after sitting half-finished for weeks. I had to completely rebuild the integration approach - copying the LiveCostWidget component and billingCostTickerApi service into the frontend directory, creating a proper Vite entry point, and wiring it into the Blade layout. The mount point placement in the top navbar was trickier than expected because the existing CSS grid wasn't designed for dynamic React components. But now users can see their billing costs update in real-time without refreshing the dashboard.
+### enhance-quickbooks
+* Enhance quickbooks and xero integration with error handling and configuration...
 
-The synthetic stream control plane expansion was the most substantial work of the day. I built out the entire admin interface for controlling synthetic data streams - API endpoints with proper authorization gates, tenant-scoped models for persistence, and a configurable cadence engine that handles shopping, financial, telemetry, and publishing data with different timing requirements. The CLI controls for lifecycle management took some thinking - I needed operators to be able to start, stop, and adjust cadence ticks without touching the web interface. The session handoff ledger documentation was painful but necessary - stakeholders keep asking how synthetic streams maintain state across tenant boundaries.
+### feature-tests
+* Add feature tests for admin context contracts, metrics api, and publication a...
 
-What surprised me was how systematically I worked through the vertical slice implementations today. Nine complete dashboard feature slices - KPI data contracts, quick actions navigation, hub personalization, flow diagnostics, telemetry quality, route convergence, CMS live mode, email live mode, build health widgets, and orders live mode. Each one followed the same pattern: lock contract baseline, implement backend Action/Task changes, wire up data sources, align API contracts, connect frontend UI, add observability, run targeted tests, publish rollout docs. By the fifth slice I was in a rhythm, but the repetition also made it clear how much boilerplate our Porto architecture requires for even simple features.
+### horizontal-slice-hs41-frontend-fetch-transport-convergence-wave4
+* Baseline evidence and ownership map
+* Contract and acceptance criteria
+* Shared infrastructure and backend pilot implementation
+* Targeted test and quality gate run
+* Consumer and UI pilot cohort integration
+* Rollout and rollback playbook
+* Observability and reliability instrumentation
+* Tracker and checklist synchronization
 
-The horizontal slice work on API request validation standardization was less exciting but probably more important long-term. I baselined our inline validation inventory - turns out we have validation logic scattered across 23 different controller methods that should be using Form Requests. The pilot migration on the billing price catalogue controller went smoothly, so I can probably batch the rest without too much drama.
+### horizontal-slice-hs42-cdp-merge-suggestions-service-consolidation
+* Baseline evidence and ownership map
+* Contract and acceptance criteria
+* Shared infrastructure and backend pilot implementation
+* Targeted test and quality gate run
+* Consumer and UI pilot cohort integration
+* Rollout and rollback playbook
+* Observability and reliability instrumentation
+* Tracker and checklist synchronization
 
-This puts me in a good position to start fresh feature work tomorrow instead of constantly context-switching between half-implemented slices.
+### horizontal-slice-hs43-system-settings-security-formrequest-hardening
+* Baseline evidence and ownership map
+* Contract and acceptance criteria
+* Shared infrastructure and backend pilot implementation
+* Targeted test and quality gate run
+* Consumer and UI pilot cohort integration
+* Rollout and rollback playbook
+* Observability and reliability instrumentation
+* Tracker and checklist synchronization
+
+### horizontal-slice-hs44-logging-control-api-contract-hardening
+* Baseline evidence and ownership map
+* Contract and acceptance criteria
+* Shared infrastructure and backend pilot implementation
+* Targeted test and quality gate run
+* Consumer and UI pilot cohort integration
+* Rollout and rollback playbook
+* Observability and reliability instrumentation
+* Tracker and checklist synchronization
+
+### horizontal-slice-hs45-price-sync-stub-mode-exit-phase4
+* Baseline evidence and ownership map
+* Contract and acceptance criteria
+* Shared infrastructure and backend pilot implementation
+* Targeted test and quality gate run
+* Consumer and UI pilot cohort integration
+* Rollout and rollback playbook
+* Observability and reliability instrumentation
+* Tracker and checklist synchronization
+
+### horizontal-slice-hs46-forecasting-realistic-prediction-baseline
+* Baseline evidence and ownership map
+* Contract and acceptance criteria
+* Shared infrastructure and backend pilot implementation
+* Targeted test and quality gate run
+* Consumer and UI pilot cohort integration
+* Rollout and rollback playbook
+* Observability and reliability instrumentation
+* Tracker and checklist synchronization
+
+### horizontal-slice-hs47-financial-adapter-production-path-completion
+* Baseline evidence and ownership map
+* Contract and acceptance criteria
+* Shared infrastructure and backend pilot implementation
+* Targeted test and quality gate run
+* Consumer and UI pilot cohort integration
+* Rollout and rollback playbook
+* Observability and reliability instrumentation
+* Tracker and checklist synchronization
+
+### horizontal-slice-hs48-accessibility-export-route-discovery-completion
+* Baseline evidence and ownership map
+* Contract and acceptance criteria
+* Shared infrastructure and backend pilot implementation
+* Targeted test and quality gate run
+* Consumer and UI pilot cohort integration
+* Rollout and rollback playbook
+* Observability and reliability instrumentation
+* Tracker and checklist synchronization
+
+### horizontal-slice-hs49-mcp-json-schema-recursive-parity
+* Baseline evidence and ownership map
+* Contract and acceptance criteria
+* Shared infrastructure and backend pilot implementation
+* Targeted test and quality gate run
+* Consumer and UI pilot cohort integration
+* Rollout and rollback playbook
+* Observability and reliability instrumentation
+* Tracker and checklist synchronization
+
+### horizontal-slice-hs50-authorization-scope-semantics-completion
+* Baseline evidence and ownership map
+* Contract and acceptance criteria
+* Shared infrastructure and backend pilot implementation
+* Targeted test and quality gate run
+* Consumer and UI pilot cohort integration
+* Rollout and rollback playbook
+* Observability and reliability instrumentation
+* Tracker and checklist synchronization
+
+### refactor-metrics
+* Refactor metrics and publication audit functionality
+
+### streamline-entity-type
+* Streamline entity type and limit extraction in postmark sync
+
+### thin-vslice-355-admin-dashboard-translation-coverage-live-data
+* Define Dashboard Translation Coverage Live Data Wiring contract baseline
+* Implement backend orchestration for TV355
+* Harden data determinism for TV355
+* Harden API contracts for TV355
+* Integrate frontend surfaces for TV355
+* Add observability instrumentation for TV355
+* Add focused backend/frontend/a11y coverage for TV355
+* Run quality gates and prepare handoff for TV355
+
+### thin-vslice-356-admin-dashboard-realtime-metrics-fidelity-contract
+* Define Dashboard Realtime Metrics Fidelity and Deterministic Contract contract baseline
+* Implement backend orchestration for TV356
+* Harden data determinism for TV356
+* Harden API contracts for TV356
+* Integrate frontend surfaces for TV356
+* Add observability instrumentation for TV356
+* Add focused backend/frontend/a11y coverage for TV356
+* Run quality gates and prepare handoff for TV356
+
+### thin-vslice-357-admin-dashboard-tenant-context-bootstrap
+* Define Admin Dashboard Tenant Context Bootstrap API contract baseline
+* Implement backend orchestration for TV357
+* Harden data determinism for TV357
+* Harden API contracts for TV357
+* Integrate frontend surfaces for TV357
+* Add observability instrumentation for TV357
+* Add focused backend/frontend/a11y coverage for TV357
+* Run quality gates and prepare handoff for TV357
+
+### thin-vslice-358-admin-billing-overview-context-autowiring
+* Define Admin Billing Overview and Usage Context Autowiring contract baseline
+* Implement backend orchestration for TV358
+* Harden data determinism for TV358
+* Harden API contracts for TV358
+* Integrate frontend surfaces for TV358
+* Add observability instrumentation for TV358
+* Add focused backend/frontend/a11y coverage for TV358
+* Run quality gates and prepare handoff for TV358
+
+### thin-vslice-359-admin-billing-invoice-history-current-account
+* Define Admin Billing Invoice and Payment Current-Account Contract contract baseline
+* Implement backend orchestration for TV359
+* Harden data determinism for TV359
+* Harden API contracts for TV359
+* Integrate frontend surfaces for TV359
+* Add observability instrumentation for TV359
+* Add focused backend/frontend/a11y coverage for TV359
+* Run quality gates and prepare handoff for TV359
+
+### thin-vslice-360-admin-analytics-customer-context-autowiring
+* Define Admin Analytics Customer Context Autowiring contract baseline
+* Implement backend orchestration for TV360
+* Harden data determinism for TV360
+* Harden API contracts for TV360
+* Integrate frontend surfaces for TV360
+* Add observability instrumentation for TV360
+* Add focused backend/frontend/a11y coverage for TV360
+* Run quality gates and prepare handoff for TV360
+
+### thin-vslice-361-admin-forecasting-customer-context-autowiring
+* Define Admin Forecasting Customer Context Autowiring contract baseline
+* Implement backend orchestration for TV361
+* Harden data determinism for TV361
+* Harden API contracts for TV361
+* Integrate frontend surfaces for TV361
+* Add observability instrumentation for TV361
+* Add focused backend/frontend/a11y coverage for TV361
+* Run quality gates and prepare handoff for TV361
+
+### thin-vslice-362-admin-publication-api-envelope-convergence
+* Define Admin Publication API Envelope Convergence contract baseline
+* Implement backend orchestration for TV362
+* Harden data determinism for TV362
+* Harden API contracts for TV362
+* Integrate frontend surfaces for TV362
+* Add observability instrumentation for TV362
+* Add focused backend/frontend/a11y coverage for TV362
+* Run quality gates and prepare handoff for TV362
+
+### thin-vslice-363-admin-publication-telemetry-audit-visibility
+* Define Admin Publication Telemetry and Audit Visibility contract baseline
+* Implement backend orchestration for TV363
+* Harden data determinism for TV363
+* Harden API contracts for TV363
+* Integrate frontend surfaces for TV363
+* Add observability instrumentation for TV363
+* Add focused backend/frontend/a11y coverage for TV363
+* Run quality gates and prepare handoff for TV363
+
+### thin-vslice-364-admin-dashboard-integration-contract-test-hardening
+* Define Admin Dashboard Integration Contract and Test Hardening contract baseline
+* Implement backend orchestration for TV364
+* Harden data determinism for TV364
+* Harden API contracts for TV364
+* Integrate frontend surfaces for TV364
+* Add observability instrumentation for TV364
+* Add focused backend/frontend/a11y coverage for TV364
+* Run quality gates and prepare handoff for TV364
+
+### thin-vslice-365-search-global-entity-expansion
+* Define Search Global Entity Expansion contract baseline
+* Implement backend orchestration for TV365
+* Harden data determinism for TV365
+* Harden API contracts for TV365
+* Integrate frontend surfaces for TV365
+* Add observability instrumentation for TV365
+* Add focused backend/frontend/a11y coverage for TV365
+* Run quality gates and prepare handoff for TV365
+
+### thin-vslice-366-search-admin-live-operations-and-a11y
+* Define Search Admin Live Operations and Accessibility contract baseline
+* Implement backend orchestration for TV366
+* Harden data determinism for TV366
+* Harden API contracts for TV366
+* Integrate frontend surfaces for TV366
+* Add observability instrumentation for TV366
+* Add focused backend/frontend/a11y coverage for TV366
+* Run quality gates and prepare handoff for TV366
+
+### thin-vslice-367-publication-audit-trail-durability
+* Define Publication Audit Trail Durability contract baseline
+* Implement backend orchestration for TV367
+* Harden data determinism for TV367
+* Harden API contracts for TV367
+* Integrate frontend surfaces for TV367
+* Add observability instrumentation for TV367
+* Add focused backend/frontend/a11y coverage for TV367
+* Run quality gates and prepare handoff for TV367
+
+### thin-vslice-368-publication-moderation-reason-traceability
+* Define Publication Moderation Reason Traceability contract baseline
+* Implement backend orchestration for TV368
+* Harden data determinism for TV368
+* Harden API contracts for TV368
+* Integrate frontend surfaces for TV368
+* Add observability instrumentation for TV368
+* Add focused backend/frontend/a11y coverage for TV368
+* Run quality gates and prepare handoff for TV368
+
+### thin-vslice-369-publication-federation-adapter-activation
+* Define Publication Federation Adapter Activation contract baseline
+* Implement backend orchestration for TV369
+* Harden data determinism for TV369
+* Harden API contracts for TV369
+* Integrate frontend surfaces for TV369
+* Add observability instrumentation for TV369
+* Add focused backend/frontend/a11y coverage for TV369
+* Run quality gates and prepare handoff for TV369
+
+### thin-vslice-370-admin-capability-manifest-navigation-gating
+* Define Admin Capability Manifest and Navigation Gating contract baseline
+* Implement backend orchestration for TV370
+* Harden data determinism for TV370
+* Harden API contracts for TV370
+* Integrate frontend surfaces for TV370
+* Add observability instrumentation for TV370
+* Add focused backend/frontend/a11y coverage for TV370
+* Run quality gates and prepare handoff for TV370
+
+### thin-vslice-371-admin-auth-token-storage-hardening
+* Define Admin Auth Token Storage Hardening contract baseline
+* Implement backend orchestration for TV371
+* Harden data determinism for TV371
+* Harden API contracts for TV371
+* Integrate frontend surfaces for TV371
+* Add observability instrumentation for TV371
+* Add focused backend/frontend/a11y coverage for TV371
+* Run quality gates and prepare handoff for TV371
+
+### thin-vslice-372-mfa-email-sms-spa-api-convergence
+* Define MFA Email and SMS SPA API Convergence contract baseline
+* Implement backend orchestration for TV372
+* Harden data determinism for TV372
+* Harden API contracts for TV372
+* Integrate frontend surfaces for TV372
+* Add observability instrumentation for TV372
+* Add focused backend/frontend/a11y coverage for TV372
+* Run quality gates and prepare handoff for TV372
+
+### thin-vslice-373-email-verification-flow-stability
+* Define Email Verification Flow Stability contract baseline
+* Implement backend orchestration for TV373
+* Harden data determinism for TV373
+* Harden API contracts for TV373
+* Integrate frontend surfaces for TV373
+* Add observability instrumentation for TV373
+* Add focused backend/frontend/a11y coverage for TV373
+* Run quality gates and prepare handoff for TV373
+
+### thin-vslice-374-customer-usage-dashboard-a11y-remediation
+* Define Customer Usage Dashboard Accessibility Remediation contract baseline
+* Implement backend orchestration for TV374
+* Harden data determinism for TV374
+* Harden API contracts for TV374
+* Integrate frontend surfaces for TV374
+* Add observability instrumentation for TV374
+* Add focused backend/frontend/a11y coverage for TV374
+* Run quality gates and prepare handoff for TV374
+
+## Notes
+
+* Completed 244 work unit(s)
+* Item adherence: 100% (8/8 focus items)
+* Feature set adherence: 100% (8/8 planned feature sets had work)
+* Weighted adherence: 300% (with partial credit)
+* Untracked activity: 36 commit(s) not mapped to any feature set
+* Auto-archived 6 retroactive feature sets from untracked commits
 
 
-<!-- Generated by dev-tracker publish_to_jekyll.py (AI mode) -->
+<!-- Generated by dev-tracker publish_to_jekyll.py -->
 <!-- accomplished-date: 2026-04-20 -->
-<!-- unit-ids: copy-widget-component,copy-billing-api-service,create-entry-point,register-vite-entry,include-script-layout,add-mount-point-blade,sscp-admin-api-contract-and-authorization,sscp-admin-web-toggle-panel,sscp-schema-models-and-storage,sscp-cadence-engine-and-domain-emitters,sscp-operational-cli-and-kernel-registration,sscp-session-handoff-ledger,add-widget-styling,vs403-contract-baseline,vs403-backend-action-task,vs403-data-source-readiness,vs403-api-contract,vs403-frontend-ui-wiring,vs403-observability,vs403-targeted-tests,vs403-rollout-runbook,vs402-contract-baseline,vs402-backend-action-task,vs402-data-source-readiness,vs402-api-contract,vs402-frontend-ui-wiring,vs402-observability,vs402-targeted-tests,vs402-rollout-runbook,hs01-baseline-inline-validation-inventory,hs01-pilot-cdp-billing-pricecatalogue,hs01-error-message-normalization,hs01-form-request-authorize-audit,hs01-add-inline-validate-touched-file-gate,hs01-update-api-contract-docs,hs01-observability-tracking-metric,hs01-closeout-checklist-gates,vs404-contract-baseline,vs404-backend-action-task,vs404-data-source-readiness,vs404-api-contract,vs404-frontend-ui-wiring,vs404-observability,vs404-targeted-tests,vs404-rollout-runbook,vs409-contract-baseline,vs409-backend-action-task,vs409-data-source-readiness,vs409-api-contract,vs409-frontend-ui-wiring,vs409-observability,vs409-targeted-tests,vs409-rollout-runbook,vs410-contract-baseline,vs410-backend-action-task,vs410-data-source-readiness,vs410-api-contract,vs410-frontend-ui-wiring,vs410-observability,vs410-targeted-tests,vs410-rollout-runbook,vs401-contract-baseline,vs401-backend-action-task,vs401-data-source-readiness,vs401-api-contract,vs401-frontend-ui-wiring,vs401-observability,vs401-targeted-tests,vs401-rollout-runbook,vs407-contract-baseline,vs407-backend-action-task,vs407-data-source-readiness,vs407-api-contract,vs407-frontend-ui-wiring,vs407-observability,vs407-targeted-tests,vs407-rollout-runbook,vs406-contract-baseline,vs406-backend-action-task,vs406-data-source-readiness,vs406-api-contract,vs406-frontend-ui-wiring,vs406-observability,vs406-targeted-tests,vs406-rollout-runbook,vs408-contract-baseline,vs408-backend-action-task,vs408-data-source-readiness,vs408-api-contract,vs408-frontend-ui-wiring,vs408-observability,vs408-targeted-tests,vs408-rollout-runbook,vs405-contract-baseline,vs405-backend-action-task,vs405-data-source-readiness,vs405-api-contract,vs405-frontend-ui-wiring,vs405-observability,vs405-targeted-tests,vs405-rollout-runbook -->
+<!-- unit-ids: tv355-contract-scope-baseline,tv356-contract-scope-baseline,tv357-contract-scope-baseline,tv358-contract-scope-baseline,tv359-contract-scope-baseline,tv360-contract-scope-baseline,tv361-contract-scope-baseline,tv362-contract-scope-baseline,tv363-contract-scope-baseline,tv364-contract-scope-baseline,hs41-2026-baseline-evidence,hs42-2026-baseline-evidence,hs43-2026-baseline-evidence,hs44-2026-baseline-evidence,hs45-2026-baseline-evidence,hs46-2026-baseline-evidence,hs47-2026-baseline-evidence,hs48-2026-baseline-evidence,hs49-2026-baseline-evidence,hs50-2026-baseline-evidence,tv355-backend-orchestration,tv356-backend-orchestration,tv357-backend-orchestration,tv358-backend-orchestration,tv359-backend-orchestration,tv360-backend-orchestration,tv361-backend-orchestration,tv362-backend-orchestration,tv363-backend-orchestration,tv364-backend-orchestration,hs41-2026-contract-scope,hs41-2026-shared-infra-implementation,hs42-2026-contract-scope,hs42-2026-shared-infra-implementation,hs43-2026-contract-scope,hs43-2026-shared-infra-implementation,hs44-2026-contract-scope,hs44-2026-shared-infra-implementation,hs45-2026-contract-scope,hs45-2026-shared-infra-implementation,hs46-2026-contract-scope,hs46-2026-shared-infra-implementation,hs47-2026-contract-scope,hs47-2026-shared-infra-implementation,hs48-2026-contract-scope,hs48-2026-shared-infra-implementation,hs49-2026-contract-scope,hs49-2026-shared-infra-implementation,hs50-2026-contract-scope,hs50-2026-shared-infra-implementation,tv355-data-determinism,tv355-api-contract-hardening,tv356-data-determinism,tv356-api-contract-hardening,tv357-data-determinism,tv357-api-contract-hardening,tv358-data-determinism,tv358-api-contract-hardening,tv359-data-determinism,tv359-api-contract-hardening,tv360-data-determinism,tv360-api-contract-hardening,tv361-data-determinism,tv361-api-contract-hardening,tv362-data-determinism,tv362-api-contract-hardening,tv363-data-determinism,tv363-api-contract-hardening,tv364-data-determinism,tv364-api-contract-hardening,hs41-2026-targeted-quality-gates,hs42-2026-targeted-quality-gates,hs43-2026-targeted-quality-gates,hs44-2026-targeted-quality-gates,hs45-2026-targeted-quality-gates,hs46-2026-targeted-quality-gates,hs47-2026-targeted-quality-gates,hs48-2026-targeted-quality-gates,hs49-2026-targeted-quality-gates,hs50-2026-targeted-quality-gates,hs41-2026-consumer-surface-integration,hs42-2026-consumer-surface-integration,hs43-2026-consumer-surface-integration,hs44-2026-consumer-surface-integration,hs45-2026-consumer-surface-integration,hs46-2026-consumer-surface-integration,hs47-2026-consumer-surface-integration,hs48-2026-consumer-surface-integration,hs49-2026-consumer-surface-integration,hs50-2026-consumer-surface-integration,tv355-frontend-integration,tv356-frontend-integration,tv357-frontend-integration,tv358-frontend-integration,tv359-frontend-integration,tv360-frontend-integration,tv361-frontend-integration,tv362-frontend-integration,tv363-frontend-integration,tv364-frontend-integration,hs41-2026-rollout-rollback-playbook,hs42-2026-rollout-rollback-playbook,hs43-2026-rollout-rollback-playbook,hs44-2026-rollout-rollback-playbook,hs45-2026-rollout-rollback-playbook,hs46-2026-rollout-rollback-playbook,hs47-2026-rollout-rollback-playbook,hs48-2026-rollout-rollback-playbook,hs49-2026-rollout-rollback-playbook,hs50-2026-rollout-rollback-playbook,tv355-observability-instrumentation,tv356-observability-instrumentation,tv357-observability-instrumentation,tv358-observability-instrumentation,tv359-observability-instrumentation,tv360-observability-instrumentation,tv361-observability-instrumentation,tv362-observability-instrumentation,tv363-observability-instrumentation,tv364-observability-instrumentation,tv355-focused-tests-a11y,tv356-focused-tests-a11y,tv357-focused-tests-a11y,tv358-focused-tests-a11y,tv359-focused-tests-a11y,tv360-focused-tests-a11y,tv361-focused-tests-a11y,tv362-focused-tests-a11y,tv363-focused-tests-a11y,tv364-focused-tests-a11y,hs41-2026-observability-ops,hs42-2026-observability-ops,hs43-2026-observability-ops,hs44-2026-observability-ops,hs45-2026-observability-ops,hs46-2026-observability-ops,hs47-2026-observability-ops,hs48-2026-observability-ops,hs49-2026-observability-ops,hs50-2026-observability-ops,tv355-quality-gates-handoff,tv356-quality-gates-handoff,tv357-quality-gates-handoff,tv358-quality-gates-handoff,tv359-quality-gates-handoff,tv360-quality-gates-handoff,tv361-quality-gates-handoff,tv362-quality-gates-handoff,tv363-quality-gates-handoff,tv364-quality-gates-handoff,hs41-2026-tracker-checklist-sync,hs42-2026-tracker-checklist-sync,hs43-2026-tracker-checklist-sync,hs44-2026-tracker-checklist-sync,hs45-2026-tracker-checklist-sync,hs46-2026-tracker-checklist-sync,hs47-2026-tracker-checklist-sync,hs48-2026-tracker-checklist-sync,hs49-2026-tracker-checklist-sync,hs50-2026-tracker-checklist-sync,tv371-contract-scope-baseline,tv371-backend-orchestration,tv371-data-determinism,tv371-api-contract-hardening,tv371-frontend-integration,tv371-observability-instrumentation,tv371-focused-tests-a11y,tv371-quality-gates-handoff,tv366-contract-scope-baseline,tv366-backend-orchestration,tv366-data-determinism,tv366-api-contract-hardening,tv366-frontend-integration,tv366-observability-instrumentation,tv366-focused-tests-a11y,tv366-quality-gates-handoff,tv370-contract-scope-baseline,tv370-backend-orchestration,tv370-data-determinism,tv370-api-contract-hardening,tv370-frontend-integration,tv370-observability-instrumentation,tv370-focused-tests-a11y,tv370-quality-gates-handoff,tv373-contract-scope-baseline,tv373-backend-orchestration,tv373-data-determinism,tv373-api-contract-hardening,tv373-frontend-integration,tv373-observability-instrumentation,tv373-focused-tests-a11y,tv373-quality-gates-handoff,tv365-contract-scope-baseline,tv365-backend-orchestration,tv365-data-determinism,tv365-api-contract-hardening,tv365-frontend-integration,tv365-observability-instrumentation,tv365-focused-tests-a11y,tv365-quality-gates-handoff,tv367-contract-scope-baseline,tv367-backend-orchestration,tv367-data-determinism,tv367-api-contract-hardening,tv367-frontend-integration,tv367-observability-instrumentation,tv367-focused-tests-a11y,tv367-quality-gates-handoff,tv369-contract-scope-baseline,tv369-backend-orchestration,tv369-data-determinism,tv369-api-contract-hardening,tv369-frontend-integration,tv369-observability-instrumentation,tv369-focused-tests-a11y,tv369-quality-gates-handoff,tv368-contract-scope-baseline,tv368-backend-orchestration,tv368-data-determinism,tv368-api-contract-hardening,tv368-frontend-integration,tv368-observability-instrumentation,tv368-focused-tests-a11y,tv368-quality-gates-handoff,tv372-contract-scope-baseline,tv372-backend-orchestration,tv372-data-determinism,tv372-api-contract-hardening,tv372-frontend-integration,tv372-observability-instrumentation,tv372-focused-tests-a11y,tv372-quality-gates-handoff,tv374-contract-scope-baseline,tv374-backend-orchestration,tv374-data-determinism,tv374-api-contract-hardening,tv374-frontend-integration,tv374-observability-instrumentation,tv374-focused-tests-a11y,tv374-quality-gates-handoff,refactor-metrics-refactor-metrics-publication-audit-functionality,feature-tests-feature-tests-admin-context-contracts,streamline-entity-type-streamline-entity-type-limit-extraction,enhance-quickbooks-enhance-quickbooks-xero-integration-with -->
 
-<!-- accomplished-unit-ids: add-mount-point-blade,add-widget-styling,copy-billing-api-service,copy-widget-component,create-entry-point,hs01-add-inline-validate-touched-file-gate,hs01-baseline-inline-validation-inventory,hs01-closeout-checklist-gates,hs01-error-message-normalization,hs01-form-request-authorize-audit,hs01-observability-tracking-metric,hs01-pilot-cdp-billing-pricecatalogue,hs01-update-api-contract-docs,include-script-layout,register-vite-entry,sscp-admin-api-contract-and-authorization,sscp-admin-web-toggle-panel,sscp-cadence-engine-and-domain-emitters,sscp-operational-cli-and-kernel-registration,sscp-schema-models-and-storage,sscp-session-handoff-ledger,vs401-api-contract,vs401-backend-action-task,vs401-contract-baseline,vs401-data-source-readiness,vs401-frontend-ui-wiring,vs401-observability,vs401-rollout-runbook,vs401-targeted-tests,vs402-api-contract,vs402-backend-action-task,vs402-contract-baseline,vs402-data-source-readiness,vs402-frontend-ui-wiring,vs402-observability,vs402-rollout-runbook,vs402-targeted-tests,vs403-api-contract,vs403-backend-action-task,vs403-contract-baseline,vs403-data-source-readiness,vs403-frontend-ui-wiring,vs403-observability,vs403-rollout-runbook,vs403-targeted-tests,vs404-api-contract,vs404-backend-action-task,vs404-contract-baseline,vs404-data-source-readiness,vs404-frontend-ui-wiring,vs404-observability,vs404-rollout-runbook,vs404-targeted-tests,vs405-api-contract,vs405-backend-action-task,vs405-contract-baseline,vs405-data-source-readiness,vs405-frontend-ui-wiring,vs405-observability,vs405-rollout-runbook,vs405-targeted-tests,vs406-api-contract,vs406-backend-action-task,vs406-contract-baseline,vs406-data-source-readiness,vs406-frontend-ui-wiring,vs406-observability,vs406-rollout-runbook,vs406-targeted-tests,vs407-api-contract,vs407-backend-action-task,vs407-contract-baseline,vs407-data-source-readiness,vs407-frontend-ui-wiring,vs407-observability,vs407-rollout-runbook,vs407-targeted-tests,vs408-api-contract,vs408-backend-action-task,vs408-contract-baseline,vs408-data-source-readiness,vs408-frontend-ui-wiring,vs408-observability,vs408-rollout-runbook,vs408-targeted-tests,vs409-api-contract,vs409-backend-action-task,vs409-contract-baseline,vs409-data-source-readiness,vs409-frontend-ui-wiring,vs409-observability,vs409-rollout-runbook,vs409-targeted-tests,vs410-api-contract,vs410-backend-action-task,vs410-contract-baseline,vs410-data-source-readiness,vs410-frontend-ui-wiring,vs410-observability,vs410-rollout-runbook,vs410-targeted-tests -->
+<!-- accomplished-unit-ids: enhance-quickbooks-enhance-quickbooks-xero-integration-with,feature-tests-feature-tests-admin-context-contracts,hs41-2026-baseline-evidence,hs41-2026-consumer-surface-integration,hs41-2026-contract-scope,hs41-2026-observability-ops,hs41-2026-rollout-rollback-playbook,hs41-2026-shared-infra-implementation,hs41-2026-targeted-quality-gates,hs41-2026-tracker-checklist-sync,hs42-2026-baseline-evidence,hs42-2026-consumer-surface-integration,hs42-2026-contract-scope,hs42-2026-observability-ops,hs42-2026-rollout-rollback-playbook,hs42-2026-shared-infra-implementation,hs42-2026-targeted-quality-gates,hs42-2026-tracker-checklist-sync,hs43-2026-baseline-evidence,hs43-2026-consumer-surface-integration,hs43-2026-contract-scope,hs43-2026-observability-ops,hs43-2026-rollout-rollback-playbook,hs43-2026-shared-infra-implementation,hs43-2026-targeted-quality-gates,hs43-2026-tracker-checklist-sync,hs44-2026-baseline-evidence,hs44-2026-consumer-surface-integration,hs44-2026-contract-scope,hs44-2026-observability-ops,hs44-2026-rollout-rollback-playbook,hs44-2026-shared-infra-implementation,hs44-2026-targeted-quality-gates,hs44-2026-tracker-checklist-sync,hs45-2026-baseline-evidence,hs45-2026-consumer-surface-integration,hs45-2026-contract-scope,hs45-2026-observability-ops,hs45-2026-rollout-rollback-playbook,hs45-2026-shared-infra-implementation,hs45-2026-targeted-quality-gates,hs45-2026-tracker-checklist-sync,hs46-2026-baseline-evidence,hs46-2026-consumer-surface-integration,hs46-2026-contract-scope,hs46-2026-observability-ops,hs46-2026-rollout-rollback-playbook,hs46-2026-shared-infra-implementation,hs46-2026-targeted-quality-gates,hs46-2026-tracker-checklist-sync,hs47-2026-baseline-evidence,hs47-2026-consumer-surface-integration,hs47-2026-contract-scope,hs47-2026-observability-ops,hs47-2026-rollout-rollback-playbook,hs47-2026-shared-infra-implementation,hs47-2026-targeted-quality-gates,hs47-2026-tracker-checklist-sync,hs48-2026-baseline-evidence,hs48-2026-consumer-surface-integration,hs48-2026-contract-scope,hs48-2026-observability-ops,hs48-2026-rollout-rollback-playbook,hs48-2026-shared-infra-implementation,hs48-2026-targeted-quality-gates,hs48-2026-tracker-checklist-sync,hs49-2026-baseline-evidence,hs49-2026-consumer-surface-integration,hs49-2026-contract-scope,hs49-2026-observability-ops,hs49-2026-rollout-rollback-playbook,hs49-2026-shared-infra-implementation,hs49-2026-targeted-quality-gates,hs49-2026-tracker-checklist-sync,hs50-2026-baseline-evidence,hs50-2026-consumer-surface-integration,hs50-2026-contract-scope,hs50-2026-observability-ops,hs50-2026-rollout-rollback-playbook,hs50-2026-shared-infra-implementation,hs50-2026-targeted-quality-gates,hs50-2026-tracker-checklist-sync,refactor-metrics-refactor-metrics-publication-audit-functionality,streamline-entity-type-streamline-entity-type-limit-extraction,tv355-api-contract-hardening,tv355-backend-orchestration,tv355-contract-scope-baseline,tv355-data-determinism,tv355-focused-tests-a11y,tv355-frontend-integration,tv355-observability-instrumentation,tv355-quality-gates-handoff,tv356-api-contract-hardening,tv356-backend-orchestration,tv356-contract-scope-baseline,tv356-data-determinism,tv356-focused-tests-a11y,tv356-frontend-integration,tv356-observability-instrumentation,tv356-quality-gates-handoff,tv357-api-contract-hardening,tv357-backend-orchestration,tv357-contract-scope-baseline,tv357-data-determinism,tv357-focused-tests-a11y,tv357-frontend-integration,tv357-observability-instrumentation,tv357-quality-gates-handoff,tv358-api-contract-hardening,tv358-backend-orchestration,tv358-contract-scope-baseline,tv358-data-determinism,tv358-focused-tests-a11y,tv358-frontend-integration,tv358-observability-instrumentation,tv358-quality-gates-handoff,tv359-api-contract-hardening,tv359-backend-orchestration,tv359-contract-scope-baseline,tv359-data-determinism,tv359-focused-tests-a11y,tv359-frontend-integration,tv359-observability-instrumentation,tv359-quality-gates-handoff,tv360-api-contract-hardening,tv360-backend-orchestration,tv360-contract-scope-baseline,tv360-data-determinism,tv360-focused-tests-a11y,tv360-frontend-integration,tv360-observability-instrumentation,tv360-quality-gates-handoff,tv361-api-contract-hardening,tv361-backend-orchestration,tv361-contract-scope-baseline,tv361-data-determinism,tv361-focused-tests-a11y,tv361-frontend-integration,tv361-observability-instrumentation,tv361-quality-gates-handoff,tv362-api-contract-hardening,tv362-backend-orchestration,tv362-contract-scope-baseline,tv362-data-determinism,tv362-focused-tests-a11y,tv362-frontend-integration,tv362-observability-instrumentation,tv362-quality-gates-handoff,tv363-api-contract-hardening,tv363-backend-orchestration,tv363-contract-scope-baseline,tv363-data-determinism,tv363-focused-tests-a11y,tv363-frontend-integration,tv363-observability-instrumentation,tv363-quality-gates-handoff,tv364-api-contract-hardening,tv364-backend-orchestration,tv364-contract-scope-baseline,tv364-data-determinism,tv364-focused-tests-a11y,tv364-frontend-integration,tv364-observability-instrumentation,tv364-quality-gates-handoff,tv365-api-contract-hardening,tv365-backend-orchestration,tv365-contract-scope-baseline,tv365-data-determinism,tv365-focused-tests-a11y,tv365-frontend-integration,tv365-observability-instrumentation,tv365-quality-gates-handoff,tv366-api-contract-hardening,tv366-backend-orchestration,tv366-contract-scope-baseline,tv366-data-determinism,tv366-focused-tests-a11y,tv366-frontend-integration,tv366-observability-instrumentation,tv366-quality-gates-handoff,tv367-api-contract-hardening,tv367-backend-orchestration,tv367-contract-scope-baseline,tv367-data-determinism,tv367-focused-tests-a11y,tv367-frontend-integration,tv367-observability-instrumentation,tv367-quality-gates-handoff,tv368-api-contract-hardening,tv368-backend-orchestration,tv368-contract-scope-baseline,tv368-data-determinism,tv368-focused-tests-a11y,tv368-frontend-integration,tv368-observability-instrumentation,tv368-quality-gates-handoff,tv369-api-contract-hardening,tv369-backend-orchestration,tv369-contract-scope-baseline,tv369-data-determinism,tv369-focused-tests-a11y,tv369-frontend-integration,tv369-observability-instrumentation,tv369-quality-gates-handoff,tv370-api-contract-hardening,tv370-backend-orchestration,tv370-contract-scope-baseline,tv370-data-determinism,tv370-focused-tests-a11y,tv370-frontend-integration,tv370-observability-instrumentation,tv370-quality-gates-handoff,tv371-api-contract-hardening,tv371-backend-orchestration,tv371-contract-scope-baseline,tv371-data-determinism,tv371-focused-tests-a11y,tv371-frontend-integration,tv371-observability-instrumentation,tv371-quality-gates-handoff,tv372-api-contract-hardening,tv372-backend-orchestration,tv372-contract-scope-baseline,tv372-data-determinism,tv372-focused-tests-a11y,tv372-frontend-integration,tv372-observability-instrumentation,tv372-quality-gates-handoff,tv373-api-contract-hardening,tv373-backend-orchestration,tv373-contract-scope-baseline,tv373-data-determinism,tv373-focused-tests-a11y,tv373-frontend-integration,tv373-observability-instrumentation,tv373-quality-gates-handoff,tv374-api-contract-hardening,tv374-backend-orchestration,tv374-contract-scope-baseline,tv374-data-determinism,tv374-focused-tests-a11y,tv374-frontend-integration,tv374-observability-instrumentation,tv374-quality-gates-handoff -->
 <!-- SECTION: ACCOMPLISHED END -->
 <!-- Generated by dev-tracker build_today_plan.py -->
