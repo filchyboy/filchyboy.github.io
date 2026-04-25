@@ -6,6 +6,38 @@ categories: [daily, build-in-public]
 tags: [dev-tracker]
 ---
 
+<!-- SECTION: DAILY-PLAN START -->
+<!-- plan-generated: 2026-04-25T18:29:28.327490+00:00 -->
+
+## Today's Theme
+
+I've got eight thin vertical slices all showing recent activity, but they're sitting at contract baseline phase with empty shells. The TV395 through TV402 directories represent work I touched yesterday but avoided the hard decisions about what these features actually accomplish. Meanwhile, the lint harness is 13 days stale and I have 306 auto-fixable ESLint warnings creating visual noise every time I scan for real problems.
+
+## The Main Work
+
+**Define COPPA parental consent production requirements for tv395** - This contract baseline is hollow because I honestly don't know what production-ready parental consent looks like. Is it email verification, document upload, or something more complex? I created this directory yesterday but dodged the compliance research, and now I'm staring at a feature I can't implement because the legal requirements are unclear.
+
+**Map SMS delivery infrastructure gaps for tv396 MFA telemetry** - The MFA system probably has SMS sending but zero visibility into delivery failures, carrier issues, or retry logic. I'm curious what disaster is hiding in our current SMS pipeline - are we just firing messages into the void and hoping they arrive? This inventory work will either reveal a functioning system or expose why users complain about missing codes.
+
+**Research what auth debug endpoints currently exist** - The tv397 retirement work assumes I know what debug functionality we're exposing, but I suspect there are hidden endpoints scattered through the auth system that I've never cataloged. Some might be leftover development tools that leak sensitive data. This archaeological dig is necessary because you can't retire what you can't find.
+
+**Refresh the lint harness snapshot and auto-fix warnings** - That 13-day-old report is useless, and the 306 auto-fixable warnings clutter every lint check. One `make lint-harness-snapshot` and one `make lint-fix` eliminate noise that makes code review harder. Plus I'm genuinely curious whether all that recent planning activity affected the error counts.
+
+## Housekeeping
+
+**Draft baseline evidence for hs52 monitoring API convergence** - The FormRequest patterns across our monitoring endpoints are probably inconsistent chaos. Since I'm already dealing with API contracts today, documenting the current validation mess would inform future convergence work.
+
+**Complete tv398 web route parity scope definition** - The publication admin routes likely have gaps where API functionality exists but web interfaces don't. Simple inventory work that complements the contract definition theme.
+
+**Update tv401 accessibility scan execution requirements** - Need to research what live accessibility scanning actually requires - probably headless browser automation and result aggregation pipelines.
+
+## Parked
+
+The 9,913 PHPStan errors aren't getting attention today - that's a multi-week effort that would derail feature work. The route health warning can wait until I understand what specific routes are problematic.
+
+<!-- plan-unit-ids: tv395-contract-scope-baseline,tv396-contract-scope-baseline,tv397-contract-scope-baseline,tv398-contract-scope-baseline,tv399-contract-scope-baseline,tv400-contract-scope-baseline,tv401-contract-scope-baseline,tv402-contract-scope-baseline -->
+<!-- SECTION: DAILY-PLAN END -->
+
 <!-- SECTION: ACCOMPLISHED START -->
 <!-- accomplished-generated: 2026-04-25T18:19:31.284918+00:00 -->
 
