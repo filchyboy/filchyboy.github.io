@@ -40,29 +40,107 @@ The thin vertical slices vs07 form accessibility work is sitting there, but I wa
 
 
 <!-- SECTION: ACCOMPLISHED START -->
-<!-- accomplished-generated: 2026-04-29T23:24:02.668826+00:00 -->
+<!-- accomplished-generated: 2026-04-30T13:08:48.105266+00:00 -->
+<!-- accomplished-updated: 2026-04-30T13:08:48.105266+00:00 -->
 
-## Today's Update
+* Completed 46 tasks today on the Colossalistic Platform project.
 
-Today was fundamentally about two things: completing a major cross-container communication overhaul and tidying up a bunch of loose ends that had been accumulating around the dashboard and billing systems. The cross-container work (HS81) finally reached completion after weeks of planning, and it feels good to have that architectural foundation properly in place.
+## What I Built
 
-The HS81 slice was the main event - I worked through the entire implementation from baseline evidence gathering through final quality gates. Started by mapping out the existing event communication patterns and contracts, then built the CrossBoundaryEventDispatcher service to centralize how different parts of the system talk to each other. The migration work was more tedious than complex - moving Billing and ETL events to use the new contracts, adding tenant context validation middleware, making sure everything still worked. The validation middleware caught a few edge cases where events were missing tenant context, which would have been nasty bugs in production.
+### address-multi-round
+* Address multi-round code-review fixes across admin/cdp/billing
 
-Parallel to that, I cleaned house on the fe-tidy-one work that had been sitting around half-finished. Hardened the Dashboard Hub authorization (admin role checks were scattered across three different places), improved the PlanChangeImpactWidget accessibility tests, and enhanced the Billing Overview API. The theme validation work was straightforward - added kebab-case validation and a TokenErrorBoundary component for better error handling. I also wrote up ADR-0215 to document the admin dashboard widget guard decisions while they were still fresh in my head.
+### adr-0215
+* Update adr-0215 for admin dashboard widget  guard and tenant context resoluti...
 
-What surprised me was how much the cross-boundary event standardization simplified some of the dashboard work. Once I had consistent event contracts, the billing overview API could rely on proper event structure instead of defensive parsing everywhere. The quality-gate validation improvements caught this connection and flagged a few places where I needed to propagate author information through the new event system.
+### align-a11y-test
+* Align a11y test with develop role=alert and remove logger mock
 
-With HS81 complete and the dashboard authorization properly hardened, I can focus on new feature development without worrying about the event communication foundation shifting underneath me. The retroactive planning stubs I added will help when I need to understand these decisions six months from now.
+### alpinejs-csp
+* Remove @alpinejs/csp dependency and update related routes
 
-**The Numbers:**
-- Completed: 18 tasks
-- Feature areas: fe-tidy-one, horizontal-slice-hs81-event-driven-cross-container-communication, align-a11y-test, hs81
+### approval-rate
+* Update approval rate display format in  decisionkerneladminpage tests
+
+### enhance-debug-ids
+* Enhance debug ids for filter components and header container
+
+### events
+* Address cross-boundary event review findings
+
+### fe-tidy-one
+* Harden Dashboard Hub authorization and centralize admin role checks
+* Harden PlanChangeImpactWidget accessibility tests and debug IDs
+* Enhance Billing Overview API and add admin session handling tests
+* Add kebab-case theme ID validation and TokenErrorBoundary
+* Standardize HS81 cross-boundary event communication
+* Author ADR-0215 admin dashboard widget guard and tenant context resolution
+* Improve quality-gate validation and propagate author information
+* Add retroactive planning documentation stubs for cohort tasks
+
+### fe-tidy-two
+* Reformat MISA terminology lint rules markdown for prettier compatibility
+* Add Vitest coverage for publication-admin-surface mount entrypoint
+* Refactor publication-admin-surface mount logic and harden surface lookup
+* Add data-debug-id hooks and POST-body assertion to Decision Policy form
+* Harden CdpCrmHubControllerTest JSON decoding with JSON_THROW_ON_ERROR
+* Fix FinOps limit boolean rendering in billing-management configuration
+* Pass explicit guard name to cdp.admin permission resolution
+* Extract createSystemBillingAccount helper in BillingAdminReadRbacTest
+* Scope quick-action-card pointer/hover/focus styles to interactive elements
+
+### horizontal-slice-hs81-event-driven-cross-container-communication
+* Baseline evidence and ownership map
+* Contract and acceptance criteria
+* CrossBoundaryEventDispatcher service implementation
+* Migrate Billing events to contracts
+* Migrate ETL/Sync events to contracts
+* Event tenant context validation
+* Targeted test and quality gate run
+* Tracker and checklist synchronization
+
+### hs81
+* Record completion metadata in archived planning artifacts
+
+### initial-adr
+* Add initial adr renumbering documentation and implementation checklist
+
+### middleware-authentication
+* Update middleware authentication order in admin routes refactor: use shared d...
+
+### shebang
+* Update shebang in build-theme-css script and improve text component fallback ...
+
+### streamline-decisionkerneladminpage
+* Streamline decisionkerneladminpage and  enhance accessibility tests
+
+### thin-vslice-vs01-rbac-admin-live-ui
+* Contract Scope Baseline
+* Frontend Integration
+* Backend Orchestration
+* API Contract Hardening
+* Data Determinism
+* Observability Instrumentation
+* Focused Tests & A11y
+* Quality Gates & Handoff
+
+### tidy
+* Add fe-tidy-one planning artifacts and documentation
+
+## Notes
+
+* Completed 46 work unit(s)
+* Item adherence: 0% (0/8 focus items)
+* Feature set adherence: 0% (0/6 planned feature sets had work)
+* Weighted adherence: 0% (with partial credit)
+* Untracked activity: 35 commit(s) not mapped to any feature set
+* Auto-archived 11 retroactive feature sets from untracked commits
 
 
-<!-- Generated by dev-tracker publish_to_jekyll.py (AI mode) -->
+<!-- Generated by dev-tracker publish_to_jekyll.py -->
 <!-- accomplished-date: 2026-04-29 -->
-<!-- unit-ids: fe-tidy-one-dashboard-hub-authorization-hardening,fe-tidy-one-plan-change-impact-a11y-hardening,fe-tidy-one-billing-overview-api,fe-tidy-one-theme-validation-and-token-error-boundary,fe-tidy-one-hs81-cross-boundary-events,fe-tidy-one-adr-0215-admin-widget-guard,fe-tidy-one-quality-gate-validation,fe-tidy-one-retroactive-planning-stubs,hs81-baseline-evidence,hs81-contract-scope,hs81-dispatcher-wrapper,hs81-billing-migration,hs81-etl-migration,hs81-validation-middleware,hs81-quality-gates,hs81-tracker-checklist-sync,align-a11y-test-align-a11y-test-with-develop,hs81-record-completion-metadata-archived-planning -->
+<!-- unit-ids: tv-vs01-contract-scope-baseline,tv-vs01-frontend-integration,tv-vs01-backend-orchestration,tv-vs01-api-contract-hardening,tv-vs01-data-determinism,tv-vs01-observability-instrumentation,tv-vs01-focused-tests-a11y,tv-vs01-quality-gates-handoff,shebang-shebang-build-theme-css-script-improve-text,fe-tidy-two-misa-lint-rules-doc-reformat,fe-tidy-two-publication-admin-surface-mount-tests,fe-tidy-two-publication-admin-surface-mount-refactor,fe-tidy-two-decision-policy-form-debug-ids,fe-tidy-two-cdpcrm-test-json-throw,fe-tidy-two-billing-finops-bool-rendering,fe-tidy-two-cdp-permission-guard-resolution,fe-tidy-two-billing-rbac-test-helper-extraction,fe-tidy-two-quick-action-card-interactive-scoping,middleware-authentication-middleware-authentication-order-admin-routes,streamline-decisionkerneladminpage-streamline-decisionkerneladminpage-enhance-accessibility-tests,address-multi-round-address-multi-round-code-review-fixes-across,fe-tidy-one-dashboard-hub-authorization-hardening,fe-tidy-one-plan-change-impact-a11y-hardening,fe-tidy-one-billing-overview-api,fe-tidy-one-theme-validation-and-token-error-boundary,fe-tidy-one-hs81-cross-boundary-events,fe-tidy-one-adr-0215-admin-widget-guard,fe-tidy-one-quality-gate-validation,fe-tidy-one-retroactive-planning-stubs,adr-0215-adr-0215-admin-dashboard-widget-guard,hs81-baseline-evidence,hs81-contract-scope,hs81-dispatcher-wrapper,hs81-billing-migration,hs81-etl-migration,hs81-validation-middleware,hs81-quality-gates,hs81-tracker-checklist-sync,tidy-fe-tidy-one-planning-artifacts-documentation,align-a11y-test-align-a11y-test-with-develop,alpinejs-csp-remove-alpinejs-csp-dependency-related-routes,events-address-cross-boundary-event-review-findings,hs81-record-completion-metadata-archived-planning,enhance-debug-ids-enhance-debug-ids-filter-components,initial-adr-initial-adr-renumbering-documentation-implementation,approval-rate-approval-rate-display-format-decisionkerneladminpage -->
 
-<!-- accomplished-unit-ids: align-a11y-test-align-a11y-test-with-develop,fe-tidy-one-adr-0215-admin-widget-guard,fe-tidy-one-billing-overview-api,fe-tidy-one-dashboard-hub-authorization-hardening,fe-tidy-one-hs81-cross-boundary-events,fe-tidy-one-plan-change-impact-a11y-hardening,fe-tidy-one-quality-gate-validation,fe-tidy-one-retroactive-planning-stubs,fe-tidy-one-theme-validation-and-token-error-boundary,hs81-baseline-evidence,hs81-billing-migration,hs81-contract-scope,hs81-dispatcher-wrapper,hs81-etl-migration,hs81-quality-gates,hs81-record-completion-metadata-archived-planning,hs81-tracker-checklist-sync,hs81-validation-middleware -->
+<!-- accomplished-unit-ids: address-multi-round-address-multi-round-code-review-fixes-across,adr-0215-adr-0215-admin-dashboard-widget-guard,align-a11y-test-align-a11y-test-with-develop,alpinejs-csp-remove-alpinejs-csp-dependency-related-routes,approval-rate-approval-rate-display-format-decisionkerneladminpage,enhance-debug-ids-enhance-debug-ids-filter-components,events-address-cross-boundary-event-review-findings,fe-tidy-one-adr-0215-admin-widget-guard,fe-tidy-one-billing-overview-api,fe-tidy-one-dashboard-hub-authorization-hardening,fe-tidy-one-hs81-cross-boundary-events,fe-tidy-one-plan-change-impact-a11y-hardening,fe-tidy-one-quality-gate-validation,fe-tidy-one-retroactive-planning-stubs,fe-tidy-one-theme-validation-and-token-error-boundary,fe-tidy-two-billing-finops-bool-rendering,fe-tidy-two-billing-rbac-test-helper-extraction,fe-tidy-two-cdp-permission-guard-resolution,fe-tidy-two-cdpcrm-test-json-throw,fe-tidy-two-decision-policy-form-debug-ids,fe-tidy-two-misa-lint-rules-doc-reformat,fe-tidy-two-publication-admin-surface-mount-refactor,fe-tidy-two-publication-admin-surface-mount-tests,fe-tidy-two-quick-action-card-interactive-scoping,hs81-baseline-evidence,hs81-billing-migration,hs81-contract-scope,hs81-dispatcher-wrapper,hs81-etl-migration,hs81-quality-gates,hs81-record-completion-metadata-archived-planning,hs81-tracker-checklist-sync,hs81-validation-middleware,initial-adr-initial-adr-renumbering-documentation-implementation,middleware-authentication-middleware-authentication-order-admin-routes,shebang-shebang-build-theme-css-script-improve-text,streamline-decisionkerneladminpage-streamline-decisionkerneladminpage-enhance-accessibility-tests,tidy-fe-tidy-one-planning-artifacts-documentation,tv-vs01-api-contract-hardening,tv-vs01-backend-orchestration,tv-vs01-contract-scope-baseline,tv-vs01-data-determinism,tv-vs01-focused-tests-a11y,tv-vs01-frontend-integration,tv-vs01-observability-instrumentation,tv-vs01-quality-gates-handoff -->
 <!-- SECTION: ACCOMPLISHED END -->
 <!-- Generated by dev-tracker build_today_plan.py -->
