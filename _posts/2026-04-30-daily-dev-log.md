@@ -7,33 +7,33 @@ tags: [dev-tracker]
 ---
 
 <!-- SECTION: DAILY-PLAN START -->
-<!-- plan-generated: 2026-04-30T13:09:43.742699+00:00 -->
+<!-- plan-generated: 2026-04-30T14:16:58.144576+00:00 -->
 
 ## Today's Theme
 
-I'm staring at a classic pattern: multiple recently-touched feature sets all sitting at baseline phases because I keep avoiding the hard design decisions. The control-plane-terms-rates-decomposition and agent-enforcement work both got my attention yesterday, but they're asking me to define what events we actually emit and how RBAC enforcement should work - questions I apparently don't want to answer.
+The governed-design work is screaming at me with its 16 commits this week and that tracker population task I touched yesterday. But I'm also staring at three recently active feature sets (control-plane-terms-rates-decomposition, agent-enforcement, privacy-filter) that all got attention in the last 24 hours. The truth is, I've been procrastinating on the ADR-0217 review because I'm not sure the middleware approach is actually the right solution.
 
 ## The Main Work
 
-**Generate the canonical telemetry event manifest from current source** - The control-plane decomposition can't proceed without knowing what events we're actually emitting across the platform. I suspect we have duplicate event names, inconsistent payloads, and probably some events that fire but never get consumed. This grep-based inventory is tedious detective work, but I'm curious what disaster is hiding in our current event architecture.
+**Populate tracker.json with granular work units for governed-design** - I've put 16 commits into this feature set this week and touched this specific task yesterday, so the mental model is loaded. The tracker population forces me to break down the governance work into concrete units instead of hand-waving about "policy management." I suspect this will reveal that the token policy work is more complex than I initially thought, especially around authorization boundaries.
 
-**Review and land ADR-0217** - This agent-enforcement decision has been sitting in review limbo, and unresolved architecture decisions create technical debt that compounds daily. The enforcement middleware design affects how every agent interaction gets validated, so leaving it unfinished means I'm building on quicksand. Plus I hate having open ADRs cluttering the decision log.
+**Review and land ADR-0217 for agent enforcement** - This has been sitting there and I keep avoiding it because I have genuine doubts about whether middleware is the right layer for MCP tool call enforcement. The security implications are scary - get this wrong and we have agents bypassing permission checks. But the alternative approaches (decorator pattern, event-driven gates) each have their own complexity trade-offs that I haven't fully thought through.
 
-**Provide null/in-memory RuntimeResolver implementation** - The privacy-filter work needs this stub so the sanitization system can function without external dependencies during testing. Without it, every test that touches sensitive data requires complex mocking setup, which explains why I've been avoiding writing privacy tests altogether.
+**Generate canonical telemetry event manifest from current source** - The control-plane decomposition work needs this baseline before I can design any rate limiting or terms enforcement. I'm curious what disaster is lurking in our current event taxonomy - probably inconsistent naming, duplicate events, and zero schema validation. This archaeological dig will either reveal manageable chaos or confirm my suspicions that our telemetry is completely ad-hoc.
 
-**Feature test for EnforceMcpToolCallMiddleware deny mode** - This test proves the enforcement system actually blocks unauthorized tool calls instead of just logging them. I'm genuinely worried our current enforcement is cosmetic - it might log violations but still process dangerous requests. The test will either confirm proper blocking or expose a security hole.
+**Implement null RuntimeResolver for privacy filter testing** - The privacy filter work got recent attention and this missing piece is blocking the sanitization provider interface design. Without a no-op resolver, every test has to mock complex runtime dependencies, which makes the test suite brittle. This should be straightforward - just a resolver that returns empty results for all queries.
 
 ## Housekeeping
 
-**Draft implementation plan for review-finding-remediation** - This planning directory aligns with the quality focus from my current work, and it already has quality-gates.md artifact. The review findings probably represent recurring code review issues that could be systematized rather than catching the same problems manually every time.
+**Draft implementation plan for horizontal-slice-openapi-form-request-contract-parity-gate** - This planning directory aligns with the contract work I'm doing in control-plane decomposition. The quality gates artifact exists but needs the concrete work breakdown. Main question: whether to validate parity at build time or runtime.
 
-**Regenerate the lint harness snapshot** - The current quality reports are stale and I've been making decisions based on outdated error counts. Fresh data would show the real impact of recent infrastructure changes.
+**Fix the markdownlint issues in planning directories** - I've got 33 issues across 8 files, and since I'm already touching planning docs for the governed-design tracker, might as well clean up the formatting noise. Most of these are probably just inconsistent heading levels or missing blank lines.
 
-**Complete contract scope baseline for tv-vs05 JWT budget throttling** - This baseline is a lightweight planning task that forces me to define what gets throttled and how budgets work before diving into implementation.
+**Update the vertical slice contract baselines** - Both tv-vs05 and tv-vs07 are sitting at contract scope baseline phase from 2 days ago. These represent fundamental decisions about JWT budget throttling and form error handling that I've been dodging. Time to actually define what these features do.
 
 ## Parked
 
-The massive todo-remediation work (68 units) is staying parked even though I have one item in progress. That template boilerplate replacement should be trivial, but honestly I'm more interested in the enforcement and privacy architecture questions right now. The todo work can wait until I'm in a different headspace.
+The todo-remediation template boilerplate replacement is getting deferred despite having momentum. I know it's annoying me every time I create new planning docs, but the governed-design work is more strategically important right now. The boilerplate irritation can wait another day - it's not blocking any real feature development.
 
 <!-- plan-unit-ids: cptr-p0-event-grep,cptr-p0-rbac-baseline,gov-plan-tracker,gov-ui-route,todoremed-p0-replace-template-boilerplate,tv-vs04-contract-scope-baseline,tv-vs05-contract-scope-baseline,tv-vs07-contract-scope-baseline -->
 <!-- SECTION: DAILY-PLAN END -->
