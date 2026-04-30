@@ -7,31 +7,33 @@ tags: [dev-tracker]
 ---
 
 <!-- SECTION: DAILY-PLAN START -->
-<!-- plan-generated: 2026-04-30T14:40:46.788242+00:00 -->
+<!-- plan-generated: 2026-04-30T15:18:21.392089+00:00 -->
 
 ## Today's Theme
 
-My focus is scattered across three feature sets that each got attention yesterday - control-plane-terms-rates-decomposition, agent-enforcement, and privacy-filter. All three are sitting in that awkward planning phase where I've created the directories but keep procrastinating on the foundational work. The truth is, I'm avoiding the hard archaeological digs these features require because inventory work is tedious and often reveals bigger messes than I want to deal with.
+Three feature sets grabbed my attention in the last 24 hours: control-plane-terms-rates-decomposition, agent-enforcement, and privacy-filter. All three are sitting at the planning sprint phase, which means I'm finally tackling the architectural decisions I've been delaying. The agent enforcement work needs ADR-0217 drafted, and I'm genuinely curious how the MCP tool call middleware will integrate with existing auth flows.
 
 ## The Main Work
 
-**Generate the canonical telemetry event manifest from current source** - This cptr-p0-event-grep task is blocking everything else in the control-plane decomposition work. I need to stop pretending I know what events we're actually emitting and just grep through the codebase systematically. The decomposition can't proceed without understanding our current telemetry surface, and I suspect there are events scattered everywhere that don't follow any consistent naming patterns.
+**Generate the canonical telemetry event manifest from current source** - This `cptr-p0-event-grep` task is fundamental to the control plane decomposition work. Before I can split telemetry concerns across domains, I need to understand what events we're actually emitting. I suspect there are dozens of undocumented event types scattered through the codebase, and this grep-based discovery will either reveal manageable complexity or expose why our observability is so fragmented.
 
-**Create the null/in-memory RuntimeResolver implementation** - The privacy-filter work needs this foundational piece before any real sanitization can happen. I'm curious whether the resolver pattern will actually simplify the data filtering logic or just add another layer of indirection. But without a concrete implementation to test against, the whole privacy filtering system remains theoretical.
+**Draft ADR-0217 for MCP tool call enforcement patterns** - The agent-enforcement planning shows Phase 1 is all about getting this ADR written, and I've been procrastinating because enforcement middleware touches every auth decision in the platform. Getting this wrong creates massive security holes. But I need to stop avoiding the hard questions about where enforcement hooks belong and how policy violations get handled.
 
-**Draft ADR-0217 for agent enforcement architecture** - I've been circling around this architectural decision record for the agent-enforcement feature, but it's time to commit the core enforcement patterns to writing. The middleware approach versus policy-based gates represents a fundamental design choice that affects everything downstream. Writing forces me to defend the approach with concrete rationales instead of just handwaving about "enforcement layers."
+**Create the RuntimeResolver null implementation for privacy filtering** - The `pf-mr-resolver-inmemory` task represents the testing foundation for the entire privacy filter system. Without a null resolver, I can't write meaningful tests for the sanitization pipeline, which means I'm coding blind. This in-memory implementation forces me to think through the resolver interface design before building the real database-backed version.
 
-**Snapshot existing RBAC gates and covering tests** - This baseline work for control-plane decomposition is boring detective work, but essential. I need to know what authorization patterns currently exist before I can decompose them cleanly. My guess is that RBAC checks are scattered inconsistently across controllers, which would explain why this refactoring feels so daunting.
+**Snapshot the existing RBAC gates and their test coverage** - The `cptr-p0-rbac-baseline` work is tedious inventory gathering, but I'm worried about what authorization chaos I'll discover. Are we talking about scattered gate checks across controllers, or something resembling a coherent system? This baseline either confirms my fears about fragmented auth or reveals more structure than I expected.
 
 ## Housekeeping
 
-**Draft implementation plan for review-finding-remediation** - This planning directory aligns with the remediation theme from my active work and just needs concrete work units defined. The quality-gates.md artifact exists, so I have a starting point for scoping the review process improvements.
+**Draft implementation plan for review-finding-remediation** - This planning directory aligns with the remediation theme I've been working, and the quality-gates.md artifact exists but needs a concrete implementation strategy. The review process findings represent technical debt that accumulates if not addressed systematically.
 
-**Fix a few Markdownlint issues in files I'm already touching** - The 33 issues across 8 files include some in the planning directories I'm actively working in. Might as well clean up the formatting while I'm editing those files anyway.
+**Update one of the contract scope baselines for VS05 or VS07** - Both thin vertical slices are sitting at contract definition phase, and I touched them recently. The JWT budget throttling and form accessibility error wiring features can't proceed without understanding what interfaces they're actually implementing.
+
+**Fix those 33 markdownlint issues across 8 files** - Small cleanup that improves documentation readability, and I'll probably be touching some of these files anyway while working on the planning artifacts.
 
 ## Parked
 
-The governed-design tracker population is sitting there with heavy focus signals, but honestly I'm not ready for more planning overhead right now. I'd rather make progress on the three planning sprints I've already started than add a fourth incomplete effort to the pile.
+The governed-design tracker population got heavy focus this week, but it's not critical path today. The policy gates and UI navigation work can wait until I have the foundational architecture pieces (ADR-0217, privacy contracts) sorted out. Better to get the enforcement patterns right before building the interfaces that depend on them.
 
 <!-- plan-unit-ids: cptr-p0-event-grep,cptr-p0-rbac-baseline,gov-plan-tracker,gov-ui-route,todoremed-p0-replace-template-boilerplate,tv-vs04-contract-scope-baseline,tv-vs05-contract-scope-baseline,tv-vs07-contract-scope-baseline -->
 <!-- SECTION: DAILY-PLAN END -->
