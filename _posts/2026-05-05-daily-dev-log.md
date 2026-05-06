@@ -44,29 +44,190 @@ Those 21 imperatives-refactoring-debt units aren't getting attention either - 3,
 
 
 <!-- SECTION: ACCOMPLISHED START -->
-<!-- accomplished-generated: 2026-05-06T01:27:16.030873+00:00 -->
+<!-- accomplished-generated: 2026-05-06T13:09:59.885549+00:00 -->
+<!-- accomplished-updated: 2026-05-06T13:09:59.885549+00:00 -->
 
-## Today's Update
+* Completed 132 tasks today on the Colossalistic Platform project.
 
-Today was the day I finally shipped the agent enforcement feature end-to-end. I've been planning this thing for months, and after 68 discrete work items, it's actually done and ready for controlled rollout.
+## What I Built
 
-The morning started with all the foundational scaffolding - the Porto container, config files, service provider registration, and the evidence envelope database table. Nothing glamorous, but getting the architecture right from the start meant everything else fell into place more smoothly. The most interesting decision was around the evidence storage schema. I ended up with a single `agent_enforcement_evidence_envelopes` table rather than separate tables for different evidence types. It's more flexible and the JSON payload structure can evolve without migrations.
+### a11y-harness
+* Add Accessibility Harness section to quick-reference
+* Add Active row to INDEX.md
+* Run make a11y-harness-snapshot and verify baseline created
+* Run make a11y-harness-status and verify dashboard renders
+* Run make a11y-harness-compare and verify zero-delta
 
-The policy pack system turned out to be more complex than I initially thought. I built a YAML-based policy loader with tenant override resolution, which means different tenants can customize their enforcement rules without touching code. The validator took longer than expected because I kept finding edge cases - what happens when a policy references a tool that doesn't exist? What about circular dependencies between policy rules? I ended up being pretty strict about validation rather than trying to handle every possible malformed input gracefully.
+### agent-enforcement
+* Populate README, artifacts/README, ticket-details for agent-enforcement
+* Write detailed implementation-plan.md from canonical template
+* Populate tracker.json with all phase work units and dependency edges
+* Write implementation-checklist.md mirroring tracker.json 1:1
+* Markdown-lint all touched planning docs
+* Author artifacts/architecture-reuse-map.md with concrete file paths
+* Author artifacts/sequence-diagram.md (mermaid) for the enforcement decision flow
+* Decide and document table inventory (single new evidence-envelope table)
+* Draft ADR-0195 Agent Enforcement Runtime
+* Scaffold Core/AgentEnforcement Porto container
+* Create config/agent-enforcement.php with mode + flag keys
+* Add AGENT_ENFORCEMENT_* entries to .env.example
+* Create AgentEnforcementServiceProvider
+* Register section in MainServiceProvider and bootstrap discovery
+* Create routes/agent-enforcement.php skeleton
+* Migration: agent_enforcement_evidence_envelopes
+* Investigate Trust review queue schema; design mcp.tool_call payload extension
+* Container README documenting architecture and reuse contract
+* DTO: EnforcementRequestData
+* DTO: EnforcementOutcomeData (verdicts approved | denied | escalated)
+* Task: BuildActionProposalTask
+* Task: ApplyPolicyPackOverlayTask
+* Task: BuildEvidenceEnvelopeTask
+* Task: PersistEvidenceEnvelopeTask
+* Task: EmitEnforcementAuditTask
+* Service: EnforcementOrchestrator::decide()
+* Repository: EvidenceEnvelopeRepository
+* Exception: EnforcementDeniedException
+* Exception: EnforcementEscalatedException
+* Middleware: EnforceMcpToolCallMiddleware
+* Task: ResolveEnforcementOutcomeTask
+* Configure mcp.tool_enforcement.shadow log channel
+* Wire enforce-mode JSON exception responses
+* Wire agent-enforcement.enabled feature flag check
+* DTO: PolicyPackData
+* Service: PolicyPackLoaderService (YAML reader)
+* Service: PolicyPackValidator
+* Tenant override resolution in PolicyPackLoaderService
+* Commit config/policy-packs/example.yaml from source bundle
+* Extend TrustReviewQueueService for mcp.tool_call subject_type
+* Controller: EnforcementReviewQueueController index/show
+* Controller: EnforcementReviewDecisionController approve/deny
+* FormRequest: ApproveEnforcementReviewRequest
+* FormRequest: DenyEnforcementReviewRequest
+* Component: EnforcementReviewQueueList.tsx
+* Component: EnforcementReviewDetailDrawer.tsx
+* Component: EnforcementReviewApproveModal.tsx
+* Component: EnforcementReviewDenyModal.tsx
+* CSS Modules with semantic design tokens for all 4 components
+* Hook: useEnforcementReviewQueue (TanStack Query)
+* Hooks: useApproveEnforcementReview + useDenyEnforcementReview
+* Register Agent Enforcement section in admin shell IA
+* jest-axe accessibility tests (touched-file gate)
+* Empty / loading / error state coverage in List + Drawer
+* Audit emission via SecurityAuditLogService event types
+* Unit: ApplyPolicyPackOverlayTaskTest
+* Unit: PolicyPackLoaderServiceTest + PolicyPackValidatorTest
+* Feature: EnforceMcpToolCallMiddlewareShadowModeTest
+* Feature: EnforceMcpToolCallMiddlewareEnforceModeDeniedTest
+* Feature: EnforceMcpToolCallMiddlewareEnforceModeEscalatedTest
+* Feature: EnforcementReviewCrossTenantIsolationTest (mandatory)
+* Feature: EnforcementReviewApproveTest
+* Feature: EnforcementReviewDenyTest
+* Land ADR-0195 in docs/architecture/decisions/
+* Admin user guide: agent-enforcement review queue
+* Developer guide: authoring agent-enforcement policy packs
+* Promote canonical docs (per PLANNING-WORKFLOW.md mandatory step)
+* Confirm AGENT_ENFORCEMENT_ENABLED defaults off in production
 
-The frontend admin interface came together nicely once I had the backend APIs working. Four React components with proper accessibility testing, TanStack Query for data fetching, and CSS modules following our design token system. The review queue detail drawer was the trickiest piece - showing both the original tool call request and the policy decision in a way that makes sense to non-technical administrators. I'm particularly happy with how the approve/deny confirmation modals turned out - they show enough context that an admin can make an informed decision without overwhelming them with JSON dumps.
+### core-etl
+* Tighten adapter typing for logging wave
 
-What surprised me most was how much of the work ended up being about observability and testing rather than the core enforcement logic. Six different feature test scenarios covering shadow mode, denial paths, escalation workflows, and cross-tenant isolation. The middleware itself is relatively straightforward - it's all the edge cases and failure modes that require careful handling. The audit emission integration with SecurityAuditLogService ensures we have a complete trail of every enforcement decision, which will be crucial when we need to debug why a particular tool call was blocked.
+### css-modules-harness
+* Run report targets and verify JSON output
+* Run make css-modules-harness-snapshot and verify baseline
 
-I also closed out the remaining structured logging migrations and documentation metadata standardization work that had been accumulating. The structured logging wave is finally complete - all containers are off the raw Log facade and using proper structured events. The documentation tooling can now automatically migrate metablock-style metadata to YAML frontmatter and validate everything against our canonical schema. These weren't exciting features, but they were technical debt that would have slowed down future development.
+### documentation-metadata-standardization
+* Align docs/DOCUMENTATION_TEMPLATE.md to the canonical schema
+* Strip metablock when frontmatter exists and agrees
+* Rewrite documentation_standards.md metadata section to declare frontmatter canonical
+* Make `version` required and add semver pattern to frontmatter-schema.json
+* Add metablock-vs-frontmatter classifier to migrate-frontmatter.py
+* Add metablock-to-frontmatter lift to migrate-frontmatter.py
+* Add --dry-run and --path scope flags to normalize mode
+* Promote CI validator to --strict
+* Add unit tests for the new tooling and validator branches
+* Run classifier audit on docs/ and publish reports to artifacts/
+* Emit per-field divergence detail for both-disagree set
+* Validate required-field presence in standards_enforcer.py
+* Validate enum values and ISO date format
+* Validate semver shape on `version`
+* Add --strict flag promoting validator warnings to errors
+* Wire validator into CI at warn level
+* Collapse duplicated sections in documentation_standards.md
+* Repair broken code fences in documentation_standards.md
+* Add 'Why frontmatter, not metablocks' rationale section
+* Validate frontmatter version matches latest Version History row
+* Reconcile both-disagree files manually
+* Per-directory normalize sweep (umbrella; split after audit)
+* Add custom markdownlint rule blocking metablocks after H1
+* Add a one-paragraph 'use frontmatter, not metablocks' rule to CONTRIBUTING
+* Warn when document_type does not match directory convention
+* Add `make docs-validate-metadata` target
 
-Tomorrow I'll start testing the agent enforcement system in shadow mode with a small group of beta users. Having the evidence storage and admin interface ready means I can actually debug issues when they inevitably come up.
+### enhance-agent-enforcement
+* Enhance agent enforcement review process and improve accessibility
+
+### enhance-sendgridadapter
+* Enhance SendGridAdapter to clamp event limit to 1000
+
+### handle-empty-driver
+* Handle empty driver name in getScheduleStatistics method  and improve KPI tracking in SendGridAdapterTest
+
+### imperatives-refactoring-debt
+* Final verification and test coverage for adapter refactoring
+* Extract Shopify webhook handling from ShopifyAdapter
+* Extract Shopify tombstone handling from ShopifyAdapter
+* Extract Shopify metrics handling from ShopifyAdapter
+* Extract ShopifyBulkOperationsService from ShopifyAdapter
+* Extract similar services from WordPressAdapter
+
+### jest-coverage-harness
+* Add Jest Coverage Harness section to quick-reference
+* Add Active row to INDEX.md
+* Run make jest-coverage-harness-snapshot and verify baseline
+
+### privacy-filter
+* Immutable audit-log entries for ModelRegistry approvals/activations/rollbacks
+* Activate / approve / rollback confirmation dialogs
+* Unit tests for DataSanitization Tasks
+* MCP integration tests (ingress/egress/block/review/attestation)
+* Unit tests for DataSanitization services
+* Component + jest-axe tests for model registry admin
+* Model registry artifact detail view
+* Storybook entries for sanitization admin
+* Storybook entries for review queue
+* Storybook entries for model registry admin
+
+### pseudonymization-hmac
+* Add pseudonymization HMAC key handling and improve validation logic
+
+### richtexteditor
+* Add actionKey prop to ToolbarButton for improved debug ID
+
+### structured-logging-next-wave
+* Baseline remaining structured logging wave scope
+* Migrate Email logging to StructuredLog
+* Migrate Admin logging to StructuredLog
+* Migrate Core/ETL logging to StructuredLog
+* Normalize channel and dynamic logging patterns
+* Expand DisallowRawLogFacade guard to remaining wave
+
+## Notes
+
+* Completed 132 work unit(s)
+* Worked on 1 unplanned item(s)
+* Removed/archived 18 incomplete unit(s)
+* Archived 140 previously completed unit(s)
+* Item adherence: 62% (5/8 focus items)
+* Feature set adherence: 75% (3/4 planned feature sets had work)
+* Weighted adherence: 188% (with partial credit)
+* Untracked activity: 49 commit(s) not mapped to any feature set
+* Auto-archived 2 retroactive feature sets from untracked commits
 
 
-<!-- Generated by dev-tracker publish_to_jekyll.py (AI mode) -->
+<!-- Generated by dev-tracker publish_to_jekyll.py -->
 <!-- accomplished-date: 2026-05-05 -->
-<!-- unit-ids: slnw-contract-scope-baseline,slnw-email-migration,slnw-admin-migration,slnw-etl-migration,slnw-channel-and-dynamic-hardening,slnw-guard-ratchet,pf-audit-registry,dms-template-align-with-schema,dms-tooling-strip-when-agree,pf-ui-mr-action-confirm,dms-standards-rewrite-metadata-section,dms-schema-version-required-update,dms-tooling-classify-frontmatter-vs-metablock,pf-test-ds-unit-tasks,pf-test-int-mcp,dms-tooling-metablock-lift,dms-tooling-dry-run-and-path-flags,dms-validate-promote-strict-ci,dms-tooling-tests,pf-test-ds-unit-services,dms-run-audit-and-publish-report,pf-ui-mr-tests,pf-ui-mr-detail,dms-tooling-emit-divergence-report,dms-validator-required-fields,dms-validator-enum-and-iso-date,dms-validator-semver-pattern,dms-validator-strict-flag,dms-validate-ci-wire-warn,dms-standards-fix-structural-duplication,dms-standards-fix-broken-code-fences,dms-standards-add-rationale-section,dms-validator-version-history-match,dms-reconcile-disagree-set,dms-sweep-directories-umbrella,dms-markdownlint-block-metablocks,pf-ui-sanitization-storybook,pf-ui-review-storybook,pf-ui-mr-storybook,dms-add-contributing-frontmatter-rule,dms-validator-doctype-vs-directory-warn,dms-validate-makefile-target,etl-adapters-verification,shopify-webhook-service,shopify-tombstone-service,shopify-metrics-consolidation,shopify-bulk-operations,wordpress-service-extraction,ae-plan-docs-bootstrap,ae-plan-impl,ae-plan-tracker,ae-plan-checklist,ae-plan-md-lint,ae-arch-reuse-map,ae-arch-sequence-diagram,ae-arch-table-inventory,ae-adr-0195-draft,ae-foundation-container-scaffold,ae-foundation-config-file,ae-foundation-env-example,ae-foundation-service-provider,ae-foundation-section-binding,ae-foundation-routes-file,ae-foundation-migration-evidence,ae-foundation-trust-review-payload,ae-foundation-container-readme,ae-pipeline-dto-request,ae-pipeline-dto-outcome,ae-pipeline-task-build-action-proposal,ae-pipeline-task-apply-policy-overlay,ae-pipeline-task-build-evidence,ae-pipeline-task-persist-evidence,ae-pipeline-task-emit-audit,ae-pipeline-svc-orchestrator,ae-pipeline-repo-evidence,ae-pipeline-exception-denied,ae-pipeline-exception-escalated,ae-mcp-middleware-class,ae-mcp-task-resolve-outcome,ae-mcp-mode-shadow-wiring,ae-mcp-mode-enforce-wiring,ae-mcp-feature-flag-wiring,ae-pack-dto,ae-pack-loader,ae-pack-validator,ae-pack-tenant-overlay,ae-pack-example-yaml,ae-review-trustqueue-extend,ae-review-controller-list,ae-review-controller-decision,ae-review-form-request-approve,ae-review-form-request-deny,ae-fe-list-component,ae-fe-detail-drawer,ae-fe-approve-modal,ae-fe-deny-modal,ae-fe-css-modules,ae-fe-data-hook-list,ae-fe-data-hook-mutate,ae-fe-admin-ia-route,ae-fe-a11y-tests,ae-fe-empty-loading-states,ae-obs-audit-emission,ae-test-unit-apply-policy-overlay,ae-test-unit-pack-loader,ae-test-feature-middleware-shadow,ae-test-feature-middleware-enforce-deny,ae-test-feature-middleware-enforce-escalated,ae-test-feature-cross-tenant,ae-test-feature-review-approve,ae-test-feature-review-deny,ae-docs-adr-merge,ae-docs-admin-user-guide,ae-docs-policy-author-guide,ae-docs-canonical-promote,ae-rollout-flag-default-off -->
+<!-- unit-ids: slnw-contract-scope-baseline,slnw-email-migration,slnw-admin-migration,slnw-etl-migration,slnw-channel-and-dynamic-hardening,slnw-guard-ratchet,pf-audit-registry,dms-template-align-with-schema,dms-tooling-strip-when-agree,pf-ui-mr-action-confirm,dms-standards-rewrite-metadata-section,dms-schema-version-required-update,dms-tooling-classify-frontmatter-vs-metablock,pf-test-ds-unit-tasks,pf-test-int-mcp,dms-tooling-metablock-lift,dms-tooling-dry-run-and-path-flags,dms-validate-promote-strict-ci,dms-tooling-tests,pf-test-ds-unit-services,dms-run-audit-and-publish-report,pf-ui-mr-tests,pf-ui-mr-detail,dms-tooling-emit-divergence-report,dms-validator-required-fields,dms-validator-enum-and-iso-date,dms-validator-semver-pattern,dms-validator-strict-flag,dms-validate-ci-wire-warn,dms-standards-fix-structural-duplication,dms-standards-fix-broken-code-fences,dms-standards-add-rationale-section,dms-validator-version-history-match,dms-reconcile-disagree-set,dms-sweep-directories-umbrella,dms-markdownlint-block-metablocks,pf-ui-sanitization-storybook,pf-ui-review-storybook,pf-ui-mr-storybook,dms-add-contributing-frontmatter-rule,dms-validator-doctype-vs-directory-warn,dms-validate-makefile-target,css-verify-reports,css-verify-snapshot,a11y-quick-ref,jest-quick-ref,a11y-index-update,jest-index-update,a11y-verify-snapshot,jest-verify-snapshot,a11y-verify-dashboard,a11y-verify-compare,etl-adapters-verification,shopify-webhook-service,shopify-tombstone-service,shopify-metrics-consolidation,shopify-bulk-operations,wordpress-service-extraction,handle-empty-driver-handle-empty-driver-name-getschedulestatistics,enhance-sendgridadapter-enhance-sendgridadapter-clamp-event-limit,core-etl-tighten-adapter-typing-logging-wave,richtexteditor-actionkey-prop-toolbarbutton-improved-debug,ae-plan-docs-bootstrap,ae-plan-impl,ae-plan-tracker,ae-plan-checklist,ae-plan-md-lint,ae-arch-reuse-map,ae-arch-sequence-diagram,ae-arch-table-inventory,ae-adr-0195-draft,ae-foundation-container-scaffold,ae-foundation-config-file,ae-foundation-env-example,ae-foundation-service-provider,ae-foundation-section-binding,ae-foundation-routes-file,ae-foundation-migration-evidence,ae-foundation-trust-review-payload,ae-foundation-container-readme,ae-pipeline-dto-request,ae-pipeline-dto-outcome,ae-pipeline-task-build-action-proposal,ae-pipeline-task-apply-policy-overlay,ae-pipeline-task-build-evidence,ae-pipeline-task-persist-evidence,ae-pipeline-task-emit-audit,ae-pipeline-svc-orchestrator,ae-pipeline-repo-evidence,ae-pipeline-exception-denied,ae-pipeline-exception-escalated,ae-mcp-middleware-class,ae-mcp-task-resolve-outcome,ae-mcp-mode-shadow-wiring,ae-mcp-mode-enforce-wiring,ae-mcp-feature-flag-wiring,ae-pack-dto,ae-pack-loader,ae-pack-validator,ae-pack-tenant-overlay,ae-pack-example-yaml,ae-review-trustqueue-extend,ae-review-controller-list,ae-review-controller-decision,ae-review-form-request-approve,ae-review-form-request-deny,ae-fe-list-component,ae-fe-detail-drawer,ae-fe-approve-modal,ae-fe-deny-modal,ae-fe-css-modules,ae-fe-data-hook-list,ae-fe-data-hook-mutate,ae-fe-admin-ia-route,ae-fe-a11y-tests,ae-fe-empty-loading-states,ae-obs-audit-emission,ae-test-unit-apply-policy-overlay,ae-test-unit-pack-loader,ae-test-feature-middleware-shadow,ae-test-feature-middleware-enforce-deny,ae-test-feature-middleware-enforce-escalated,ae-test-feature-cross-tenant,ae-test-feature-review-approve,ae-test-feature-review-deny,ae-docs-adr-merge,ae-docs-admin-user-guide,ae-docs-policy-author-guide,ae-docs-canonical-promote,ae-rollout-flag-default-off,enhance-agent-enforcement-enhance-agent-enforcement-review-process,pseudonymization-hmac-pseudonymization-hmac-key-handling-improve -->
 
-<!-- accomplished-unit-ids: ae-adr-0195-draft,ae-arch-reuse-map,ae-arch-sequence-diagram,ae-arch-table-inventory,ae-docs-admin-user-guide,ae-docs-adr-merge,ae-docs-canonical-promote,ae-docs-policy-author-guide,ae-fe-a11y-tests,ae-fe-admin-ia-route,ae-fe-approve-modal,ae-fe-css-modules,ae-fe-data-hook-list,ae-fe-data-hook-mutate,ae-fe-deny-modal,ae-fe-detail-drawer,ae-fe-empty-loading-states,ae-fe-list-component,ae-foundation-config-file,ae-foundation-container-readme,ae-foundation-container-scaffold,ae-foundation-env-example,ae-foundation-migration-evidence,ae-foundation-routes-file,ae-foundation-section-binding,ae-foundation-service-provider,ae-foundation-trust-review-payload,ae-mcp-feature-flag-wiring,ae-mcp-middleware-class,ae-mcp-mode-enforce-wiring,ae-mcp-mode-shadow-wiring,ae-mcp-task-resolve-outcome,ae-obs-audit-emission,ae-pack-dto,ae-pack-example-yaml,ae-pack-loader,ae-pack-tenant-overlay,ae-pack-validator,ae-pipeline-dto-outcome,ae-pipeline-dto-request,ae-pipeline-exception-denied,ae-pipeline-exception-escalated,ae-pipeline-repo-evidence,ae-pipeline-svc-orchestrator,ae-pipeline-task-apply-policy-overlay,ae-pipeline-task-build-action-proposal,ae-pipeline-task-build-evidence,ae-pipeline-task-emit-audit,ae-pipeline-task-persist-evidence,ae-plan-checklist,ae-plan-docs-bootstrap,ae-plan-impl,ae-plan-md-lint,ae-plan-tracker,ae-review-controller-decision,ae-review-controller-list,ae-review-form-request-approve,ae-review-form-request-deny,ae-review-trustqueue-extend,ae-rollout-flag-default-off,ae-test-feature-cross-tenant,ae-test-feature-middleware-enforce-deny,ae-test-feature-middleware-enforce-escalated,ae-test-feature-middleware-shadow,ae-test-feature-review-approve,ae-test-feature-review-deny,ae-test-unit-apply-policy-overlay,ae-test-unit-pack-loader,dms-add-contributing-frontmatter-rule,dms-markdownlint-block-metablocks,dms-reconcile-disagree-set,dms-run-audit-and-publish-report,dms-schema-version-required-update,dms-standards-add-rationale-section,dms-standards-fix-broken-code-fences,dms-standards-fix-structural-duplication,dms-standards-rewrite-metadata-section,dms-sweep-directories-umbrella,dms-template-align-with-schema,dms-tooling-classify-frontmatter-vs-metablock,dms-tooling-dry-run-and-path-flags,dms-tooling-emit-divergence-report,dms-tooling-metablock-lift,dms-tooling-strip-when-agree,dms-tooling-tests,dms-validate-ci-wire-warn,dms-validate-makefile-target,dms-validate-promote-strict-ci,dms-validator-doctype-vs-directory-warn,dms-validator-enum-and-iso-date,dms-validator-required-fields,dms-validator-semver-pattern,dms-validator-strict-flag,dms-validator-version-history-match,etl-adapters-verification,pf-audit-registry,pf-test-ds-unit-services,pf-test-ds-unit-tasks,pf-test-int-mcp,pf-ui-mr-action-confirm,pf-ui-mr-detail,pf-ui-mr-storybook,pf-ui-mr-tests,pf-ui-review-storybook,pf-ui-sanitization-storybook,shopify-bulk-operations,shopify-metrics-consolidation,shopify-tombstone-service,shopify-webhook-service,slnw-admin-migration,slnw-channel-and-dynamic-hardening,slnw-contract-scope-baseline,slnw-email-migration,slnw-etl-migration,slnw-guard-ratchet,wordpress-service-extraction -->
+<!-- accomplished-unit-ids: a11y-index-update,a11y-quick-ref,a11y-verify-compare,a11y-verify-dashboard,a11y-verify-snapshot,ae-adr-0195-draft,ae-arch-reuse-map,ae-arch-sequence-diagram,ae-arch-table-inventory,ae-docs-admin-user-guide,ae-docs-adr-merge,ae-docs-canonical-promote,ae-docs-policy-author-guide,ae-fe-a11y-tests,ae-fe-admin-ia-route,ae-fe-approve-modal,ae-fe-css-modules,ae-fe-data-hook-list,ae-fe-data-hook-mutate,ae-fe-deny-modal,ae-fe-detail-drawer,ae-fe-empty-loading-states,ae-fe-list-component,ae-foundation-config-file,ae-foundation-container-readme,ae-foundation-container-scaffold,ae-foundation-env-example,ae-foundation-migration-evidence,ae-foundation-routes-file,ae-foundation-section-binding,ae-foundation-service-provider,ae-foundation-trust-review-payload,ae-mcp-feature-flag-wiring,ae-mcp-middleware-class,ae-mcp-mode-enforce-wiring,ae-mcp-mode-shadow-wiring,ae-mcp-task-resolve-outcome,ae-obs-audit-emission,ae-pack-dto,ae-pack-example-yaml,ae-pack-loader,ae-pack-tenant-overlay,ae-pack-validator,ae-pipeline-dto-outcome,ae-pipeline-dto-request,ae-pipeline-exception-denied,ae-pipeline-exception-escalated,ae-pipeline-repo-evidence,ae-pipeline-svc-orchestrator,ae-pipeline-task-apply-policy-overlay,ae-pipeline-task-build-action-proposal,ae-pipeline-task-build-evidence,ae-pipeline-task-emit-audit,ae-pipeline-task-persist-evidence,ae-plan-checklist,ae-plan-docs-bootstrap,ae-plan-impl,ae-plan-md-lint,ae-plan-tracker,ae-review-controller-decision,ae-review-controller-list,ae-review-form-request-approve,ae-review-form-request-deny,ae-review-trustqueue-extend,ae-rollout-flag-default-off,ae-test-feature-cross-tenant,ae-test-feature-middleware-enforce-deny,ae-test-feature-middleware-enforce-escalated,ae-test-feature-middleware-shadow,ae-test-feature-review-approve,ae-test-feature-review-deny,ae-test-unit-apply-policy-overlay,ae-test-unit-pack-loader,core-etl-tighten-adapter-typing-logging-wave,css-verify-reports,css-verify-snapshot,dms-add-contributing-frontmatter-rule,dms-markdownlint-block-metablocks,dms-reconcile-disagree-set,dms-run-audit-and-publish-report,dms-schema-version-required-update,dms-standards-add-rationale-section,dms-standards-fix-broken-code-fences,dms-standards-fix-structural-duplication,dms-standards-rewrite-metadata-section,dms-sweep-directories-umbrella,dms-template-align-with-schema,dms-tooling-classify-frontmatter-vs-metablock,dms-tooling-dry-run-and-path-flags,dms-tooling-emit-divergence-report,dms-tooling-metablock-lift,dms-tooling-strip-when-agree,dms-tooling-tests,dms-validate-ci-wire-warn,dms-validate-makefile-target,dms-validate-promote-strict-ci,dms-validator-doctype-vs-directory-warn,dms-validator-enum-and-iso-date,dms-validator-required-fields,dms-validator-semver-pattern,dms-validator-strict-flag,dms-validator-version-history-match,enhance-agent-enforcement-enhance-agent-enforcement-review-process,enhance-sendgridadapter-enhance-sendgridadapter-clamp-event-limit,etl-adapters-verification,handle-empty-driver-handle-empty-driver-name-getschedulestatistics,jest-index-update,jest-quick-ref,jest-verify-snapshot,pf-audit-registry,pf-test-ds-unit-services,pf-test-ds-unit-tasks,pf-test-int-mcp,pf-ui-mr-action-confirm,pf-ui-mr-detail,pf-ui-mr-storybook,pf-ui-mr-tests,pf-ui-review-storybook,pf-ui-sanitization-storybook,pseudonymization-hmac-pseudonymization-hmac-key-handling-improve,richtexteditor-actionkey-prop-toolbarbutton-improved-debug,shopify-bulk-operations,shopify-metrics-consolidation,shopify-tombstone-service,shopify-webhook-service,slnw-admin-migration,slnw-channel-and-dynamic-hardening,slnw-contract-scope-baseline,slnw-email-migration,slnw-etl-migration,slnw-guard-ratchet,wordpress-service-extraction -->
 <!-- SECTION: ACCOMPLISHED END -->
 <!-- Generated by dev-tracker build_today_plan.py -->
