@@ -40,34 +40,163 @@ The migration safety schema guards work is tempting because it's production-crit
 
 
 <!-- SECTION: ACCOMPLISHED START -->
-<!-- accomplished-generated: 2026-05-09T21:14:38.551502+00:00 -->
-<!-- accomplished-updated: 2026-05-09T21:14:38.551502+00:00 -->
+<!-- accomplished-generated: 2026-05-10T13:53:43.795897+00:00 -->
+<!-- accomplished-updated: 2026-05-10T13:53:43.795897+00:00 -->
 
-## Today's Update
+* Completed 91 tasks today on the Colossalistic Platform project.
 
-Today was fundamentally about building safety nets - across migrations, tenant isolation, and code quality. I tackled three major architectural concerns that have been accumulating technical debt, plus made substantial progress on React component remediation that's been a ongoing project.
+## What I Built
 
-The migration safety work was the most comprehensive effort. I built out a complete guard system for our Laravel migrations, starting with an audit script to classify all existing migrations into risk tiers. Then I systematically wrapped tier A Schema::create migrations in hasTable guards across three cohorts - about 150 files total. The tier B column migrations got hasColumn guards, and I individually resolved the tier C edge cases that were mixed schema and backfill operations. The satisfying capstone was adding a custom PHPStan rule that enforces the guard policy going forward, plus extending our nightly CI with a fresh-DB migration job to catch issues early. What I learned is that our migration files had way more inconsistency than I expected - some were defensive, others assumed clean state, and a few were doing schema changes mixed with data operations that really should be separate.
+### container-seeders-consolidation
+* Register seeders in DatabaseSeeder with deterministic ordering
+* Inventory container Data/Seeders/ files
+* git mv seeders into database/seeders/{ContainerName}/
+* Add PHPStan rule banning Data/Seeders/ under app/Containers/
+* Author ADR for centralized seeders policy
 
-The tenant isolation work was equally systematic but more complex architecturally. I audited every queued job class for tenant context issues and converted them in four cohorts - webhooks and payments first, then email and notifications, ETL and sync jobs, and finally the remaining miscellaneous jobs. Each cohort needed different approaches because they touch tenant data in different ways. I built integration tests proving that the shadow-mode middleware actually isolates tenant context in queued jobs, which was trickier than expected because you have to verify isolation without actually violating it in the test. Added another PHPStan rule to catch future violations, plus a documented allowlist for the few jobs that legitimately don't need tenant context.
+### csp-alpine-extraction
+* Audit inline Alpine component scripts
+* Extract integrationsOverview() to external module
+* Extract postmarkConfig() to external module
+* Create ADR-0210 for Alpine extraction pattern
+* Extract profileTabs() to external module
+* Extract documentationKPI() to external module
+* Extract mcpChat() to external module
+* Register all new modules in app.js
+* Unit tests for extracted JS modules
+* Verify Blade template rendering after extraction
+* Extract kpiDashboard() to external module
+* Update CSP and Alpine documentation
 
-I also consolidated the container seeders scattered throughout the Porto architecture into a centralized database/seeders structure. This involved inventorying seeders across all containers, moving them with git mv to preserve history, registering them in DatabaseSeeder with deterministic ordering, and adding a PHPStan rule to prevent future sprawl. The deterministic ordering was important because seeder dependencies can be subtle - you don't want UserSeeder running after RoleSeeder sometimes and before it other times.
+### csp-openapi-todo-gates
+* Add ContentSecurityPolicyMiddleware in report-only mode
+* Add CSP report endpoint and capture incoming reports
+* Pick OpenAPI generator and document decision
+* Add openapi-drift-check.yml workflow
+* Activate TodoFormatRule in PHPStan config
+* Annotate pilot container's controllers with OpenAPI metadata
+* Add pre-commit hook warning on non-conforming TODOs
 
-The React Doctor remediation continued with both baseline and followup work. I stabilized the inherited react-doctor-fix branch, established repo-level configuration, added shared fetch mock utilities, and applied remediation across selected components. The focus trap utilities for modal enforcement were particularly fiddly because accessibility requirements interact with React's event system in non-obvious ways. I'm still short of the 100/100 target score, so that goal moves to the next sprint.
+### delete-outdated-documentation
+* Delete outdated documentation and tracker files for structured  logging final wave and user planning; add new planning documents  and artifacts for cross-tenant isolation test suite and structured  logging final wave, including implementation plans, checklists, and   tracker JSON files to enhance observability and ensure migration   completion.
 
-Finally, I wrapped up the structured logging migration by parsing our Grafana dashboard JSON to identify which log keys are actually being used in production. Turns out we had several dead dashboard panels pointing to log keys that no longer exist - cleaned those up and produced a coverage map showing which parts of the logging surface are monitored versus just noise.
+### docs-tree-consolidation
+* Decide canonical names for duplicate pairs
+* Consolidate users ↔ user-guides
+* Consolidate admin ↔ admin-guides
+* Add CI check enforcing canonical mkdocs nav
+* Verify scoped docs validation and canonical-nav guard
+* Consolidate specs ↔ specifications
+* Consolidate documentation ↔ developer-portal
+* Retire duplicate-root README paths
+* Run README coverage audit and produce report
 
-This foundation work removes a lot of operational risk and sets up cleaner development workflows. The migration guards alone should prevent the kind of production schema issues we've seen when engineers assume clean database state.
+### enhance-enforcementreviewapprovemodal
+* Enhance EnforcementReviewApproveModal with accessibility tests and focus management
 
-**The Numbers:**
-- Completed: 56 tasks  
-- Feature areas: react-doctor-100-followup-sprint, migration-safety-schema-guards, tenant-context-job-propagation, container-seeders-consolidation, cross-tenant-isolation-test-suite, react-doctor-baseline-remediation, structured-logging-final-wave, react-doctor, tenant-aware, loading-text, seeders, enhance-enforcementreviewapprovemodal
+### implementation-plan
+* Add implementation plan and checklist for Migration Safety  Schema-Dump Guard Sweep
+
+### job
+* Use billingAccountId directly in handleWithinTenant  method
+
+### loading-text
+* Update loading text to use ellipsis in Marketing and Security Metrics dashboard tests
+
+### migration-safety-schema-guards
+* Generate migration guard audit report
+* Wrap tier A Schema::create migrations cohort 2 (~75 files) in hasTable guards
+* Wrap tier A Schema::create migrations cohort 3 (remaining files) in hasTable guards
+* Wrap tier A Schema::create migrations cohort 1 (~75 files) in hasTable guards
+* Extend nightly-migration-check.yml with fresh-DB migrate job
+* Add custom PHPStan rule RequireMigrationSchemaGuardRule
+* Classify tier C edge-case migrations
+* Wrap tier B Schema::table column-add migrations in hasColumn guards
+* Author ADR for migration schema-dump guard policy
+* Capture local fresh-DB clean-run log into artifacts
+* Resolve tier C mixed/backfill migrations individually
+* Update agents/10_architecture.md Migration Schema-Dump Guard section
+
+### react-doctor
+* Checkpoint remediation wave
+
+### react-doctor-100-followup-sprint
+* Stabilize and commit the inherited react-doctor-fix remediation batch
+
+### react-doctor-baseline-remediation
+* Add repo-level React Doctor config and token fixture regeneration support
+* Add shared fetch mock utilities and update related frontend tests
+* Apply the first committed remediation cohort across selected components and stories
+* Extract reusable focus-trap helpers for agent-enforcement modals
+* Tighten debug identifiers and story/test parity for the baseline cohort
+* Merge chore/react-doctor-baseline into the current branch line
+* Commit the large react-doctor-fix checkpoint remediation wave
+* Carry the unfinished 100/100 target into a new sprint plan
+
+### seeders
+* Improve limit configuration handling and add  tests for seeder configurations
+
+### structured-logging-final-wave
+* Cross-link with structured-logging-next-wave and reconcile criteria
+* Parse Grafana dashboard JSON to extract metric/log expressions
+* Grep code for emitters of each metric/log key
+* Produce artifacts/dashboard-coverage-map.md
+* Resolve dead dashboard panels
+
+### synthetic-tooling-dirs-readme
+* Investigate ownership and recent activity for synthetic tooling dirs
+* Author or delete README for .grove/
+* Author or delete README for .dmux/
+* Author or delete README for .build/
+* Author or delete README for .agents/
+
+### tenant-aware
+* Update tenant-aware job documentation and implement PHPStan rules for tenant-scoped models
+
+### tenant-context-job-propagation
+* Convert cohort 1: webhook handlers + payment job classes
+* Add custom PHPStan rule RequireTenantAwareJobRule
+* Add integration coverage proving queued job tenant isolation
+* Convert cohort 2: email + notification jobs
+* Audit queued job classes for BelongsToAccount touchpoints
+* Convert cohort 3: ETL + sync jobs
+* Author ADR for tenant-aware queued job enforcement expansion
+* Create tenant-aware job allowlist with documented entries
+* Convert cohort 4: remaining queued jobs
+* Update agents/10_architecture.md Multi-Tenant section
+
+### todo-remediation
+* Stale TODO triage: SystemSettings/RetrieveAuditHistoryTask.php
+* Stale TODO triage: Documentation/FooterController.php (3 TODOs)
+* Stale TODO triage: Billing tasks (CalculateUsageComparisonTask, ProcessPayPalEventTask)
+
+### version
+* Update version and last_updated dates in  integration-patterns and quality-gates documentation
+
+### vite-rollup-build-config-decision
+* Investigate vite.config.ts and rollup.config.js roles
+* Execute decision: remove or rename unused config
+* Document decision in artifacts/build-config-decision.md
+* CHANGELOG entry under Changed or Removed
+
+### zzz-probe
+* Add zzz-probe.txt artifact for Cross-Tenant Isolation Test Suite
+
+## Notes
+
+* Completed 91 work unit(s)
+* Removed/archived 11 incomplete unit(s)
+* Item adherence: 40% (2/5 focus items)
+* Feature set adherence: 80% (4/5 planned feature sets had work)
+* Weighted adherence: 210% (with partial credit)
+* Untracked activity: 45 commit(s) not mapped to any feature set
+* Auto-archived 5 retroactive feature sets from untracked commits
 
 
-<!-- Generated by dev-tracker publish_to_jekyll.py (AI mode) -->
+<!-- Generated by dev-tracker publish_to_jekyll.py -->
 <!-- accomplished-date: 2026-05-09 -->
-<!-- unit-ids: rd100-stabilize-inherited-working-tree,migration-guard-audit-script,tier-a-cohort-2,tier-a-cohort-3,tier-a-cohort-1,ci-fresh-db-job,cohort-1-webhook-payment-jobs,phpstan-migration-guard-rule,tenant-context-phpstan-rule,job-tenant-context-integration-test,cohort-2-email-notification-jobs,edge-cases-classification,tier-b-column-guards,job-audit-script,cohort-3-etl-sync-jobs,container-seeder-databaseseeder-registration,migration-guard-adr,tenant-context-job-adr,container-seeder-inventory,container-seeder-move,container-seeder-phpstan-rule,fresh-db-clean-run-evidence,tenant-context-allowlist,cohort-4-remaining-jobs,container-seeder-adr,tier-c-resolution,architecture-doc-update,tenant-context-architecture-doc,cti-test-surface-audit,model-scope-isolation-test,role-permission-model-type-mismatch-test,admin-scoped-bypass-policy-test,job-tenant-isolation-test,api-endpoint-tenant-isolation-test,storage-tenant-isolation-test,phpunit-integration-suite-wiring,cross-tenant-canary-workflow,testing-doc-update,rd0-establish-react-doctor-config,rd0-add-fetch-test-support,rd0-land-bounded-baseline-remediation,rd0-extract-focus-trap-utilities,rd0-polish-debug-identifiers-and-story-parity,rd0-integrate-baseline-branch,rd0-commit-current-branch-remediation-wave,rd0-move-open-goal-to-followup-sprint,structured-logging-cross-link,structured-logging-grafana-parse,structured-logging-emitter-grep,structured-logging-coverage-map,structured-logging-dead-panel-resolution,react-doctor-checkpoint-remediation-wave,tenant-aware-tenant-aware-job-documentation-phpstan-rules,loading-text-loading-text-use-ellipsis-marketing,seeders-improve-limit-configuration-handling-tests,enhance-enforcementreviewapprovemodal-enhance-enforcementreviewapprovemodal-with-accessibility-tests -->
+<!-- unit-ids: rd100-stabilize-inherited-working-tree,todoremed-p2-systemsettings-perf-hint,todoremed-p2-footer-make-dynamic,todoremed-p2-billing-stale-tasks,migration-guard-audit-script,tier-a-cohort-2,tier-a-cohort-3,tier-a-cohort-1,ci-fresh-db-job,cohort-1-webhook-payment-jobs,csp-middleware-report-only,phpstan-migration-guard-rule,tenant-context-phpstan-rule,job-tenant-context-integration-test,cohort-2-email-notification-jobs,edge-cases-classification,tier-b-column-guards,job-audit-script,cohort-3-etl-sync-jobs,csp-alpine-audit,container-seeder-databaseseeder-registration,csp-report-endpoint,openapi-generator-decision,openapi-drift-check-workflow,todo-format-rule-activation,migration-guard-adr,tenant-context-job-adr,container-seeder-inventory,docs-canonical-decisions,build-config-investigation,container-seeder-move,container-seeder-phpstan-rule,docs-consolidate-users,build-config-execute,csp-extract-integrations-overview,csp-extract-postmark-config,openapi-pilot-annotations,docs-consolidate-admin,fresh-db-clean-run-evidence,tenant-context-allowlist,build-config-decision,todo-precommit-hook,docs-canonical-nav-ci,cohort-4-remaining-jobs,container-seeder-adr,csp-alpine-conventions-adr,csp-extract-profile-tabs,csp-extract-documentation-kpi,csp-extract-mcp-chat,csp-alpine-app-registration,tier-c-resolution,architecture-doc-update,tenant-context-architecture-doc,csp-alpine-unit-tests,csp-alpine-blade-tests,docs-mkdocs-link-verification,synthetic-dirs-investigation,docs-consolidate-specs,docs-consolidate-developer-portal,docs-orphan-readme-pruning,synthetic-dirs-grove-readme,synthetic-dirs-dmux-readme,synthetic-dirs-build-readme,build-config-changelog,csp-extract-kpi-dashboard,docs-readme-coverage-audit,synthetic-dirs-agents-readme,csp-alpine-docs-update,rd0-establish-react-doctor-config,rd0-add-fetch-test-support,rd0-land-bounded-baseline-remediation,rd0-extract-focus-trap-utilities,rd0-polish-debug-identifiers-and-story-parity,rd0-integrate-baseline-branch,rd0-commit-current-branch-remediation-wave,rd0-move-open-goal-to-followup-sprint,structured-logging-cross-link,structured-logging-grafana-parse,structured-logging-emitter-grep,structured-logging-coverage-map,structured-logging-dead-panel-resolution,react-doctor-checkpoint-remediation-wave,tenant-aware-tenant-aware-job-documentation-phpstan-rules,loading-text-loading-text-use-ellipsis-marketing,zzz-probe-zzz-probe-txt-artifact-cross-tenant-isolation-test,implementation-plan-implementation-plan-checklist-migration-safety,version-version-last-updated-dates-integration-patterns-quality-gates,seeders-improve-limit-configuration-handling-tests,enhance-enforcementreviewapprovemodal-enhance-enforcementreviewapprovemodal-with-accessibility-tests,job-use-billingaccountid-directly-handlewithintenant-method,delete-outdated-documentation-delete-outdated-documentation-tracker-files -->
 
-<!-- accomplished-unit-ids: admin-scoped-bypass-policy-test,api-endpoint-tenant-isolation-test,architecture-doc-update,ci-fresh-db-job,cohort-1-webhook-payment-jobs,cohort-2-email-notification-jobs,cohort-3-etl-sync-jobs,cohort-4-remaining-jobs,container-seeder-adr,container-seeder-databaseseeder-registration,container-seeder-inventory,container-seeder-move,container-seeder-phpstan-rule,cross-tenant-canary-workflow,cti-test-surface-audit,edge-cases-classification,enhance-enforcementreviewapprovemodal-enhance-enforcementreviewapprovemodal-with-accessibility-tests,fresh-db-clean-run-evidence,job-audit-script,job-tenant-context-integration-test,job-tenant-isolation-test,loading-text-loading-text-use-ellipsis-marketing,migration-guard-adr,migration-guard-audit-script,model-scope-isolation-test,phpstan-migration-guard-rule,phpunit-integration-suite-wiring,rd0-add-fetch-test-support,rd0-commit-current-branch-remediation-wave,rd0-establish-react-doctor-config,rd0-extract-focus-trap-utilities,rd0-integrate-baseline-branch,rd0-land-bounded-baseline-remediation,rd0-move-open-goal-to-followup-sprint,rd0-polish-debug-identifiers-and-story-parity,rd100-stabilize-inherited-working-tree,react-doctor-checkpoint-remediation-wave,role-permission-model-type-mismatch-test,seeders-improve-limit-configuration-handling-tests,storage-tenant-isolation-test,structured-logging-coverage-map,structured-logging-cross-link,structured-logging-dead-panel-resolution,structured-logging-emitter-grep,structured-logging-grafana-parse,tenant-aware-tenant-aware-job-documentation-phpstan-rules,tenant-context-allowlist,tenant-context-architecture-doc,tenant-context-job-adr,tenant-context-phpstan-rule,testing-doc-update,tier-a-cohort-1,tier-a-cohort-2,tier-a-cohort-3,tier-b-column-guards,tier-c-resolution -->
+<!-- accomplished-unit-ids: architecture-doc-update,build-config-changelog,build-config-decision,build-config-execute,build-config-investigation,ci-fresh-db-job,cohort-1-webhook-payment-jobs,cohort-2-email-notification-jobs,cohort-3-etl-sync-jobs,cohort-4-remaining-jobs,container-seeder-adr,container-seeder-databaseseeder-registration,container-seeder-inventory,container-seeder-move,container-seeder-phpstan-rule,csp-alpine-app-registration,csp-alpine-audit,csp-alpine-blade-tests,csp-alpine-conventions-adr,csp-alpine-docs-update,csp-alpine-unit-tests,csp-extract-documentation-kpi,csp-extract-integrations-overview,csp-extract-kpi-dashboard,csp-extract-mcp-chat,csp-extract-postmark-config,csp-extract-profile-tabs,csp-middleware-report-only,csp-report-endpoint,delete-outdated-documentation-delete-outdated-documentation-tracker-files,docs-canonical-decisions,docs-canonical-nav-ci,docs-consolidate-admin,docs-consolidate-developer-portal,docs-consolidate-specs,docs-consolidate-users,docs-mkdocs-link-verification,docs-orphan-readme-pruning,docs-readme-coverage-audit,edge-cases-classification,enhance-enforcementreviewapprovemodal-enhance-enforcementreviewapprovemodal-with-accessibility-tests,fresh-db-clean-run-evidence,implementation-plan-implementation-plan-checklist-migration-safety,job-audit-script,job-tenant-context-integration-test,job-use-billingaccountid-directly-handlewithintenant-method,loading-text-loading-text-use-ellipsis-marketing,migration-guard-adr,migration-guard-audit-script,openapi-drift-check-workflow,openapi-generator-decision,openapi-pilot-annotations,phpstan-migration-guard-rule,rd0-add-fetch-test-support,rd0-commit-current-branch-remediation-wave,rd0-establish-react-doctor-config,rd0-extract-focus-trap-utilities,rd0-integrate-baseline-branch,rd0-land-bounded-baseline-remediation,rd0-move-open-goal-to-followup-sprint,rd0-polish-debug-identifiers-and-story-parity,rd100-stabilize-inherited-working-tree,react-doctor-checkpoint-remediation-wave,seeders-improve-limit-configuration-handling-tests,structured-logging-coverage-map,structured-logging-cross-link,structured-logging-dead-panel-resolution,structured-logging-emitter-grep,structured-logging-grafana-parse,synthetic-dirs-agents-readme,synthetic-dirs-build-readme,synthetic-dirs-dmux-readme,synthetic-dirs-grove-readme,synthetic-dirs-investigation,tenant-aware-tenant-aware-job-documentation-phpstan-rules,tenant-context-allowlist,tenant-context-architecture-doc,tenant-context-job-adr,tenant-context-phpstan-rule,tier-a-cohort-1,tier-a-cohort-2,tier-a-cohort-3,tier-b-column-guards,tier-c-resolution,todo-format-rule-activation,todo-precommit-hook,todoremed-p2-billing-stale-tasks,todoremed-p2-footer-make-dynamic,todoremed-p2-systemsettings-perf-hint,version-version-last-updated-dates-integration-patterns-quality-gates,zzz-probe-zzz-probe-txt-artifact-cross-tenant-isolation-test -->
 <!-- SECTION: ACCOMPLISHED END -->
 <!-- Generated by dev-tracker build_today_plan.py -->
