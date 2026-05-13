@@ -42,32 +42,212 @@ I'm also setting aside any broad PHPStan remediation today. The 3,992 errors at 
 
 
 <!-- SECTION: ACCOMPLISHED START -->
-<!-- accomplished-generated: 2026-05-13T03:02:46.203483+00:00 -->
-<!-- accomplished-updated: 2026-05-13T03:02:46.203483+00:00 -->
+<!-- accomplished-generated: 2026-05-13T13:25:18.097487+00:00 -->
+<!-- accomplished-updated: 2026-05-13T13:25:18.097487+00:00 -->
 
-## Today's Update
+* Completed 145 tasks today on the Colossalistic Platform project.
 
-Today was a completion day - one of those rare sessions where multiple long-running efforts finally crossed the finish line. I wrapped up 143 tasks spanning everything from foundational infrastructure to complete feature implementations, but the real story is about three major systems reaching maturity.
+## What I Built
 
-The ETL File SDK work finally reached completion after what feels like months of incremental progress. This was a massive undertaking - 100 separate work units covering everything from the initial ADR through a complete file transfer system with Dropbox integration, policy enforcement, and a full React admin interface. The most satisfying piece was getting the end-to-end tests passing for both import and export workflows. There's something deeply satisfying about seeing `LocalFS → staging media` and `catalog → MinIO` work seamlessly after all the abstraction layers I've built. The Transfer Eligibility policy engine turned out to be more complex than I anticipated - seven different evaluation tasks covering everything from PII risk assessment to residency requirements. But now we have a proper audit trail for every transfer decision, which will be crucial for compliance.
+### clarify-dependency-audit
+* Clarify dependency audit automation description
 
-The three publishing and authorization vertical slices (TV447, TV448, TV449) all reached their quality gates today as well. TV447's freeze window functionality was straightforward once I figured out the datetime semantics, but TV448's bulk DSR operations required some tricky orchestration work. The BulkDsrActionRouter with tenant ID filtering took longer than expected because I kept finding edge cases in the partial-success contract. TV449's useAuthorize hook adoption across 5 surfaces cleaned up a lot of inconsistent authorization patterns that have been bugging me for weeks.
+### compliancedashboard-tests
+* Update ComplianceDashboard tests and normalize  purpose notes in ImpersonationController
 
-I also completed the admin CSP runtime hardening work, which involved migrating all our Alpine.js usage to be CSP-compatible. The inventory phase revealed way more eval() and inline execution than I expected - apparently we'd been pretty sloppy about this over the years. The lightweight CSP guard I built should prevent us from regressing back to unsafe patterns. Flipping the production CSP to enforce mode felt risky, but the reversible environment flag gives me an escape hatch if something breaks.
+### enhance-crm-integration
+* Enhance CRM integration deletion error handling and permissions check
 
-The secret hygiene and supply chain security improvements round out the day. Adding gitleaks to the pre-commit hooks and the SARIF upload workflow creates proper tripwires for credential leaks. The full git history scan found a few concerning patterns that I'll need to follow up on, but nothing that appears to be actively exploitable. This completes a security posture improvement that's been on my backlog since the beginning of the year.
+### ensure-setinterval
+* Ensure setInterval is not called with default parameters in ComplianceDashboard
 
-All of this cleanup and completion work sets up a clean slate for the next phase. With the file transfer system complete and the authorization patterns standardized, I can focus on some of the more experimental work that's been waiting for a stable foundation.
+### etl-file-sdk
+* Confirm ADR-0220: Files SDK Schema for File Transfer Connectors
+* Create packages/file-connector-bridge with files-sdk dependency
+* Create Core\FileTransfer container skeleton
+* Register FileTransferServiceProvider
+* Author Connector Command Envelope contract
+* Register file_transfer_enabled feature flag
+* Implement Laravel ConnectorBridgeClient
+* Connector Bridge Local validation profile
+* Connector Bridge MinIO validation profile
+* Defer generic S3-compatible tenant-facing provider support
+* Dropbox profile via files-sdk schema
+* Dropbox OAuth initiate + callback controller
+* StoreEncryptedConnectionCredentialsTask
+* DecryptConnectionCredentialsTask
+* ValidateConnectionAction
+* Connector Bridge smoke tests: Local + MinIO
+* Dropbox sandbox integration test (nightly, env-gated)
+* Phase 1 spike completion summary
+* Migration: external_file_connections table
+* Add preview/manifest snapshot columns for Transfer Evidence
+* Migration: file_transfer_jobs table
+* Migration: file_transfer_items table
+* Migration: file_transfer_logs checkpoint table
+* ExternalFileConnection model + factory
+* Transfer Evidence DTOs + factories
+* FileTransferJob model + factory + state-machine enum
+* FileTransferItem model + factory
+* FileTransferLog model + factory
+* Authorization policies + register in AuthServiceProvider
+* Cross-tenant isolation tests for all 4 models
+* Register new tables in data-lifecycle config
+* Phase 2 domain-model verification summary
+* TransferEligibilityService scaffold
+* TransferEligibilityResult DTO
+* EvaluateProviderAllowedTask
+* EvaluateDestinationAllowedTask
+* EvaluateMimeAndSizeTask
+* EvaluatePIIRiskTask
+* EvaluateResidencyAndRetentionTask
+* EvaluateApprovalRequiredTask
+* EvaluateAgentInitiationAllowedTask
+* Transfer Eligibility unit tests, one suite per dimension
+* Transfer Eligibility audit logging + TrustFabric decision reference
+* ConnectExternalProviderAction
+* ListConnectedSourcesAction
+* ListExternalFolderTask (Files SDK list)
+* BuildPreviewManifestTask
+* ClassifyFileTask
+* DetectDuplicatesTask
+* ValidateEligibilityAction
+* MapFilesToDestinationAction
+* DryRunImportJobAction
+* ImportFileTransferJob (queued, tenant-aware, checkpointed)
+* RecordProvenanceTask
+* Idempotency wiring via IdempotencyService (per item)
+* BuildImportCompletionReportAction
+* Audit event emission across import pipeline
+* End-to-end import feature test (Local FS → staging media)
+* SelectExportProfileAction
+* Export profiles registry
+* GenerateExportManifestTask
+* PackageDataAndAssetsTask
+* EncryptExportBundleTask
+* ExportFileTransferJob (queued, resumable)
+* WriteManifestAndChecksumTask
+* RecordBackupReceiptTask
+* Manifest schema validation tests
+* End-to-end export feature test (catalog → MinIO)
+* Export evidence verification guide (no restore)
+* Provider limitations matrix
+* MCP tool: files:sources:list
+* MCP tool: files:assets:preview
+* MCP tool: files:collection:validate
+* MCP tool: files:assets:import
+* MCP tool: files:backup:export
+* MCP tool: files:upload:sign
+* MCP tool: files:backup:status
+* MCP tool: files:assets:deduplicate
+* MCP scope/capability mapping tests
+* MCP boundary test: agents cannot bypass TrustFabric or Transfer Eligibility
+* Admin route + WEB controller for /admin/integrations-hub/file-connectors
+* fileConnectorsApi.ts typed API service
+* React ConnectorListPage component
+* React ConnectProviderWizard (3 steps)
+* React ImportWizard (5 steps: source → preview → eligibility → map → confirm)
+* React ExportWizard (4 steps: profile → destination → manifest preview → confirm)
+* React JobStatusDashboard
+* i18n strings for all file-connector UI
+* CSS Modules + design-token compliance audit
+* Component tests (RTL) for each wizard step
+* jest-axe accessibility tests for new UI files
+* Admin IA update via admin-ux-planner
+* Verify ADR-0220 remains final for File Transfer connector schema
+* User guide: connecting Dropbox + first import
+* Admin guide: export profiles + evidence
+* Scribe API doc regeneration
+* Route parity check passes for new routes
+* Link feature into docs/architecture/integrations/README.md
+* Finalise artifacts/README.md inventory
+* Completion / handoff summary
 
-**The Numbers:**
-- Completed: 143 tasks
-- Feature areas: react-doctor-100-followup-sprint, thin-vslice-450-admin-destructive-confirm-useauthorize-adoption, thin-vslice-447-publishing-release-datetime-freeze-window, thin-vslice-449-authorization-policy-coverage-five-models, thin-vslice-448-dsr-bulk-operations-operator-console, horizontal-slice-hs124-admin-csp-runtime-hardening, etl-file-sdk, clarify-dependency-audit, secret-hygiene-supply-chain-tripwires, enhance-crm-integration, pagination-controls, npm-audit, skills, migration
+### file-transfer
+* Add governed File Transfer implementation
+
+### horizontal-slice-hs124-admin-csp-runtime-hardening
+* Flip production-like admin CSP to enforce mode (reversible env flag)
+* Admin CSP report-only smoke in CI
+* ADR documenting admin CSP runtime hardening
+
+### initial-planning
+* Add initial planning documents for ETL File SDK
+
+### migration
+* Improve index handling for publishing_release_controls table
+
+### npm-audit
+* Update npm audit commands for consistency and clarity
+
+### pagination-controls
+* Update pagination controls to use semantic nav element
+
+### react-doctor-100-followup-sprint
+* Re-run React Doctor against frontend and repo root after the first committed wave
+* Stabilize and commit the inherited react-doctor-fix remediation batch
+
+### secret-hygiene-supply-chain-tripwires
+* Run gitleaks against full git history and produce findings report
+* Diff .env keys against .env.example and emit reconciliation report
+* Add gitleaks to .husky/pre-commit (staged-files-only mode)
+* Add .github/workflows/secret-scan.yml (PR + push:main, SARIF upload)
+* Add .github/workflows/dependency-audit.yml (composer audit + npm audit, PR + nightly)
+* Document waiver/exemption flow in .reports/security/exemptions.md
+* Update agents/40_security.md with the new tripwires
+
+### skills
+* Add agent skill library with symlinked harness aliases
+
+### thin-vslice-447-publishing-release-datetime-freeze-window
+* PublishingFreezeWindowPanel + datetime-local + preview/Confirm
+* Wire /freeze-windows + dry-run param on mutation route
+* Backend feature + cross-tenant + RTL + jest-axe
+* Quality gates + ADR + runbook
+* TV447 contract baseline: freeze list, dry-run preview, datetime semantics
+* ListFreezeWindowsAction + dry-run preview extension
+* Tenant-scoped freeze-window query + index
+* Telemetry for freeze list + schedule preview/commit
+
+### thin-vslice-448-dsr-bulk-operations-operator-console
+* TV448 contract baseline: bulk envelope + partial-success contract
+* BulkDsrActionRouter with tenant id filter + queue dispatch
+* DSRBulkOperatorConsole + multi-select + modal + polling
+* Cross-tenant + per-action feature tests + RTL + jest-axe
+* Indexed overdue scan + tenant-scoped mutations
+* POST /admin/dsr/bulk + GET /admin/dsr/bulk/jobs/{id}
+* Per-action telemetry + partial-failure counters
+* Quality gates + DSR runbook + ADR memo
+
+### thin-vslice-449-authorization-policy-coverage-five-models
+* useAuthorize hook + adoption in 5 surfaces
+* 5 PolicyTests + cross-tenant + integration + RTL + jest-axe
+* GET /api/v1/admin/authorize?model=<>&ids=<>
+* authorization.denied + permission.gate.denied
+* Quality gates + authorization runbook + ADR
+
+### thin-vslice-450-admin-destructive-confirm-useauthorize-adoption
+* TV450 contract baseline: 6-surface cohort + dialog a11y + reason policy
+
+### verify-setinterval
+* Verify setInterval is not called for ComplianceDashboard without auto-refresh
+
+## Notes
+
+* Completed 145 work unit(s)
+* Worked on 7 unplanned item(s)
+* Removed/archived 11 incomplete unit(s)
+* Archived 7 previously completed unit(s)
+* Item adherence: 40% (2/5 focus items)
+* Feature set adherence: 40% (2/5 planned feature sets had work)
+* Weighted adherence: 95% (with partial credit)
+* Untracked activity: 31 commit(s) not mapped to any feature set
 
 
-<!-- Generated by dev-tracker publish_to_jekyll.py (AI mode) -->
+<!-- Generated by dev-tracker publish_to_jekyll.py -->
 <!-- accomplished-date: 2026-05-12 -->
-<!-- unit-ids: rd100-remeasure-root-and-frontend,tv450-contract-scope-baseline,rd100-stabilize-inherited-working-tree,tv447-frontend-integration,tv449-frontend-integration,tv449-focused-tests-a11y,tv449-api-contract-hardening,tv448-contract-scope-baseline,tv448-backend-orchestration,tv448-frontend-integration,tv447-api-contract-hardening,tv448-focused-tests-a11y,tv449-observability-instrumentation,tv447-focused-tests-a11y,tv448-data-determinism,tv448-api-contract-hardening,tv447-quality-gates-handoff,tv449-quality-gates-handoff,tv448-observability-instrumentation,hs124-flip-admin-csp-enforce,tv448-quality-gates-handoff,hs124-csp-report-only-ci-smoke,hs124-csp-adr,etl-file-sdk-p0-adr-draft,etl-file-sdk-p0-add-files-sdk-composer,etl-file-sdk-p0-container-skeleton,etl-file-sdk-p0-service-provider,etl-file-sdk-p0-file-connector-interface,etl-file-sdk-p0-feature-flag,etl-file-sdk-p1-file-connector-manager,etl-file-sdk-p1-local-driver,etl-file-sdk-p1-minio-driver,etl-file-sdk-p1-s3-compatible-driver,etl-file-sdk-p1-dropbox-driver,etl-file-sdk-p1-dropbox-oauth-controller,etl-file-sdk-p1-store-encrypted-credentials-task,etl-file-sdk-p1-decrypt-credentials-task,etl-file-sdk-p1-validate-connection-action,etl-file-sdk-p1-driver-smoke-tests,etl-file-sdk-p1-dropbox-sandbox-integration-test,etl-file-sdk-p1-spike-completion-summary,etl-file-sdk-p2-migration-external-file-connections,etl-file-sdk-p2-migration-external-file-objects,etl-file-sdk-p2-migration-file-transfer-jobs,etl-file-sdk-p2-migration-file-transfer-items,etl-file-sdk-p2-migration-file-transfer-logs,etl-file-sdk-p2-model-external-file-connection,etl-file-sdk-p2-model-external-file-object,etl-file-sdk-p2-model-file-transfer-job,etl-file-sdk-p2-model-file-transfer-item,etl-file-sdk-p2-model-file-transfer-log,etl-file-sdk-p2-policies,etl-file-sdk-p2-cross-tenant-tests,etl-file-sdk-p2-data-lifecycle-config,etl-file-sdk-p2-verification-summary,etl-file-sdk-p3-policy-service,etl-file-sdk-p3-policy-result-dto,etl-file-sdk-p3-evaluate-provider-allowed,etl-file-sdk-p3-evaluate-destination-allowed,etl-file-sdk-p3-evaluate-mime-size,etl-file-sdk-p3-evaluate-pii-risk,etl-file-sdk-p3-evaluate-residency-retention,etl-file-sdk-p3-evaluate-approval-required,etl-file-sdk-p3-evaluate-agent-initiation,etl-file-sdk-p3-policy-unit-tests,etl-file-sdk-p3-policy-decision-audit-logging,etl-file-sdk-p4-connect-external-provider-action,etl-file-sdk-p4-list-connected-sources-action,etl-file-sdk-p4-list-external-folder-task,etl-file-sdk-p4-build-preview-manifest-task,etl-file-sdk-p4-classify-file-task,etl-file-sdk-p4-detect-duplicates-task,etl-file-sdk-p4-validate-against-policy-action,etl-file-sdk-p4-map-files-to-destination-action,etl-file-sdk-p4-dry-run-import-job-action,etl-file-sdk-p4-import-file-transfer-job,etl-file-sdk-p4-record-provenance-task,etl-file-sdk-p4-idempotency-wiring,etl-file-sdk-p4-build-completion-report-action,etl-file-sdk-p4-import-audit-emission,etl-file-sdk-p4-e2e-import-test,etl-file-sdk-p5-select-export-profile-action,etl-file-sdk-p5-export-profiles-registry,etl-file-sdk-p5-generate-export-manifest-task,etl-file-sdk-p5-package-data-and-assets-task,etl-file-sdk-p5-encrypt-export-bundle-task,etl-file-sdk-p5-export-file-transfer-job,etl-file-sdk-p5-write-manifest-checksum-task,etl-file-sdk-p5-record-backup-receipt-task,etl-file-sdk-p5-manifest-schema-tests,etl-file-sdk-p5-e2e-export-test,etl-file-sdk-p5-restore-runbook,etl-file-sdk-p5-provider-limitations-matrix,etl-file-sdk-ta-mcp-files-sources-list,etl-file-sdk-ta-mcp-files-assets-preview,etl-file-sdk-ta-mcp-files-collection-validate,etl-file-sdk-ta-mcp-files-assets-import,etl-file-sdk-ta-mcp-files-backup-export,etl-file-sdk-ta-mcp-files-upload-sign,etl-file-sdk-ta-mcp-files-backup-status,etl-file-sdk-ta-mcp-files-assets-deduplicate,etl-file-sdk-ta-mcp-scope-tests,etl-file-sdk-ta-mcp-policy-bypass-test,etl-file-sdk-tb-admin-route-controller,etl-file-sdk-tb-api-service-file,etl-file-sdk-tb-connector-list-page,etl-file-sdk-tb-connect-provider-wizard,etl-file-sdk-tb-import-wizard,etl-file-sdk-tb-export-wizard,etl-file-sdk-tb-job-status-dashboard,etl-file-sdk-tb-i18n-strings,etl-file-sdk-tb-css-modules-compliance,etl-file-sdk-tb-component-tests,etl-file-sdk-tb-jest-axe,etl-file-sdk-tb-admin-ia-update,etl-file-sdk-tc-adr-final,etl-file-sdk-tc-user-guide-connect-dropbox,etl-file-sdk-tc-admin-guide-exports,etl-file-sdk-tc-scribe-regeneration,etl-file-sdk-tc-route-parity,etl-file-sdk-tc-integrations-architecture-link,etl-file-sdk-tc-artifacts-readme-final,etl-file-sdk-tc-handoff-summary,hs124-inventory-admin-alpine-csp-runtime,hs124-migrate-admin-alpine-csp-runtime,hs124-alpine-csp-new-expression-guard,clarify-dependency-audit-clarify-dependency-audit-automation-description,secret-hygiene-history-scan,secret-hygiene-env-diff,secret-hygiene-precommit-gitleaks,secret-hygiene-secret-scan-workflow,secret-hygiene-dependency-audit-workflow,secret-hygiene-exemption-doc,secret-hygiene-agents-doc-update,enhance-crm-integration-enhance-crm-integration-deletion-error,pagination-controls-pagination-controls-use-semantic-nav,npm-audit-npm-audit-commands-consistency-clarity,skills-agent-skill-library-with-symlinked,migration-improve-index-handling-publishing-release-controls-table,tv447-contract-scope-baseline,tv447-backend-orchestration,tv447-data-determinism,tv447-observability-instrumentation -->
+<!-- unit-ids: rd100-remeasure-root-and-frontend,tv450-contract-scope-baseline,rd100-stabilize-inherited-working-tree,tv447-frontend-integration,tv449-frontend-integration,tv449-focused-tests-a11y,tv449-api-contract-hardening,tv448-contract-scope-baseline,tv448-backend-orchestration,tv448-frontend-integration,tv447-api-contract-hardening,tv448-focused-tests-a11y,tv449-observability-instrumentation,tv447-focused-tests-a11y,tv448-data-determinism,tv448-api-contract-hardening,tv447-quality-gates-handoff,tv449-quality-gates-handoff,tv448-observability-instrumentation,hs124-flip-admin-csp-enforce,tv448-quality-gates-handoff,hs124-csp-report-only-ci-smoke,hs124-csp-adr,initial-planning-initial-planning-documents-etl-file,clarify-dependency-audit-clarify-dependency-audit-automation-description,verify-setinterval-verify-setinterval-not-called-compliancedashboard,secret-hygiene-history-scan,secret-hygiene-env-diff,secret-hygiene-precommit-gitleaks,secret-hygiene-secret-scan-workflow,secret-hygiene-dependency-audit-workflow,secret-hygiene-exemption-doc,secret-hygiene-agents-doc-update,ensure-setinterval-ensure-setinterval-not-called-with,etl-file-sdk-p0-adr-draft,etl-file-sdk-p0-add-files-sdk-composer,etl-file-sdk-p0-container-skeleton,etl-file-sdk-p0-service-provider,etl-file-sdk-p0-file-connector-interface,etl-file-sdk-p0-feature-flag,etl-file-sdk-p1-file-connector-manager,etl-file-sdk-p1-local-driver,etl-file-sdk-p1-minio-driver,etl-file-sdk-p1-s3-compatible-driver,etl-file-sdk-p1-dropbox-driver,etl-file-sdk-p1-dropbox-oauth-controller,etl-file-sdk-p1-store-encrypted-credentials-task,etl-file-sdk-p1-decrypt-credentials-task,etl-file-sdk-p1-validate-connection-action,etl-file-sdk-p1-driver-smoke-tests,etl-file-sdk-p1-dropbox-sandbox-integration-test,etl-file-sdk-p1-spike-completion-summary,etl-file-sdk-p2-migration-external-file-connections,etl-file-sdk-p2-migration-external-file-objects,etl-file-sdk-p2-migration-file-transfer-jobs,etl-file-sdk-p2-migration-file-transfer-items,etl-file-sdk-p2-migration-file-transfer-logs,etl-file-sdk-p2-model-external-file-connection,etl-file-sdk-p2-model-external-file-object,etl-file-sdk-p2-model-file-transfer-job,etl-file-sdk-p2-model-file-transfer-item,etl-file-sdk-p2-model-file-transfer-log,etl-file-sdk-p2-policies,etl-file-sdk-p2-cross-tenant-tests,etl-file-sdk-p2-data-lifecycle-config,etl-file-sdk-p2-verification-summary,etl-file-sdk-p3-policy-service,etl-file-sdk-p3-policy-result-dto,etl-file-sdk-p3-evaluate-provider-allowed,etl-file-sdk-p3-evaluate-destination-allowed,etl-file-sdk-p3-evaluate-mime-size,etl-file-sdk-p3-evaluate-pii-risk,etl-file-sdk-p3-evaluate-residency-retention,etl-file-sdk-p3-evaluate-approval-required,etl-file-sdk-p3-evaluate-agent-initiation,etl-file-sdk-p3-policy-unit-tests,etl-file-sdk-p3-policy-decision-audit-logging,etl-file-sdk-p4-connect-external-provider-action,etl-file-sdk-p4-list-connected-sources-action,etl-file-sdk-p4-list-external-folder-task,etl-file-sdk-p4-build-preview-manifest-task,etl-file-sdk-p4-classify-file-task,etl-file-sdk-p4-detect-duplicates-task,etl-file-sdk-p4-validate-against-policy-action,etl-file-sdk-p4-map-files-to-destination-action,etl-file-sdk-p4-dry-run-import-job-action,etl-file-sdk-p4-import-file-transfer-job,etl-file-sdk-p4-record-provenance-task,etl-file-sdk-p4-idempotency-wiring,etl-file-sdk-p4-build-completion-report-action,etl-file-sdk-p4-import-audit-emission,etl-file-sdk-p4-e2e-import-test,etl-file-sdk-p5-select-export-profile-action,etl-file-sdk-p5-export-profiles-registry,etl-file-sdk-p5-generate-export-manifest-task,etl-file-sdk-p5-package-data-and-assets-task,etl-file-sdk-p5-encrypt-export-bundle-task,etl-file-sdk-p5-export-file-transfer-job,etl-file-sdk-p5-write-manifest-checksum-task,etl-file-sdk-p5-record-backup-receipt-task,etl-file-sdk-p5-manifest-schema-tests,etl-file-sdk-p5-e2e-export-test,etl-file-sdk-p5-restore-runbook,etl-file-sdk-p5-provider-limitations-matrix,etl-file-sdk-ta-mcp-files-sources-list,etl-file-sdk-ta-mcp-files-assets-preview,etl-file-sdk-ta-mcp-files-collection-validate,etl-file-sdk-ta-mcp-files-assets-import,etl-file-sdk-ta-mcp-files-backup-export,etl-file-sdk-ta-mcp-files-upload-sign,etl-file-sdk-ta-mcp-files-backup-status,etl-file-sdk-ta-mcp-files-assets-deduplicate,etl-file-sdk-ta-mcp-scope-tests,etl-file-sdk-ta-mcp-policy-bypass-test,etl-file-sdk-tb-admin-route-controller,etl-file-sdk-tb-api-service-file,etl-file-sdk-tb-connector-list-page,etl-file-sdk-tb-connect-provider-wizard,etl-file-sdk-tb-import-wizard,etl-file-sdk-tb-export-wizard,etl-file-sdk-tb-job-status-dashboard,etl-file-sdk-tb-i18n-strings,etl-file-sdk-tb-css-modules-compliance,etl-file-sdk-tb-component-tests,etl-file-sdk-tb-jest-axe,etl-file-sdk-tb-admin-ia-update,etl-file-sdk-tc-adr-final,etl-file-sdk-tc-user-guide-connect-dropbox,etl-file-sdk-tc-admin-guide-exports,etl-file-sdk-tc-scribe-regeneration,etl-file-sdk-tc-route-parity,etl-file-sdk-tc-integrations-architecture-link,etl-file-sdk-tc-artifacts-readme-final,etl-file-sdk-tc-handoff-summary,enhance-crm-integration-enhance-crm-integration-deletion-error,pagination-controls-pagination-controls-use-semantic-nav,npm-audit-npm-audit-commands-consistency-clarity,compliancedashboard-tests-compliancedashboard-tests-normalize-purpose-notes,skills-agent-skill-library-with-symlinked,file-transfer-governed-file-transfer-implementation,migration-improve-index-handling-publishing-release-controls-table,tv447-contract-scope-baseline,tv447-backend-orchestration,tv447-data-determinism,tv447-observability-instrumentation -->
 
-<!-- accomplished-unit-ids: clarify-dependency-audit-clarify-dependency-audit-automation-description,enhance-crm-integration-enhance-crm-integration-deletion-error,etl-file-sdk-p0-add-files-sdk-composer,etl-file-sdk-p0-adr-draft,etl-file-sdk-p0-container-skeleton,etl-file-sdk-p0-feature-flag,etl-file-sdk-p0-file-connector-interface,etl-file-sdk-p0-service-provider,etl-file-sdk-p1-decrypt-credentials-task,etl-file-sdk-p1-driver-smoke-tests,etl-file-sdk-p1-dropbox-driver,etl-file-sdk-p1-dropbox-oauth-controller,etl-file-sdk-p1-dropbox-sandbox-integration-test,etl-file-sdk-p1-file-connector-manager,etl-file-sdk-p1-local-driver,etl-file-sdk-p1-minio-driver,etl-file-sdk-p1-s3-compatible-driver,etl-file-sdk-p1-spike-completion-summary,etl-file-sdk-p1-store-encrypted-credentials-task,etl-file-sdk-p1-validate-connection-action,etl-file-sdk-p2-cross-tenant-tests,etl-file-sdk-p2-data-lifecycle-config,etl-file-sdk-p2-migration-external-file-connections,etl-file-sdk-p2-migration-external-file-objects,etl-file-sdk-p2-migration-file-transfer-items,etl-file-sdk-p2-migration-file-transfer-jobs,etl-file-sdk-p2-migration-file-transfer-logs,etl-file-sdk-p2-model-external-file-connection,etl-file-sdk-p2-model-external-file-object,etl-file-sdk-p2-model-file-transfer-item,etl-file-sdk-p2-model-file-transfer-job,etl-file-sdk-p2-model-file-transfer-log,etl-file-sdk-p2-policies,etl-file-sdk-p2-verification-summary,etl-file-sdk-p3-evaluate-agent-initiation,etl-file-sdk-p3-evaluate-approval-required,etl-file-sdk-p3-evaluate-destination-allowed,etl-file-sdk-p3-evaluate-mime-size,etl-file-sdk-p3-evaluate-pii-risk,etl-file-sdk-p3-evaluate-provider-allowed,etl-file-sdk-p3-evaluate-residency-retention,etl-file-sdk-p3-policy-decision-audit-logging,etl-file-sdk-p3-policy-result-dto,etl-file-sdk-p3-policy-service,etl-file-sdk-p3-policy-unit-tests,etl-file-sdk-p4-build-completion-report-action,etl-file-sdk-p4-build-preview-manifest-task,etl-file-sdk-p4-classify-file-task,etl-file-sdk-p4-connect-external-provider-action,etl-file-sdk-p4-detect-duplicates-task,etl-file-sdk-p4-dry-run-import-job-action,etl-file-sdk-p4-e2e-import-test,etl-file-sdk-p4-idempotency-wiring,etl-file-sdk-p4-import-audit-emission,etl-file-sdk-p4-import-file-transfer-job,etl-file-sdk-p4-list-connected-sources-action,etl-file-sdk-p4-list-external-folder-task,etl-file-sdk-p4-map-files-to-destination-action,etl-file-sdk-p4-record-provenance-task,etl-file-sdk-p4-validate-against-policy-action,etl-file-sdk-p5-e2e-export-test,etl-file-sdk-p5-encrypt-export-bundle-task,etl-file-sdk-p5-export-file-transfer-job,etl-file-sdk-p5-export-profiles-registry,etl-file-sdk-p5-generate-export-manifest-task,etl-file-sdk-p5-manifest-schema-tests,etl-file-sdk-p5-package-data-and-assets-task,etl-file-sdk-p5-provider-limitations-matrix,etl-file-sdk-p5-record-backup-receipt-task,etl-file-sdk-p5-restore-runbook,etl-file-sdk-p5-select-export-profile-action,etl-file-sdk-p5-write-manifest-checksum-task,etl-file-sdk-ta-mcp-files-assets-deduplicate,etl-file-sdk-ta-mcp-files-assets-import,etl-file-sdk-ta-mcp-files-assets-preview,etl-file-sdk-ta-mcp-files-backup-export,etl-file-sdk-ta-mcp-files-backup-status,etl-file-sdk-ta-mcp-files-collection-validate,etl-file-sdk-ta-mcp-files-sources-list,etl-file-sdk-ta-mcp-files-upload-sign,etl-file-sdk-ta-mcp-policy-bypass-test,etl-file-sdk-ta-mcp-scope-tests,etl-file-sdk-tb-admin-ia-update,etl-file-sdk-tb-admin-route-controller,etl-file-sdk-tb-api-service-file,etl-file-sdk-tb-component-tests,etl-file-sdk-tb-connect-provider-wizard,etl-file-sdk-tb-connector-list-page,etl-file-sdk-tb-css-modules-compliance,etl-file-sdk-tb-export-wizard,etl-file-sdk-tb-i18n-strings,etl-file-sdk-tb-import-wizard,etl-file-sdk-tb-jest-axe,etl-file-sdk-tb-job-status-dashboard,etl-file-sdk-tc-admin-guide-exports,etl-file-sdk-tc-adr-final,etl-file-sdk-tc-artifacts-readme-final,etl-file-sdk-tc-handoff-summary,etl-file-sdk-tc-integrations-architecture-link,etl-file-sdk-tc-route-parity,etl-file-sdk-tc-scribe-regeneration,etl-file-sdk-tc-user-guide-connect-dropbox,hs124-alpine-csp-new-expression-guard,hs124-csp-adr,hs124-csp-report-only-ci-smoke,hs124-flip-admin-csp-enforce,hs124-inventory-admin-alpine-csp-runtime,hs124-migrate-admin-alpine-csp-runtime,migration-improve-index-handling-publishing-release-controls-table,npm-audit-npm-audit-commands-consistency-clarity,pagination-controls-pagination-controls-use-semantic-nav,rd100-remeasure-root-and-frontend,rd100-stabilize-inherited-working-tree,secret-hygiene-agents-doc-update,secret-hygiene-dependency-audit-workflow,secret-hygiene-env-diff,secret-hygiene-exemption-doc,secret-hygiene-history-scan,secret-hygiene-precommit-gitleaks,secret-hygiene-secret-scan-workflow,skills-agent-skill-library-with-symlinked,tv447-api-contract-hardening,tv447-backend-orchestration,tv447-contract-scope-baseline,tv447-data-determinism,tv447-focused-tests-a11y,tv447-frontend-integration,tv447-observability-instrumentation,tv447-quality-gates-handoff,tv448-api-contract-hardening,tv448-backend-orchestration,tv448-contract-scope-baseline,tv448-data-determinism,tv448-focused-tests-a11y,tv448-frontend-integration,tv448-observability-instrumentation,tv448-quality-gates-handoff,tv449-api-contract-hardening,tv449-focused-tests-a11y,tv449-frontend-integration,tv449-observability-instrumentation,tv449-quality-gates-handoff,tv450-contract-scope-baseline -->
+<!-- accomplished-unit-ids: clarify-dependency-audit-clarify-dependency-audit-automation-description,compliancedashboard-tests-compliancedashboard-tests-normalize-purpose-notes,enhance-crm-integration-enhance-crm-integration-deletion-error,ensure-setinterval-ensure-setinterval-not-called-with,etl-file-sdk-p0-add-files-sdk-composer,etl-file-sdk-p0-adr-draft,etl-file-sdk-p0-container-skeleton,etl-file-sdk-p0-feature-flag,etl-file-sdk-p0-file-connector-interface,etl-file-sdk-p0-service-provider,etl-file-sdk-p1-decrypt-credentials-task,etl-file-sdk-p1-driver-smoke-tests,etl-file-sdk-p1-dropbox-driver,etl-file-sdk-p1-dropbox-oauth-controller,etl-file-sdk-p1-dropbox-sandbox-integration-test,etl-file-sdk-p1-file-connector-manager,etl-file-sdk-p1-local-driver,etl-file-sdk-p1-minio-driver,etl-file-sdk-p1-s3-compatible-driver,etl-file-sdk-p1-spike-completion-summary,etl-file-sdk-p1-store-encrypted-credentials-task,etl-file-sdk-p1-validate-connection-action,etl-file-sdk-p2-cross-tenant-tests,etl-file-sdk-p2-data-lifecycle-config,etl-file-sdk-p2-migration-external-file-connections,etl-file-sdk-p2-migration-external-file-objects,etl-file-sdk-p2-migration-file-transfer-items,etl-file-sdk-p2-migration-file-transfer-jobs,etl-file-sdk-p2-migration-file-transfer-logs,etl-file-sdk-p2-model-external-file-connection,etl-file-sdk-p2-model-external-file-object,etl-file-sdk-p2-model-file-transfer-item,etl-file-sdk-p2-model-file-transfer-job,etl-file-sdk-p2-model-file-transfer-log,etl-file-sdk-p2-policies,etl-file-sdk-p2-verification-summary,etl-file-sdk-p3-evaluate-agent-initiation,etl-file-sdk-p3-evaluate-approval-required,etl-file-sdk-p3-evaluate-destination-allowed,etl-file-sdk-p3-evaluate-mime-size,etl-file-sdk-p3-evaluate-pii-risk,etl-file-sdk-p3-evaluate-provider-allowed,etl-file-sdk-p3-evaluate-residency-retention,etl-file-sdk-p3-policy-decision-audit-logging,etl-file-sdk-p3-policy-result-dto,etl-file-sdk-p3-policy-service,etl-file-sdk-p3-policy-unit-tests,etl-file-sdk-p4-build-completion-report-action,etl-file-sdk-p4-build-preview-manifest-task,etl-file-sdk-p4-classify-file-task,etl-file-sdk-p4-connect-external-provider-action,etl-file-sdk-p4-detect-duplicates-task,etl-file-sdk-p4-dry-run-import-job-action,etl-file-sdk-p4-e2e-import-test,etl-file-sdk-p4-idempotency-wiring,etl-file-sdk-p4-import-audit-emission,etl-file-sdk-p4-import-file-transfer-job,etl-file-sdk-p4-list-connected-sources-action,etl-file-sdk-p4-list-external-folder-task,etl-file-sdk-p4-map-files-to-destination-action,etl-file-sdk-p4-record-provenance-task,etl-file-sdk-p4-validate-against-policy-action,etl-file-sdk-p5-e2e-export-test,etl-file-sdk-p5-encrypt-export-bundle-task,etl-file-sdk-p5-export-file-transfer-job,etl-file-sdk-p5-export-profiles-registry,etl-file-sdk-p5-generate-export-manifest-task,etl-file-sdk-p5-manifest-schema-tests,etl-file-sdk-p5-package-data-and-assets-task,etl-file-sdk-p5-provider-limitations-matrix,etl-file-sdk-p5-record-backup-receipt-task,etl-file-sdk-p5-restore-runbook,etl-file-sdk-p5-select-export-profile-action,etl-file-sdk-p5-write-manifest-checksum-task,etl-file-sdk-ta-mcp-files-assets-deduplicate,etl-file-sdk-ta-mcp-files-assets-import,etl-file-sdk-ta-mcp-files-assets-preview,etl-file-sdk-ta-mcp-files-backup-export,etl-file-sdk-ta-mcp-files-backup-status,etl-file-sdk-ta-mcp-files-collection-validate,etl-file-sdk-ta-mcp-files-sources-list,etl-file-sdk-ta-mcp-files-upload-sign,etl-file-sdk-ta-mcp-policy-bypass-test,etl-file-sdk-ta-mcp-scope-tests,etl-file-sdk-tb-admin-ia-update,etl-file-sdk-tb-admin-route-controller,etl-file-sdk-tb-api-service-file,etl-file-sdk-tb-component-tests,etl-file-sdk-tb-connect-provider-wizard,etl-file-sdk-tb-connector-list-page,etl-file-sdk-tb-css-modules-compliance,etl-file-sdk-tb-export-wizard,etl-file-sdk-tb-i18n-strings,etl-file-sdk-tb-import-wizard,etl-file-sdk-tb-jest-axe,etl-file-sdk-tb-job-status-dashboard,etl-file-sdk-tc-admin-guide-exports,etl-file-sdk-tc-adr-final,etl-file-sdk-tc-artifacts-readme-final,etl-file-sdk-tc-handoff-summary,etl-file-sdk-tc-integrations-architecture-link,etl-file-sdk-tc-route-parity,etl-file-sdk-tc-scribe-regeneration,etl-file-sdk-tc-user-guide-connect-dropbox,file-transfer-governed-file-transfer-implementation,hs124-csp-adr,hs124-csp-report-only-ci-smoke,hs124-flip-admin-csp-enforce,initial-planning-initial-planning-documents-etl-file,migration-improve-index-handling-publishing-release-controls-table,npm-audit-npm-audit-commands-consistency-clarity,pagination-controls-pagination-controls-use-semantic-nav,rd100-remeasure-root-and-frontend,rd100-stabilize-inherited-working-tree,secret-hygiene-agents-doc-update,secret-hygiene-dependency-audit-workflow,secret-hygiene-env-diff,secret-hygiene-exemption-doc,secret-hygiene-history-scan,secret-hygiene-precommit-gitleaks,secret-hygiene-secret-scan-workflow,skills-agent-skill-library-with-symlinked,tv447-api-contract-hardening,tv447-backend-orchestration,tv447-contract-scope-baseline,tv447-data-determinism,tv447-focused-tests-a11y,tv447-frontend-integration,tv447-observability-instrumentation,tv447-quality-gates-handoff,tv448-api-contract-hardening,tv448-backend-orchestration,tv448-contract-scope-baseline,tv448-data-determinism,tv448-focused-tests-a11y,tv448-frontend-integration,tv448-observability-instrumentation,tv448-quality-gates-handoff,tv449-api-contract-hardening,tv449-focused-tests-a11y,tv449-frontend-integration,tv449-observability-instrumentation,tv449-quality-gates-handoff,tv450-contract-scope-baseline,verify-setinterval-verify-setinterval-not-called-compliancedashboard -->
 <!-- SECTION: ACCOMPLISHED END -->
 <!-- Generated by dev-tracker build_today_plan.py -->
