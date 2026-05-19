@@ -42,30 +42,115 @@ The todo-remediation work is sitting at 68 units with zero progress, but templat
 
 
 <!-- SECTION: ACCOMPLISHED START -->
-<!-- accomplished-generated: 2026-05-19T01:54:36.075381+00:00 -->
-<!-- accomplished-updated: 2026-05-19T01:54:36.075381+00:00 -->
+<!-- accomplished-generated: 2026-05-19T13:10:26.368642+00:00 -->
+<!-- accomplished-updated: 2026-05-19T13:10:26.368642+00:00 -->
 
-## Today's Update
+* Completed 67 tasks today on the Colossalistic Platform project.
 
-Today was dominated by three major architectural completions that have been building momentum over the past few weeks - the publication channel lifecycle system, the file transfer MCP eligibility framework, and a comprehensive security audit closeout that spanned runs 7-9 of our deep security scanning.
+## What I Built
 
-The publication channel work finally came together as a cohesive system. I documented the lifecycle interface contracts, built out the backend module with proper audit trails, and rewired the AdminPublicationChannelController to use the new architecture. The regression testing was extensive - response validation, audit logging, and mutation policy verification. What surprised me was how much technical debt I had to clear out in the shallow Actions and Tasks layer. Turns out we had a bunch of one-line wrapper functions that weren't adding any value, just making the call stack harder to follow. I either justified their existence with proper business logic or deleted them entirely. The frontend mutation workflow extraction was trickier than expected - the error handling state management needed significant refactoring to work reliably.
+### deepsec-runs-7-9-regression-guard-closeout-20260518
+* Run 7 delta triage document
+* Close Run 7 critical CI shell-injection findings
+* Address Run 7 review authorization findings
+* Run 8 delta triage document
+* Close Run 8 final four high-severity findings
+* Run 9 delta and discovery phase conclusion
+* Add Run 9 domain terms and ADR-0240 for CI-A4 split
+* Publish approved security primitives and regression guard docs
+* Apply CI-A4 split to translation coverage workflow
+* Create follow-up issues and capture validation evidence
 
-The file transfer MCP eligibility entry system was equally comprehensive. I worked through the interface documentation, built out the request normalization module, and implemented the policy routing that ensures all projection and mutation verbs flow through proper eligibility checks. The agent bypass prevention tests were critical here - we can't have any backdoors where file operations skip the MCP layer. The regression test coverage ended up being quite extensive, covering MCP definitions, policy evidence, and the full eligibility pipeline.
+### deletepublicationchannelaction
+* Update DeletePublicationChannelAction and DeletePublicationChannelTask to return boolean values; enhance error handling in AdminPublicationChannelController
 
-What consumed more time than expected was the security audit closeout work. I triaged and resolved findings from runs 7, 8, and 9 of our deep security scanning. Run 7 had some genuinely concerning CI shell-injection vulnerabilities that needed immediate attention, plus authorization review gaps that required careful analysis. Run 8's final four high-severity findings were mostly in areas I hadn't audited recently - they required digging into legacy code to understand the attack surface. Run 9 was where things got interesting architecturally. I had to create ADR-0240 to document the CI-A4 split pattern we're using for translation coverage workflows, plus publish our approved security primitives as formal regression guard documentation. The domain terminology work for Run 9 was necessary but tedious - making sure our security vocabulary is consistent across all the scanning tools and documentation.
+### enhance-channel-mutation
+* Enhance channel mutation workflow and tests for  improved error handling and state management
 
-I also completed the admin route capability manifest system (TV455) and laid the groundwork for a new CognitiveGovernance container that I'm calling the "Cognitive Claim Spine." The manifest work was straightforward - choosing the canonical registry source, extracting the PHP module, and adapting frontend consumption. The CognitiveGovernance work is more experimental. I'm building a system for tracking append-only claim revisions with source authority rules and context fingerprinting. It's early days, but the quality gates are passing and I've got a read-only admin interface working. Not sure yet if this approach will scale, but the foundation is solid enough to iterate on.
+### eval-agent-refine
+* Scaffold CognitiveGovernance container
+* Model CGL claim spine persistence
+* Define CGL bounded vocabulary and claim-key contracts
+* Implement source authority rules
+* Define claim-key expansion path
+* Implement append-only claim revisions
+* Apply context fingerprint changes
+* Define CGL ingestion and query interfaces
+* Validate Cognitive Claim Spine quality gates
+* Expose CGL read-only admin API and UI
+* Define retention metadata and follow-up roadmap
 
-**The Numbers:**
-- Completed: 51 tasks  
-- Feature areas: tv456-publication-channel-lifecycle-module, tv459-file-transfer-mcp-eligibility-entry, deepsec-runs-7-9-regression-guard-closeout-20260518, enhance-channel-mutation, timestamps, tv455-admin-route-capability-manifest, eval-agent-refine, deletepublicationchannelaction, refine-channel-mutation
+### refine-channel-mutation
+* Refine channel mutation workflow with improved type definitions and error handling
+
+### timestamps
+* Update timestamps and add new API endpoints to documentation
+
+### tv455-admin-route-capability-manifest
+* Document Admin route manifest Interface
+* Choose canonical registry source of truth
+* Extract PHP Admin route registry Module
+* Adapt frontend-admin route registry consumption
+* Add backend manifest contract tests
+* Add frontend manifest parity tests
+* Update Admin manifest developer documentation
+* Run TV455 scoped quality gates
+
+### tv456-publication-channel-lifecycle-module
+* Document Publication Channel lifecycle Interface
+* Add Publication Channel response regression tests
+* Add Publication Channel audit regression tests
+* Implement backend lifecycle Module
+* Rewire AdminPublicationChannelController
+* Remove or justify shallow channel Actions and Tasks
+* Extract frontend channel mutation workflow
+* Run TV456 scoped quality gates
+* Add frontend channel lifecycle tests
+
+### tv457-frontend-admin-response-normalization
+* Document admin normalization Interface
+* Inventory duplicated admin client normalizers
+* Add publication client contract regression tests
+* Implement shared admin normalization Module
+* Migrate channel and post clients
+* Add shared normalization unit tests
+* Run TV457 scoped quality gates
+* Migrate remaining publication clients
+
+### tv458-agent-eval-execution-evidence-builder
+* Document AgentEval execution evidence Interface
+* Add decision-only evidence regression test
+* Add safe-evaluation evidence regression test
+* Rewire AgentEval execution Adapters
+* Implement evidence builder input DTO
+* Implement execution evidence builder
+* Add execution evidence builder unit tests
+* Run TV458 scoped quality gates
+
+### tv459-file-transfer-mcp-eligibility-entry
+* Document File Transfer MCP entry Interface
+* Add mutation policy evidence regression tests
+* Route projection verbs through eligibility
+* Route mutation verbs through policy and eligibility
+* Add File Transfer MCP definition regression tests
+* Add agent bypass prevention tests
+* Implement MCP request normalization Module
+* Run TV459 scoped quality gates
+* Update File Transfer MCP documentation
+
+## Notes
+
+* Completed 67 work unit(s)
+* Item adherence: 0% (0/2 focus items)
+* Feature set adherence: 0% (0/1 planned feature sets had work)
+* Weighted adherence: 50% (with partial credit)
+* Untracked activity: 37 commit(s) not mapped to any feature set
 
 
-<!-- Generated by dev-tracker publish_to_jekyll.py (AI mode) -->
+<!-- Generated by dev-tracker publish_to_jekyll.py -->
 <!-- accomplished-date: 2026-05-18 -->
-<!-- unit-ids: document-channel-lifecycle-interface,document-file-transfer-mcp-entry-interface,add-channel-response-regression-tests,add-channel-audit-regression-tests,add-mutation-policy-regression-tests,implement-channel-lifecycle-module,route-projections-through-eligibility,route-mutations-through-policy-and-eligibility,add-mcp-definition-regression-tests,add-agent-bypass-prevention-tests,rewire-channel-controller,implement-mcp-request-normalization,remove-or-justify-shallow-actions,extract-frontend-channel-mutation-helper,run-tv456-quality-gates,run-tv459-quality-gates,update-file-transfer-mcp-docs,add-frontend-channel-lifecycle-tests,run7-delta-triage-doc,run7-critical-ci-shell-injection-closeout,run7-review-authorization-followup,run8-delta-triage-doc,run8-final-four-closeout,run9-delta-discovery-conclusion,run9-domain-terms-and-adr,run9-approved-primitives-and-regression-guard-docs,run9-translation-coverage-ci-a4-split,run9-followup-issues-and-validation,enhance-channel-mutation-enhance-channel-mutation-workflow-tests,timestamps-timestamps-new-api-endpoints-documentation,document-admin-manifest-interface,choose-manifest-source-of-truth,extract-php-registry-module,adapt-frontend-route-registry,add-backend-manifest-tests,add-frontend-manifest-tests,update-admin-manifest-docs,run-tv455-quality-gates,cgl-001,cgl-002,cgl-003,cgl-004,cgl-003a,cgl-005,cgl-006,cgl-007,cgl-008,cgl-009,cgl-010,deletepublicationchannelaction-deletepublicationchannelaction-deletepublicationchanneltask-return-boolean-values,refine-channel-mutation-refine-channel-mutation-workflow-with -->
+<!-- unit-ids: document-channel-lifecycle-interface,document-execution-evidence-interface,document-file-transfer-mcp-entry-interface,document-normalization-interface,inventory-admin-client-normalizers,add-channel-response-regression-tests,add-channel-audit-regression-tests,add-publication-client-contract-tests,add-decision-only-evidence-regression-test,add-safe-evaluation-evidence-regression-test,add-mutation-policy-regression-tests,rewire-agent-eval-adapters,implement-channel-lifecycle-module,implement-shared-normalization-module,implement-evidence-builder-dto,implement-execution-evidence-builder,route-projections-through-eligibility,route-mutations-through-policy-and-eligibility,add-mcp-definition-regression-tests,add-agent-bypass-prevention-tests,rewire-channel-controller,migrate-channel-post-clients,implement-mcp-request-normalization,remove-or-justify-shallow-actions,extract-frontend-channel-mutation-helper,run-tv456-quality-gates,add-normalization-unit-tests,run-tv457-quality-gates,add-builder-unit-tests,run-tv458-quality-gates,run-tv459-quality-gates,migrate-remaining-publication-clients,update-file-transfer-mcp-docs,add-frontend-channel-lifecycle-tests,run7-delta-triage-doc,run7-critical-ci-shell-injection-closeout,run7-review-authorization-followup,run8-delta-triage-doc,run8-final-four-closeout,run9-delta-discovery-conclusion,run9-domain-terms-and-adr,run9-approved-primitives-and-regression-guard-docs,run9-translation-coverage-ci-a4-split,run9-followup-issues-and-validation,enhance-channel-mutation-enhance-channel-mutation-workflow-tests,timestamps-timestamps-new-api-endpoints-documentation,document-admin-manifest-interface,choose-manifest-source-of-truth,extract-php-registry-module,adapt-frontend-route-registry,add-backend-manifest-tests,add-frontend-manifest-tests,update-admin-manifest-docs,run-tv455-quality-gates,cgl-001,cgl-002,cgl-003,cgl-004,cgl-003a,cgl-005,cgl-006,cgl-007,cgl-008,cgl-009,cgl-010,deletepublicationchannelaction-deletepublicationchannelaction-deletepublicationchanneltask-return-boolean-values,refine-channel-mutation-refine-channel-mutation-workflow-with -->
 
-<!-- accomplished-unit-ids: adapt-frontend-route-registry,add-agent-bypass-prevention-tests,add-backend-manifest-tests,add-channel-audit-regression-tests,add-channel-response-regression-tests,add-frontend-channel-lifecycle-tests,add-frontend-manifest-tests,add-mcp-definition-regression-tests,add-mutation-policy-regression-tests,cgl-001,cgl-002,cgl-003,cgl-003a,cgl-004,cgl-005,cgl-006,cgl-007,cgl-008,cgl-009,cgl-010,choose-manifest-source-of-truth,deletepublicationchannelaction-deletepublicationchannelaction-deletepublicationchanneltask-return-boolean-values,document-admin-manifest-interface,document-channel-lifecycle-interface,document-file-transfer-mcp-entry-interface,enhance-channel-mutation-enhance-channel-mutation-workflow-tests,extract-frontend-channel-mutation-helper,extract-php-registry-module,implement-channel-lifecycle-module,implement-mcp-request-normalization,refine-channel-mutation-refine-channel-mutation-workflow-with,remove-or-justify-shallow-actions,rewire-channel-controller,route-mutations-through-policy-and-eligibility,route-projections-through-eligibility,run-tv455-quality-gates,run-tv456-quality-gates,run-tv459-quality-gates,run7-critical-ci-shell-injection-closeout,run7-delta-triage-doc,run7-review-authorization-followup,run8-delta-triage-doc,run8-final-four-closeout,run9-approved-primitives-and-regression-guard-docs,run9-delta-discovery-conclusion,run9-domain-terms-and-adr,run9-followup-issues-and-validation,run9-translation-coverage-ci-a4-split,timestamps-timestamps-new-api-endpoints-documentation,update-admin-manifest-docs,update-file-transfer-mcp-docs -->
+<!-- accomplished-unit-ids: adapt-frontend-route-registry,add-agent-bypass-prevention-tests,add-backend-manifest-tests,add-builder-unit-tests,add-channel-audit-regression-tests,add-channel-response-regression-tests,add-decision-only-evidence-regression-test,add-frontend-channel-lifecycle-tests,add-frontend-manifest-tests,add-mcp-definition-regression-tests,add-mutation-policy-regression-tests,add-normalization-unit-tests,add-publication-client-contract-tests,add-safe-evaluation-evidence-regression-test,cgl-001,cgl-002,cgl-003,cgl-003a,cgl-004,cgl-005,cgl-006,cgl-007,cgl-008,cgl-009,cgl-010,choose-manifest-source-of-truth,deletepublicationchannelaction-deletepublicationchannelaction-deletepublicationchanneltask-return-boolean-values,document-admin-manifest-interface,document-channel-lifecycle-interface,document-execution-evidence-interface,document-file-transfer-mcp-entry-interface,document-normalization-interface,enhance-channel-mutation-enhance-channel-mutation-workflow-tests,extract-frontend-channel-mutation-helper,extract-php-registry-module,implement-channel-lifecycle-module,implement-evidence-builder-dto,implement-execution-evidence-builder,implement-mcp-request-normalization,implement-shared-normalization-module,inventory-admin-client-normalizers,migrate-channel-post-clients,migrate-remaining-publication-clients,refine-channel-mutation-refine-channel-mutation-workflow-with,remove-or-justify-shallow-actions,rewire-agent-eval-adapters,rewire-channel-controller,route-mutations-through-policy-and-eligibility,route-projections-through-eligibility,run-tv455-quality-gates,run-tv456-quality-gates,run-tv457-quality-gates,run-tv458-quality-gates,run-tv459-quality-gates,run7-critical-ci-shell-injection-closeout,run7-delta-triage-doc,run7-review-authorization-followup,run8-delta-triage-doc,run8-final-four-closeout,run9-approved-primitives-and-regression-guard-docs,run9-delta-discovery-conclusion,run9-domain-terms-and-adr,run9-followup-issues-and-validation,run9-translation-coverage-ci-a4-split,timestamps-timestamps-new-api-endpoints-documentation,update-admin-manifest-docs,update-file-transfer-mcp-docs -->
 <!-- SECTION: ACCOMPLISHED END -->
 <!-- Generated by dev-tracker build_today_plan.py -->
