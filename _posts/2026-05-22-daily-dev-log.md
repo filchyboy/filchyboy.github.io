@@ -42,206 +42,21 @@ The 1309 PHP test failures are probably environment-related given the security c
 
 
 <!-- SECTION: ACCOMPLISHED START -->
-<!-- accomplished-generated: 2026-05-23T12:46:25.418400+00:00 -->
-<!-- accomplished-updated: 2026-05-23T12:46:25.418400+00:00 -->
+<!-- accomplished-generated: 2026-05-25T15:43:01.012327+00:00 -->
+<!-- accomplished-updated: 2026-05-25T15:43:01.012327+00:00 -->
 
-* Completed 137 tasks today on the Colossalistic Platform project.
+## Today's Update
 
-## What I Built
+Today was fundamentally about security architecture and governance infrastructure - the kind of foundational work that makes everything else safer before it ever touches production. I built out three major systems that will define how the platform handles privacy compliance, threat mitigation, and controlled AI integration when tenants actually start using it.
 
-### archive-deepsec-run11
-* Archive deepsec-run11-regression-remediation planning work
+The threat modeling work consumed most of my mental energy. I went through a complete security audit of the platform, inventorying every piece of security documentation we have and classifying what's canonical versus what's just historical artifacts. The real work was restructuring all of that into a proper Security Knowledge Base and promoting the repository threat model into canonical documentation. Then I implemented the actual controls - tenant scope bypass enforcement gates, route hardening for anything that accepts explicit tenant identifiers, and explicit permission backfilling for all the admin routes that were relying on implicit authorization. The MCP/TOON execution policy binding was particularly involved since it has to validate route capability, tool ID, tenant scope, function tokens, environment context, and parameters all in one check.
 
-### archive-privacy-governance
-* Archive privacy governance UI plan
+The Privacy Governance Foundation turned into a complete end-to-end implementation rather than just planning. I built out the Regulatory Rule Registry MVP, Data Element Catalog, and Privacy Control Plane skeleton, then implemented the actual workflows - contact consent mappings, privacy disposition requests, federated discovery routing. The tenant Privacy Ledger View gives future operators visibility into what data elements are being tracked and how consent is being managed across regulatory boundaries. The evidence store and receipt system will be critical for demonstrating compliance when auditors start asking questions.
 
-### comprehensive-threat
-* Add comprehensive threat model documentation for the Colossalistic platform
+The WebMCP integration work was extensive but followed a clear pattern - I built projection systems that translate internal TOON capabilities into browser-safe WebMCP manifests. The interesting challenge was ensuring these projections never leak internal vocabulary while still providing enough metadata for approval workflows and accessibility requirements. I added policy-derived exposure filtering, tenant-aware discovery, and comprehensive audit trails for every WebMCP execution. The AgentEval fixtures for capability escalation and prompt injection attempts should catch security issues before they become real problems.
 
-### finalize-archived-deepsec
-* Finalize archived deepsec-run11 plan content
-
-### gpc-enforcement
-* Document current GPC integration points
-* Define GPC domain enums and contracts
-* Create privacy signals migration
-* Create privacy policy evaluations migration
-* Create privacy processing suppressions migration
-* Add PrivacySignal model and factory
-* Add PrivacyPolicyEvaluation model and factory
-* Add PrivacyProcessingSuppression model and factory
-* Add GPC regulatory rule fixtures
-* Implement request provenance hashing
-* Normalize Sec-GPC header into Privacy Signal payload
-* Evaluate GPC signal against regulatory rules
-* Persist tenant-scoped GPC signal and policy evaluation
-* Write active Privacy Processing Suppressions
-* Implement GPC freshness and expiration handling
-* Add GPC detection middleware
-* Register GPC middleware in web and API groups
-* Expose request-local GPC state to app consumers
-* Define GPC status API read model
-* Add GPC status to privacy settings API
-* Add contextual GPC Recognition Notice contract
-* Suppress tracking injection in publishing rendering
-* Apply GPC override to publishing/CDP send eligibility
-* Link anonymous GPC signals after principal evidence appears
-* Test GPC middleware request flows
-* Test GPC policy evaluation scenarios
-* Test GPC suppression lifecycle
-* Test GPC API read model contract
-* Test publishing and CDP enforcement
-* Define ETL GPC enforcement query contract
-* Define MCP and TOON GPC policy constraint contract
-* Define analytics downgrade contract
-* Define CDP identity graph annotation contract
-* Define GPC propagation reconciliation contract
-* Document GPC enforcement contracts
-* Run targeted quality gates and prepare close-out evidence
-
-### implement-privacy-control
-* Implement Privacy Control Plane Models and Services
-
-### implement-privacy-governance
-* Implement Privacy Governance UI planning documents and artifacts
-
-### mcp-governance-layer
-* Add governed invocation envelope and execution receipt DTOs
-* Implement governed invocation envelope service
-* Attach governed envelope during MCP execution context validation
-* Return governance payloads from governed MCP tool responses
-* Persist governed envelope and receipt in MCP provenance context
-* Add regression coverage and stabilize touched provenance authorization scope
-
-### multiple-architectural
-* Add multiple architectural decision records  for privacy management boundaries
-
-### optimize-publication-logic
-* Optimize publication logic in PrivacyGovernance services and tests
-
-### privacy
-* Implement governance UI surfaces
-
-### privacy-governance
-* Add Privacy Governance Foundation planning artifacts
-
-### privacy-governance-foundation
-* Regulatory Rule Registry MVP
-* Regulatory rule validation fixtures
-* Data Element Catalog MVP
-* Ledger readiness and Privacy Inventory Gaps
-* Privacy Control Plane skeleton
-* Privacy Access Session and Service Enrollment
-* Contact and consent Data Element Representation mappings
-* Tenant Privacy Ledger View
-* Privacy Identity Links and contestation
-* Privacy Disposition Request workflows
-* Tenant-independent evidence store and receipts
-* Privacy presence events and local indexes
-* Federated discovery and routing cache
-* Vendor propagation and disconnected notices
-* Hardening, documentation, and quality gates
-
-### privacy-governance-ui
-* Document current UI and backend privacy integration points
-* Define Privacy Governance UI API contracts and fixtures
-* Scaffold Privacy Governance admin route and capabilities
-* Build Tenant Privacy Entry Point and disclosure shell
-* Build Tenant Privacy Ledger View and Data Element detail
-* Build Platform Privacy Center shell
-* Add principal receipt lookup and read-only receipt detail
-* Build Privacy Governance admin shell
-* Add ledger readiness and inventory gap admin queues
-* Add requests, dispositions, receipts, and evidence admin queues
-* Add registry and presence health admin surface
-* Define Privacy Governance Metrics contracts and privacy guardrails
-* Build Privacy Governance Metrics UI
-* Add request and disposition mutation workflows
-* Run targeted quality gates and prepare close-out evidence
-
-### provisioning
-* Let validation handle invalid region
-
-### refactor-threat-model
-* Refactor threat model documentation and implementation plans
-
-### soc
-* Update SOC 2 Readiness Implementation Plan and Tracker
-
-### threat-model
-* Inventory docs/security and classify canonical, duplicate, stale, stub, and evidence documents
-* Restructure docs/security into an indexed Security Knowledge Base
-* Promote the full repository threat model into canonical security documentation
-* Implement a tenant scope bypass inventory and enforcement gate
-* Harden routes and requests that accept explicit tenant or account identifiers
-* Backfill explicit permissions for bulk, export, token, settings, and destructive admin/API routes
-* Harden public DSR and COPPA workflows against enumeration and lifecycle abuse
-* Harden media upload, presigned upload completion, and file/import connectors
-* Bind MCP/TOON execution policy to route capability, tool ID, tenant, function token, environment, and parameters
-* Add golden MCP/TOON denial tests for cross-tenant, cross-domain, stale nonce, and missing capability paths
-* Harden webhook signature, replay, parser, and queue-abuse controls
-* Build audit/log coverage map and alerts for privileged and cross-boundary security events
-* Record targeted quality gates, closeout evidence, and deferred disposition
-
-### typescript-eslint
-* Update @typescript-eslint/parser to version 8.59.4
-
-### various-planning
-* Add various planning documentation and trackers for completed tasks
-
-### webmcp
-* Archive integration plan
-
-### webmcp-integration
-* Add baseline WebMCP manifest contract fixture
-* Document the WebMCP capability projection schema
-* Create WebMCP capability projection data object
-* Add WebMCP exposure tier enum
-* Build browser-safe projection from MCP ToolDefinition
-* Test ToolDefinition to WebMCP projection mapping
-* Refactor BuildWebMcpBindingManifestAction to use projection builder
-* Assert WebMCP manifests do not expose raw TOON vocabulary
-* Add tenant-aware WebMCP discovery filter task
-* Test WebMCP discovery tenant isolation
-* Add policy-derived WebMCP exposure filter
-* Test policy-derived WebMCP exposure filtering
-* Add policy snapshot references to WebMCP projections
-* Expose approval and ChangeSet requirements in projections
-* Test approval and ChangeSet projection metadata
-* Extend WebMCP execute request context validation
-* Test WebMCP execution context validation
-* Attach WebMCP provenance fields to governed invocation envelope
-* Test WebMCP provenance in audit evidence
-* Add surface metadata adapter for approved browser-operable surfaces
-* Test surface metadata projection boundaries
-* Add accessibility metadata to browser-operable projections
-* Test accessibility metadata requirements
-* Standardize WebMCP structured error responses
-* Test WebMCP structured errors
-* Extend WebMCP rate-limit and telemetry labels
-* Test WebMCP telemetry labels and rate-limit bucket
-* Add AgentEval fixture for capability escalation attempts
-* Add AgentEval fixture for prompt-injection style payloads
-* Add AgentEval fixture for stale surface metadata
-* Update canonical MCP API docs for WebMCP projections
-* Update WebMCP operations and observability runbook
-* Sync OpenAPI contract for WebMCP endpoints
-* Capture targeted WebMCP quality-gate evidence
-* Create WebMCP rollout and rollback handoff
-* Close out WebMCP planning artifacts after implementation
-
-## Notes
-
-* Completed 137 work unit(s)
-* Removed/archived 2 incomplete unit(s)
-* Archived 31 previously completed unit(s)
-* Item adherence: 0% (0/3 focus items)
-* Feature set adherence: 0% (0/2 planned feature sets had work)
-* Weighted adherence: 0% (with partial credit)
-* Untracked activity: 47 commit(s) not mapped to any feature set
-
-
-<!-- Generated by dev-tracker publish_to_jekyll.py -->
+This work positions the platform to handle privacy-conscious tenants with serious security requirements. The governance infrastructure means we can demonstrate compliance rather than just claiming it, and the threat model implementation creates defense in depth across tenant boundaries.
+<!-- Generated by dev-tracker publish_to_jekyll.py (AI mode) -->
 <!-- accomplished-date: 2026-05-22 -->
 <!-- unit-ids: webmcp-archive-integration-plan,archive-deepsec-run11-archive-deepsec-run11-regression-remediation-planning-work,threat-model-p0-security-docs-inventory,threat-model-p1-security-knowledge-base-index,threat-model-p1-canonical-threat-model-risk-register,threat-model-p2-tenant-scope-bypass-control-gate,threat-model-p2-tenant-id-route-policy-hardening,threat-model-p3-admin-authorization-explicit-permissions,threat-model-p4-public-privacy-workflow-anti-enumeration,threat-model-p5-file-media-import-hardening,threat-model-p6-mcp-toon-execution-policy-binding,threat-model-p6-mcp-toon-denial-golden-tests,threat-model-p7-webhook-replay-parser-hardening,threat-model-p8-security-audit-coverage-map,threat-model-p9-targeted-quality-gates-and-closeout,archive-privacy-governance-archive-privacy-governance-plan,optimize-publication-logic-optimize-publication-logic-privacygovernance-services,privacy-governance-privacy-governance-foundation-planning-artifacts,privacy-governance-surfaces,pgf-01-regulatory-rule-registry-mvp,pgf-02-regulatory-rule-fixtures,pgf-03-data-element-catalog-mvp,pgf-04-ledger-readiness-inventory-gaps,pgf-05-privacy-control-plane-skeleton,pgf-06-privacy-access-session-enrollment,pgf-07-contact-consent-representation-mappings,pgf-08-tenant-privacy-ledger-view,pgf-09-privacy-identity-links-contestation,pgf-10-privacy-disposition-workflows,pgf-11-privacy-evidence-store-receipts,pgf-12-privacy-presence-events-local-index,pgf-13-federated-discovery-routing-cache,pgf-14-vendor-disconnected-notices,pgf-15-hardening-docs-quality-gates,typescript-eslint-typescript-eslint-parser-version-8-59-4,soc-soc-readiness-implementation-plan-tracker,provisioning-let-validation-handle-invalid-region,webmcp-contract-fixture,webmcp-projection-schema-doc,webmcp-projection-dto,webmcp-exposure-tier-enum,webmcp-projection-builder,webmcp-projection-builder-test,webmcp-manifest-action-refactor,webmcp-no-toon-leak-test,webmcp-tenant-context-filter-task,webmcp-tenant-filter-test,webmcp-policy-filter-service,webmcp-policy-filter-test,webmcp-policy-snapshot-field,webmcp-approval-metadata,webmcp-approval-metadata-test,webmcp-execution-context-request,webmcp-execution-context-test,webmcp-provenance-envelope,webmcp-provenance-test,webmcp-surface-metadata-adapter,webmcp-surface-metadata-test,webmcp-accessibility-metadata,webmcp-accessibility-metadata-test,webmcp-structured-error-contract,webmcp-structured-error-test,webmcp-rate-limit-telemetry,webmcp-rate-limit-telemetry-test,webmcp-eval-fixture-escalation,webmcp-eval-fixture-prompt-injection,webmcp-eval-fixture-stale-metadata,webmcp-api-doc-update,webmcp-runbook-update,webmcp-openapi-sync,webmcp-quality-gate-evidence,webmcp-rollout-handoff,webmcp-planning-closeout,finalize-archived-deepsec-finalize-archived-deepsec-run11-plan-content,refactor-threat-model-refactor-threat-model-documentation-implementation,gpc-current-state-inventory,gpc-domain-enums-and-contracts,gpc-schema-privacy-signals,gpc-schema-policy-evaluations,gpc-schema-processing-suppressions,gpc-model-privacy-signal,gpc-model-policy-evaluation,gpc-model-processing-suppression,gpc-regulatory-rule-fixtures,gpc-request-provenance-hasher,gpc-signal-normalizer,gpc-policy-evaluator,gpc-signal-persistence-action,gpc-suppression-writer,gpc-expiration-task,gpc-middleware,gpc-kernel-registration,gpc-request-state-contract,gpc-api-read-model-contract,gpc-privacy-settings-api-integration,gpc-recognition-notice-contract,gpc-publishing-rendering-suppression,gpc-publishing-cdp-send-eligibility,gpc-anonymous-linkage-flow,gpc-middleware-feature-tests,gpc-policy-evaluator-tests,gpc-suppression-tests,gpc-api-read-model-tests,gpc-publishing-enforcement-tests,gpc-etl-contract,gpc-mcp-toon-contract,gpc-analytics-contract,gpc-cdp-identity-annotation-contract,gpc-propagation-reconciliation-contract,gpc-developer-docs,gpc-quality-gates-and-closeout,multiple-architectural-multiple-architectural-decision-records-privacy,mcp-governance-dtos,mcp-governance-envelope-service,mcp-governance-execution-action,mcp-governance-response-payload,mcp-governance-provenance-context,mcp-governance-regression-coverage,various-planning-various-planning-documentation-trackers-completed,implement-privacy-control-privacy-control-plane-models-services,implement-privacy-governance-privacy-governance-planning-documents-artifacts,pgui-00-current-state-and-contract-discovery,pgui-01-api-contracts-and-fixtures,pgui-02-admin-route-capability-scaffold,pgui-03-tenant-entry-disclosure,pgui-04-tenant-ledger-view,pgui-05-platform-privacy-center-shell,pgui-06-receipt-lookup-readonly,pgui-07-admin-governance-shell,pgui-08-ledger-readiness-inventory-gap-queues,pgui-09-requests-evidence-admin-queues,pgui-10-registry-presence-health-admin,pgui-11-governance-metrics-contracts,pgui-12-governance-metrics-ui,pgui-13-request-disposition-workflows,pgui-14-quality-gates-and-closeout,comprehensive-threat-comprehensive-threat-model-documentation-colossalistic -->
 
