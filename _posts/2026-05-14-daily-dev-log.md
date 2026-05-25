@@ -42,216 +42,24 @@ The React Doctor followup work is tempting since I reopened those score gates ea
 
 
 <!-- SECTION: ACCOMPLISHED START -->
-<!-- accomplished-generated: 2026-05-15T19:17:40.811790+00:00 -->
-<!-- accomplished-updated: 2026-05-15T19:17:40.811790+00:00 -->
+<!-- accomplished-generated: 2026-05-25T15:14:55.021198+00:00 -->
+<!-- accomplished-updated: 2026-05-25T15:14:55.021198+00:00 -->
 
-* Completed 142 tasks today on the Colossalistic Platform project.
+## Today's Update
 
-## What I Built
+Today was about bringing several major architectural initiatives across the finish line while tackling some critical infrastructure work that's been nagging at me. I completed a massive 189 work units spanning 30 feature areas – the kind of day where everything clicks into place because the groundwork was solid.
 
-### accessibility-harness-driver-deepening
-* Audit duplicated accessibility harness responsibilities
-* Define Accessibility Harness Driver Interface
-* Implement scenario-level accessibility harness API
-* Migrate Selenium accessibility tests to scenario declarations
-* Route defect injection through the same harness Interface
-* Run scoped quality gates for accessibility harness deepening
+The biggest accomplishment was finishing the Agent Governance Evaluation Framework (AGEF). This turned into a 65-item implementation sequence that started with capturing reference snapshots of existing governance containers and ended with online sampling and quarterly evidence workflows. The most technically interesting piece was building the EvalAssertionContract interface and implementing six baseline assertion classes that can detect semantic violations, prompt injection attempts, and capability escalation probes. The ExecuteAgentInvocationTask with CollectEvidenceTask was particularly tricky – had to design a safe execution environment that could gather evidence about agent behavior without compromising the evaluation itself. The final phase included adversarial test suites covering prompt injection, jailbreak attempts, and trust spoofing scenarios. Having this framework means I can now catch agent governance regressions before they reach production.
 
-### agent-evaluation-execution-deepening
-* Audit AGEF execution contract against CONTEXT.md
-* Add AGEF characterization tests for current execution behavior
-* Introduce Tool Execution Adapter with real decision-only behavior
-* Enforce Safe Evaluation Executor Registry semantics
-* Replace expected-data echoing with runtime evidence context
-* Test decision-only and execution-allowed AGEF paths
-* Run scoped quality gates for AGEF execution
+I also completed several horizontal infrastructure slices that have immediate operational value. The tenant-aware queue lanes (HS121) involved implementing a TenantLaneDispatcher and ThrottleBulkJob middleware that prevents any single tenant from monopolizing background processing resources. The slow query registry (HS125) adds a cache-backed bounded buffer that snapshots the top-N slowest database queries, exposing them through Prometheus metrics. And the webhook delivery observability work (HS123) provides a React-based DLQ table for admins to investigate and replay failed webhook deliveries. Each of these required careful cross-tenant isolation testing – the kind of work that's invisible when it works but catastrophic when it doesn't.
 
-### agent-regression-testing
-* Capture reference snapshot of existing governance containers
-* Accept ADR for Agent Governance Evaluation Framework
-* Scaffold Core/AgentEval Porto container
-* Design eval scenario JSON schema
-* Add EvalSeverity, EvalCategory, and safe-executor enums
-* Author reuse map of composition contracts
-* Author severity-to-assertion routing matrix
-* Run quality-gate baseline on scaffolded container
-* Confirm EnforcementOrchestrator invocable from artisan context
-* EvalScenario model + migration
-* EvalRun model + migration
-* EvalViolation model + migration
-* Define EvalAssertionContract interface
-* Implement 6 baseline assertion classes
-* LoadFixtureTask
-* SetupTenantContextTask
-* ExecuteAgentInvocationTask + CollectEvidenceTask
-* EvaluateAssertionsTask + RecordRunTask
-* RunScenarioAction orchestration
-* artisan agent-eval:run and agent-eval:scaffold-fixture commands
-* Author semantic-regression suite (5-10 fixtures)
-* agent-eval-harness.yml workflow (advisory mode)
-* Feature + unit tests + architecture guide
-* Prompt-injection adversarial suite (~10 fixtures)
-* Capability-escalation probe suite (~10 fixtures)
-* Semantic jailbreak attempt suite (~8 fixtures)
-* Trust spoofing attempt suite (~8 fixtures)
-* Provenance poisoning suite (~8 fixtures)
-* Recursive agent manipulation suite (~6 fixtures)
-* Add 3 new adversarial assertion classes
-* Establish adversarial suite flake and false-positive baselines
-* Flip agent-eval-harness.yml to blocking on Critical/High
-* Suite-level batching + parallel execution
-* Cross-suite integration tests
-* Phase 2 adversarial runbook
-* Sync tracker + checklist after Phase 2 closeout
-* Define Agent Trust Manifest fixture format
-* AttestationValidated assertion + suite
-* Revocation honor assertion suite (~6 fixtures)
-* ProvenanceScored assertion + suite (~6 fixtures)
-* Trust-tier-aware scenario routing
-* TrustFabric integration tests
-* Phase 3 trust-integration doc
-* Sync tracker + checklist after Phase 3
-* Release gate wiring with severity threshold
-* Admin API routes for AGEF
-* Controllers, Form Requests, API Resources
-* Policies for admin AGEF resources
-* List + Show actions for admin
-* Frontend agentEvalApi.ts + React Query hooks
-* React admin components
-* jest-axe a11y tests for admin UI
-* AdminTestCase feature tests for AGEF endpoints
-* Route-parity audit for new AGEF endpoints
-* Admin UI documentation + screenshots
-* Sync tracker + checklist after Phase 4
-* Production traffic sampling driver
-* Drift detection metrics
-* Anomaly detection rules + alerting
-* Prometheus exposure of drift + violation metrics
-* Adaptive adversarial generation research spike
-* agent-eval-quarterly.yml workflow
-* Review ADR against online-sampling evidence
-* Knowledge-transfer documentation
-* Plan closeout + artifacts inventory
+The production readiness gate checklist was another major completion. I converted the existing narrative documentation into a binary checklist that gets enforced by GitHub workflows, with each Critical line item mapped to a specific CI verification. This replaces the previous informal review process with automated gate enforcement in deploy-staging.yml and deploy-production.yml.
 
-### archive-accessibility-harness
-* Archive accessibility harness driver plan
-
-### clarify-adr-numbering
-* Clarify ADR numbering check and improve file matching pattern
-
-### enhance-agent-evaluation
-* Enhance agent evaluation with fixture validation and improved request handling
-
-### enhance-fixture-validation
-* Enhance fixture validation by adding checks for  non-string safe executor keys and improving perPage method handling
-
-### enhance-sms-recipient
-* Enhance SMS recipient validation by trimming whitespace and enforcing E.164 format
-
-### forms
-* Archive flow engine deepening plan
-
-### forms-flow-engine-deepening
-* Map the current Flow Engine Interface and internal responsibilities
-* Add characterization tests for Flow Engine behavior
-* Localize StepOutput recording and context mutation
-* Localize flow provenance emission
-* Localize deferred action and fallback policy behavior
-* Document the Flow Engine Interface after internal deepening
-* Run scoped quality gates for Flow Engine deepening
-
-### horizontal-slice-hs123-webhook-delivery-observability-dlq-admin
-* Paginated DLQ list query with provider/status/tenant filters
-* Admin route, Form Request, and policies for DLQ surface
-* Integration tests with Stripe + Mailgun fixtures + cross-tenant isolation
-* Add provider/event_type/outcome labels to webhook counters
-* Per-provider latency histogram with calibrated buckets
-* React DLQ table component + Storybook
-* Replay action with idempotency key and structured audit log
-* Publish webhook-dlq-replay runbook + ADR
-
-### improve-fixture-validation
-* Improve fixture validation and request handling in agent evaluation
-
-### improve-sms-recipient
-* Improve SMS recipient validation by cleaning input and updating format check
-
-### permissions
-* Streamline permission handling and enhance user permission checks
-
-### product-surface-runtime-contract-deepening
-* Audit Product Surface runtime and admin contract assumptions
-* Add characterization tests for Gateway runtime behavior
-* Create Product Surface Runtime Contract parser and resolver
-* Adopt Runtime Contract Module in Gateway entry and renderer
-* Adopt shared contract vocabulary in admin Product Surfaces path
-* Document or remediate generated OpenAPI type gaps
-* Run scoped frontend quality gates for Product Surface runtime
-
-### profile-types
-* Add debug IDs to delete form and button for better tracking
-
-### provider-capability-snapshot-deepening
-* Inventory Provider Capability Snapshot fields and current decision usage
-* Define the Provider Capability Snapshot Interface
-* Implement snapshot normalization and safe access helpers
-* Use Provider Capability Snapshot in preview and Transfer Eligibility
-* Test snapshot capture, normalization, and decision use
-* Run scoped quality gates for Provider Capability Snapshot
-
-### runtime
-* Handle malformed URLs in buildProductSurfaceThemeStudioHref
-
-### schema
-* Standardize constant naming for deadline window
-
-### thin-vslice-450-admin-destructive-confirm-useauthorize-adoption
-* DestructiveConfirmDialog + 6 adoptions + useAuthorize gate
-* Dialog focus tests + 6 adoptions jest-axe + reason capture feature tests
-* Standardize reason field + structured-log line on 6 endpoints
-* Audit-log entries deterministic + tenant-scoped
-* Additive reason field + 422 on missing required reason
-* Dialog open/cancel + backend confirmed telemetry
-* Quality gates + admin runbook + ADR memo
-
-### thin-vslice-452-decision-record-timeline-precedent-view
-* TV452 contract baseline: timeline + precedent contracts + cursor
-* DecisionRecordDetailPage + 2 panels + hooks + focus mgmt
-* Envelope + cursor meta + total meta
-* Cursor pagination on timeline + precedent eager-load
-* Tenant-scoped indexed timeline + precedent queries
-* Cross-tenant + cursor + RTL focus + jest-axe
-* Quality gates + governance runbook + ADR
-* Decision view + scroll + precedent telemetry
-
-### thin-vslice-453-notification-channel-test-send-preview
-* TV453 contract baseline: preview + test-send + allowlist + rate limit
-* Preview + test-send Actions with rate-limit middleware
-* Allowlist table + account-membership check
-* Envelope + 429/403 mapping + OpenAPI
-* Preview pane + test-send button + alert region
-* Preview + test-send + rate-limit telemetry
-* Cross-tenant + rate-limit + allowlist + RTL + jest-axe
-* Quality gates + Comms runbook + ADR memo
-
-### transport-policy
-* Update transport policy last_updated date and add ESLint dependencies
-
-## Notes
-
-* Completed 142 work unit(s)
-* Archived 1 previously completed unit(s)
-* Item adherence: 20% (1/5 focus items)
-* Feature set adherence: 20% (1/5 planned feature sets had work)
-* Weighted adherence: 50% (with partial credit)
-* Untracked activity: 24 commit(s) not mapped to any feature set
-* Auto-archived 4 retroactive feature sets from untracked commits
-
-
-<!-- Generated by dev-tracker publish_to_jekyll.py -->
+What ties all this work together is a theme of making implicit system behavior explicit and verifiable. The AGEF makes agent governance violations visible, the infrastructure slices make resource contention measurable, and the production gate makes deployment safety checkable. Tomorrow I can start building on these foundations instead of worrying about whether the underlying systems are sound.
+<!-- Generated by dev-tracker publish_to_jekyll.py (AI mode) -->
 <!-- accomplished-date: 2026-05-14 -->
-<!-- unit-ids: tv450-frontend-integration,tv450-focused-tests-a11y,tv450-backend-orchestration,tv450-data-determinism,tv450-api-contract-hardening,tv450-observability-instrumentation,tv452-contract-scope-baseline,tv450-quality-gates-handoff,tv452-frontend-integration,tv452-api-contract-hardening,tv452-backend-orchestration,tv452-data-determinism,tv452-focused-tests-a11y,hs123-dlq-list-query,hs123-admin-route-policy,tv452-quality-gates-handoff,hs123-integration-tests-stripe-mailgun,hs123-provider-counter-labels,hs123-provider-latency-histogram,hs123-react-dlq-table,hs123-replay-action-audit,tv452-observability-instrumentation,hs123-runbook-and-adr,provider-capability-snapshot-inventory,provider-capability-snapshot-interface,provider-capability-snapshot-normalizer,provider-capability-snapshot-eligibility-adoption,provider-capability-snapshot-tests,provider-capability-snapshot-quality-gates,accessibility-harness-driver-audit,accessibility-harness-interface,accessibility-harness-scenario-api,accessibility-harness-migrate-tests,accessibility-harness-defect-injection,accessibility-harness-quality-gates,archive-accessibility-harness-archive-accessibility-harness-driver-plan,profile-types-debug-ids-delete-form-button,enhance-agent-evaluation-enhance-agent-evaluation-with-fixture,forms-archive-flow-engine-deepening-plan,improve-fixture-validation-improve-fixture-validation-request-handling,runtime-handle-malformed-urls-buildproductsurfacethemestudiohref,product-surface-runtime-contract-audit,product-surface-runtime-characterization-tests,product-surface-runtime-parser,product-surface-runtime-gateway-adoption,product-surface-runtime-admin-adoption,product-surface-openapi-gap,product-surface-runtime-quality-gates,agef-phase0-reference-snapshot,agef-phase0-draft-adr,agef-phase0-scaffold-container,agef-phase0-fixture-schema-design,agef-phase0-severity-enum,agef-phase0-reuse-map-doc,agef-phase0-severity-matrix,agef-phase0-quality-gate-baseline,agef-phase1-orchestrator-artisan-spike,agef-phase1-eval-scenario-model,agef-phase1-eval-run-model,agef-phase1-eval-violation-model,agef-phase1-assertion-contract,agef-phase1-baseline-assertions,agef-phase1-load-fixture-task,agef-phase1-tenant-context-task,agef-phase1-execute-invocation-task,agef-phase1-evaluate-assertions-task,agef-phase1-run-scenario-action,agef-phase1-cli-command,agef-phase1-semantic-regression-suite,agef-phase1-ci-harness-advisory,agef-phase1-tests-and-coverage,agef-phase2-prompt-injection-suite,agef-phase2-capability-escalation-suite,agef-phase2-semantic-jailbreak-suite,agef-phase2-trust-spoofing-suite,agef-phase2-provenance-poisoning-suite,agef-phase2-recursive-manipulation-suite,agef-phase2-adversarial-assertions,agef-phase2-false-positive-baseline,agef-phase2-flip-harness-blocking,agef-phase2-suite-runner-batching,agef-phase2-cross-suite-tests,agef-phase2-handoff-doc,agef-phase2-tracker-progress-sync,agef-phase3-trust-manifest-fixture-format,agef-phase3-attestation-validation-assertion,agef-phase3-revocation-honor-suite,agef-phase3-provenance-scoring-assertion,agef-phase3-trust-tier-routing,agef-phase3-trust-tests,agef-phase3-handoff-doc,agef-phase3-tracker-sync,agef-phase4-release-gate-wiring,agef-phase4-admin-routes,agef-phase4-controllers-resources-requests,agef-phase4-policies,agef-phase4-list-runs-action,agef-phase4-frontend-api-client,agef-phase4-react-components,agef-phase4-a11y-tests,agef-phase4-backend-feature-tests,agef-phase4-route-parity-check,agef-phase4-admin-screenshots-and-docs,agef-phase4-tracker-sync,agef-phase5-online-sampling-driver,agef-phase5-drift-detection-metrics,agef-phase5-anomaly-detection-rules,agef-phase5-prometheus-exposure,agef-phase5-adaptive-generation-spike,agef-phase5-quarterly-evidence-workflow,agef-phase5-adr-evidence-review,agef-phase5-knowledge-transfer,agef-phase5-completion-closeout,permissions-streamline-permission-handling-enhance-user,schema-standardize-constant-naming-deadline-window,enhance-sms-recipient-enhance-sms-recipient-validation-trimming,forms-flow-engine-interface-map,forms-flow-engine-characterization-tests,forms-flow-engine-step-output-module,forms-flow-engine-provenance-module,forms-flow-engine-deferred-action-module,forms-flow-engine-interface-docs,forms-flow-engine-quality-gates,tv453-contract-scope-baseline,tv453-backend-orchestration,tv453-data-determinism,tv453-api-contract-hardening,tv453-frontend-integration,tv453-observability-instrumentation,tv453-focused-tests-a11y,tv453-quality-gates-handoff,clarify-adr-numbering-clarify-adr-numbering-check-improve,transport-policy-transport-policy-last-updated-date-eslint,enhance-fixture-validation-enhance-fixture-validation-adding-checks,agent-eval-execution-contract-audit,agent-eval-characterization-tests,agent-eval-tool-execution-adapter,agent-eval-safe-executor-registry-enforcement,agent-eval-runtime-evidence-context,agent-eval-execution-tests,agent-eval-quality-gates,improve-sms-recipient-improve-sms-recipient-validation-cleaning -->
+<!-- unit-ids: rfd-01-hard-violation-contract,rfd-02-final-attempt-fallback,rfd-00-replace-boilerplate-plan,rfd-03-accountable-operator-rubric,rfd-04-public-safe-fallback,rfd-12-historical-narrative-republish,rfd-05-safety-gate-tests,rfd-06-local-voice-store,rfd-09-load-distilled-profile,rfd-07-codex-user-message-extractor,rfd-08-distilled-voice-profile,rfd-11-docs-quality-gates-closeout,rfd-10-voice-corpus-tests,tv450-frontend-integration,tv450-focused-tests-a11y,rd100-audit-dead-code-and-react19-buckets,tv450-backend-orchestration,prod-gate-deploy-hook,tv450-data-determinism,tv450-api-contract-hardening,rd100-close-root-score-gap,hs125-registry-table-migration,prod-gate-inventory,rd100-finish-state-bucket-wave,prod-gate-checklist-rewrite,prod-gate-workflow-author,tv450-observability-instrumentation,hs125-query-event-sample-buffer,rd100-finish-hydration-and-intl-wave,tv452-contract-scope-baseline,hs125-scheduled-collector-command,prod-gate-workflow-mapping,tv450-quality-gates-handoff,tv452-frontend-integration,hs125-integration-test-cross-tenant,hs121-add-tenant-lane-config,hs125-prometheus-alert-rule-fixture,rd100-finish-generic-handler-wave,hs128-publish-feature-matrix-md,tv452-api-contract-hardening,hs125-admin-slow-query-partial,hs128-remediation-backlog-md,rd100-archive-sprint-plan,tv452-backend-orchestration,tv452-data-determinism,tv452-focused-tests-a11y,hs121-bulk-job-budget-value-object,hs123-dlq-list-query,hs128-container-scanner-script,hs121-implement-tenant-lane-dispatcher,hs121-ensure-tenant-queue-lane-middleware,hs121-throttle-bulk-job-middleware,hs123-admin-route-policy,prod-gate-exemption-doc,tv452-quality-gates-handoff,hs123-integration-tests-stripe-mailgun,hs121-tenant-queue-prometheus-labels,hs123-provider-counter-labels,hs123-provider-latency-histogram,hs123-react-dlq-table,hs123-replay-action-audit,hs125-retention-job,hs125-runbook-and-adr,hs128-manual-reconciliation-pass,prod-gate-burndown-doc,tv452-observability-instrumentation,hs128-a11y-batch-run-admin-routes,hs128-auth-gate-sampling-check,hs121-admin-queue-depth-partial,hs128-feature-matrix-adr,hs128-audit-evidence-capture,hs121-runbook-and-adr,hs123-runbook-and-adr,hs125-n-plus-one-followup-scope,accessibility-harness-driver-audit,accessibility-harness-interface,accessibility-harness-scenario-api,accessibility-harness-migrate-tests,accessibility-harness-defect-injection,accessibility-harness-quality-gates,archive-accessibility-harness-archive-accessibility-harness-driver-plan,profile-types-debug-ids-delete-form-button,operational-twin-digital-twin-slice,enhance-agent-evaluation-enhance-agent-evaluation-with-fixture,forms-archive-flow-engine-deepening-plan,enhance-various-components-enhance-various-components-improve-documentation,improve-fixture-validation-improve-fixture-validation-request-handling,runtime-handle-malformed-urls-buildproductsurfacethemestudiohref,product-surface-runtime-contract-audit,product-surface-runtime-characterization-tests,product-surface-runtime-parser,product-surface-runtime-gateway-adoption,product-surface-runtime-admin-adoption,product-surface-openapi-gap,product-surface-runtime-quality-gates,agef-phase0-reference-snapshot,agef-phase0-draft-adr,agef-phase0-scaffold-container,agef-phase0-fixture-schema-design,agef-phase0-severity-enum,agef-phase0-reuse-map-doc,agef-phase0-severity-matrix,agef-phase0-quality-gate-baseline,agef-phase1-orchestrator-artisan-spike,agef-phase1-eval-scenario-model,agef-phase1-eval-run-model,agef-phase1-eval-violation-model,agef-phase1-assertion-contract,agef-phase1-baseline-assertions,agef-phase1-load-fixture-task,agef-phase1-tenant-context-task,agef-phase1-execute-invocation-task,agef-phase1-evaluate-assertions-task,agef-phase1-run-scenario-action,agef-phase1-cli-command,agef-phase1-semantic-regression-suite,agef-phase1-ci-harness-advisory,agef-phase1-tests-and-coverage,agef-phase2-prompt-injection-suite,agef-phase2-capability-escalation-suite,agef-phase2-semantic-jailbreak-suite,agef-phase2-trust-spoofing-suite,agef-phase2-provenance-poisoning-suite,agef-phase2-recursive-manipulation-suite,agef-phase2-adversarial-assertions,agef-phase2-false-positive-baseline,agef-phase2-flip-harness-blocking,agef-phase2-suite-runner-batching,agef-phase2-cross-suite-tests,agef-phase2-handoff-doc,agef-phase2-tracker-progress-sync,agef-phase3-trust-manifest-fixture-format,agef-phase3-attestation-validation-assertion,agef-phase3-revocation-honor-suite,agef-phase3-provenance-scoring-assertion,agef-phase3-trust-tier-routing,agef-phase3-trust-tests,agef-phase3-handoff-doc,agef-phase3-tracker-sync,agef-phase4-release-gate-wiring,agef-phase4-admin-routes,agef-phase4-controllers-resources-requests,agef-phase4-policies,agef-phase4-list-runs-action,agef-phase4-frontend-api-client,agef-phase4-react-components,agef-phase4-a11y-tests,agef-phase4-backend-feature-tests,agef-phase4-route-parity-check,agef-phase4-admin-screenshots-and-docs,agef-phase4-tracker-sync,agef-phase5-online-sampling-driver,agef-phase5-drift-detection-metrics,agef-phase5-anomaly-detection-rules,agef-phase5-prometheus-exposure,agef-phase5-adaptive-generation-spike,agef-phase5-quarterly-evidence-workflow,agef-phase5-adr-evidence-review,agef-phase5-knowledge-transfer,agef-phase5-completion-closeout,permissions-streamline-permission-handling-enhance-user,schema-standardize-constant-naming-deadline-window,enhance-sms-recipient-enhance-sms-recipient-validation-trimming,forms-flow-engine-interface-map,forms-flow-engine-characterization-tests,forms-flow-engine-step-output-module,forms-flow-engine-provenance-module,forms-flow-engine-deferred-action-module,forms-flow-engine-interface-docs,forms-flow-engine-quality-gates,tv453-contract-scope-baseline,tv453-backend-orchestration,tv453-data-determinism,tv453-api-contract-hardening,tv453-frontend-integration,tv453-observability-instrumentation,tv453-focused-tests-a11y,tv453-quality-gates-handoff,clarify-adr-numbering-clarify-adr-numbering-check-improve,transport-policy-transport-policy-last-updated-date-eslint,enhance-fixture-validation-enhance-fixture-validation-adding-checks,agent-eval-execution-contract-audit,agent-eval-characterization-tests,agent-eval-tool-execution-adapter,agent-eval-safe-executor-registry-enforcement,agent-eval-runtime-evidence-context,agent-eval-execution-tests,agent-eval-quality-gates,improve-sms-recipient-improve-sms-recipient-validation-cleaning -->
 
-<!-- accomplished-unit-ids: accessibility-harness-defect-injection,accessibility-harness-driver-audit,accessibility-harness-interface,accessibility-harness-migrate-tests,accessibility-harness-quality-gates,accessibility-harness-scenario-api,agef-phase0-draft-adr,agef-phase0-fixture-schema-design,agef-phase0-quality-gate-baseline,agef-phase0-reference-snapshot,agef-phase0-reuse-map-doc,agef-phase0-scaffold-container,agef-phase0-severity-enum,agef-phase0-severity-matrix,agef-phase1-assertion-contract,agef-phase1-baseline-assertions,agef-phase1-ci-harness-advisory,agef-phase1-cli-command,agef-phase1-eval-run-model,agef-phase1-eval-scenario-model,agef-phase1-eval-violation-model,agef-phase1-evaluate-assertions-task,agef-phase1-execute-invocation-task,agef-phase1-load-fixture-task,agef-phase1-orchestrator-artisan-spike,agef-phase1-run-scenario-action,agef-phase1-semantic-regression-suite,agef-phase1-tenant-context-task,agef-phase1-tests-and-coverage,agef-phase2-adversarial-assertions,agef-phase2-capability-escalation-suite,agef-phase2-cross-suite-tests,agef-phase2-false-positive-baseline,agef-phase2-flip-harness-blocking,agef-phase2-handoff-doc,agef-phase2-prompt-injection-suite,agef-phase2-provenance-poisoning-suite,agef-phase2-recursive-manipulation-suite,agef-phase2-semantic-jailbreak-suite,agef-phase2-suite-runner-batching,agef-phase2-tracker-progress-sync,agef-phase2-trust-spoofing-suite,agef-phase3-attestation-validation-assertion,agef-phase3-handoff-doc,agef-phase3-provenance-scoring-assertion,agef-phase3-revocation-honor-suite,agef-phase3-tracker-sync,agef-phase3-trust-manifest-fixture-format,agef-phase3-trust-tests,agef-phase3-trust-tier-routing,agef-phase4-a11y-tests,agef-phase4-admin-routes,agef-phase4-admin-screenshots-and-docs,agef-phase4-backend-feature-tests,agef-phase4-controllers-resources-requests,agef-phase4-frontend-api-client,agef-phase4-list-runs-action,agef-phase4-policies,agef-phase4-react-components,agef-phase4-release-gate-wiring,agef-phase4-route-parity-check,agef-phase4-tracker-sync,agef-phase5-adaptive-generation-spike,agef-phase5-adr-evidence-review,agef-phase5-anomaly-detection-rules,agef-phase5-completion-closeout,agef-phase5-drift-detection-metrics,agef-phase5-knowledge-transfer,agef-phase5-online-sampling-driver,agef-phase5-prometheus-exposure,agef-phase5-quarterly-evidence-workflow,agent-eval-characterization-tests,agent-eval-execution-contract-audit,agent-eval-execution-tests,agent-eval-quality-gates,agent-eval-runtime-evidence-context,agent-eval-safe-executor-registry-enforcement,agent-eval-tool-execution-adapter,archive-accessibility-harness-archive-accessibility-harness-driver-plan,clarify-adr-numbering-clarify-adr-numbering-check-improve,enhance-agent-evaluation-enhance-agent-evaluation-with-fixture,enhance-fixture-validation-enhance-fixture-validation-adding-checks,enhance-sms-recipient-enhance-sms-recipient-validation-trimming,forms-archive-flow-engine-deepening-plan,forms-flow-engine-characterization-tests,forms-flow-engine-deferred-action-module,forms-flow-engine-interface-docs,forms-flow-engine-interface-map,forms-flow-engine-provenance-module,forms-flow-engine-quality-gates,forms-flow-engine-step-output-module,hs123-admin-route-policy,hs123-dlq-list-query,hs123-integration-tests-stripe-mailgun,hs123-provider-counter-labels,hs123-provider-latency-histogram,hs123-react-dlq-table,hs123-replay-action-audit,hs123-runbook-and-adr,improve-fixture-validation-improve-fixture-validation-request-handling,improve-sms-recipient-improve-sms-recipient-validation-cleaning,permissions-streamline-permission-handling-enhance-user,product-surface-openapi-gap,product-surface-runtime-admin-adoption,product-surface-runtime-characterization-tests,product-surface-runtime-contract-audit,product-surface-runtime-gateway-adoption,product-surface-runtime-parser,product-surface-runtime-quality-gates,profile-types-debug-ids-delete-form-button,provider-capability-snapshot-eligibility-adoption,provider-capability-snapshot-interface,provider-capability-snapshot-inventory,provider-capability-snapshot-normalizer,provider-capability-snapshot-quality-gates,provider-capability-snapshot-tests,runtime-handle-malformed-urls-buildproductsurfacethemestudiohref,schema-standardize-constant-naming-deadline-window,transport-policy-transport-policy-last-updated-date-eslint,tv450-api-contract-hardening,tv450-backend-orchestration,tv450-data-determinism,tv450-focused-tests-a11y,tv450-frontend-integration,tv450-observability-instrumentation,tv450-quality-gates-handoff,tv452-api-contract-hardening,tv452-backend-orchestration,tv452-contract-scope-baseline,tv452-data-determinism,tv452-focused-tests-a11y,tv452-frontend-integration,tv452-observability-instrumentation,tv452-quality-gates-handoff,tv453-api-contract-hardening,tv453-backend-orchestration,tv453-contract-scope-baseline,tv453-data-determinism,tv453-focused-tests-a11y,tv453-frontend-integration,tv453-observability-instrumentation,tv453-quality-gates-handoff -->
+<!-- accomplished-unit-ids: accessibility-harness-defect-injection,accessibility-harness-driver-audit,accessibility-harness-interface,accessibility-harness-migrate-tests,accessibility-harness-quality-gates,accessibility-harness-scenario-api,agef-phase0-draft-adr,agef-phase0-fixture-schema-design,agef-phase0-quality-gate-baseline,agef-phase0-reference-snapshot,agef-phase0-reuse-map-doc,agef-phase0-scaffold-container,agef-phase0-severity-enum,agef-phase0-severity-matrix,agef-phase1-assertion-contract,agef-phase1-baseline-assertions,agef-phase1-ci-harness-advisory,agef-phase1-cli-command,agef-phase1-eval-run-model,agef-phase1-eval-scenario-model,agef-phase1-eval-violation-model,agef-phase1-evaluate-assertions-task,agef-phase1-execute-invocation-task,agef-phase1-load-fixture-task,agef-phase1-orchestrator-artisan-spike,agef-phase1-run-scenario-action,agef-phase1-semantic-regression-suite,agef-phase1-tenant-context-task,agef-phase1-tests-and-coverage,agef-phase2-adversarial-assertions,agef-phase2-capability-escalation-suite,agef-phase2-cross-suite-tests,agef-phase2-false-positive-baseline,agef-phase2-flip-harness-blocking,agef-phase2-handoff-doc,agef-phase2-prompt-injection-suite,agef-phase2-provenance-poisoning-suite,agef-phase2-recursive-manipulation-suite,agef-phase2-semantic-jailbreak-suite,agef-phase2-suite-runner-batching,agef-phase2-tracker-progress-sync,agef-phase2-trust-spoofing-suite,agef-phase3-attestation-validation-assertion,agef-phase3-handoff-doc,agef-phase3-provenance-scoring-assertion,agef-phase3-revocation-honor-suite,agef-phase3-tracker-sync,agef-phase3-trust-manifest-fixture-format,agef-phase3-trust-tests,agef-phase3-trust-tier-routing,agef-phase4-a11y-tests,agef-phase4-admin-routes,agef-phase4-admin-screenshots-and-docs,agef-phase4-backend-feature-tests,agef-phase4-controllers-resources-requests,agef-phase4-frontend-api-client,agef-phase4-list-runs-action,agef-phase4-policies,agef-phase4-react-components,agef-phase4-release-gate-wiring,agef-phase4-route-parity-check,agef-phase4-tracker-sync,agef-phase5-adaptive-generation-spike,agef-phase5-adr-evidence-review,agef-phase5-anomaly-detection-rules,agef-phase5-completion-closeout,agef-phase5-drift-detection-metrics,agef-phase5-knowledge-transfer,agef-phase5-online-sampling-driver,agef-phase5-prometheus-exposure,agef-phase5-quarterly-evidence-workflow,agent-eval-characterization-tests,agent-eval-execution-contract-audit,agent-eval-execution-tests,agent-eval-quality-gates,agent-eval-runtime-evidence-context,agent-eval-safe-executor-registry-enforcement,agent-eval-tool-execution-adapter,archive-accessibility-harness-archive-accessibility-harness-driver-plan,clarify-adr-numbering-clarify-adr-numbering-check-improve,enhance-agent-evaluation-enhance-agent-evaluation-with-fixture,enhance-fixture-validation-enhance-fixture-validation-adding-checks,enhance-sms-recipient-enhance-sms-recipient-validation-trimming,enhance-various-components-enhance-various-components-improve-documentation,forms-archive-flow-engine-deepening-plan,forms-flow-engine-characterization-tests,forms-flow-engine-deferred-action-module,forms-flow-engine-interface-docs,forms-flow-engine-interface-map,forms-flow-engine-provenance-module,forms-flow-engine-quality-gates,forms-flow-engine-step-output-module,hs121-add-tenant-lane-config,hs121-admin-queue-depth-partial,hs121-bulk-job-budget-value-object,hs121-ensure-tenant-queue-lane-middleware,hs121-implement-tenant-lane-dispatcher,hs121-runbook-and-adr,hs121-tenant-queue-prometheus-labels,hs121-throttle-bulk-job-middleware,hs123-admin-route-policy,hs123-dlq-list-query,hs123-integration-tests-stripe-mailgun,hs123-provider-counter-labels,hs123-provider-latency-histogram,hs123-react-dlq-table,hs123-replay-action-audit,hs123-runbook-and-adr,hs125-admin-slow-query-partial,hs125-integration-test-cross-tenant,hs125-n-plus-one-followup-scope,hs125-prometheus-alert-rule-fixture,hs125-query-event-sample-buffer,hs125-registry-table-migration,hs125-retention-job,hs125-runbook-and-adr,hs125-scheduled-collector-command,hs128-a11y-batch-run-admin-routes,hs128-audit-evidence-capture,hs128-auth-gate-sampling-check,hs128-container-scanner-script,hs128-feature-matrix-adr,hs128-manual-reconciliation-pass,hs128-publish-feature-matrix-md,hs128-remediation-backlog-md,improve-fixture-validation-improve-fixture-validation-request-handling,improve-sms-recipient-improve-sms-recipient-validation-cleaning,operational-twin-digital-twin-slice,permissions-streamline-permission-handling-enhance-user,prod-gate-burndown-doc,prod-gate-checklist-rewrite,prod-gate-deploy-hook,prod-gate-exemption-doc,prod-gate-inventory,prod-gate-workflow-author,prod-gate-workflow-mapping,product-surface-openapi-gap,product-surface-runtime-admin-adoption,product-surface-runtime-characterization-tests,product-surface-runtime-contract-audit,product-surface-runtime-gateway-adoption,product-surface-runtime-parser,product-surface-runtime-quality-gates,profile-types-debug-ids-delete-form-button,rd100-archive-sprint-plan,rd100-audit-dead-code-and-react19-buckets,rd100-close-root-score-gap,rd100-finish-generic-handler-wave,rd100-finish-hydration-and-intl-wave,rd100-finish-state-bucket-wave,rfd-00-replace-boilerplate-plan,rfd-01-hard-violation-contract,rfd-02-final-attempt-fallback,rfd-03-accountable-operator-rubric,rfd-04-public-safe-fallback,rfd-05-safety-gate-tests,rfd-06-local-voice-store,rfd-07-codex-user-message-extractor,rfd-08-distilled-voice-profile,rfd-09-load-distilled-profile,rfd-10-voice-corpus-tests,rfd-11-docs-quality-gates-closeout,rfd-12-historical-narrative-republish,runtime-handle-malformed-urls-buildproductsurfacethemestudiohref,schema-standardize-constant-naming-deadline-window,transport-policy-transport-policy-last-updated-date-eslint,tv450-api-contract-hardening,tv450-backend-orchestration,tv450-data-determinism,tv450-focused-tests-a11y,tv450-frontend-integration,tv450-observability-instrumentation,tv450-quality-gates-handoff,tv452-api-contract-hardening,tv452-backend-orchestration,tv452-contract-scope-baseline,tv452-data-determinism,tv452-focused-tests-a11y,tv452-frontend-integration,tv452-observability-instrumentation,tv452-quality-gates-handoff,tv453-api-contract-hardening,tv453-backend-orchestration,tv453-contract-scope-baseline,tv453-data-determinism,tv453-focused-tests-a11y,tv453-frontend-integration,tv453-observability-instrumentation,tv453-quality-gates-handoff -->
 <!-- SECTION: ACCOMPLISHED END -->
 <!-- Generated by dev-tracker build_today_plan.py -->
