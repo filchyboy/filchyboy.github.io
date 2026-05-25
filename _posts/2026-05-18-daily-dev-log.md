@@ -42,115 +42,24 @@ The todo-remediation work is sitting at 68 units with zero progress, but templat
 
 
 <!-- SECTION: ACCOMPLISHED START -->
-<!-- accomplished-generated: 2026-05-19T13:10:26.368642+00:00 -->
-<!-- accomplished-updated: 2026-05-19T13:10:26.368642+00:00 -->
+<!-- accomplished-generated: 2026-05-25T15:19:00.617537+00:00 -->
+<!-- accomplished-updated: 2026-05-25T15:19:00.617537+00:00 -->
 
-* Completed 67 tasks today on the Colossalistic Platform project.
+## Today's Update
 
-## What I Built
+Today was about architectural consolidation and closing out technical debt across multiple system boundaries. I worked through several major feature implementations that have been building up, along with some critical security remediation that couldn't wait any longer.
 
-### deepsec-runs-7-9-regression-guard-closeout-20260518
-* Run 7 delta triage document
-* Close Run 7 critical CI shell-injection findings
-* Address Run 7 review authorization findings
-* Run 8 delta triage document
-* Close Run 8 final four high-severity findings
-* Run 9 delta and discovery phase conclusion
-* Add Run 9 domain terms and ADR-0240 for CI-A4 split
-* Publish approved security primitives and regression guard docs
-* Apply CI-A4 split to translation coverage workflow
-* Create follow-up issues and capture validation evidence
+The biggest chunk was completing the DevTracker voice refinement system. I built out hard violation contracts for factual accuracy and voice consistency, then implemented fallback mechanisms when the AI narrative generation fails quality gates. The more complex piece was extracting voice patterns from my actual Codex messages to create a distilled profile that feeds back into daily plan generation. This creates a feedback loop where the system learns from how I actually write technical decisions rather than defaulting to generic AI-speak. I also added a bounded historical republish command for when I need to regenerate old posts with improved voice models.
 
-### deletepublicationchannelaction
-* Update DeletePublicationChannelAction and DeletePublicationChannelTask to return boolean values; enhance error handling in AdminPublicationChannelController
+I pushed through implementations for four major feature areas - the publication channel lifecycle module, admin response normalization, agent evaluation evidence builders, and file transfer MCP eligibility controls. Each of these followed a similar pattern: document the interfaces, add regression tests, implement the core modules, then wire everything together. The agent evaluation work was particularly involved because it required building evidence collection for AI decision-making processes, which gets tricky when you're trying to audit something that's inherently probabilistic.
 
-### enhance-channel-mutation
-* Enhance channel mutation workflow and tests for  improved error handling and state management
+The security closeout work addressed findings from recent deep security runs. I fixed critical CI shell injection vulnerabilities, updated authorization controls, and implemented the CI-A4 split for translation coverage workflows. The production readiness gate was long overdue - I converted the existing narrative documentation into a binary checklist that gates the deployment pipeline. Each critical line item now maps to a verifying CI workflow, which should prevent the kind of deployment issues we've had when manual checks get skipped.
 
-### eval-agent-refine
-* Scaffold CognitiveGovernance container
-* Model CGL claim spine persistence
-* Define CGL bounded vocabulary and claim-key contracts
-* Implement source authority rules
-* Define claim-key expansion path
-* Implement append-only claim revisions
-* Apply context fingerprint changes
-* Define CGL ingestion and query interfaces
-* Validate Cognitive Claim Spine quality gates
-* Expose CGL read-only admin API and UI
-* Define retention metadata and follow-up roadmap
-
-### refine-channel-mutation
-* Refine channel mutation workflow with improved type definitions and error handling
-
-### timestamps
-* Update timestamps and add new API endpoints to documentation
-
-### tv455-admin-route-capability-manifest
-* Document Admin route manifest Interface
-* Choose canonical registry source of truth
-* Extract PHP Admin route registry Module
-* Adapt frontend-admin route registry consumption
-* Add backend manifest contract tests
-* Add frontend manifest parity tests
-* Update Admin manifest developer documentation
-* Run TV455 scoped quality gates
-
-### tv456-publication-channel-lifecycle-module
-* Document Publication Channel lifecycle Interface
-* Add Publication Channel response regression tests
-* Add Publication Channel audit regression tests
-* Implement backend lifecycle Module
-* Rewire AdminPublicationChannelController
-* Remove or justify shallow channel Actions and Tasks
-* Extract frontend channel mutation workflow
-* Run TV456 scoped quality gates
-* Add frontend channel lifecycle tests
-
-### tv457-frontend-admin-response-normalization
-* Document admin normalization Interface
-* Inventory duplicated admin client normalizers
-* Add publication client contract regression tests
-* Implement shared admin normalization Module
-* Migrate channel and post clients
-* Add shared normalization unit tests
-* Run TV457 scoped quality gates
-* Migrate remaining publication clients
-
-### tv458-agent-eval-execution-evidence-builder
-* Document AgentEval execution evidence Interface
-* Add decision-only evidence regression test
-* Add safe-evaluation evidence regression test
-* Rewire AgentEval execution Adapters
-* Implement evidence builder input DTO
-* Implement execution evidence builder
-* Add execution evidence builder unit tests
-* Run TV458 scoped quality gates
-
-### tv459-file-transfer-mcp-eligibility-entry
-* Document File Transfer MCP entry Interface
-* Add mutation policy evidence regression tests
-* Route projection verbs through eligibility
-* Route mutation verbs through policy and eligibility
-* Add File Transfer MCP definition regression tests
-* Add agent bypass prevention tests
-* Implement MCP request normalization Module
-* Run TV459 scoped quality gates
-* Update File Transfer MCP documentation
-
-## Notes
-
-* Completed 67 work unit(s)
-* Item adherence: 0% (0/2 focus items)
-* Feature set adherence: 0% (0/1 planned feature sets had work)
-* Weighted adherence: 50% (with partial credit)
-* Untracked activity: 37 commit(s) not mapped to any feature set
-
-
-<!-- Generated by dev-tracker publish_to_jekyll.py -->
+I also scaffolded the CognitiveGovernance container and implemented the cognitive claim spine - a persistence layer for tracking AI-generated insights with proper source authority rules and append-only revisions. This foundation will be essential as we add more agent-driven features to the platform. Tomorrow I'll likely focus on testing the voice profile system against real content and continue building out the cognitive governance capabilities.
+<!-- Generated by dev-tracker publish_to_jekyll.py (AI mode) -->
 <!-- accomplished-date: 2026-05-18 -->
-<!-- unit-ids: document-channel-lifecycle-interface,document-execution-evidence-interface,document-file-transfer-mcp-entry-interface,document-normalization-interface,inventory-admin-client-normalizers,add-channel-response-regression-tests,add-channel-audit-regression-tests,add-publication-client-contract-tests,add-decision-only-evidence-regression-test,add-safe-evaluation-evidence-regression-test,add-mutation-policy-regression-tests,rewire-agent-eval-adapters,implement-channel-lifecycle-module,implement-shared-normalization-module,implement-evidence-builder-dto,implement-execution-evidence-builder,route-projections-through-eligibility,route-mutations-through-policy-and-eligibility,add-mcp-definition-regression-tests,add-agent-bypass-prevention-tests,rewire-channel-controller,migrate-channel-post-clients,implement-mcp-request-normalization,remove-or-justify-shallow-actions,extract-frontend-channel-mutation-helper,run-tv456-quality-gates,add-normalization-unit-tests,run-tv457-quality-gates,add-builder-unit-tests,run-tv458-quality-gates,run-tv459-quality-gates,migrate-remaining-publication-clients,update-file-transfer-mcp-docs,add-frontend-channel-lifecycle-tests,run7-delta-triage-doc,run7-critical-ci-shell-injection-closeout,run7-review-authorization-followup,run8-delta-triage-doc,run8-final-four-closeout,run9-delta-discovery-conclusion,run9-domain-terms-and-adr,run9-approved-primitives-and-regression-guard-docs,run9-translation-coverage-ci-a4-split,run9-followup-issues-and-validation,enhance-channel-mutation-enhance-channel-mutation-workflow-tests,timestamps-timestamps-new-api-endpoints-documentation,document-admin-manifest-interface,choose-manifest-source-of-truth,extract-php-registry-module,adapt-frontend-route-registry,add-backend-manifest-tests,add-frontend-manifest-tests,update-admin-manifest-docs,run-tv455-quality-gates,cgl-001,cgl-002,cgl-003,cgl-004,cgl-003a,cgl-005,cgl-006,cgl-007,cgl-008,cgl-009,cgl-010,deletepublicationchannelaction-deletepublicationchannelaction-deletepublicationchanneltask-return-boolean-values,refine-channel-mutation-refine-channel-mutation-workflow-with -->
+<!-- unit-ids: rfd-01-hard-violation-contract,rfd-02-final-attempt-fallback,rfd-00-replace-boilerplate-plan,rfd-03-accountable-operator-rubric,rfd-04-public-safe-fallback,rfd-12-historical-narrative-republish,rfd-05-safety-gate-tests,rfd-06-local-voice-store,rfd-09-load-distilled-profile,rfd-07-codex-user-message-extractor,rfd-08-distilled-voice-profile,rfd-11-docs-quality-gates-closeout,rfd-10-voice-corpus-tests,document-channel-lifecycle-interface,document-execution-evidence-interface,document-file-transfer-mcp-entry-interface,document-normalization-interface,inventory-admin-client-normalizers,add-channel-response-regression-tests,add-channel-audit-regression-tests,add-publication-client-contract-tests,add-decision-only-evidence-regression-test,add-safe-evaluation-evidence-regression-test,add-mutation-policy-regression-tests,rewire-agent-eval-adapters,implement-channel-lifecycle-module,implement-shared-normalization-module,implement-evidence-builder-dto,implement-execution-evidence-builder,route-projections-through-eligibility,route-mutations-through-policy-and-eligibility,add-mcp-definition-regression-tests,add-agent-bypass-prevention-tests,rewire-channel-controller,migrate-channel-post-clients,implement-mcp-request-normalization,remove-or-justify-shallow-actions,extract-frontend-channel-mutation-helper,run-tv456-quality-gates,add-normalization-unit-tests,run-tv457-quality-gates,add-builder-unit-tests,run-tv458-quality-gates,run-tv459-quality-gates,migrate-remaining-publication-clients,update-file-transfer-mcp-docs,add-frontend-channel-lifecycle-tests,prod-gate-deploy-hook,prod-gate-inventory,prod-gate-checklist-rewrite,prod-gate-workflow-author,prod-gate-workflow-mapping,prod-gate-exemption-doc,prod-gate-burndown-doc,run7-delta-triage-doc,run7-critical-ci-shell-injection-closeout,run7-review-authorization-followup,run8-delta-triage-doc,run8-final-four-closeout,run9-delta-discovery-conclusion,run9-domain-terms-and-adr,run9-approved-primitives-and-regression-guard-docs,run9-translation-coverage-ci-a4-split,run9-followup-issues-and-validation,enhance-channel-mutation-enhance-channel-mutation-workflow-tests,timestamps-timestamps-new-api-endpoints-documentation,document-admin-manifest-interface,choose-manifest-source-of-truth,extract-php-registry-module,adapt-frontend-route-registry,add-backend-manifest-tests,add-frontend-manifest-tests,update-admin-manifest-docs,run-tv455-quality-gates,cgl-001,cgl-002,cgl-003,cgl-004,cgl-003a,cgl-005,cgl-006,cgl-007,cgl-008,cgl-009,cgl-010,deletepublicationchannelaction-deletepublicationchannelaction-deletepublicationchanneltask-return-boolean-values,refine-channel-mutation-refine-channel-mutation-workflow-with -->
 
-<!-- accomplished-unit-ids: adapt-frontend-route-registry,add-agent-bypass-prevention-tests,add-backend-manifest-tests,add-builder-unit-tests,add-channel-audit-regression-tests,add-channel-response-regression-tests,add-decision-only-evidence-regression-test,add-frontend-channel-lifecycle-tests,add-frontend-manifest-tests,add-mcp-definition-regression-tests,add-mutation-policy-regression-tests,add-normalization-unit-tests,add-publication-client-contract-tests,add-safe-evaluation-evidence-regression-test,cgl-001,cgl-002,cgl-003,cgl-003a,cgl-004,cgl-005,cgl-006,cgl-007,cgl-008,cgl-009,cgl-010,choose-manifest-source-of-truth,deletepublicationchannelaction-deletepublicationchannelaction-deletepublicationchanneltask-return-boolean-values,document-admin-manifest-interface,document-channel-lifecycle-interface,document-execution-evidence-interface,document-file-transfer-mcp-entry-interface,document-normalization-interface,enhance-channel-mutation-enhance-channel-mutation-workflow-tests,extract-frontend-channel-mutation-helper,extract-php-registry-module,implement-channel-lifecycle-module,implement-evidence-builder-dto,implement-execution-evidence-builder,implement-mcp-request-normalization,implement-shared-normalization-module,inventory-admin-client-normalizers,migrate-channel-post-clients,migrate-remaining-publication-clients,refine-channel-mutation-refine-channel-mutation-workflow-with,remove-or-justify-shallow-actions,rewire-agent-eval-adapters,rewire-channel-controller,route-mutations-through-policy-and-eligibility,route-projections-through-eligibility,run-tv455-quality-gates,run-tv456-quality-gates,run-tv457-quality-gates,run-tv458-quality-gates,run-tv459-quality-gates,run7-critical-ci-shell-injection-closeout,run7-delta-triage-doc,run7-review-authorization-followup,run8-delta-triage-doc,run8-final-four-closeout,run9-approved-primitives-and-regression-guard-docs,run9-delta-discovery-conclusion,run9-domain-terms-and-adr,run9-followup-issues-and-validation,run9-translation-coverage-ci-a4-split,timestamps-timestamps-new-api-endpoints-documentation,update-admin-manifest-docs,update-file-transfer-mcp-docs -->
+<!-- accomplished-unit-ids: adapt-frontend-route-registry,add-agent-bypass-prevention-tests,add-backend-manifest-tests,add-builder-unit-tests,add-channel-audit-regression-tests,add-channel-response-regression-tests,add-decision-only-evidence-regression-test,add-frontend-channel-lifecycle-tests,add-frontend-manifest-tests,add-mcp-definition-regression-tests,add-mutation-policy-regression-tests,add-normalization-unit-tests,add-publication-client-contract-tests,add-safe-evaluation-evidence-regression-test,cgl-001,cgl-002,cgl-003,cgl-003a,cgl-004,cgl-005,cgl-006,cgl-007,cgl-008,cgl-009,cgl-010,choose-manifest-source-of-truth,deletepublicationchannelaction-deletepublicationchannelaction-deletepublicationchanneltask-return-boolean-values,document-admin-manifest-interface,document-channel-lifecycle-interface,document-execution-evidence-interface,document-file-transfer-mcp-entry-interface,document-normalization-interface,enhance-channel-mutation-enhance-channel-mutation-workflow-tests,extract-frontend-channel-mutation-helper,extract-php-registry-module,implement-channel-lifecycle-module,implement-evidence-builder-dto,implement-execution-evidence-builder,implement-mcp-request-normalization,implement-shared-normalization-module,inventory-admin-client-normalizers,migrate-channel-post-clients,migrate-remaining-publication-clients,prod-gate-burndown-doc,prod-gate-checklist-rewrite,prod-gate-deploy-hook,prod-gate-exemption-doc,prod-gate-inventory,prod-gate-workflow-author,prod-gate-workflow-mapping,refine-channel-mutation-refine-channel-mutation-workflow-with,remove-or-justify-shallow-actions,rewire-agent-eval-adapters,rewire-channel-controller,rfd-00-replace-boilerplate-plan,rfd-01-hard-violation-contract,rfd-02-final-attempt-fallback,rfd-03-accountable-operator-rubric,rfd-04-public-safe-fallback,rfd-05-safety-gate-tests,rfd-06-local-voice-store,rfd-07-codex-user-message-extractor,rfd-08-distilled-voice-profile,rfd-09-load-distilled-profile,rfd-10-voice-corpus-tests,rfd-11-docs-quality-gates-closeout,rfd-12-historical-narrative-republish,route-mutations-through-policy-and-eligibility,route-projections-through-eligibility,run-tv455-quality-gates,run-tv456-quality-gates,run-tv457-quality-gates,run-tv458-quality-gates,run-tv459-quality-gates,run7-critical-ci-shell-injection-closeout,run7-delta-triage-doc,run7-review-authorization-followup,run8-delta-triage-doc,run8-final-four-closeout,run9-approved-primitives-and-regression-guard-docs,run9-delta-discovery-conclusion,run9-domain-terms-and-adr,run9-followup-issues-and-validation,run9-translation-coverage-ci-a4-split,timestamps-timestamps-new-api-endpoints-documentation,update-admin-manifest-docs,update-file-transfer-mcp-docs -->
 <!-- SECTION: ACCOMPLISHED END -->
 <!-- Generated by dev-tracker build_today_plan.py -->
