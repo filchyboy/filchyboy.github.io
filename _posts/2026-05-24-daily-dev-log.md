@@ -40,29 +40,134 @@ The collision-engine promotion workflows are sitting at 13 of 27 complete but I'
 
 
 <!-- SECTION: ACCOMPLISHED START -->
-<!-- accomplished-generated: 2026-05-25T02:28:43.437760+00:00 -->
+<!-- accomplished-generated: 2026-05-25T12:57:16.354488+00:00 -->
+<!-- accomplished-updated: 2026-05-25T12:57:16.354488+00:00 -->
 
-## Today's Update
+* Completed 83 tasks today on the Colossalistic Platform project.
 
-Today was about reaching major architectural completion across six critical platform areas - the kind of day where months of incremental work finally crystallizes into working systems. I completed 101 tasks spanning everything from universal commerce protocols to California privacy compliance, but the real story is how these pieces are starting to work together as a cohesive platform.
+## What I Built
 
-The Universal Commerce Protocol (UCP) work dominated my day with 35 separate implementation pieces. I built out the complete Commerce Checkout container from scratch - migrations for checkout aggregates and line items, the full state machine with transition guards, and all the CRUD actions (create, read, update, complete, cancel, expire). The trickiest part was implementing the idempotency wrapper with request fingerprinting. E-commerce checkout requests need to be perfectly idempotent since network retries could otherwise create duplicate orders, so I spent significant time getting the fingerprint algorithm right and integrating it into all the mutating operations.
+### additional-regional-regulatory-controls
+* Define regional intake and prioritization baseline
+* Define evidence source mapping process
+* Create control definition template and validator
+* Implement regional framework adapter pattern
+* Define production visibility, authorization, and export behavior
+* Publish documentation and promotion workflow
+* Run targeted tests and quality gates
 
-What surprised me was how much governance infrastructure the checkout system required. I had to wire up policy decision capture, approval gates for high-value transactions, and comprehensive audit event contracts. The MCP (Model Control Plane) integration alone involved registering tool definitions, adding capability checks through the TOON system, and creating authenticated discovery endpoints. The approval gate logic was particularly gnarly - determining which checkouts require human approval based on amount, risk score, and tenant policies turned out to be more complex than I initially architected.
+### archive-signed-route
+* Archive signed route authorization plan
 
-The privacy and regulatory work was equally substantial. I completed the entire Privacy Governance Regulatory Orchestration Framework (PGROF) successor system - 12 tasks covering obligation ledger integrity, regulatory posture attestations, and AI memory governance contracts. The deletion propagation reconciliation guards were the most technically challenging piece. When a user requests data deletion under privacy laws, the system needs to trace through our entire data graph to ensure deletion propagates to derived data, cached copies, and AI embeddings. Getting the reconstitution guards right (preventing deleted data from being recreated by background processes) required some careful state machine design.
+### commerce-checkout
+* Complete UCP discovery governance
 
-The California compliance implementation was the largest single effort at 25 tasks. I built out the complete neutral control framework that lets us plug in different regulatory adapters (SOC 2, GDPR, CCPA, etc.) without coupling them to each other. The GPC (Global Privacy Control) signal enforcement was particularly interesting - I had to implement ETL export suppression and annotate all our CDP (Customer Data Platform) models with tenant-local GPC state. The SPI (Sensitive Personal Information) categorization work involved creating a canonical vocabulary and attaching categories to every entry in our Data Element Catalog. Tomorrow I'll be curious to see how well the deletion processors work against real data - I implemented concrete adapters for every source system that has deletion APIs, but the proof will be in actual execution.
+### federated-catalog
+* Add Federated Catalog Source of Truth planning  documents and implementation checklist
 
-**The Numbers:**
-- Completed: 101 tasks  
-- Feature areas: universal-commerce, privacy-governance-regulatory-orchestration, additional-regional-regulatory-controls, signed-route-authorization, cali-readiness-imp, federated-catalog-source-of-truth
+### federated-catalog-source-of-truth
+* Add durable catalog item identity and explicit PriceCatalogue link
+* Model product and field-level ownership policies
+* Define tenant-visible catalog ownership groups
+* Add source lifecycle statuses and tenant channel policies
+* Add supplier provenance relationships for catalog items
+* Define ProductAggregation to ETL catalog orchestration contract
+* Make pull ingestion policy-aware
+* Add policy-aware push planning and execution
+* Compute platform migration readiness signals
+* Build tenant-facing catalog control-plane UI and APIs
+* Add validation, docs, and quality gates
+
+### implement-mcp-signed
+* Implement MCP Signed Route Authorization  planning and artifacts
+
+### implement-tenant-regulatory
+* Implement Tenant Regulatory Posture Service and  associated tests
+
+### mcp-route
+* Update MCP route authorization logic and enhance  error handling
+
+### privacy-governance-regulatory-orchestration
+* Confirm PGROF successor scope and boundary map
+* Harden Privacy Obligation Ledger replay and integrity
+* Add tenant regulatory posture attestations
+* Detect broker-adjacent topology risks and escalations
+* Deepen processor federation registry and acknowledgements
+* Expand provenance graph coverage for AI, export, cache, and processor nodes
+* Implement AI memory and embedding governance contracts
+* Add deletion propagation reconciliation and reconstitution guards
+* Publish compliance evidence, metrics, and audit exports
+* Add privacy, security, AI, compliance evals and targeted quality gates
+* Replace admin privacy fixture with live scoped APIs
+* Publish tenant onboarding, processor, AI, and operations guides
+
+### signed-route-authorization
+* Author ADR for MCP signed route authorization
+* Create fail-closed MCP route policy registry
+* Migrate mcp.compliance.status as the tracer bullet
+* Materialize McpAuthorizationContext in middleware
+* Verify route-bound cryptographic TOON graph signatures
+* Document key management, replay, and operational behavior
+* Run focused quality gates and close out planning
+* Add focused security regression coverage
+* Add durable production replay ledger
+* Add MCP route policy coverage gate
+* Expand signed route authorization across MCP domains
+
+### tighten-commercecheckout-error
+* Tighten CommerceCheckout error handling and quantity validation
+
+### universal-commerce
+* Publish ADR-0255 for UCP projection boundary
+* Scaffold Core/CommerceCheckout Porto container
+* Create checkout aggregate, line item, and event migrations
+* Implement Commerce Checkout models and factories
+* Implement checkout state machine and transition guards
+* Implement create checkout action and task flow
+* Implement complete checkout action and completion record
+* Add Form Requests for checkout APIs
+* Expose canonical governed MCP checkout routes
+* Register Commerce Checkout MCP tool definitions
+* Wire Commerce Checkout TOON capability checks
+* Map UCP checkout aliases through AgentInterface
+* Implement Checkout Request Fingerprint and idempotency wrapper
+* Integrate idempotency into mutating checkout tools
+* Capture policy decision and governed invocation context
+* Enforce approval-required checkout completion
+* Finalize append-only checkout audit event contract
+* Add AgentEval fixtures for checkout governance
+* Run and record targeted quality gates
+* Define pinned UCP checkout.v1 compatibility profile schemas
+* Add public .well-known UCP metadata endpoint
+* Add authenticated tenant-scoped UCP discovery endpoint
+* Implement get checkout action and task flow
+* Gate UCP checkout invocation to internal agents for Phase 1
+* Document rollout and Phase 2 external-agent readiness criteria
+* Add UCP profile configuration
+* Add checkout DTOs, resources, and error envelope mapping
+* Implement update checkout action and task flow
+* Implement cancel and expire checkout flows
+* Emit structured checkout telemetry through existing services
+* Document Commerce Checkout API and UCP alias contracts
+* Add route parity and discovery regression coverage
+* Surface Commerce Checkout tools in existing MCP/admin categories
+* Add Commerce Checkout container README
+* Add minimal admin visibility for checkout state and governance refs
+
+## Notes
+
+* Completed 83 work unit(s)
+* Item adherence: 40% (2/5 focus items)
+* Feature set adherence: 20% (1/5 planned feature sets had work)
+* Weighted adherence: 210% (with partial credit)
+* Untracked activity: 67 commit(s) not mapped to any feature set
+* Auto-archived 2 retroactive feature sets from untracked commits
 
 
-<!-- Generated by dev-tracker publish_to_jekyll.py (AI mode) -->
+<!-- Generated by dev-tracker publish_to_jekyll.py -->
 <!-- accomplished-date: 2026-05-24 -->
-<!-- unit-ids: ucp-adr-0255-boundary,pgrof-00-successor-scope-and-boundary-map,commerce-checkout-container-scaffold,commerce-checkout-migrations,commerce-checkout-models,commerce-checkout-state-machine,commerce-checkout-create-action,commerce-checkout-complete-action,commerce-checkout-request-validation,commerce-checkout-canonical-mcp-routes,commerce-checkout-tool-definitions,commerce-checkout-toon-capabilities,agent-interface-ucp-alias-map,commerce-checkout-idempotency-fingerprint,commerce-checkout-idempotency-integrate,commerce-checkout-policy-decision-capture,commerce-checkout-approval-gate,commerce-checkout-audit-events,commerce-checkout-agenteval-fixtures,commerce-checkout-targeted-quality-gates,ucp-checkout-profile-schemas,ucp-public-well-known,ucp-authenticated-discovery,commerce-checkout-read-action,ucp-dispatch-internal-agent-gate,commerce-checkout-rollout-runbook,regional-controls-intake-baseline,regional-controls-evidence-map,pgrof-01-obligation-ledger-replay-integrity,pgrof-02-tenant-regulatory-posture-attestations,pgrof-03-topology-risk-detection-escalation,ucp-config-profile,commerce-checkout-dtos-resources,commerce-checkout-update-action,commerce-checkout-cancel-expire-actions,commerce-checkout-structured-telemetry,commerce-checkout-api-docs,commerce-checkout-route-parity,mcp-signed-route-auth-adr,regional-controls-template-validator,regional-controls-adapter-pattern,regional-controls-visibility-export,regional-controls-docs-workflow,pgrof-04-processor-federation-registry,pgrof-05-provenance-graph-ai-export-cache-nodes,pgrof-06-ai-memory-embedding-governance,pgrof-07-deletion-propagation-reconstitution-guards,mcp-signed-route-auth-policy-registry,mcp-signed-route-auth-tracer-compliance-status,mcp-admin-tool-category,commerce-checkout-container-readme,regional-controls-quality-gates,pgrof-08-compliance-evidence-metrics-exports,mcp-signed-route-auth-context,mcp-signed-route-auth-graph-signatures,mcp-signed-route-auth-docs-ops,mcp-signed-route-auth-quality-gates,commerce-checkout-admin-read-visibility,mcp-signed-route-auth-tests,mcp-signed-route-auth-replay-ledger,pgrof-11-evals-security-quality-gates,mcp-signed-route-auth-coverage-gate,pgrof-09-live-admin-governance-api-integration,pgrof-10-tenant-onboarding-and-guides,mcp-signed-route-auth-expand-domains,cali-control-research-baseline,cali-neutral-envelope-adapter-contract,cali-neutral-registry-adapter-discovery,cali-neutral-soc2-adapter-migration,cali-neutral-materialization-evaluation-export,cali-neutral-api-docs-migration,cali-neutral-dependency-direction-guard,cali-control-definition-validator,cali-control-definitions,cali-control-api-and-export,cali-gpc-etl-enforcement,cali-gpc-cdp-annotation,cali-gpc-reconciliation-evidence,cali-spi-category-vocabulary,cali-spi-catalog-attachments,cali-spi-source-evidence-reconciliation,cali-deletion-processor-capability-map,cali-deletion-supported-adapters,cali-admt-profiling-inventory,cali-risk-and-cyber-readiness,cali-data-broker-drop-gate,cali-disclosure-reconciliation,cali-dark-pattern-rubric,cali-canonical-docs,cali-quality-gates-and-closeout,fcst-02-catalog-identity-price-link,fcst-03-ownership-policy-models,fcst-04-ownership-groups,fcst-05-source-lifecycle-policies,fcst-06-supplier-provenance,fcst-07-etl-orchestration-contract,fcst-08-policy-aware-pull-ingestion,fcst-09-policy-aware-push-planning,fcst-10-migration-readiness,fcst-11-control-plane-ui-api,fcst-12-validation-docs-quality-gates -->
+<!-- unit-ids: ucp-adr-0255-boundary,pgrof-00-successor-scope-and-boundary-map,commerce-checkout-container-scaffold,commerce-checkout-migrations,commerce-checkout-models,commerce-checkout-state-machine,commerce-checkout-create-action,commerce-checkout-complete-action,commerce-checkout-request-validation,commerce-checkout-canonical-mcp-routes,commerce-checkout-tool-definitions,commerce-checkout-toon-capabilities,agent-interface-ucp-alias-map,commerce-checkout-idempotency-fingerprint,commerce-checkout-idempotency-integrate,commerce-checkout-policy-decision-capture,commerce-checkout-approval-gate,commerce-checkout-audit-events,commerce-checkout-agenteval-fixtures,commerce-checkout-targeted-quality-gates,ucp-checkout-profile-schemas,ucp-public-well-known,ucp-authenticated-discovery,commerce-checkout-read-action,ucp-dispatch-internal-agent-gate,commerce-checkout-rollout-runbook,regional-controls-intake-baseline,regional-controls-evidence-map,pgrof-01-obligation-ledger-replay-integrity,pgrof-02-tenant-regulatory-posture-attestations,pgrof-03-topology-risk-detection-escalation,ucp-config-profile,commerce-checkout-dtos-resources,commerce-checkout-update-action,commerce-checkout-cancel-expire-actions,commerce-checkout-structured-telemetry,commerce-checkout-api-docs,commerce-checkout-route-parity,mcp-signed-route-auth-adr,regional-controls-template-validator,regional-controls-adapter-pattern,regional-controls-visibility-export,regional-controls-docs-workflow,pgrof-04-processor-federation-registry,pgrof-05-provenance-graph-ai-export-cache-nodes,pgrof-06-ai-memory-embedding-governance,pgrof-07-deletion-propagation-reconstitution-guards,mcp-signed-route-auth-policy-registry,mcp-signed-route-auth-tracer-compliance-status,mcp-admin-tool-category,commerce-checkout-container-readme,regional-controls-quality-gates,pgrof-08-compliance-evidence-metrics-exports,mcp-signed-route-auth-context,mcp-signed-route-auth-graph-signatures,mcp-signed-route-auth-docs-ops,mcp-signed-route-auth-quality-gates,commerce-checkout-admin-read-visibility,mcp-signed-route-auth-tests,mcp-signed-route-auth-replay-ledger,pgrof-11-evals-security-quality-gates,mcp-signed-route-auth-coverage-gate,pgrof-09-live-admin-governance-api-integration,pgrof-10-tenant-onboarding-and-guides,mcp-signed-route-auth-expand-domains,tighten-commercecheckout-error-tighten-commercecheckout-error-handling-quantity,archive-signed-route-archive-signed-route-authorization-plan,fcst-02-catalog-identity-price-link,fcst-03-ownership-policy-models,fcst-04-ownership-groups,fcst-05-source-lifecycle-policies,fcst-06-supplier-provenance,fcst-07-etl-orchestration-contract,fcst-08-policy-aware-pull-ingestion,fcst-09-policy-aware-push-planning,fcst-10-migration-readiness,fcst-11-control-plane-ui-api,fcst-12-validation-docs-quality-gates,implement-tenant-regulatory-tenant-regulatory-posture-service-associated,mcp-route-mcp-route-authorization-logic-enhance,federated-catalog-federated-catalog-source-truth-planning,implement-mcp-signed-mcp-signed-route-authorization-planning,commerce-checkout-complete-ucp-discovery-governance -->
 
-<!-- accomplished-unit-ids: agent-interface-ucp-alias-map,cali-admt-profiling-inventory,cali-canonical-docs,cali-control-api-and-export,cali-control-definition-validator,cali-control-definitions,cali-control-research-baseline,cali-dark-pattern-rubric,cali-data-broker-drop-gate,cali-deletion-processor-capability-map,cali-deletion-supported-adapters,cali-disclosure-reconciliation,cali-gpc-cdp-annotation,cali-gpc-etl-enforcement,cali-gpc-reconciliation-evidence,cali-neutral-api-docs-migration,cali-neutral-dependency-direction-guard,cali-neutral-envelope-adapter-contract,cali-neutral-materialization-evaluation-export,cali-neutral-registry-adapter-discovery,cali-neutral-soc2-adapter-migration,cali-quality-gates-and-closeout,cali-risk-and-cyber-readiness,cali-spi-catalog-attachments,cali-spi-category-vocabulary,cali-spi-source-evidence-reconciliation,commerce-checkout-admin-read-visibility,commerce-checkout-agenteval-fixtures,commerce-checkout-api-docs,commerce-checkout-approval-gate,commerce-checkout-audit-events,commerce-checkout-cancel-expire-actions,commerce-checkout-canonical-mcp-routes,commerce-checkout-complete-action,commerce-checkout-container-readme,commerce-checkout-container-scaffold,commerce-checkout-create-action,commerce-checkout-dtos-resources,commerce-checkout-idempotency-fingerprint,commerce-checkout-idempotency-integrate,commerce-checkout-migrations,commerce-checkout-models,commerce-checkout-policy-decision-capture,commerce-checkout-read-action,commerce-checkout-request-validation,commerce-checkout-rollout-runbook,commerce-checkout-route-parity,commerce-checkout-state-machine,commerce-checkout-structured-telemetry,commerce-checkout-targeted-quality-gates,commerce-checkout-tool-definitions,commerce-checkout-toon-capabilities,commerce-checkout-update-action,fcst-02-catalog-identity-price-link,fcst-03-ownership-policy-models,fcst-04-ownership-groups,fcst-05-source-lifecycle-policies,fcst-06-supplier-provenance,fcst-07-etl-orchestration-contract,fcst-08-policy-aware-pull-ingestion,fcst-09-policy-aware-push-planning,fcst-10-migration-readiness,fcst-11-control-plane-ui-api,fcst-12-validation-docs-quality-gates,mcp-admin-tool-category,mcp-signed-route-auth-adr,mcp-signed-route-auth-context,mcp-signed-route-auth-coverage-gate,mcp-signed-route-auth-docs-ops,mcp-signed-route-auth-expand-domains,mcp-signed-route-auth-graph-signatures,mcp-signed-route-auth-policy-registry,mcp-signed-route-auth-quality-gates,mcp-signed-route-auth-replay-ledger,mcp-signed-route-auth-tests,mcp-signed-route-auth-tracer-compliance-status,pgrof-00-successor-scope-and-boundary-map,pgrof-01-obligation-ledger-replay-integrity,pgrof-02-tenant-regulatory-posture-attestations,pgrof-03-topology-risk-detection-escalation,pgrof-04-processor-federation-registry,pgrof-05-provenance-graph-ai-export-cache-nodes,pgrof-06-ai-memory-embedding-governance,pgrof-07-deletion-propagation-reconstitution-guards,pgrof-08-compliance-evidence-metrics-exports,pgrof-09-live-admin-governance-api-integration,pgrof-10-tenant-onboarding-and-guides,pgrof-11-evals-security-quality-gates,regional-controls-adapter-pattern,regional-controls-docs-workflow,regional-controls-evidence-map,regional-controls-intake-baseline,regional-controls-quality-gates,regional-controls-template-validator,regional-controls-visibility-export,ucp-adr-0255-boundary,ucp-authenticated-discovery,ucp-checkout-profile-schemas,ucp-config-profile,ucp-dispatch-internal-agent-gate,ucp-public-well-known -->
+<!-- accomplished-unit-ids: agent-interface-ucp-alias-map,archive-signed-route-archive-signed-route-authorization-plan,commerce-checkout-admin-read-visibility,commerce-checkout-agenteval-fixtures,commerce-checkout-api-docs,commerce-checkout-approval-gate,commerce-checkout-audit-events,commerce-checkout-cancel-expire-actions,commerce-checkout-canonical-mcp-routes,commerce-checkout-complete-action,commerce-checkout-complete-ucp-discovery-governance,commerce-checkout-container-readme,commerce-checkout-container-scaffold,commerce-checkout-create-action,commerce-checkout-dtos-resources,commerce-checkout-idempotency-fingerprint,commerce-checkout-idempotency-integrate,commerce-checkout-migrations,commerce-checkout-models,commerce-checkout-policy-decision-capture,commerce-checkout-read-action,commerce-checkout-request-validation,commerce-checkout-rollout-runbook,commerce-checkout-route-parity,commerce-checkout-state-machine,commerce-checkout-structured-telemetry,commerce-checkout-targeted-quality-gates,commerce-checkout-tool-definitions,commerce-checkout-toon-capabilities,commerce-checkout-update-action,fcst-02-catalog-identity-price-link,fcst-03-ownership-policy-models,fcst-04-ownership-groups,fcst-05-source-lifecycle-policies,fcst-06-supplier-provenance,fcst-07-etl-orchestration-contract,fcst-08-policy-aware-pull-ingestion,fcst-09-policy-aware-push-planning,fcst-10-migration-readiness,fcst-11-control-plane-ui-api,fcst-12-validation-docs-quality-gates,federated-catalog-federated-catalog-source-truth-planning,implement-mcp-signed-mcp-signed-route-authorization-planning,implement-tenant-regulatory-tenant-regulatory-posture-service-associated,mcp-admin-tool-category,mcp-route-mcp-route-authorization-logic-enhance,mcp-signed-route-auth-adr,mcp-signed-route-auth-context,mcp-signed-route-auth-coverage-gate,mcp-signed-route-auth-docs-ops,mcp-signed-route-auth-expand-domains,mcp-signed-route-auth-graph-signatures,mcp-signed-route-auth-policy-registry,mcp-signed-route-auth-quality-gates,mcp-signed-route-auth-replay-ledger,mcp-signed-route-auth-tests,mcp-signed-route-auth-tracer-compliance-status,pgrof-00-successor-scope-and-boundary-map,pgrof-01-obligation-ledger-replay-integrity,pgrof-02-tenant-regulatory-posture-attestations,pgrof-03-topology-risk-detection-escalation,pgrof-04-processor-federation-registry,pgrof-05-provenance-graph-ai-export-cache-nodes,pgrof-06-ai-memory-embedding-governance,pgrof-07-deletion-propagation-reconstitution-guards,pgrof-08-compliance-evidence-metrics-exports,pgrof-09-live-admin-governance-api-integration,pgrof-10-tenant-onboarding-and-guides,pgrof-11-evals-security-quality-gates,regional-controls-adapter-pattern,regional-controls-docs-workflow,regional-controls-evidence-map,regional-controls-intake-baseline,regional-controls-quality-gates,regional-controls-template-validator,regional-controls-visibility-export,tighten-commercecheckout-error-tighten-commercecheckout-error-handling-quantity,ucp-adr-0255-boundary,ucp-authenticated-discovery,ucp-checkout-profile-schemas,ucp-config-profile,ucp-dispatch-internal-agent-gate,ucp-public-well-known -->
 <!-- SECTION: ACCOMPLISHED END -->
 <!-- Generated by dev-tracker build_today_plan.py -->
