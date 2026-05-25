@@ -42,147 +42,21 @@ The horizontal-slice-hs126 work only has two items left, but the CI timing basel
 
 
 <!-- SECTION: ACCOMPLISHED START -->
-<!-- accomplished-generated: 2026-05-22T13:01:48.208240+00:00 -->
-<!-- accomplished-updated: 2026-05-22T13:01:48.208240+00:00 -->
+<!-- accomplished-generated: 2026-05-25T15:42:38.983031+00:00 -->
+<!-- accomplished-updated: 2026-05-25T15:42:38.983031+00:00 -->
 
-* Completed 95 tasks today on the Colossalistic Platform project.
+## Today's Update
 
-## What I Built
+Today was split between two major streams: closing out the comprehensive security remediation from my deepsec run 11, and completing the AgentTracing feature implementation that I've been building toward for weeks. The security work represented 31 separate fixes addressing everything from SSO callback hardening to token ability escalation prevention. The AgentTracing work was 36 items that took the feature from initial contracts all the way through to operational documentation.
 
-### agent-tracing
-* Finalize AgentTracing implementation contract baseline
-* Define storage namespace and retention policy contract
-* Inventory AgentTracing schema fields and indexes
-* Create Core/AgentTracing container provider and config
-* Create AgentTracing database migrations
-* Add AgentTracing models and factories
-* Implement AgentTracing storage adapter boundary
-* Implement CreateTraceCaptureSessionAction
-* Implement artifact class approval policy
-* Implement artifact metadata recording task
-* Implement artifact payload storage task
-* Implement tombstone-preserving artifact deletion
-* Add AgentTracing admin routes and Form Requests
-* Extend AgentEval fixture config for trace requirements
-* Wire AgentEval run orchestration to AgentTracing actions
-* Enforce required-trace fail-closed AgentEval behavior
-* Add AgentTracing enums and DTOs
-* Implement capture session close and expire actions
-* Implement capture session admin controller
-* Add redaction contract and metadata status handling
-* Add expired trace payload purge command
-* Implement partial deletion recovery workflow
-* Emit AgentTracing audit and provenance events
-* Add AgentTracing admin API feature tests
-* Add AgentEval tracing integration tests
-* Add AgentTracing lifecycle unit tests
-* Implement trace analysis bundle creation
-* Implement artifact metadata admin controller
-* Implement analysis bundle admin controller
-* Add metadata-only AgentTracing API resources
-* Link EvalRun metadata to trace evidence identifiers
-* Add AgentTracing logs and operational metrics
-* Run targeted AgentTracing quality gates
-* Finalize AgentTracing handoff artifacts
-* Publish AgentTracing architecture and API docs
-* Publish AgentTracing operations runbook
+The security remediation touched some genuinely tricky areas. The SSO identity linking changes required me to stop trusting email claims from external providers and instead build a proper tenant-scoped identity resolution system. I created new database migrations for user identity links, normalized provider claims through a verification pipeline, and built regression tests to ensure email injection attacks can't bypass the new validation. The token ability work was equally involved - I had to implement a grantable abilities resolver that prevents privilege escalation, then add a command to revoke any existing tokens that violate the new constraints.
 
-### agentic-harness-versioning
-* Finalize planning baseline and documentation links
-* Create Harness Governance Porto container skeleton
-* Define Harness Manifest source schema contract
-* Add Harness Governance persistence models
-* Implement manifest import and validation pipeline
-* Implement required and advisory owner-domain reference validation
-* Add activation validation against stored AgentEval evidence
-* Add first-slice Artisan command surface
-* Implement Harness Manifest resolver and snapshot evidence
-* Add first-slice behavioral test coverage
-* Run targeted quality gates for Harness Governance
+AgentTracing turned out to be a substantial subsystem once fully implemented. The storage architecture uses namespace isolation with configurable retention policies, and I built out the full lifecycle: capture session management, artifact metadata recording, payload storage with redaction contracts, and analysis bundle generation. The integration with AgentEval required some careful orchestration - eval runs can now require tracing evidence and fail closed if the trace capture doesn't complete successfully. The operational side includes purge commands for expired data, recovery workflows for partial deletions, and comprehensive audit event emission.
 
-### audit-command
-* Enhance user filtering and add tests for revocation behavior
+I also knocked out some housekeeping that's been accumulating: refined the production readiness gate with dynamic waiver durations, cleaned up the UMD asset drift from the admin widgets, and started building out the agentic harness versioning system. The harness work is interesting - it's essentially a governance layer for agent configuration that validates against stored evaluation evidence before allowing activation.
 
-### deepsec-run11-regression-remediation
-* Remove callback email trust from SSO controllers
-* Create SSO user identity link migration
-* Add SSO user identity link model and factory
-* Normalize verified provider identity claims
-* Resolve SSO sessions through active identity links
-* Document dev-only SSO exposure sanity check
-* Add SSO email-injection regression tests
-* Enforce grantable abilities at token creation
-* Derive tenant billing account usage for non-super-admin callers
-* Wrap billing usage scope bypass with authority and telemetry
-* Define token ability to authorization map
-* Implement grantable token abilities resolver
-* Validate requested token abilities against grantable set
-* Add disallowed ability token revocation command
-* Authorize billing usage requests with BillingAccountPolicy
-* Add token ability escalation regression tests
-* Add billing usage cross-tenant regression tests
-* Extract shared waitlist bulk validation rules
-* Create bulk verify waitlist request
-* Create bulk delete waitlist request
-* Update admin widget Blade asset loading
-* Remove committed colossalistic-ui UMD public assets
-* Remove obsolete UMD drift workflow and script
-* Add waitlist bulk permission regression tests
-* Add tenant-scope bypass inventory artifact
-* Create source-owned admin widget Vite entry
-* Refactor admin widget bootstrap off browser globals
-* Update approved security primitives for run 11 patterns
-* Add staged tenant-scope bypass guardrail
-* Add public vendor generated-artifact guard
-* Validate source-owned widget pages and accessibility
-
-### definition
-* Add definition for Data Subject in platform context
-
-### dynamic-waiver
-* Add dynamic waiver duration to production  readiness gate
-
-### enhance-production-readiness
-* Enhance production readiness gate with  waiver duration input and update documentation
-
-### expand-privacy-related
-* Expand privacy-related definitions and concepts in platform context
-
-### harness-governance
-* Add Core/HarnessGovernance Porto container with manifest versioning
-
-### harness-versioning
-* Mark planning tracker and checklist complete
-
-### production-readiness-gate-checklist
-* Inventory current narrative into proposed checklist line items
-* Map each Critical line to a verifying CI workflow ID
-* Rewrite docs/production-readiness/README.md as binary checklist
-* Move existing narrative to docs/production-readiness/burn-down.md
-* Author .github/workflows/production-readiness-gate.yml
-* Hook the gate into deploy-staging.yml and deploy-production.yml
-* Document waiver flow in .reports/production/exemptions.md
-
-### refactor-harness-manifest
-* Refactor harness manifest actions and commands for improved error handling and validation
-
-### role-permission
-* Update role permission check in SearchPolicy
-
-### sso
-* Enhance federated identity hardening with  tenant-specific identity links and validation
-
-## Notes
-
-* Completed 95 work unit(s)
-* Item adherence: 0% (0/3 focus items)
-* Feature set adherence: 0% (0/2 planned feature sets had work)
-* Weighted adherence: 33% (with partial credit)
-* Untracked activity: 57 commit(s) not mapped to any feature set
-* Auto-archived 1 retroactive feature sets from untracked commits
-
-
-<!-- Generated by dev-tracker publish_to_jekyll.py -->
+The AgentTracing implementation gives me the observability foundation I'll need as the agent execution subsystem gets more complex. Having complete trace capture with configurable retention means I can debug agent behavior issues without compromising tenant data isolation.
+<!-- Generated by dev-tracker publish_to_jekyll.py (AI mode) -->
 <!-- accomplished-date: 2026-05-21 -->
 <!-- unit-ids: dr11-sso-callback-controller-hardening,dr11-sso-identity-link-migration,dr11-sso-identity-link-model,dr11-sso-provider-claim-normalization,dr11-sso-session-resolution,dr11-sso-dev-sanity-audit,dr11-sso-regression-tests,dr11-token-create-task-enforcement,dr11-billing-usage-controller-derive,dr11-billing-usage-service-scope-telemetry,dr11-token-ability-map,dr11-token-grantable-service,dr11-token-request-validation-api-web,dr11-token-revocation-command,dr11-billing-usage-request-policy,dr11-token-tests,dr11-billing-usage-tests,dr11-waitlist-bulk-request-shared-rules,dr11-waitlist-bulk-verify-request,dr11-waitlist-bulk-delete-request,dr11-blade-asset-partial-update,dr11-remove-public-umd-assets,dr11-remove-umd-drift-workflow,dr11-waitlist-bulk-tests,dr11-tenant-bypass-inventory-advisory,dr11-frontend-widget-source-entry,dr11-admin-widget-bootstrap-refactor,dr11-approved-security-primitives-update,dr11-tenant-bypass-guardrail-script,dr11-public-vendor-artifact-guard,dr11-frontend-widget-tests-a11y,agt-01-contract-scope-baseline,agt-02-storage-retention-contract,agt-03-schema-field-inventory,agt-04-container-provider-config,agt-06-migrations,agt-07-models-factories,agt-08-storage-adapter-boundary,agt-10-create-capture-session-action,agt-12-artifact-class-policy,agt-13-record-artifact-metadata-task,agt-14-store-artifact-payload-task,agt-15-delete-artifact-tombstone-task,agt-20-admin-routes-form-requests,agt-26-agenteval-fixture-config,agt-27-agenteval-run-orchestration,agt-28-agenteval-required-trace-fail-closed,agt-05-enums-dtos,agt-11-close-expire-session-actions,agt-21-admin-capture-session-controller,agt-09-redaction-contract,agt-17-purge-expired-command,agt-18-deletion-recovery-task,agt-19-audit-provenance-events,agt-25-admin-api-feature-tests,agt-30-agenteval-integration-tests,agt-32-lifecycle-unit-tests,agt-16-analysis-bundle-task,agt-22-admin-artifact-controller,agt-23-admin-analysis-bundle-controller,agt-24-admin-api-resources,agt-29-agenteval-metadata-links,agt-31-observability-instrumentation,agt-35-targeted-quality-gates,agt-36-handoff-artifacts,agt-33-canonical-architecture-api-docs,agt-34-operations-runbook,role-permission-role-permission-check-searchpolicy,prod-gate-inventory,prod-gate-workflow-mapping,prod-gate-checklist-rewrite,prod-gate-burndown-doc,prod-gate-workflow-author,prod-gate-deploy-hook,prod-gate-exemption-doc,refactor-harness-manifest-refactor-harness-manifest-actions-commands,enhance-production-readiness-enhance-production-readiness-gate-with,harness-versioning-planning-baseline,harness-governance-container-skeleton,harness-manifest-schema-contract,harness-governance-persistence,harness-manifest-import-validation,harness-owner-reference-validation,harness-agent-eval-activation-check,harness-manifest-commands,harness-manifest-resolver,harness-versioning-tests,harness-versioning-quality-gates,sso-enhance-federated-identity-hardening-with,expand-privacy-related-expand-privacy-related-definitions-concepts-platform,definition-definition-data-subject-platform-context,harness-versioning-mark-planning-tracker-checklist-complete,harness-governance-core-harnessgovernance-porto-container-with-manifest,audit-command-enhance-user-filtering-tests-revocation,dynamic-waiver-dynamic-waiver-duration-production-readiness -->
 
