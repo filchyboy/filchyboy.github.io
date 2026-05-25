@@ -7,33 +7,36 @@ tags: [dev-tracker]
 ---
 
 <!-- SECTION: DAILY-PLAN START -->
-<!-- plan-generated: 2026-05-25T12:58:23.570016+00:00 -->
+<!-- plan-generated: 2026-05-25T14:36:38.455302+00:00 -->
 
-## Today's Theme
+## Today's Plan
+The integration-generator work I touched yesterday needs decisive action - either quarantine the broken generator or fix it properly, but this limbo is killing productivity.
 
-The integration-generator work I touched yesterday has me thinking about provider lifecycle questions I genuinely don't know how to answer. The platform-cost-estimation planning I started yesterday is pulling at me because cost visibility affects every tenant operation, but I'm still figuring out what the boundary with billing should even be. What's really bothering me is that accidental-pint billing cohort - I've been investing heavily in the remediation work this week but keep chickening out on the one that could actually break invoice calculations.
+### Main Focus
 
-## The Main Work
+**Quarantine the make:integration default behavior (igcq-quarantine-command)** - I worked on this integration generator contract yesterday and the decision is clear: stop trying to fix a fundamentally broken generator and quarantine it instead. The current make:integration command produces stale scaffolding that violates Porto architecture, and every new developer who runs it creates more technical debt. Time to make the command fail safely with clear guidance rather than silently producing garbage code that passes initial review but breaks at runtime.
 
-**Draft the provider lifecycle and vetting workflow (igcq-provider-lifecycle-vetting)** - I'm genuinely uncertain what "vetting" even means for integration providers. Do we validate against schemas, test in sandboxes, or just hope for the best? The integration-generator contract work depends on this, but I suspect the answer is "we haven't thought about this at all" which means I'm designing from scratch. This could be a two-hour task or a two-week research project.
+**Complete the Jest coverage denominator cleanup (frontend-jest-coverage-expansion-denominator-cleanup)** - I've been investing time in frontend coverage this week and the baseline metrics are definitely inflated with deleted components and orphaned test files. Our coverage reports are counting files that don't exist anymore, which makes every coverage decision based on bad data. This cleanup will take maybe 30 minutes but will give me actual numbers to work with for the rest of the frontend test expansion work.
 
-**Inventory existing billing and cost visibility surfaces (pce-current-state-inventory)** - This is annoying me because I keep talking about platform cost estimation without actually knowing what billing data we already expose. The metering signals, invoice surfaces, and current-cost endpoints are scattered across multiple containers. I need to map what exists before designing what should exist, otherwise I'll build a parallel billing system by accident.
+**Remediate the Core CDP accidental Pint cohort (accidental-pint-core-cdp)** - The accidental-pint work has been my heavy focus this week, and CDP is the logical next cohort after finishing the Tenancy work. Customer Data Platform code touches PII processing and data lineage - if Pint's auto-formatting introduces bugs in data transformation pipelines, we could corrupt customer records or break compliance audit trails. Better to handle this methodically than discover data integrity issues three months from now.
 
-**Remediate the Core Billing accidental Pint cohort (accidental-pint-core-billing)** - I've been avoiding this for over a week and it's genuinely frustrating me. Billing code touches invoice generation, payment processing, and customer charges. Any formatting changes that introduce arithmetic bugs could corrupt money calculations, and those problems only surface months later when customers call screaming. The CDP and Tenancy cohorts were safer - this one could end my career if I mess up operator precedence.
+**Draft the Platform Cost Estimation boundary ADR (pce-adr-boundary)** - I started this cost visibility planning yesterday but can't design the tenant cost API without settling the architectural boundary first. Is cost estimation a separate service or does it compose with existing billing infrastructure? The current billing system has metering surfaces that might already solve half this problem, but I need to map the boundary before building redundant cost tracking systems.
 
-**Quarantine the make:integration default behavior (igcq-quarantine-command)** - The stale generator has been producing broken integrations, but I don't want to delete it until the replacement is ready. Quarantining means it fails fast with a clear error message instead of generating subtly broken code that wastes developer time. This should be a 30-minute change but I keep overthinking the error message wording.
+### Secondary Work
 
-## Housekeeping
+**Map the current billing and metering inventory (pce-current-state-inventory)** - Once the boundary ADR is drafted, I'll have a clearer picture of what existing billing surfaces can be reused versus what needs to be built from scratch for tenant cost visibility.
 
-**Replace template boilerplate in planning directory (todoremed-p0-replace-template-boilerplate)** - The planning templates still have placeholder text from when I copied the structure. It's embarrassing when I reference a TODO item and it says "REPLACE THIS WITH ACTUAL CONTENT."
+### Maintenance
 
-**Run make dev-up CI smoke test (hs126-ci-smoke-dev-up)** - Our developer quickstart promises this works but we've never actually tested it in a fresh container. The baseline timing work is done, so this just validates we're not lying to new developers.
+**Replace template boilerplate in the todo-remediation planning directory (todoremed-p0-replace-template-boilerplate)** - This planning directory still has placeholder content from the templates, and it's the kind of 5-minute cleanup that makes the work inventory more trustworthy.
 
-**Fix 3-4 markdownlint issues in files I'm already touching today** - The 196 markdown issues across 12 files are probably spacing and header formatting problems. If I'm editing planning docs anyway, might as well fix the lint errors in the same files.
+**Run `make reports-phpstan` to refresh the current baseline** - The 12,854 PHPStan errors might include recently fixed issues that aren't reflected in the current snapshot, and accurate metrics help prioritize which remediation cohorts to tackle next.
 
-## Parked
+**Clean up markdownlint issues in integration-generator planning files** - Since I'm already touching the integration generator documentation today, might as well fix the markdown formatting violations in those same files.
 
-The frontend Jest coverage expansion will have to wait - I don't have the mental bandwidth for both billing remediation anxiety and test coverage archaeology in the same day. The unified-dashboard-hub planning looks interesting but composition metadata is a rabbit hole I can't afford right now.
+### Parked
+
+The unified dashboard hub work will have to wait until the cost estimation boundary is settled - can't design dashboard composition without knowing whether cost visibility is a separate service or an extension of existing billing surfaces. The frontend Jest token coverage expansion needs the baseline cleanup to finish first so I'm working with accurate coverage denominators.
 
 <!-- plan-unit-ids: accidental-pint-core-billing,accidental-pint-core-tenancy,hs126-ci-smoke-dev-up -->
 <!-- SECTION: DAILY-PLAN END -->
