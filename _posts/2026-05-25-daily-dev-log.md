@@ -43,31 +43,132 @@ The unified dashboard hub work will have to wait until the cost estimation bound
 
 
 <!-- SECTION: ACCOMPLISHED START -->
-<!-- accomplished-generated: 2026-05-26T01:36:10.873096+00:00 -->
+<!-- accomplished-generated: 2026-05-26T13:19:47.385231+00:00 -->
+<!-- accomplished-updated: 2026-05-26T13:19:47.385231+00:00 -->
 
-## Today's Update
+* Completed 80 tasks today on the Colossalistic Platform project.
 
-Today was all about completing massive feature implementations that have been building for weeks. I managed to finish seven complete feature sets end-to-end, which feels like clearing years of architectural debt in a single day.
+## What I Built
 
-The unified dashboard hub work was the most satisfying to close out. I finally replaced all the fallback data with production-backed interfaces - Orders, Email campaigns, CMS content - and got the single hub surface actually routing correctly. The trickiest part was making the admin navigation capability-aware from shared metadata. I kept running into edge cases where the billing access posture would conflict with the capability metadata, but once I sorted out the contract envelopes for each widget type, everything clicked into place. The accessibility and design-token compliance work at the end was tedious but necessary - found way too many inconsistencies across the composed surfaces.
+### archive-operational-endpoint
+* Archive operational-endpoint-boundary planning work
 
-Platform cost estimation turned into a much bigger beast than I anticipated. What started as simple cost visibility evolved into this whole governance system with MFA-protected policy changes, audit trails, and restore capabilities. The hardest part was connecting estimation to existing actuals without creating a duplicate ledger - I had to build adapter interfaces that could pull from our current metering without disrupting the billing pipeline. The action alternatives modeling was interesting though - being able to show users transparent trade-offs between different approaches with real cost implications.
+### auto-resolve-tailscale-primary-ip
+* Auto-resolve TAILSCALE_PRIMARY_IP in up/down-tailscale scripts
 
-I also completed the PCM price projection identity work and the federated catalog source-of-truth system. The PCM stuff required converting everything to append-only projections, which meant rethinking how customer entitlements work at a fundamental level. The catalog work was all about building proper ownership policies and supplier provenance tracking - not glamorous, but essential for avoiding the data quality disasters we've seen before.
+### downstream-pricing-control-plane
+* Inventory existing pricing, multiplier, invoice, usage, and admin surfaces
+* Define pricing control domain model and permissions
+* Implement BaseCostRateTier selection and version contracts
+* Implement BillingMultiplierPolicy hierarchy-edge contracts
+* Implement Downstream Pricing Impact Preview
+* Implement Normal Commercial Pricing Path scheduling and notices
+* Implement Material Rate Change Guardrails and platform approval routing
+* Implement Emergency Platform Pricing Authority
+* Implement versioned pricing policy restoration and cancel workflows
+* Project operator and parent-tenant pricing control surfaces
+* Expose pricing-policy contract hooks to Platform Cost Estimation
+* Publish docs and run tests/quality gates
 
-The operational endpoint boundary cleanup was long overdue. I finally collapsed all the scattered metrics routes behind a single guarded endpoint and removed the admin Prometheus authentication bypass that's been bothering me for months. Added proper route inventory regression coverage so we don't drift back into the same mess.
+### enhance-migration-table
+* Enhance migration table definitions with size constraints and indexes
 
-Tomorrow I'll probably focus on testing these integrations end-to-end. Having seven major feature sets land simultaneously means there are bound to be interaction effects I haven't considered.
+### implement-migration-identifier
+* Implement migration identifier and key-width linting for MySQL compliance
 
-**The Numbers:**
-- Completed: 92 tasks
-- Feature areas: integration-generator-contract-and-quarantine, platform-cost-estimation-cost-visibility, unified-dashboard-hub, operational-endpoint-boundary, pcm-price-projection-identity, federated-catalog-source-of-truth, downstream-pricing-control-plane, auto-resolve-tailscale-primary-ip, archive-operational-endpoint, implement-migration-identifier, simplify-dashboard-rendering, enhance-migration-table, pcm, improve-handling
+### improve-handling
+* Improve handling of experimental option in  MakeIntegrationCommand
+
+### integration-generator-contract-and-quarantine
+* Quarantine make:integration default behavior
+* Define provider lifecycle and vetting workflow
+* Define canonical capability and operation mapping rules
+* Add command regression coverage
+* Specify provider manifest contract
+* Define platform-owned credential OAuth webhook contracts
+* Publish canonical docs and ADR updates
+* Gate experimental generation to local/testing
+* Design provider contract validation gates
+* Run scoped quality gates
+
+### operational-endpoint-boundary
+* Define the Operational Endpoint Boundary rule
+* Remove admin Prometheus authentication bypass
+* Collapse metrics routes behind a canonical guarded endpoint
+* Add route inventory regression coverage
+* Validate production observability exposure config
+* Update admin views and docs for guarded metrics
+* Run focused quality gates and close out planning
+* Split public status from detailed SLO compliance
+
+### pcm
+* Add price projection identity activation
+
+### pcm-price-projection-identity
+* Document PCM price projection identity ADR
+* Add PriceCatalogue price projection model and migration
+* Replace SKU-scoped PCM proposal targeting with identity columns
+* Add projection-aware PriceCatalogue Interface for PCM
+* Retire misleading bulk sync stubs in favor of workflow consistency checks
+* Convert PCM activation to append-only projection price activation
+* Make customer entitlements explicit and projection-scoped
+* Update PCM API and UI contracts for projection identity
+* Add validation coverage and quality-gate evidence
+* Make revenue, compliance, and notification impact projection-scoped
+
+### platform-cost-estimation-cost-visibility
+* ADR: Platform Cost Estimation and Tenant Cost Visibility boundary
+* Inventory existing billing, metering, invoice, signal, and current-cost surfaces
+* Govern Tenant Cost Visibility Policy changes with MFA, audit, and restore
+* Define action-scoped cost estimation Interface and response contract
+* Connect estimation to existing actuals without creating a second ledger
+* Model transparent action alternatives and usage trade-offs
+* Implement Tenant Cost Visibility Policy model and evaluation
+* Add tests and quality gates for estimation, policy, visibility, and audit behavior
+* Rename greenfield billing cost model concepts to base cost and multiplier vocabulary
+* Project cost estimate behavior across Admin, dashboard, SDK/API, and tenant-built surfaces
+* Publish cost estimation, policy, and metered evidence API references
+* Persist estimate records, model versions, assumptions, and calibration snapshots
+* Integrate with Current Metered Cost Indicator and detailed cost drilldown
+* Link cost centers, invoices, metered activity, and estimate evidence
+* Integrate estimate-driven approvals for configured high-cost actions
+
+### simplify-dashboard-rendering
+* Simplify dashboard rendering by removing legacy feature flag checks
+
+### unified-dashboard-hub
+* ADR: Unified Dashboard Hub composition and metadata projection
+* ADR: Billing posture, cost visibility, and metered refresh contracts
+* Define first Platform Cost Estimation and Cost Visibility contract slice for dashboard capability changes
+* Inventory existing hub endpoints, widgets, fallbacks, and route ownership
+* Define backend widget Interface envelopes for Orders, CMS, Email, KPI, and composition
+* Model Billing Access Posture and dashboard throttling in the hub contract
+* Make Admin shell navigation capability-aware from shared metadata
+* Replace Orders dashboard fallback data with production-backed Interface implementation
+* Replace Email campaign fallback flows with production-backed Interface implementation
+* Cut over dashboard routing and Blade/Vite mounting to a single hub surface
+* Close accessibility and design-token gaps across the composed hub
+* Add implementation docs, API references, and targeted quality gates
+* Create platform-admin Billing Posture Administration Surface
+* Replace CMS dashboard local state and fallback data with production-backed Interface implementation
+* Create the Unified Dashboard Hub frontend composition Module
+* Integrate KPI and resilience widgets into the unified composition contract
+* Make saved views, widget visibility, and Dashboard Access Profiles server authoritative
+* Instrument hub runtime telemetry, fallback diagnostics, and operational alerts
+
+## Notes
+
+* Completed 80 work unit(s)
+* Item adherence: 0% (0/3 focus items)
+* Feature set adherence: 0% (0/2 planned feature sets had work)
+* Weighted adherence: 33% (with partial credit)
+* Untracked activity: 23 commit(s) not mapped to any feature set
 
 
-<!-- Generated by dev-tracker publish_to_jekyll.py (AI mode) -->
+<!-- Generated by dev-tracker publish_to_jekyll.py -->
 <!-- accomplished-date: 2026-05-25 -->
-<!-- unit-ids: igcq-quarantine-command,pce-adr-boundary,udh-adr-composition-metadata,pce-current-state-inventory,pce-cost-policy-governance,udh-adr-billing-cost-refresh,igcq-provider-lifecycle-vetting,igcq-canonical-taxonomy-mapping,pce-estimation-interface,pce-actuals-source-adapters,pce-action-alternatives,pce-tenant-cost-visibility-policy,udh-cost-estimation-interface,udh-contract-inventory,udh-backend-interface-envelopes,udh-billing-access-posture,udh-capability-aware-admin-navigation,udh-orders-production-data,udh-email-production-data,udh-route-cutover,udh-accessibility-token-compliance,igcq-command-tests,pce-tests-quality-gates,udh-quality-gates-docs,igcq-provider-manifest-contract,igcq-platform-owned-contracts,pce-billing-domain-rename,pce-surface-projections,pce-docs-api-references,udh-billing-posture-admin-surface,udh-cms-production-data,udh-frontend-composition-module,operational-endpoint-boundary-rule,igcq-docs-and-adr,operational-endpoint-admin-prometheus,pce-estimate-records-calibration,pce-current-cost-indicator-integration,pce-invoice-activity-evidence,udh-kpi-composition-integration,udh-layout-personalization,udh-telemetry-operations,igcq-experimental-mode,igcq-provider-validation-gates,operational-endpoint-canonical-metrics,igcq-quality-gates,operational-endpoint-route-inventory-test,ppcm-01-adr,operational-endpoint-config-validation,operational-endpoint-docs-views,ppcm-02-price-projection-model,ppcm-03-pcm-proposal-identity-schema,ppcm-04-price-catalogue-interface,ppcm-06-sync-posture-closure,pce-approval-integration,operational-endpoint-quality-gates,operational-endpoint-slo-split,ppcm-05-append-only-activation,ppcm-08-entitlement-projection-scope,ppcm-09-api-ui-contract,ppcm-10-validation-quality-gates,ppcm-07-projection-scoped-impact,fcst-01-domain-adr,fcst-02-catalog-identity-price-link,fcst-03-ownership-policy-models,fcst-04-ownership-groups,fcst-05-source-lifecycle-policies,fcst-06-supplier-provenance,fcst-07-etl-orchestration-contract,fcst-08-policy-aware-pull-ingestion,fcst-09-policy-aware-push-planning,fcst-10-migration-readiness,fcst-11-control-plane-ui-api,fcst-12-validation-docs-quality-gates,dpcp-current-state-inventory,dpcp-domain-model-permissions,dpcp-base-cost-rate-tier-contracts,dpcp-multiplier-policy-contracts,dpcp-impact-preview,dpcp-normal-commercial-path,dpcp-material-guardrails-approval,dpcp-emergency-platform-authority,dpcp-versioned-restoration,dpcp-admin-tenant-surfaces,dpcp-cost-estimation-hooks,dpcp-docs-tests-quality,auto-resolve-tailscale-primary-ip-auto-resolve-tailscale-primary-ip-up-down-tailscale-scripts,archive-operational-endpoint-archive-operational-endpoint-boundary-planning-work,implement-migration-identifier-migration-identifier-key-width-linting-mysql,simplify-dashboard-rendering-simplify-dashboard-rendering-removing-legacy,enhance-migration-table-enhance-migration-table-definitions-with,pcm-price-projection-identity-activation,improve-handling-improve-handling-experimental-option-makeintegrationcommand -->
+<!-- unit-ids: igcq-quarantine-command,pce-adr-boundary,udh-adr-composition-metadata,pce-current-state-inventory,pce-cost-policy-governance,udh-adr-billing-cost-refresh,igcq-provider-lifecycle-vetting,igcq-canonical-taxonomy-mapping,pce-estimation-interface,pce-actuals-source-adapters,pce-action-alternatives,pce-tenant-cost-visibility-policy,udh-cost-estimation-interface,udh-contract-inventory,udh-backend-interface-envelopes,udh-billing-access-posture,udh-capability-aware-admin-navigation,udh-orders-production-data,udh-email-production-data,udh-route-cutover,udh-accessibility-token-compliance,igcq-command-tests,pce-tests-quality-gates,udh-quality-gates-docs,igcq-provider-manifest-contract,igcq-platform-owned-contracts,pce-billing-domain-rename,pce-surface-projections,pce-docs-api-references,udh-billing-posture-admin-surface,udh-cms-production-data,udh-frontend-composition-module,operational-endpoint-boundary-rule,igcq-docs-and-adr,operational-endpoint-admin-prometheus,pce-estimate-records-calibration,pce-current-cost-indicator-integration,pce-invoice-activity-evidence,udh-kpi-composition-integration,udh-layout-personalization,udh-telemetry-operations,igcq-experimental-mode,igcq-provider-validation-gates,operational-endpoint-canonical-metrics,igcq-quality-gates,operational-endpoint-route-inventory-test,ppcm-01-adr,operational-endpoint-config-validation,operational-endpoint-docs-views,ppcm-02-price-projection-model,ppcm-03-pcm-proposal-identity-schema,ppcm-04-price-catalogue-interface,ppcm-06-sync-posture-closure,pce-approval-integration,operational-endpoint-quality-gates,operational-endpoint-slo-split,ppcm-05-append-only-activation,ppcm-08-entitlement-projection-scope,ppcm-09-api-ui-contract,ppcm-10-validation-quality-gates,ppcm-07-projection-scoped-impact,auto-resolve-tailscale-primary-ip-auto-resolve-tailscale-primary-ip-up-down-tailscale-scripts,archive-operational-endpoint-archive-operational-endpoint-boundary-planning-work,implement-migration-identifier-migration-identifier-key-width-linting-mysql,simplify-dashboard-rendering-simplify-dashboard-rendering-removing-legacy,enhance-migration-table-enhance-migration-table-definitions-with,pcm-price-projection-identity-activation,dpcp-current-state-inventory,dpcp-domain-model-permissions,dpcp-base-cost-rate-tier-contracts,dpcp-multiplier-policy-contracts,dpcp-impact-preview,dpcp-normal-commercial-path,dpcp-material-guardrails-approval,dpcp-emergency-platform-authority,dpcp-versioned-restoration,dpcp-admin-tenant-surfaces,dpcp-cost-estimation-hooks,dpcp-docs-tests-quality,improve-handling-improve-handling-experimental-option-makeintegrationcommand -->
 
-<!-- accomplished-unit-ids: archive-operational-endpoint-archive-operational-endpoint-boundary-planning-work,auto-resolve-tailscale-primary-ip-auto-resolve-tailscale-primary-ip-up-down-tailscale-scripts,dpcp-admin-tenant-surfaces,dpcp-base-cost-rate-tier-contracts,dpcp-cost-estimation-hooks,dpcp-current-state-inventory,dpcp-docs-tests-quality,dpcp-domain-model-permissions,dpcp-emergency-platform-authority,dpcp-impact-preview,dpcp-material-guardrails-approval,dpcp-multiplier-policy-contracts,dpcp-normal-commercial-path,dpcp-versioned-restoration,enhance-migration-table-enhance-migration-table-definitions-with,fcst-01-domain-adr,fcst-02-catalog-identity-price-link,fcst-03-ownership-policy-models,fcst-04-ownership-groups,fcst-05-source-lifecycle-policies,fcst-06-supplier-provenance,fcst-07-etl-orchestration-contract,fcst-08-policy-aware-pull-ingestion,fcst-09-policy-aware-push-planning,fcst-10-migration-readiness,fcst-11-control-plane-ui-api,fcst-12-validation-docs-quality-gates,igcq-canonical-taxonomy-mapping,igcq-command-tests,igcq-docs-and-adr,igcq-experimental-mode,igcq-platform-owned-contracts,igcq-provider-lifecycle-vetting,igcq-provider-manifest-contract,igcq-provider-validation-gates,igcq-quality-gates,igcq-quarantine-command,implement-migration-identifier-migration-identifier-key-width-linting-mysql,improve-handling-improve-handling-experimental-option-makeintegrationcommand,operational-endpoint-admin-prometheus,operational-endpoint-boundary-rule,operational-endpoint-canonical-metrics,operational-endpoint-config-validation,operational-endpoint-docs-views,operational-endpoint-quality-gates,operational-endpoint-route-inventory-test,operational-endpoint-slo-split,pce-action-alternatives,pce-actuals-source-adapters,pce-adr-boundary,pce-approval-integration,pce-billing-domain-rename,pce-cost-policy-governance,pce-current-cost-indicator-integration,pce-current-state-inventory,pce-docs-api-references,pce-estimate-records-calibration,pce-estimation-interface,pce-invoice-activity-evidence,pce-surface-projections,pce-tenant-cost-visibility-policy,pce-tests-quality-gates,pcm-price-projection-identity-activation,ppcm-01-adr,ppcm-02-price-projection-model,ppcm-03-pcm-proposal-identity-schema,ppcm-04-price-catalogue-interface,ppcm-05-append-only-activation,ppcm-06-sync-posture-closure,ppcm-07-projection-scoped-impact,ppcm-08-entitlement-projection-scope,ppcm-09-api-ui-contract,ppcm-10-validation-quality-gates,simplify-dashboard-rendering-simplify-dashboard-rendering-removing-legacy,udh-accessibility-token-compliance,udh-adr-billing-cost-refresh,udh-adr-composition-metadata,udh-backend-interface-envelopes,udh-billing-access-posture,udh-billing-posture-admin-surface,udh-capability-aware-admin-navigation,udh-cms-production-data,udh-contract-inventory,udh-cost-estimation-interface,udh-email-production-data,udh-frontend-composition-module,udh-kpi-composition-integration,udh-layout-personalization,udh-orders-production-data,udh-quality-gates-docs,udh-route-cutover,udh-telemetry-operations -->
+<!-- accomplished-unit-ids: archive-operational-endpoint-archive-operational-endpoint-boundary-planning-work,auto-resolve-tailscale-primary-ip-auto-resolve-tailscale-primary-ip-up-down-tailscale-scripts,dpcp-admin-tenant-surfaces,dpcp-base-cost-rate-tier-contracts,dpcp-cost-estimation-hooks,dpcp-current-state-inventory,dpcp-docs-tests-quality,dpcp-domain-model-permissions,dpcp-emergency-platform-authority,dpcp-impact-preview,dpcp-material-guardrails-approval,dpcp-multiplier-policy-contracts,dpcp-normal-commercial-path,dpcp-versioned-restoration,enhance-migration-table-enhance-migration-table-definitions-with,igcq-canonical-taxonomy-mapping,igcq-command-tests,igcq-docs-and-adr,igcq-experimental-mode,igcq-platform-owned-contracts,igcq-provider-lifecycle-vetting,igcq-provider-manifest-contract,igcq-provider-validation-gates,igcq-quality-gates,igcq-quarantine-command,implement-migration-identifier-migration-identifier-key-width-linting-mysql,improve-handling-improve-handling-experimental-option-makeintegrationcommand,operational-endpoint-admin-prometheus,operational-endpoint-boundary-rule,operational-endpoint-canonical-metrics,operational-endpoint-config-validation,operational-endpoint-docs-views,operational-endpoint-quality-gates,operational-endpoint-route-inventory-test,operational-endpoint-slo-split,pce-action-alternatives,pce-actuals-source-adapters,pce-adr-boundary,pce-approval-integration,pce-billing-domain-rename,pce-cost-policy-governance,pce-current-cost-indicator-integration,pce-current-state-inventory,pce-docs-api-references,pce-estimate-records-calibration,pce-estimation-interface,pce-invoice-activity-evidence,pce-surface-projections,pce-tenant-cost-visibility-policy,pce-tests-quality-gates,pcm-price-projection-identity-activation,ppcm-01-adr,ppcm-02-price-projection-model,ppcm-03-pcm-proposal-identity-schema,ppcm-04-price-catalogue-interface,ppcm-05-append-only-activation,ppcm-06-sync-posture-closure,ppcm-07-projection-scoped-impact,ppcm-08-entitlement-projection-scope,ppcm-09-api-ui-contract,ppcm-10-validation-quality-gates,simplify-dashboard-rendering-simplify-dashboard-rendering-removing-legacy,udh-accessibility-token-compliance,udh-adr-billing-cost-refresh,udh-adr-composition-metadata,udh-backend-interface-envelopes,udh-billing-access-posture,udh-billing-posture-admin-surface,udh-capability-aware-admin-navigation,udh-cms-production-data,udh-contract-inventory,udh-cost-estimation-interface,udh-email-production-data,udh-frontend-composition-module,udh-kpi-composition-integration,udh-layout-personalization,udh-orders-production-data,udh-quality-gates-docs,udh-route-cutover,udh-telemetry-operations -->
 <!-- SECTION: ACCOMPLISHED END -->
 <!-- Generated by dev-tracker build_today_plan.py -->
