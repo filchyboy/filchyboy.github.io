@@ -7,28 +7,41 @@ tags: [dev-tracker]
 ---
 
 <!-- SECTION: DAILY-PLAN START -->
-<!-- plan-generated: 2026-05-30T13:07:24.199232+00:00 -->
+<!-- plan-generated: 2026-05-30T13:09:36.379189+00:00 -->
 
 ## Today's Plan
 
+The interaction-runtime-phase-7-replay-evaluation work I touched a couple days ago has solid planning foundations but needs the actual code research before I can build meaningful implementation units, and the identity-resolution-request-result-module I started yesterday is ready for deeper architectural decisions now that the planning sprint is underway.
+
 ### Main Focus
-- **Replace template boilerplate in planning directory** — Highest priority, high business value, urgent, already in progress, quick win, can start immediately, unblocks 1 downstream item. Next step: Complete or make significant progress on: Rewrite README.md, implementation-plan.md, implementation-checklist.md, tracker.json, and add artifa
-- **Remediate Core ETL cohort** — High business value, already in progress, can start immediately, unblocks 5 downstream items. Next step: Complete or make significant progress on: Replay Pint and resolve touched-scope PHPStan issues for the 513-file ETL cohort captured in the fro
-- **Remediate Core Tenancy cohort** — High business value, already in progress, can start immediately, unblocks 3 downstream items. Next step: Complete or make significant progress on: Replay Pint and resolve touched-scope PHPStan issues for the Core Tenancy cohort while preserving te
+
+**Research current replay, tracing, evaluation, and evidence code (ir-replay-research-current-code)** — I've been active on the interaction runtime work this week and the Phase 7 replay evaluation planning is seeded but blocked on understanding what's actually there. The planning shows this targets audit and authorization surfaces, but I need to trace through the existing evaluation infrastructure to see if we have replay capabilities scattered across containers or if this is genuinely greenfield. The replay feature flag exists, so something is already wired up — I just need to map what before designing the governance layer on top.
+
+**Inventory Identity Resolution callers, inputs, and result keys (irrrm-inventory-callers-and-results)** — The identity resolution module planning started 4 days ago and moved to in-progress status yesterday. This inventory work will reveal whether the current identity resolution is a simple lookup service or something more complex with caching, fallback providers, and async resolution chains. The request-result interface design depends on knowing what the current callers actually expect back, and I'm betting the result keys are inconsistent across different call sites.
+
+**Replace template boilerplate in planning directory finally (todoremed-p0-replace-template-boilerplate)** — This todo remediation item has been sitting untouched for too long, and every time I create a new planning directory I copy the same stale template files with placeholder text. It's 15 minutes of find-and-replace work that eliminates boilerplate friction for future planning cycles. Pure housekeeping that I keep deferring because it's not feature work, but the accumulated annoyance of editing around "TODO: Replace this section" comments is worse than just fixing it once.
+
+**Add interaction_runtime_replay_evaluation feature flag (ir-replay-feature-flag)** — The replay research work will be more useful if I can actually test code paths while I'm reading them. Adding the feature flag first lets me toggle replay behavior during the code inventory instead of just reading static implementations. This also establishes the configuration surface before the evaluation modes get complex — better to have the flag infrastructure ready than retrofit it later when replay and re-execution have different security requirements.
 
 ### Secondary Work
-- **Remediate Core Billing cohort** — keep this available if the main focus clears early.
-- **Research current replay, tracing, evaluation, and evidence code** — keep this available if the main focus clears early.
-- **Inventory Identity Resolution callers, inputs, and result keys** — keep this available if the main focus clears early.
+
+**Remediate Core CDP cohort in accidental Pint work (accidental-pint-core-cdp)** — Keep this available if the research work moves faster than expected. Customer Data Platform code touches PII processing where formatting changes could introduce subtle bugs in data transformation pipelines.
+
+**Refresh replay evaluation plan from research findings (ir-replay-refresh-plan-tracker)** — Natural follow-up once the code inventory reveals the actual scope and complexity of existing replay infrastructure.
 
 ### Maintenance
-- 112 item(s) blocked - check dependencies
-- Total estimated time: 8 hours
+
+Draft implementation plan for `frontend-jest-coverage-expansion` since it aligns with the module interface work and both need clear scope boundaries.
+
+Refresh TODO inventory with the todo-cleanup script — the current report is 11 days stale and missing recent work.
+
+Run `make codebase-metrics` to update the file count and LOC metrics from their 8-day-old snapshot.
+
+Check if any of the 879 PHP test failures are simple environment issues that can be resolved without major debugging sessions.
 
 ### Parked
-- **Refresh replay evaluation plan and tracker from research** — parked until `ir-replay-research-current-code` clears.
-- **Add interaction_runtime_replay_evaluation feature flag** — parked until `ir-replay-refresh-plan-tracker` clears.
-- **Design Identity Resolution request and result Interface** — parked until `irrrm-inventory-callers-and-results` clears.
+
+The accidental-pint-core-billing cohort remains deliberately avoided — billing code touches invoice calculations where Pint's formatting changes could introduce arithmetic bugs that don't surface until customers call months later about incorrect charges. Need to batch-remediate the safer cohorts first before tackling financial calculation logic.
 
 <!-- plan-unit-ids: accidental-pint-core-etl,accidental-pint-core-tenancy,todoremed-p0-replace-template-boilerplate -->
 <!-- SECTION: DAILY-PLAN END -->
