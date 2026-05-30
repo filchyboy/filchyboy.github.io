@@ -7,41 +7,39 @@ tags: [dev-tracker]
 ---
 
 <!-- SECTION: DAILY-PLAN START -->
-<!-- plan-generated: 2026-05-30T13:09:36.379189+00:00 -->
+<!-- plan-generated: 2026-05-30T13:13:58.566359+00:00 -->
 
 ## Today's Plan
 
-The interaction-runtime-phase-7-replay-evaluation work I touched a couple days ago has solid planning foundations but needs the actual code research before I can build meaningful implementation units, and the identity-resolution-request-result-module I started yesterday is ready for deeper architectural decisions now that the planning sprint is underway.
+Two active feature sets need concrete progress today, and I'm genuinely curious about the actual complexity hiding inside the identity resolution work.
 
 ### Main Focus
 
-**Research current replay, tracing, evaluation, and evidence code (ir-replay-research-current-code)** — I've been active on the interaction runtime work this week and the Phase 7 replay evaluation planning is seeded but blocked on understanding what's actually there. The planning shows this targets audit and authorization surfaces, but I need to trace through the existing evaluation infrastructure to see if we have replay capabilities scattered across containers or if this is genuinely greenfield. The replay feature flag exists, so something is already wired up — I just need to map what before designing the governance layer on top.
+**Research current replay, tracing, evaluation, and evidence code (ir-replay-research-current-code)** — The interaction runtime replay evaluation feature I've been active on this week is still in planning phase, but I can't design the replay contracts without understanding what's already built. The planning shows this targets audit and authorization surfaces, but I need to trace through the actual evidence collection and evaluation code to see if we have reusable tracing infrastructure or if replay means building something entirely new. This research drives the rest of the feature design.
 
-**Inventory Identity Resolution callers, inputs, and result keys (irrrm-inventory-callers-and-results)** — The identity resolution module planning started 4 days ago and moved to in-progress status yesterday. This inventory work will reveal whether the current identity resolution is a simple lookup service or something more complex with caching, fallback providers, and async resolution chains. The request-result interface design depends on knowing what the current callers actually expect back, and I'm betting the result keys are inconsistent across different call sites.
+**Inventory Identity Resolution callers, inputs, and result keys (irrrm-inventory-callers-and-results)** — The identity resolution request-result module I touched a couple days ago has solid architectural direction but I need to map the existing integration points before designing the interface contracts. This is detective work - finding every place that calls identity resolution services and cataloging what data flows through. Without this inventory, any interface I design will miss edge cases that break in production.
 
-**Replace template boilerplate in planning directory finally (todoremed-p0-replace-template-boilerplate)** — This todo remediation item has been sitting untouched for too long, and every time I create a new planning directory I copy the same stale template files with placeholder text. It's 15 minutes of find-and-replace work that eliminates boilerplate friction for future planning cycles. Pure housekeeping that I keep deferring because it's not feature work, but the accumulated annoyance of editing around "TODO: Replace this section" comments is worse than just fixing it once.
+**Complete the Core CDP accidental Pint cohort (accidental-pint-core-cdp)** — Customer Data Platform code handles PII processing and data lineage tracking. If Pint's formatting changes introduce bugs in data transformation pipelines, we could corrupt customer records or break compliance trails. The violations have been accumulating for weeks, and every manual merge conflict resolution is time stolen from feature work.
 
-**Add interaction_runtime_replay_evaluation feature flag (ir-replay-feature-flag)** — The replay research work will be more useful if I can actually test code paths while I'm reading them. Adding the feature flag first lets me toggle replay behavior during the code inventory instead of just reading static implementations. This also establishes the configuration surface before the evaluation modes get complex — better to have the flag infrastructure ready than retrofit it later when replay and re-execution have different security requirements.
+**Add interaction_runtime_replay_evaluation feature flag (ir-replay-feature-flag)** — Once the code research is done, I want the feature flag infrastructure in place before starting any implementation. This is a 15-minute task that unblocks parallel development on the replay contracts and evaluation modes.
 
 ### Secondary Work
 
-**Remediate Core CDP cohort in accidental Pint work (accidental-pint-core-cdp)** — Keep this available if the research work moves faster than expected. Customer Data Platform code touches PII processing where formatting changes could introduce subtle bugs in data transformation pipelines.
+**Design Identity Resolution request and result Interface (irrrm-design-request-result-interface)** — If the caller inventory reveals clean patterns, I can draft the interface contracts.
 
-**Refresh replay evaluation plan from research findings (ir-replay-refresh-plan-tracker)** — Natural follow-up once the code inventory reveals the actual scope and complexity of existing replay infrastructure.
+**Remediate Core MCP cohort (accidental-pint-core-mcp)** — Another Pint cohort that's ready for batch processing.
 
 ### Maintenance
 
-Draft implementation plan for `frontend-jest-coverage-expansion` since it aligns with the module interface work and both need clear scope boundaries.
+**Refresh TODO inventory with todo-cleanup script** — The TODO tracking is 11 days stale. Run `make todo-cleanup` to get current numbers.
 
-Refresh TODO inventory with the todo-cleanup script — the current report is 11 days stale and missing recent work.
+**Draft implementation plan for frontend-jest-coverage-expansion** — This planning directory is aligned with recent frontend work and needs tracker population.
 
-Run `make codebase-metrics` to update the file count and LOC metrics from their 8-day-old snapshot.
-
-Check if any of the 879 PHP test failures are simple environment issues that can be resolved without major debugging sessions.
+**Refresh codebase metrics report** — 8 days old. Run `make codebase-metrics` for current LOC and file counts.
 
 ### Parked
 
-The accidental-pint-core-billing cohort remains deliberately avoided — billing code touches invoice calculations where Pint's formatting changes could introduce arithmetic bugs that don't surface until customers call months later about incorrect charges. Need to batch-remediate the safer cohorts first before tackling financial calculation logic.
+The test harness expansion work stays parked until the identity resolution interface contracts are stable. The replay evaluation planning can't advance past research until I understand the current tracing architecture. The remaining accidental-pint cohorts (ETL, Billing) wait until CDP is complete - I'd rather handle these systematically than context-switch between different container codebases.
 
 <!-- plan-unit-ids: accidental-pint-core-etl,accidental-pint-core-tenancy,todoremed-p0-replace-template-boilerplate -->
 <!-- SECTION: DAILY-PLAN END -->
