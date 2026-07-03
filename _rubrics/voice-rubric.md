@@ -106,6 +106,13 @@ This is the highest-weighted dimension. The post must contain genuine human sign
 - An opinion someone might disagree with
 - A question left unanswered
 
+**Uncertainty should be genuine, not manufactured:**
+- Express uncertainty about *approach* or *tradeoffs* ("not sure if middleware is the right layer")
+- DO NOT express confusion about what a feature is when planning data defines it
+- If work units exist with titles like "Define contract baseline", reference that - don't say "I don't understand what this means"
+- Domain tags (auth, security, api) tell you the scope - use them, don't pretend ignorance
+- Fake uncertainty is as bad as fake enthusiasm
+
 **Never include:**
 - "What a marathon day" or similar fake enthusiasm
 - "particularly interesting" (content-free filler)

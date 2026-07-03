@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -1 /Users/malevich/Repos/filchyboy.github.io/_posts/*.md)"
+    ]
+  }
+}
