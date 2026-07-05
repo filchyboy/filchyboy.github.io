@@ -1,0 +1,49 @@
+---
+layout: post
+title: "Daily Dev Log - 2026-07-05"
+date: 2026-07-05
+categories: [daily, build-in-public]
+tags: [dev-tracker]
+---
+
+<!-- SECTION: DAILY-PLAN START -->
+<!-- plan-generated: 2026-07-05T13:08:48.560105+00:00 -->
+
+## Today's Plan
+
+Sunday, and the board looks different than it did a week ago — a large batch of thin vertical slices, financial sync architecture, and TypeScript remediation all shipped yesterday, which clears the deck considerably. Today is about routing that cleared space toward the work that's been waiting.
+
+### Main Focus
+
+**Run `phpstan-type-shape-ship-compliance` and `phpstan-type-shape-mcp-etl` from the PHPStan remediation plan.** I've been heads-down on this remediation all week and worked it yesterday. The plan is 3/16 work units complete with 10 in progress — Phase 2 is next, and these two items are the entry point. The ordering here isn't arbitrary: type-shape repairs (property declarations, return types) need to land before the runtime-shape repairs in Phase 3, because fixing call sites against poorly typed declarations just pushes the errors around. PHPStan is sitting at 990 errors at level 9. I've done this song before in this codebase — conflating the two repair categories in one pass always produces a second cleanup round. Type annotations first, then runtime shape, then the cast/string items.
+
+**Close out `oi-doc-quality-gates` and `oi-plan-sync-closeout` in the organizational intelligence initiative.** The OI plan is at 81% complete — 18/22 tasks done — and these two items are what stands between "mostly done" and "shipped." The plan started one day ago and the implementation is already functional: the CLI namespace, source manifest schema, package validation command, approved artifact writer, and test coverage all landed yesterday. The remaining two items are quality gates (focused Markdown and JSON checks) and a planning artifact sync. Leaving a plan at 81% when the implementation is complete and only housekeeping remains is a cost — the tracker stays open, the mental overhead persists. I want this one closed today.
+
+**Begin the contract baseline inventories for the four architecture spikes.** Four plans started yesterday — `architecture-commerce-orders-dashboard-truth`, `architecture-experience-schema-compilation`, `architecture-integration-mutation-execution`, and `architecture-mcp-policy-decision-handoff` — all sitting at 0/4 tasks each. The first work unit in every one is a contract inventory: `commerce-orders-dashboard-contract-baseline`, `esr-compilation-contract-baseline`, `integration-mutation-execution-contract-baseline`, and `mcp-policy-decision-contract-inventory`. These are genuinely sequential in a broader sense: the downstream migration and module work in each plan can't be scoped without a documented contract baseline. I'm not sure yet whether the MCP policy decision coupling has the same character as the commerce/dashboard truth problem or whether it's a different kind of coupling entirely — the inventory will tell me. Doing all four baselines as a batch is more efficient than interleaving them with implementation work later.
+
+**Progress `rsdw-001` in realistic-synthetic-data-workflows — inventory baseline seeders and remove permanent sample tenant assumptions.** This has been active all week and was touched yesterday. The permanent sample tenant assumptions baked into seeders are the kind of thing that stays invisible until you try to run tests against a fresh tenant and discover the seeder assumes `tenant_id: 1` exists. Getting the baseline inventory done first confirms the actual scope of the assumption problem before I start removing things — there's a real risk of over-deleting if I go straight to removal without understanding which seeders are load-bearing for CI.
+
+### Secondary Work
+
+**Start the `aprg-owner-gap-report` in aprg-evidence-contract-spike.** The plan is at 0/5 tasks and was worked on yesterday. Publishing the APRG owner evidence gap report is the item I'd expect to be most useful as a standalone artifact — it's the kind of deliverable that informs prioritization decisions elsewhere in the governance work, and the sooner it exists the sooner it can. The field-level evidence matrix (`aprg-evidence-field-matrix`) is actually listed first in the pipeline, so I'll check whether that needs to precede the gap report or whether the report can be drafted against what's already known.
+
+### Maintenance
+
+**Refresh the PHP test report** — `make test-fixed-batches-quick`. The current results are 20 days old and showing 0/50 passing. That number is almost certainly environment-related given everything that's shipped this week, but I can't know that without a fresh run. Stale test reports are worse than no test reports because they give false confidence about what the baseline actually is.
+
+**Refresh the TODO inventory** — the inventory is 19 days old and currently shows 0 items tracked. That's suspicious for a 32,000-file codebase. The `todo-cleanup` script will tell me whether it's genuinely clean or just stale.
+
+**Scan the 12 `301-500 LOC` source files flagged in `loc-followup-medium-files`.** The frontend LOC remediation plan shows 12 files in the 301-500 bracket as in-progress. Given the LOC work was active yesterday, I likely have context on which files were already touched. Even a partial pass through the bracket moves the needle on a plan that's been running 91 days.
+
+**Draft an implementation plan for `security-prod-boundary-sprint`.** The pipeline shows 27 work units ready across crypto-erasure, domain-auth, domain-billing, and domain-infra — but the plan hasn't been started yet. The next item is `security-prod-boun-1831-scope`. Given the governance and security work that dominated this week, this is the natural planning task to advance: the scope item exists to define what's in the sprint before implementation begins, and I don't want to start touching auth or billing boundaries without a written scope.
+
+### Parked
+
+**`rd100v2-state-effects-warnings-wave` (321 State & Effects warnings)** — This is still in progress and has had significant focus this week. I'm not picking it up today because the PHPStan type-shape work and the OI closeout are higher-leverage uses of focused time. The react-doctor sprint doesn't expire; the warnings will be there tomorrow.
+
+**`production-readiness-reconciliation`** — 33 units ready, none started. This is genuinely high-value work, but starting a 33-unit reconciliation plan on a day when I have four architecture baselines and a PHPStan sweep already in motion would be setting up for a half-started fifth track. I'll scope `production-readine-2092-scope` as a planning task this week once the architecture baseline inventories have cleared.
+
+<!-- plan-unit-ids: commerce-orders-dashboard-contract-baseline,loc-followup-medium-files,phpstan-report-visibility-ratchet,phpstan-type-shape-mcp-etl -->
+<!-- SECTION: DAILY-PLAN END -->
+
+<!-- Generated by dev-tracker build_today_plan.py -->
