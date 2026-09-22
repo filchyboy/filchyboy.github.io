@@ -6,6 +6,48 @@ categories: [daily, build-in-public]
 tags: [dev-tracker]
 ---
 
+<!-- SECTION: DAILY-PLAN START -->
+<!-- plan-generated: 2026-09-22T13:57:20.604216+00:00 -->
+
+## Today's Plan
+
+The September 23 demo is tomorrow. Today is about closing the remaining audit items, running the final rehearsals, and making sure the go/no-go decision has evidence behind it rather than optimism.
+
+### Main Focus
+
+**Close the remaining Pass 8 in-progress items and publish `rvr-p8-handoff`** — Seven items are still open in `revyrie-september-23-demo-readiness-audit-pass8`: the registered Orders console route name correction (`rvr-p8-admit-route-name`), allowlist classification (`rvr-p8-admit-allowlist`), heartbeat key read (`rvr-p8-admit-heartbeat`), baseline runtime establishment (`rvr-p8-baseline-runtime`), workflow revalidation (`rvr-p8-workflow-revalidation`), evidence package (`rvr-p8-demo-package`), and live validation (`rvr-p8-live-validation`). The handoff item (`rvr-p8-handoff`) is gated on all seven. Pass 9's freeze record — `rvr-p11-freeze-record` — requires a canonical SHA that only exists after the Pass 8 branch is committed, pushed, and a draft PR is open. This is strict sequencing, not a preference. I've been heads-down on this audit all week, and Pass 8 is the last structural gate before the rehearsals can run against a stable baseline.
+
+**Execute `rvr-p9-browser-card-rehearsal` and `rvr-p11-cold-login-rehearsal`** — These are the two runtime rehearsals the demo readiness sequence has been working toward. The Stripe sandbox card rehearsal exercises the full browser payment path — not a mocked flow, the actual sandbox checkout in a browser session against the live-equivalent fixture state. The cold login rehearsal has a setup dependency: I need to reset with a retained runtime password and verify the session is genuinely cold before proving login succeeds. That ordering matters because a warm session would pass a cold login test for the wrong reasons. If either surface a problem today, I have time to address it. If I discover a problem during the actual demo, I don't.
+
+**Record the go/no-go decision in `rvr-p4-meeting-decision`** — Three items remain in `revyrie-september-23-demo-readiness-audit-20260919`: `rvr-p4-rehearsal-normal`, `rvr-p4-rehearsal`, and `rvr-p4-meeting-decision`. The reconciliation item (`rvr-p4-rehearsal`) explicitly requires three rehearsal results before the decision can be recorded. I want the go/no-go documented with actual rehearsal evidence as input — not recorded before the rehearsals run and certainly not skipped. The decision artifact is what defines whether September 23 proceeds or falls back to the contingency date. That needs to exist before tomorrow morning.
+
+**Decide `rvr-wedge-20260918-n1-csp`** — This Stripe CSP call on the checkout route has been the one open P0 item in `revyrie-september-23-wedge-extension-audit-20260918` across multiple planning cycles. It's a policy decision, not an implementation task: what does the Content-Security-Policy header on the checkout route permit for Stripe? The browser card rehearsal will tell me definitively whether the current configuration works, but I shouldn't be discovering a CSP rejection during a timed demo rehearsal tomorrow. The decision needs to be documented either way — permitted directives or a conscious acceptance that the current config is correct — before the rehearsal runs, not after.
+
+### Secondary Work
+
+**Draft the implementation plan for `revyrie-september-23-freeze-audit-2fe2f458c9`** — The planning pipeline shows this directory needs a plan, with `verification-evidence.md` and `freeze-manifest.md` already scaffolded as artifacts. Given that `rvr-p11-freeze-record` is the final step in the Pass 9 sequence, the freeze audit plan is the natural next piece of documentation once the demo SHA is known. If the main focus clears and I have the frozen SHA in hand, I can populate the freeze manifest with the canonical commit and write the verification evidence structure while the runtime state is current.
+
+### Maintenance
+
+**Regenerate PHP test results with `make test-fixed-batches-quick`** — The PHP test report is 54 days stale showing 0/1583 passing. That number almost certainly doesn't reflect current state — a lot has changed in the codebase since then — but I can't know how much of it is environmental versus genuine regressions until I run it. The demo work has been isolated enough from the core test suite that this feels like a blind spot. Regenerating the report at minimum tells me whether the failure rate is 5% or 95%, which changes how I think about the platform's test health entering a demo week.
+
+**Refresh the TODO inventory** — The inventory is 62 days stale. The script is `todo-cleanup` and it's a single pass. With 147 items landing just yesterday across the demo hardening work, there's a real chance the inventory has grown or that items marked in passing during intensive development sessions are now orphaned. This isn't urgent, but stale inventories tend to accumulate quietly and then require archaeological effort later.
+
+**Check Markdownlint issues in the Pass 8 and Pass 9 planning docs** — There are 61 issues across 4 files. Since I'm actively touching the readiness audit planning directories today — writing the evidence package (`rvr-p8-demo-package`), updating the Pass 9 plan, recording the go/no-go — I'll scan those specific files for lint issues while the documents are open. The 4-file scope is narrow enough that this doesn't expand into a sweep; it's just not letting fixable issues accumulate in the files I'm already editing.
+
+**Draft the `events-scheduling-competitive-intelligence` implementation plan** — The planning pipeline flags this as needing a plan and relates it to the scheduling work I've been in all week. The artifacts `activation-budget-expense-unit-economics-pass.md` and `event-trust-safety-integrity-pass.md` are already scaffolded. This is lower urgency today given the demo focus, but it's a planning unit that loads quickly given how much scheduling context I've been carrying. A rough implementation plan draft — scope, work unit decomposition, artifact targets — wouldn't take long and would keep that feature set from sitting unplanned indefinitely.
+
+### Parked
+
+**`admission-inventory-allocation` and `external-event-graph-consumption`** — Both feature sets have heavy investment this week and real items remaining. The admission contract review (`admission-contract`) and venue contract review (`venue-contract`) in `venue-space-holds` need to happen, and all thirteen external event graph items are still formally open. But none of them are on the critical path for September 23. After the go/no-go is recorded and the demo baseline is frozen, these get the attention they've earned.
+
+**`agent-runtime-quiescence`** — The `arq-owner-review-and-merge` item is explicitly blocked pending external review. Nothing I do today changes that dependency. The thirteen in-progress items are parked behind it.
+
+**`react-doctor-100-followup-sprint-v2`** — Clearing 321 State & Effects warnings is real work, but ESLint warnings don't affect the demo runtime. This waits until after September 23.
+
+<!-- plan-unit-ids: admission-contract,admission-ga-writer-audit,arq-runtime-quiescence-action,arq-token-rotation-action,external-event-graph-scope-reconciliation,p02-source-audit,rvr-p8-baseline-runtime -->
+<!-- SECTION: DAILY-PLAN END -->
+
 <!-- SECTION: ACCOMPLISHED START -->
 <!-- accomplished-generated: 2026-09-22T13:53:32.624246+00:00 -->
 
