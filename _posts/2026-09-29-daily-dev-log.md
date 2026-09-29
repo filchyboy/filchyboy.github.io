@@ -1,0 +1,50 @@
+---
+layout: post
+title: "Daily Dev Log - 2026-09-29"
+date: 2026-09-29
+categories: [daily, build-in-public]
+tags: [dev-tracker]
+---
+
+<!-- SECTION: DAILY-PLAN START -->
+<!-- publication-digest: 00b9c042197f4f190a9d0c026ff423d85858c11098b4be1e1e47595707072848 -->
+<!-- publication-revision: 7b493eb9615e40978d80a5fbff0437c7 -->
+<!-- plan-generated: 2026-09-29T14:13:28.807960+00:00 -->
+
+## Today's Plan
+
+Tuesday. The security remediation is archived — that was a significant block of work and it's done. Now the two fronts with real pull are the privacy category build and the agent auth audit, and yesterday made that ordering obvious: I closed 15 agent auth items in a single session, then the security work finished, and the privacy category work is still carrying 93 items in various states of progress.
+
+### Main Focus
+
+**Close `aa-chat-error-redaction` and `aa-chat-bind-authority` before touching any chat handler work** — The agent auth audit has a clear sequencing problem here. `aa-chat-direct-handlers` governs the direct chat handlers, but binding read operations to caller authority (`aa-chat-bind-authority`) and redacting tool failures from chat responses (`aa-chat-error-redaction`) need to resolve first. If I write the handler governance layer before the authority binding is settled, I'm governing handlers against an unconstrained read surface — that's the wrong order. The audit plan is explicit that each suspected bypass needs focused tests before claiming a fix, so I'm not treating these as documentation items. They require actual test coverage before they close.
+
+**Resolve `aa-approval-freeze` and `aa-approval-schema` as a paired unit** — These two have the same relationship the verification items had in the security work: `aa-approval-freeze` establishes what an approved tool payload is, and `aa-approval-schema` enforces uniqueness constraints against that frozen shape. Writing the schema enforcement before the freeze contract is settled means the uniqueness constraints may be enforcing the wrong thing. Yesterday I closed 15 items in this feature set in one session, so the design reasoning is current — the question on `aa-approval-freeze` is where exactly the immutability boundary sits: at serialization time or at storage time. That's the one decision I need to make before the schema item becomes mechanical.
+
+**Advance `col-6038-runtime-resolver` toward a closeable state** — This has been in-progress for several days and it's load-bearing for everything downstream in COL-6038. The runtime resolver handles temporal determination resolution — it's what the admission integration (`col-6038-admission-integration`) calls, and the admission integration is what binds source admission to an exact determination version. I've been heads-down on privacy category work all week, but the runtime resolver has remained stubbornly open. My suspicion is the fail-closed behavior is the hard part: when no active determination exists at the resolution timestamp, the resolver needs to produce a definitive denial rather than a soft miss. I want to get that boundary written and tested today.
+
+**Work through `w4-effect-containment` in the synthetic scenario actor audit** — This item has been open since the audit started and it's blocking `w9-story-tracer`. I can't link a story to executable scenario evidence if I can't prove the scenario's external effects are contained. The audit plan's stakeholder progress report documents the gap: fifteen open PR heads, and the final exact-head acceptance for external-effect containment is still open. The containment proof is a test, not a design question — the design is settled. I need to run it and record the result.
+
+### Secondary Work
+
+**Review `oi-recommendation-follow-through-06`** — This is the last remaining item in `OI-022-recommendation-follow-through` and the feature set is flagged as nearly complete. It's a backfill and handoff review, which means it's reading existing artifacts and making a disposition decision rather than writing new code. A good candidate for whenever the main focus items are in a waiting state.
+
+### Maintenance
+
+**Refresh the PHP test report** — The PHP test snapshot is 61 days old. At that age it's not a quality signal, it's archaeology. Running `make test-fixed-batches-quick` gives me a current baseline. I'm not expecting 0 failures — the codebase has moved substantially since that snapshot — but knowing the actual number matters before I write any new test coverage for the agent auth items.
+
+**Run `make codebase-metrics`** — The codebase metrics and TODO inventory are both 69 days stale. These are one-command refreshes that produce durable artifacts. Not urgent, but having current numbers when I'm writing a build-in-public post about a 93-item privacy feature set is better than citing two-month-old line counts.
+
+**Draft an implementation plan for `pr-stack-reconciliation-20260906`** — This is flagged as aligned with the privacy category work, and it's in the "needs research" state in the pipeline. The privacy category management branch (`COL-6038-privacy-category-management`) is where most of my construction work lives right now. If there's a PR stack reconciliation sitting in the same domain, getting it to "needs plan" state while I already have the category management design loaded is less expensive than coming back to it cold. Concretely: read the planning directory, identify what reconciliation work is already captured versus what's missing, and write the next concrete steps.
+
+**Check the 3 TypeScript errors in the current report** — Three TypeScript errors across one file. Before I touch any of the frontend items in COL-6038 (`col-6038-frontend-api-client`, `col-6038-catalog-ui`), I want to know if those errors are in files I'm about to modify. If they are, fixing them now is cheaper than fixing them after I've changed the surrounding code. The fix pattern for missing type imports is usually a one-line addition.
+
+### Parked
+
+`aa-decision-locked-authority` and `aa-decision-admitted-dispatch` are both in the agent auth audit's ready queue, but they sit downstream of the approval freeze/schema pair. The decision lock revalidates authority under an intent lock — that revalidation logic depends on knowing what "approved" means in the frozen payload sense, which is exactly what `aa-approval-freeze` defines. `aa-decision-admitted-dispatch` requires admission before dispatch, and admission binds to a determination — which connects back to `col-6038-admission-integration` on the privacy side. Both of these become cleaner once the upstream items resolve.
+
+The `admission-inventory-allocation`, `external-event-graph-consumption`, and `events-scheduling-shared-contracts` feature sets haven't been touched recently and nothing in today's work unlocks them. They're not forgotten — they're just not the right place to spend energy while two active fronts both have unresolved sequencing dependencies.
+
+<!-- plan-unit-ids: admission-ga-writer-audit,col-6038-owner-evidence-interface,col-6038-registry-manifest,col-6038-scheme-migration,w4-effect-containment -->
+<!-- SECTION: DAILY-PLAN END -->
+
