@@ -54,3 +54,23 @@ The `public-offering-discovery-distribution` and `external-event-graph-consumpti
 <!-- plan-unit-ids: aa-decision-effect-dedup,asu-auth-contract,asu-deployment-contract,asu-runtime-inventory,col-6038-determination-compare,col-6038-determination-model,col-6038-owner-evidence-interface,edp-owner-reconciliation -->
 <!-- SECTION: DAILY-PLAN END -->
 
+
+<!-- SECTION: ACCOMPLISHED START -->
+<!-- publication-digest: 78483eb04dfe499695ed059d2610243c70699811821e0f1d4c90bcdf1b3724b1 -->
+<!-- publication-revision: 8272d2b8decd43b68f750367018c307b -->
+<!-- accomplished-generated: 2026-10-15T13:50:53.549554+00:00 -->
+
+## Today's Update
+
+Short day — one item, one feature area, and that's the full accounting.
+
+The tracker needed another entry pass. Completed plans and tooling updates that had finished recently weren't reflected in the records, so I added them. That's the whole description of what happened, and I'll resist the urge to inflate it into something more architecturally significant than it is.
+
+What I'll say about why this keeps recurring: the tracker is a planning instrument, not a vanity log. When entries lag behind reality, I'm reading a document that tells me work is open when it isn't, or that a tool is active when it's been retired. The cost is diffuse — it shows up as false hesitation when I'm orienting for the next session, or as stale context that bleeds into sequencing decisions. Getting records current isn't interesting work, but letting them drift has a compounding tax that's real enough to justify the interruption.
+
+The honest forward-looking thought is that this is the second pass in two days on the same maintenance category, which suggests the gap between "done" and "recorded" is wider than it should be. At some point that becomes a process question rather than a cleanup question — whether the capture step should happen closer to the moment of completion rather than as a periodic reconciliation. I don't have a strong answer on that yet. The periodic approach is lower friction when the work is going well and higher friction when it isn't, which is exactly backwards from what I'd want.
+
+Tomorrow is feature work, full stop.
+
+<!-- accomplished-unit-ids: tracker-new-entries-completed-plans-tooling -->
+<!-- SECTION: ACCOMPLISHED END -->
