@@ -1,0 +1,50 @@
+---
+layout: post
+title: "Daily Dev Log - 2026-10-19"
+date: 2026-10-19
+categories: [daily, build-in-public]
+tags: [dev-tracker]
+---
+
+<!-- SECTION: DAILY-PLAN START -->
+<!-- publication-digest: 9f52215366e97d0a9c5069306d7fd5d292e5f34417883e96905953a56c5f43d9 -->
+<!-- publication-revision: 908e3c5ddebd415f8ad49067a8290280 -->
+<!-- plan-generated: 2026-10-19T13:22:25.044391+00:00 -->
+
+## Today's Plan
+
+Monday. Yesterday's output was broad — DSR declaration work, bookings delivery classification, commerce and publishing binding changes, pageeditor snapshot requirements, and privacy category exports, all landing as unplanned. The `platform-state-machine-remediation-20261016` items that were explicitly on Sunday's plan (`sma-admission-owners`, `sma-admission-evidence-scope`, `sma-finance-gate-finance-proof`, `sma-admission-contracts`) are now the last four standing in that feature set, and I want to close them today. But there's a second thread I've been avoiding naming: the `privacy-booking-email-journey` plan has been live for 17 days and has barely moved despite the underlying privacy infrastructure absorbing significant effort all week. Those two threads are where today goes.
+
+### Main Focus
+
+**Close `sma-admission-owners`, `sma-admission-evidence-scope`, `sma-finance-gate-finance-proof`, and `sma-admission-contracts` as the terminal unit for `platform-state-machine-remediation-20261016`.** These four are what's left after yesterday's gate reconciliation landed. The sequencing constraint is real: `sma-admission-contracts` reviews governed mutation risk, and that review is the gate that determines whether the blocked downstream items (`aa-decision-reconcile`, `aa-decision-revocation`) can be unblocked. I've written about the `agent-auth-audit-remedation` blocked cluster for nine consecutive plans. The dependency path runs through this contract review. The finance gate evidence (`sma-finance-gate-finance-proof`) is distinct — it's reviewing Gate 1 evidence that the plan audit needs before the admission layer can close. The correct order is finance gate review first, then admission contracts, then the owner and evidence scope records follow. I want a closed artifact from each, not another progressed status.
+
+**Produce the first closed artifact from `pbej-guest-contract` and `pbej-admission` in `privacy-booking-email-journey`.** This plan has been live 17 days, updated last on October 3rd, and the honest read is that the underlying privacy category and DSR work has been absorbing the available energy while this higher-level journey sits queued. The guest contract (`pbej-guest-contract`) defines the verified guest Consent caller contract — that's the foundation everything else in this plan stands on. The admission item (`pbej-admission`) reconciles the merged baseline and owner admission. These aren't complex to close in isolation, but I keep routing energy elsewhere because the category-management work feels more concrete. That's backwards: the booking email journey is a user-facing privacy surface, and the guest contract is what makes the category work meaningful from the user's perspective. I'm treating these as the forcing function today.
+
+**Advance `esp-principal-model`, `esp-consent-parity`, and `esp-async-context` in `external-agent-surface-preconditions`.** The plan is at 44% complete across all phases. `esp-principal-model` is the external agent principal model and verification guard — it's the identity foundation for everything else in this feature set. `esp-async-context` is the tenant propagation work, which has a concrete dependency on the queue owner admission that merged last week (#7643). The plan artifact at `artifacts/queue-owner-admission-20261018.md` records that the early dependency resolution is repaired locally, which means `esp-async-context` has available ground. `esp-consent-parity` sits between these two: it's the checklist that maps privacy parity across exposed mutations, and it's meaningfully narrower now that the category management work has defined the determination model. I'm not going to finish all three today, but I want `esp-principal-model` and `esp-async-context` to produce closed work units.
+
+**Pick three `agc-04` D13 items from `appointment-gap-closure` and close them.** All four D13 items (`agc-04-d13-resubmission-disposition` through `agc-04-d13-async-delivery-evidence`) have been progressed across multiple consecutive days without closing. The sequencing within D13 is semantic: resubmission retry bounding (D13-B) constrains what counts as a valid retry, which informs the refusal classification vocabulary (D13-C), which informs the interpretation of "submitted" (D13-D), which informs what asynchronous delivery evidence needs to reflect (D13-E). I've been treating these as interchangeable. They're not. Today I'm starting at D13-B (`agc-04-d13-resubmission-disposition`) and working forward in order, with a hard stop at three closed items rather than four progressed ones.
+
+### Secondary Work
+
+**Draft the implementation plan for `migration-safety-schema-guards`.** This is the one item in the planning pipeline that has completed research (`migration-guard-audit.md` exists) but no concrete implementation plan. The audit artifact is already written — translating it into a tracked implementation plan is bounded work, and the migration safety surface is directly adjacent to the booking and DSR declaration work that's been absorbing time all week. The guard audit presumably characterizes what migration operations bypass the safety checks; the implementation plan needs to specify where the guards get inserted and what the enforcement boundary looks like.
+
+### Maintenance
+
+**Regenerate the PHP test report.** The current snapshot is 81 days old — `make test-fixed-batches-quick` is the right starting point. The 0% pass rate on 1,583 tests is almost certainly an environment or bootstrap issue rather than 1,583 genuine regressions, but I can't know that without a current run. An 81-day-old test snapshot actively misleads about the real state of the codebase.
+
+**Regenerate the TODO inventory.** The current snapshot is 88 days old. The codebase has grown substantially since then — 53,061 files at 4,178,406 lines of code — and the TODO inventory showing 0 items tracked is implausible given that scale and the volume of work that's landed since. Running the `todo-cleanup` script produces a current baseline.
+
+**Review Markdownlint issues in the `privacy-booking-email-journey` planning documents.** There are 61 Markdownlint issues across 4 files, and I'm touching the booking email journey planning docs today. Rather than running a broad fix, I'll scope the review to the specific files in `docs/work/planning/privacy-booking-email-journey/` while I'm producing the guest contract and admission artifacts. Four files with 61 issues suggests at least one file with significant structural problems — worth looking at directly.
+
+**Inspect the PHPStan error distribution before touching PHP files today.** 997 errors at level 9 is the current count. I'm not running a broad fix pass, but before I write new PHP code for the booking email journey caller contracts, I want to know whether the existing errors are concentrated in adjacent modules. If `App/Containers/Bookings` or the Consent caller surface has significant PHPStan density, I'll write new code defensively against those patterns rather than adding to the count.
+
+### Parked
+
+The `agent-auth-audit-remedation` blocked cluster (`aa-decision-reconcile`, `aa-decision-revocation`, `aa-audit-envelope`, `aa-test-audit-envelope`) stays parked today. The dependency is still the admission contracts review — specifically `sma-admission-contracts` — which is in main focus. If that closes today, the audit envelope has genuine new ground. If it doesn't close, scheduling the blocked items again produces the same outcome as the last nine plans.
+
+The `admin-shell-unification` route wave (`asu-route-admin-*` integrations) is deferred. The plan is clear that ADR-0393 is approved and the pilot is implemented — the remaining work is route qualification and release acceptance, which is real work but not load-bearing for anything else I'm doing today. The staging evidence plan (`asie-reviewed-receipt-closeout`, `asie-booking-payment-confirmation`) is also deferred — that plan is 85 days old and the receipt closeout has appeared in every prior plan. I'm not scheduling it again until the D13 items close, because both surfaces touch the bookings delivery layer and I'd rather close one thread cleanly than split attention across two.
+
+<!-- plan-unit-ids: aa-decision-effect-dedup,asu-runtime-inventory,col-6038-determination-compare,col-6038-determination-model,col-6038-owner-evidence-interface,edp-owner-reconciliation,pbej-admission,sma-finance-gate-finance-proof -->
+<!-- SECTION: DAILY-PLAN END -->
+
