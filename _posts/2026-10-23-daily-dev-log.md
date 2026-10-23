@@ -1,0 +1,50 @@
+---
+layout: post
+title: "Daily Dev Log - 2026-10-23"
+date: 2026-10-23
+categories: [daily, build-in-public]
+tags: [dev-tracker]
+---
+
+<!-- SECTION: DAILY-PLAN START -->
+<!-- publication-digest: e72d346a83d996ebda078f8f14f3f824d476139d6358fb6a8df8f82621c56970 -->
+<!-- publication-revision: 0e73ff184e9f46c79a48f96aa470743f -->
+<!-- plan-generated: 2026-10-23T13:22:38.780083+00:00 -->
+
+## Today's Plan
+
+Friday. Yesterday's output was scattered across a dozen feature sets — thin-vslice work on ProductSurface ESR parity and agent surface action logs both closed completely, which is real progress. But the two items that opened as unplanned completions (`tv686-contract-scope-baseline` and `col-6038-scheme-successor-ui`) are signals worth reading: SMS reply evidence and the privacy category scheme successor UI pulled focus from the explicitly planned work. The `platform-state-machine-remediation-20261016` in-progress section still has `sma-finance-gate-recovery` and `sma-notice-gate-recovery` open. The `appointment-scheduling-integrated-staging-evidence` plan has been open for 89 days.
+
+### Main Focus
+
+**Close `sma-finance-gate-recovery` and `sma-notice-gate-recovery` to unblock the Ready-to-Start tier.** These two are the only items sitting in in-progress for `platform-state-machine-remediation-20261016`. Every time I've written about this feature set this week, these same two items appear. The finance gate recovery is reviewing existing obligation inventory — that's a read and reconcile exercise, not a design question. The notice gate recovery is procedural — what constitutes a detected false delivery, and whether the current detection procedure holds. Once both close, `sma-support-gate-recovery`, `sma-integrated-acceptance-matrix`, `sma-integrated-acceptance-closure`, and `sma-support-gate-gate-one` become available in Ready to Start. That's four items released by closing two. The dependency chain is real and the sequencing reward is concrete.
+
+**Produce the reviewed staging receipt from `asie-evidence-redaction-cleanup`, `asie-bootstrap-residual-dispositions`, and `asie-reviewed-receipt-closeout`.** This plan has been open for 89 days. I've named these items in prior plans repeatedly without landing them. The honest read is that the redaction cleanup and residual dispositions need to exist before the receipt can be meaningfully reviewed — you can't sign off on a receipt that references evidence you haven't verified is properly redacted. I'm treating these as a strict sequence: redaction cleanup first, five-class residual dispositions second, receipt third. The output is a published staging receipt or a named artifact explaining the specific obstruction. The third option is "scheduled for next week."
+
+**Resolve `pbej-admission` and `pbej-guest-contract` in `privacy-booking-email-journey`.** The plan has been live for 21 days. The bookings delivery work that landed earlier this week — the seller offers enqueue and booking delivery PRs that merged on 2026-10-22 — creates ground under the guest contract work. The guest contract defines the verified Consent caller contract for guests without a User account. That definition is what makes `pbej-guest-prove` and `pbej-access-prove` executable. The admission item (`pbej-admission`) reconciles the merged baseline against what's actually implemented. I can't defer both of these into week five of a 21-day plan and consider that acceptable sequencing.
+
+**Advance `esp-delegation-binding` and `esp-async-context` in `external-agent-surface-preconditions`.** This plan is at 61% complete across 18 units. The translation strict item (`esp-translation-strict`) closed yesterday as unplanned work, which means the boundary and translation phase has meaningful ground. Delegation binding is the next natural step — it binds delegation to principal and enforces purpose, fresh-MFA, and expiry. Async context propagation follows because you can't reason about tenant-required job enforcement until the actor and delegation are propagated. The risk here is concrete: async jobs that lose tenant context are a security boundary concern, not an architectural nicety.
+
+### Secondary Work
+
+**Draft the implementation plan for `migration-safety-schema-guards`.** The pipeline shows research is done — `migration-guard-audit.md` exists. The gap is that it needs a concrete plan before implementation can start. This is documentation work that converts finished research into executable steps, and it's the one item in the "Needs Implementation Plan" bucket. The guard audit artifact gives me the input; I need to produce a tracker-ready set of work units.
+
+### Maintenance
+
+**Refresh the PHP test report with `make test-fixed-batches-quick`.** The test data is 85 days old. The 0% pass rate against 1,583 tests is almost certainly not the current state of the codebase — that report predates most of this week's output by a factor of twelve. I'm not going to make decisions about test health against a report that old. Running the refresh gives me an actual signal rather than a stale one.
+
+**Review Markdownlint issues in documentation files already being touched today.** There are 61 issues across 4 files. The `evidence-driven-productization` and `privacy-booking-email-journey` documentation is in motion today — if any of those 4 files overlap with what I'm editing, fixing the Markdownlint issues while I'm already in the file costs almost nothing and reduces the backlog without requiring a separate pass.
+
+**Draft the `scheduling-routing-policy` planning baseline.** This is in the "Aligned with Current Work" section of the pipeline — it shares domain with `appointment-gap-closure`, which has had heavy focus this week. The item is in the "needs research" tier. A planning baseline doesn't need to be complete; it needs to be concrete enough to produce trackable work units. The appointment scheduling work this week has loaded enough context about routing policy constraints that I can produce something substantive rather than a placeholder.
+
+### Parked
+
+The blocked `agent-auth-audit-remedation` items — `aa-decision-reconcile`, `aa-decision-revocation`, `aa-audit-envelope`, and `aa-test-audit-envelope` — remain parked because they depend on the `sma-admission-contracts` review, which itself depends on the finance and notice gate recoveries I'm attempting to close today. If those close, the dependency chain shortens by one link, but the audit envelope work won't be today's output.
+
+`browser-experience-closeout` has 66 items and no recent signal. The `react-doctor-100-followup-sprint-v2` clearing pass for the 321 remaining State & Effects warnings is genuinely useful work, but it needs a session with no competing priorities, and today isn't that.
+
+`appointment-gap-closure` has 54 items and has had heavy focus this week. The D13 delivery cluster (`agc-04-d13-resubmission-disposition` through `agc-04-d13-async-delivery-evidence`) is the next natural pull there, but I'm choosing the staging evidence closure and state machine recovery over it today because both have concrete artifact commitments that have been deferred multiple times already.
+
+<!-- plan-unit-ids: asu-auth-contract,asu-runtime-inventory,asu-visual-baseline,col-6038-determination-model,col-6038-mutation-receipts,col-6038-scheme-migration,edp-owner-reconciliation,sma-notice-gate-recovery -->
+<!-- SECTION: DAILY-PLAN END -->
+
