@@ -52,3 +52,23 @@ The `browser-experience-closeout` set (66 items, no recent activity) is not touc
 <!-- plan-unit-ids: asu-runtime-inventory,col-6038-baseline-definitions,col-6038-determination-model,col-6038-scheme-migration,edp-crm-mapping-audit,edp-health-observation,edp-tax-context-admission,sma-support-gate-gate-one -->
 <!-- SECTION: DAILY-PLAN END -->
 
+
+<!-- SECTION: ACCOMPLISHED START -->
+<!-- publication-digest: c09ca6fd0d700db0a0f6cec00a2e559cb528cc167a3bac9cc2f9fcb96069f954 -->
+<!-- publication-revision: ac123fa8e29c48d4b0884376839c6d77 -->
+<!-- accomplished-generated: 2026-10-26T03:03:56.353227+00:00 -->
+
+## Today's Update
+
+Today covered three distinct areas — state machine remediation, bookings payment and refund logic, and audit evidence — and while that spread sounds unfocused, each piece was addressing a specific gap in how the platform handles admission and re-admission across different workflow paths.
+
+The state machine remediation work produced the source-bound staging scenario admission. This is the gate record that governs how a state transition behaves when the source context is a staging scenario rather than a live one — a distinction that matters because staging-sourced transitions have different evidence requirements and shouldn't be allowed to proceed through the same admission path as production-equivalent flows. Getting this defined now, before the staging and production paths diverge further in implementation, is the right order. Retrofitting admission logic onto already-branched paths tends to produce special-casing instead of principled rules.
+
+The bookings work was more surgical. Hardening payment recovery and disposition re-admission means the platform now has explicit behavior for what happens when a payment attempt fails and the booking needs to re-enter the disposition flow — rather than leaving that as an implicit assumption that someone will handle it downstream. The refund alignment work followed from that: the refund attention mechanism now tracks against the Commerce projection rather than operating on its own internal model. That alignment is worth calling out because a refund path that disagrees with the Commerce projection is a silent inconsistency waiting to produce double-recovery or missed recovery in future tenant workflows. Having both of these resolved before the bookings payment path gets exercised under real fixture data is the correct order of operations. I'm reasonably confident in the disposition re-admission design, though the boundary between what triggers automatic recovery versus what requires an explicit operator decision is a line I expect to revisit once the first staging scenarios run through it.
+
+The audit work closed out the day: retaining proof-of-control qualification evidence. The purpose of this record is to establish that control was asserted and qualified at a specific point, not just that a result was produced. Without that evidence, a future compliance review has to reconstruct intent from outcomes — which is possible but unreliable. Capturing the qualification evidence as part of the control record means the audit trail is honest about what was known and when, rather than what can be inferred after the fact. It's a small artifact but it changes the character of the audit log from a ledger to something that can actually answer "was this qualified?" with proof rather than inference.
+
+The through-line across all three areas is admission gating: what conditions must be true before a workflow transition is permitted, and what record proves those conditions were evaluated. That's not a coincidence — it's the architectural concern the platform keeps returning to at this stage, and getting it right across diverse contexts (staging scenarios, payment recovery, audit qualification) before any of these paths carry real load is exactly the right time to be thorough about it.
+
+<!-- accomplished-unit-ids: audit-retain-proof-of-control-qualification-evidence,bookings-align-refund-attention-with-commerce,bookings-harden-payment-recovery-disposition-re-admission,sma-integrated-acceptance-admission -->
+<!-- SECTION: ACCOMPLISHED END -->
