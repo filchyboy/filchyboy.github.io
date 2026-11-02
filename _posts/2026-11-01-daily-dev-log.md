@@ -50,3 +50,21 @@ The four `agent-auth-audit-remediation` items (`aa-decision-reconcile`, `aa-deci
 <!-- plan-unit-ids: admission-ga-checkout-caller,asie-mac-mini-private-functional-completion,col-6038-owner-evidence-interface,sma-integrated-acceptance-finance,sma-support-gate-gate-one,venue-contract -->
 <!-- SECTION: DAILY-PLAN END -->
 
+
+<!-- SECTION: ACCOMPLISHED START -->
+<!-- publication-digest: 5bc80089b74d24dc203489bbb6545fcaa2d81be1ca6e8448a2f798e0e127c465 -->
+<!-- publication-revision: e5f784340a884594a9ddd5e4301400b9 -->
+<!-- accomplished-generated: 2026-11-02T14:37:39.473123+00:00 -->
+
+## Today's Update
+
+Light day in terms of volume — two units closed, two feature areas touched. That's the honest summary, and it's worth being direct about it rather than inflating the scope.
+
+The more substantive of the two was the auto-generated documentation pass: admission tasks, analytics, forecasting, security, and the test environment all got documentation entries added and logged into their respective trackers. This kind of work doesn't move features forward directly, but it matters for a specific reason — when a greenfield codebase grows without documentation coverage tracking, the undocumented surface area tends to be exactly the surface area that causes integration pain later. Future operators building against the analytics or forecasting APIs shouldn't have to read the implementation to understand the contract. Getting the tracker entries in place now means I have a forcing function to keep coverage honest as the platform matures.
+
+The analytics piece was narrower and more concrete: snapshot ingestion now rejects truncated removal snapshots before they enter the processing pipeline. The rejection logic sits upstream of any aggregation step, which is the right place for it. A truncated snapshot is structurally incomplete — it's missing terminal state — so allowing it through and handling it downstream would mean every consumer of that data needs to defensively account for incompleteness. Pushing the rejection to the ingestion boundary means the downstream stays clean by construction rather than by convention. That's a trade-off worth naming: the boundary enforcement is slightly more expensive to implement correctly at the entry point, but it eliminates an entire class of defensive logic that would otherwise accumulate across every analytics consumer.
+
+Tomorrow I'll be returning to some of the larger slice work that's mid-run. The documentation pass created a useful audit surface — there are coverage gaps visible now that weren't enumerated before — so part of what's in front of me is deciding which of those gaps are load-bearing enough to address before the next feature slice runs, and which can trail behind without consequence.
+
+<!-- accomplished-unit-ids: analytics-reject-truncated-removal-snapshots,auto-generated-auto-generated-documentation-tracking-admission-tasks -->
+<!-- SECTION: ACCOMPLISHED END -->
