@@ -50,3 +50,23 @@ The more interesting thing to name this morning: the MFA page health chain finis
 <!-- plan-unit-ids: admission-ga-checkout-caller,asie-mac-mini-private-functional-completion,esp-principal-model,idr-20260728-characterization -->
 <!-- SECTION: DAILY-PLAN END -->
 
+
+<!-- SECTION: ACCOMPLISHED START -->
+<!-- publication-digest: 58b87e3681915b183c3c446cf1dae8099986e0f9f2863610d2ae983dcc652275 -->
+<!-- publication-revision: 38d441c9fd104b97997fca742b3bc285 -->
+<!-- accomplished-generated: 2026-11-05T02:45:01.472187+00:00 -->
+
+## Today's Update
+
+The main event today was TV716 — the agent artifact temporal neighborhood loop — which I ran through the full eight-unit sequence from contract scope baseline to accessibility tests. That's the complete implementation arc in one session: define what the slice is allowed to touch, establish backend orchestration, lock data determinism, harden the API contract, instrument observability, clear the quality gates, wire the frontend, then cover the focused tests and accessibility layer. The temporal neighborhood concept is about giving agents access to artifacts that are temporally adjacent to a given reference point — not just the artifact itself, but the ones immediately before and after it in the timeline. Getting the contract scope right at the start was the load-bearing step. The neighborhood boundary conditions needed to be precise: what counts as "adjacent," whether adjacency is defined by creation timestamp or by a sequence index, and what the response shape looks like when a reference artifact sits at the edge of its available range (no prior, no subsequent). Those edge cases are exactly the kind of thing that surfaces as a silent wrong-answer problem rather than an error, so the data determinism work was specifically structured to exercise them under controlled conditions.
+
+One item worth calling out explicitly: after I finished the main TV716 sequence, I had to restore temporal comparison logic that a context switch earlier in the session had disrupted. That's a real cost I don't always account for — mid-session context switching between unrelated feature areas leaves a residue that shows up as a cleanup step afterward. The restore wasn't complex, but it was preventable.
+
+The email work ran parallel to TV716 and covered three distinct concerns. I added a retained owner attestation consumer — the event-driven handler that acts when an owner's retention status is confirmed — then added a redaction path that strips the retained receiver key from audit records before they're written. These two pieces are related but not dependent on each other; the attestation consumer fires on the happy path, the redaction logic exists so the audit trail doesn't carry a key that shouldn't be persisted beyond the moment of verification. The third item closed the CLI and rollback boundaries for retained owner operations, which is about making sure there's a clean abort path when the retention operation needs to be reversed. I haven't stress-tested the rollback boundary against partial-completion states yet — that's something I want to exercise before this becomes an active path.
+
+The ADR item was a collision resolution: two architecture decision records had been assigned the same number (ADR-0427), which creates a referencing problem that gets worse the longer it sits. Renumbering one of them is straightforward, but it also means updating every cross-reference — not a lot in this case, but enough to warrant doing it deliberately rather than fast.
+
+The numbered ADR collision is a small symptom of something larger: as the ADR count grows, the manual numbering process accumulates risk. That's worth addressing with an allocation mechanism before the catalog gets much deeper. For now the immediate problem is solved, and the TV716 work means there's a fully-tested, observable temporal neighborhood path ready for whatever agent evaluation work comes next.
+
+<!-- accomplished-unit-ids: adr-resolve-adr-0427-numbering-collision,email-close-retained-owner-cli-rollback,email-redact-retained-receiver-key-from,email-retained-owner-attestation-consumer,tv716-api-contract-hardening,tv716-backend-orchestration,tv716-contract-scope-baseline,tv716-data-determinism,tv716-focused-tests-a11y,tv716-frontend-integration,tv716-observability-instrumentation,tv716-quality-gates-handoff,tv716-restore-temporal-comparison-after-context -->
+<!-- SECTION: ACCOMPLISHED END -->
