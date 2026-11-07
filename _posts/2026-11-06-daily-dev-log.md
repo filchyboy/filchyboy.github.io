@@ -58,3 +58,21 @@ If the `asie-*` items close faster than expected, I'll move to `asie-booking-pay
 <!-- plan-unit-ids: asie-mac-mini-private-functional-completion,col-6038-determination-compare,col-6038-mutation-receipts,col-6038-owner-evidence-interface,idr-20260728-characterization,pbej-admission -->
 <!-- SECTION: DAILY-PLAN END -->
 
+
+<!-- SECTION: ACCOMPLISHED START -->
+<!-- publication-digest: 7e8d20d7b9e22999a4d3303fb94f1bc53f60527bd19444eedb276c63efee5f11 -->
+<!-- publication-revision: 442b7f8b4bd94d379880b98be8dbac30 -->
+<!-- accomplished-generated: 2026-11-07T04:35:01.061845+00:00 -->
+
+## Today's Update
+
+Today split cleanly between two areas — deployment request filtering and support-side evidence verification — and the two halves were more independent than usual. No real dependency chain running across them; each stood on its own reasoning.
+
+The deploy work was about defining where the platform's private browser journey draws its filtering boundaries. I added two distinct blocking rules: one for telemetry beacons and one for background page-script POST requests. Both are the kind of ambient network activity that browsers generate without direct user intent, and both have the same failure profile — if the journey's error handling treats a blocked beacon as a fatal condition, the whole private session surface becomes fragile in ways that are hard to attribute. The rule I settled on is that the block must be silent from the journey's perspective: the request gets intercepted, it doesn't proceed, and the journey state doesn't change. What I'm less certain about is whether that passive interception model holds when these patterns appear in sequences — a blocked beacon mid-flow is different from one at session initialization, and I haven't exercised that timing variation yet. That's a gap to close when the deployment environment has more of the journey scaffolding assembled.
+
+The support-side work was a different kind of problem. Four verification items, all dealing with how evidence is validated before the support system takes a consequential action. The clearest one was the resolution evidence check before close — before a ticket can be marked closed, the linked evidence has to actually resolve to something real, not just exist as a dangling reference. That's the boundary condition that matters most, because a close is the action most likely to end scrutiny. The replay-to-ticket binding item is related but distinct: it's about ensuring a replay event can be traced back to the original ticket evidence rather than constructing its own authority. The recovery receipt and content binding verification, and the annotation ownership check, follow the same pattern — each is a gate that ensures future operators can trust the audit chain without having to reconstruct it manually from raw storage. The honest framing here is that I'm building a verification surface that hasn't been tested under adversarial conditions yet. The happy paths work. Whether the checks hold when evidence is partially written or the ownership metadata arrives out of order is something I won't know until there's more of the support pipeline exercising these gates end-to-end.
+
+The two threads today didn't inform each other, which is actually useful information about the architecture — the deploy layer's browser journey filtering and the support layer's evidence model are genuinely decoupled at this stage. That's the relationship I want them to have. If I found the filtering rules bleeding into support verification logic, something would have gone wrong in the container decomposition. Keeping them independent now means future changes to either side don't create unexpected surface area in the other.
+
+<!-- accomplished-unit-ids: deploy-block-background-page-script-posts-without,deploy-block-telemetry-beacons-without-failing,support-bind-replay-original-ticket-evidence,support-verify-annotation-ownership-stored-evidence,support-verify-linked-resolution-evidence-before,support-verify-recovery-receipt-content-bindings -->
+<!-- SECTION: ACCOMPLISHED END -->
