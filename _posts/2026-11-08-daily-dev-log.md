@@ -56,3 +56,23 @@ What's different today: three items across the state machine remediation set lan
 <!-- plan-unit-ids: asie-mac-mini-private-functional-completion,col-6038-determination-compare,col-6038-mutation-receipts,col-6038-owner-evidence-interface,sma-integrated-acceptance-finance,sma-integrated-acceptance-support,sma-support-gate-gate-one -->
 <!-- SECTION: DAILY-PLAN END -->
 
+
+<!-- SECTION: ACCOMPLISHED START -->
+<!-- publication-digest: 6d9b739066a9272b181f7b65dec93fab248f432624d6ac1f2f4fcd2e11ca9c90 -->
+<!-- publication-revision: 0e4a5203120749bf90b4fcdf4879ae54 -->
+<!-- accomplished-generated: 2026-11-09T03:08:36.353412+00:00 -->
+
+## Today's Update
+
+Today was fragmented in a way that made the sequencing less obvious than usual — four different feature areas, none of them obviously related, but each one removing a category of ambiguity that would have been annoying to carry forward.
+
+The Mac mini deployment for the appointment scheduling feature set is the one I'll say the least about publicly, since it's private staging infrastructure, but the short version is that the application deployment reached functional completion. That matters because integrated staging evidence for the appointment scheduling feature set now has a real environment behind it rather than a theoretical one. Future verification work in that area has somewhere to actually run.
+
+The runtime work was more mechanical but required care in the sequencing. I pinned npm 11.19.1 as the version bundled by the Node 24.22.1 images, which is straightforward enough — but the guard requirement is what I think about more. Requiring an explicit npm guard at each Node image consumer means version drift becomes visible immediately rather than silently. Without the guard, a consumer can inherit whatever npm the base image happens to carry, and if the base image changes under it, nothing complains until something breaks at runtime in a non-obvious way. The guard converts that silent failure mode into a loud one at the boundary where it's cheapest to fix. I'm reasonably confident this is the right model, though it does add a small maintenance obligation whenever the pinned version advances — every consumer needs updating. That's a known trade-off and one I'm willing to accept.
+
+The MySQL work split across two areas that are related at the data layer: I added tracker entries covering permission definition tasks and role hierarchy qualification, and separately worked through qualifying profile definition writers on MySQL. The permission and role hierarchy work is the kind of thing that looks administrative until the first time a future operator runs into an access failure they can't explain. Getting the role hierarchy qualified at definition time — before any application code assumes a particular permission shape — means the application layer can reason about access with accurate inputs rather than guessing at what the database will actually allow. The profile definition writers qualification is the same principle applied to write paths specifically: knowing which profiles can write definitions under MySQL's permission model before those write paths are exercised in a real environment.
+
+The day didn't have a clean through-line, which isn't always a problem. The runtime hardening and MySQL qualification work are both the kind of preparation that disappears into the background once it's done correctly. The alternative — leaving version pinning loose or deferring role hierarchy qualification — would have added a class of environmental uncertainty to every future debugging session that touched either area.
+
+<!-- accomplished-unit-ids: asie-mac-mini-private-functional-completion,runtime-adopt-npm-11-19-1-bundled-pinned,runtime-require-npm-guard-each-node,support-qualify-profile-definition-writers-mysql,tracker-new-support-tasks-mysql-permission -->
+<!-- SECTION: ACCOMPLISHED END -->
