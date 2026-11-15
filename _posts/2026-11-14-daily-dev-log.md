@@ -37,3 +37,23 @@ tags: [dev-tracker]
 <!-- plan-unit-ids: col-6038-pub-a-effects,edp-crm-mapping-audit,edp-health-observation,edp-tax-context-admission,sma-integrated-acceptance-finance,sma-integrated-acceptance-support,sma-support-gate-gate-one,tv704-contract-scope-baseline -->
 <!-- SECTION: DAILY-PLAN END -->
 
+
+<!-- SECTION: ACCOMPLISHED START -->
+<!-- publication-digest: 47c0f33e19b8401c25c675b1b23e32c9e266db058ea8064328ab7df4e315a5ae -->
+<!-- publication-revision: 05a6b9a13f4c40629be41bbcbd569bc4 -->
+<!-- accomplished-generated: 2026-11-15T17:25:37.754516+00:00 -->
+
+## Update for 2026-11-14
+
+Evidence captured on 2026-11-15 for this retrospective.
+
+The recovered November 14 records show progress in defining business onboarding: ownership was reconciled and the versioned journey projection was specified. That design keeps preparation, rehearsal, live authorization and actual outcomes separate. A completed setup screen will not stand in for a completed business outcome.
+
+The connector traces distinguished local connection state from a complete termination outcome and assigned the open questions to existing owners. The follow-through stays focused on demonstrated gaps and the evidence needed to close them. These are source review and planning results, not a claim that the connector behavior is now complete.
+
+The mobile scanning review recorded the shared-app foundation and server-contract prerequisites. Its completed audit is groundwork; native implementation and physical-device validation remain pending.
+
+The first appointment journey still has its own joined acceptance gate across setup, booking, changes, cancellation, notices and recovery. The planning progress described here does not establish that acceptance. This is a partial recovery of dated records, not a complete reconstruction of November 14.
+
+<!-- accomplished-unit-ids: selection-7bd989fa2296e8acbc0e75d01dea521bc95f4146021dfb7164d263bbdccd19b7 -->
+<!-- SECTION: ACCOMPLISHED END -->
