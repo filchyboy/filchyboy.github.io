@@ -50,3 +50,37 @@ Further native mobile implementation remains separate from its completed foundat
 <!-- plan-unit-ids: human-reviewed-7d619ed213fa28cc47fb23ff478aa86de2097fc28359f1dc020af0190bcb6de0 -->
 <!-- SECTION: DAILY-PLAN END -->
 
+
+<!-- SECTION: ACCOMPLISHED START -->
+<!-- publication-digest: 7abdb5a78bb8ee71b6ac59828068cba8f6bc00508959cb97d957b023421221d7 -->
+<!-- publication-revision: e4d81b8a164548a8a75db5f707566135 -->
+<!-- accomplished-generated: 2026-11-16T16:11:13.356465+00:00 -->
+
+## November 15 Update
+
+*Partial retrospective, prepared November 16.*
+
+The clearest reporting progress was connecting the evidence to a useful account of the work. I published the revised daily plan after review, restoring meaningful priorities, concrete appointment work and searchable tracker IDs. I also restored the November 14 update as a qualified partial recovery. That repaired the public account without pretending that the missing history had been captured at the time.
+
+### Reporting and Delivery
+
+Under `oapr-brief-context` and `oapr-private-transport`, I connected a bounded export of project context and a matching source assessment to the private input Page. Actual file readback and the consumer checks matched the captured edition and source revision. The input could now carry goals, blockers, ownership and next actions rather than counts alone.
+
+The review also caught substantive problems in early candidates: weaker offer prerequisites, missing staging limitations, omissions of current work, and a claim that suggested more runtime acceptance than the record established. Correcting those findings improved the account before any further publication.
+
+The delivery rehearsals crossed review, exact-grant issuance, local writing, Git delivery and rendered readback in isolated fixtures. Repeating them produced no duplicate post or commit, and the update preserved the existing morning plan. The focused run reached 152 passing tests. Those checks qualify the tested paths; they do not establish that the scheduled morning process completed on time.
+
+I installed the approved routine reporting policy and a quiesced cutover control. The new public worker remained paused, and the control blocked publication while the remaining integration was open. Existing grants and published posts were preserved. Recording the real worker execution and completing the coordinated cutover remained unfinished.
+
+### Staging Progress
+
+The work under `asie-mac-mini-m1-signed-admission` made the next staging choice more concrete. A read-only connectivity check timed out on the proposed publication route. The subsequent review compared the available paths and recorded the choice of a reviewed client inside the existing application environment. That narrowed the next piece of work without changing the existing guard or claiming M1 admission. The task remained deferred.
+
+### What Carries Forward
+
+The appointment confirmation and hold-expiry work, `agc-01-confirm-admission` and `agc-01-expiry-disposition`, already had implementation in the record. I did not establish a new completed customer journey on November 15. The useful follow-through is to bind the relevant cases to a current candidate and its acceptance owners, while keeping the separate staging and operator checks within their own scopes.
+
+The remaining reporting proof is operational: one owner for each stage, the matching context reaching the actual brief producer, complete delivery and archive receipts, and a natural run finishing before 06:30 Pacific. The isolated archive qualification verified the original brief and duplicate-safe retries; it did not qualify the recurring import or an on-time run.
+
+<!-- accomplished-unit-ids: human-reviewed-12dae2cfc685f1c7fc033122327526ff052497958db3296e6f4963ac99af83bc -->
+<!-- SECTION: ACCOMPLISHED END -->
