@@ -44,33 +44,35 @@ Broader appointment variants, public launch and production promotion stay outsid
 
 
 <!-- SECTION: ACCOMPLISHED START -->
-<!-- publication-digest: 9ee375efa3e36b528573fd5a1c2ff7e159d3584a461da0fceac3c40b4f90e7aa -->
-<!-- publication-revision: b9b5b8f1582f4751bd0bbfcd37891a89 -->
-<!-- accomplished-generated: 2026-11-17T16:01:02.017279+00:00 -->
+<!-- publication-digest: 64f944cc41f1f232064a2bc399e6abe14edb6177d7f417769289935f7bf98b83 -->
+<!-- publication-revision: 0f97b2b598104fa5842a4a4b672fc306 -->
+<!-- accomplished-generated: 2026-11-17T20:31:14.953669+00:00 -->
 
 ## Update for 2026-11-16
 
 Evidence captured on 2026-11-17 for this retrospective.
 
-### Staging qualification
+The November 16 Pacific inventory records 27 merges across the two declared code repositories: 23 product changes and four development-orchestrator changes, with no closed-unmerged items. The work includes stronger staging evidence, a locally qualified administration candidate, provider-effect safeguards and test and scan tooling. This retrospective uses evidence captured on November 17. I’ll describe the results at the scope their sources support; a merge count is not a count of deployments or accepted customer journeys.
 
-The author sign-in and preparer-input checks passed in separate November 16 windows. A later preparation diagnostic narrowed the refusal without producing surface counts. Full native admission remains deferred. (`asie-mac-mini-m1-signed-admission`)
+### Staging evidence
 
-### Admin candidates
+The staging work made the remaining preparation question more precise. The author sign-in and preparer-input checks passed in separate November 16 windows. The input verification established that the bound inputs matched their receipts; a later surface-counts attempt stopped at preparation without producing counts. The diagnostic then located stale registration evidence in the bound source. That sequence matters because it separates a verified input from an admitted full native run, and a measured refusal from the explanation found by reading source. The later November 17 tracker direction treats accepted private staging as the baseline and M1 as a separate admission workflow. That later clarification helps interpret the remaining work; it is not another November 16 accomplishment. (`asie-mac-mini-m1-signed-admission`)
 
-Deletion Receipts gained local candidate qualification. The installed SPA retains serving ownership, with installed verification and owner review still open.
+### Administration candidate
 
-### Domain safeguards
+Deletion Receipts gained a locally qualified Laravel candidate in PR #9227. The recorded evidence covers login and MFA, tenant-scoped access, refusal of an unrelated receipt and proof-response checks, along with focused frontend and PHP validation. Those results give the candidate a more concrete acceptance basis than a completed UI sketch. The installed SPA retains serving ownership, and the PR still leaves installed verification, owner review, coordinated rollback and staging observation open. The next useful decision is which remaining candidate evidence closes that serving transition; the local qualification does not establish that it has already happened.
 
-Domain governance tightened when provider work can run and checked the retained decision evidence on replay. Those changes establish source progress without a live provider or deployment result.
+### Provider-effect safeguards
+
+Domain Governance added two related safeguards in PRs #9226 and #9228. One checks retained provider-request evidence before returning a held receipt on replay. The other refuses a live provider task while the approved-decision authority transaction is still open. Together they address the risk of treating inconsistent retained input as the original request or applying a remote effect before the local authority record commits. The source changes and focused tests are progress in that boundary. They do not complete committed dispatch, remote outcome reconciliation or live-provider qualification, which remain distinct work.
 
 ### Test reliability
 
-Test isolation and fixture repairs supported the qualification work. They reduce cascading test failures and make the sign-in fixture reproducible.
+The test repairs belong in the progress account because they support the reliability of the evidence used for other work. PRs #9273 and #9282 address teardown and transaction-isolation behavior, while #9284 repairs the sign-in fixture setup. Those changes reduce misleading setup and cleanup failures and make the intended qualification easier to exercise. They do not turn the report into a fresh test run: the outcomes here are the checks recorded by those source changes, with their original scope.
 
 ### Development tooling
 
-The full-tree scan comparison matched on three synthetic fixtures. The real-tree result, resource cost and rollout are still open.
+Development-orchestrator’s four merges, PRs #96–99, moved the full-tree secret-scan work from a design through a bounded baseline script to a recorded local comparison. The host and two pinned image versions agreed on three synthetic cases: clean input, a seeded finding and an allowlisted case. The source also records that the retained evidence did not disclose the fixture secret. That is a useful qualification of the scanner comparison and its reporting behavior. Real-tree findings, resource cost, broader secret shapes and rollout remain outside that result. This work improves the development process in its own right; it does not need an invented appointment dependency to deserve space in the update.
 
-<!-- accomplished-unit-ids: selection-08c22d8d5f7938fb7cfc3b90b67c8b06ae8cdd7c675a21d7ad304f11afb2472a -->
+<!-- accomplished-unit-ids: selection-c9f099cd2be5d0669ee68ddea6220f605a23fa24fdd211fb0d2b735489b3ce50 -->
 <!-- SECTION: ACCOMPLISHED END -->
