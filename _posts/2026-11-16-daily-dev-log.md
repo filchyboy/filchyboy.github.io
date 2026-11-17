@@ -42,3 +42,35 @@ Broader appointment variants, public launch and production promotion stay outsid
 <!-- plan-unit-ids: human-reviewed-1cbf6bffad7164ed0c501ba1ee45b4b1395c057f7928b5aaa40b77d04cbfaf75 -->
 <!-- SECTION: DAILY-PLAN END -->
 
+
+<!-- SECTION: ACCOMPLISHED START -->
+<!-- publication-digest: 9ee375efa3e36b528573fd5a1c2ff7e159d3584a461da0fceac3c40b4f90e7aa -->
+<!-- publication-revision: b9b5b8f1582f4751bd0bbfcd37891a89 -->
+<!-- accomplished-generated: 2026-11-17T16:01:02.017279+00:00 -->
+
+## Update for 2026-11-16
+
+Evidence captured on 2026-11-17 for this retrospective.
+
+### Staging qualification
+
+The author sign-in and preparer-input checks passed in separate November 16 windows. A later preparation diagnostic narrowed the refusal without producing surface counts. Full native admission remains deferred. (`asie-mac-mini-m1-signed-admission`)
+
+### Admin candidates
+
+Deletion Receipts gained local candidate qualification. The installed SPA retains serving ownership, with installed verification and owner review still open.
+
+### Domain safeguards
+
+Domain governance tightened when provider work can run and checked the retained decision evidence on replay. Those changes establish source progress without a live provider or deployment result.
+
+### Test reliability
+
+Test isolation and fixture repairs supported the qualification work. They reduce cascading test failures and make the sign-in fixture reproducible.
+
+### Development tooling
+
+The full-tree scan comparison matched on three synthetic fixtures. The real-tree result, resource cost and rollout are still open.
+
+<!-- accomplished-unit-ids: selection-08c22d8d5f7938fb7cfc3b90b67c8b06ae8cdd7c675a21d7ad304f11afb2472a -->
+<!-- SECTION: ACCOMPLISHED END -->
