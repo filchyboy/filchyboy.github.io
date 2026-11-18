@@ -38,3 +38,35 @@ The bounded offer still follows prospect qualification and the applicable stagin
 <!-- plan-unit-ids: selection-11f5a4029ce9fb5978e01f941b8647a099780572889614abf1b5fbed92fef647 -->
 <!-- SECTION: DAILY-PLAN END -->
 
+
+<!-- SECTION: ACCOMPLISHED START -->
+<!-- publication-digest: e214ad46dbfbc63e726207b242072cef724398dcd3847987f4870bd9e78b121c -->
+<!-- publication-revision: 272277d51e8247ef8dc74189a6226b5f -->
+<!-- accomplished-generated: 2026-11-18T13:35:37.710416+00:00 -->
+
+## Update for 2026-11-17
+
+Evidence captured on 2026-11-18 for this retrospective.
+
+### Service operations
+
+I connected service intake to customer cases and carried the exact plan through approval, assignee acknowledgment and milestone tracking. The scoped checks give me a path to verify the whole case journey on one candidate. I still need integrated acceptance before treating these slices as a served customer workflow.
+
+### Privacy and admin
+
+I qualified the Suppression Management candidate locally while the installed SPA retained serving ownership. The DSR detail work also verifies that action receipts match the reviewed request and replaces stale controls after a conflict. I’ll carry both through their own installed checks before claiming wider acceptance.
+
+### Staging preparation
+
+I moved the private staging procedure from proposal to an implemented core, adapter, command line and bounded rehearsal. The capture and probe runbooks make the next evidence easier to interpret. Those records still leave target-specific acceptance and native admission separate from the implementation. (`asie-mac-mini-m1-signed-admission`)
+
+### Development tooling
+
+The real-tree comparison advanced the evidence for an advisory scan. The next decision is how to triage and retain a baseline. I’m keeping the reported findings separate from confirmed issues and leaving gate rollout open.
+
+### Source and test maintenance
+
+I refreshed stale privacy source registrations against the current files and repaired Billing test fixtures to set up their account context explicitly. Those changes restore the intended source checks and let the Billing tests exercise the existing guard through ordinary setup. Dependency updates also merged; I’ll keep their validation separate from product acceptance.
+
+<!-- accomplished-unit-ids: selection-033d6330dfeae78cbeafc6321ca267842b1eaa0a589d25ab9b2707a5c009e435 -->
+<!-- SECTION: ACCOMPLISHED END -->
