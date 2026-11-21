@@ -38,3 +38,63 @@ Offer preparation remains behind prospect qualification and staging review. I’
 <!-- plan-unit-ids: selection-993c80bf8fbc9084ee7e7c5edc248de38cc99f35fa31b3cd5e25d278b768b05b -->
 <!-- SECTION: DAILY-PLAN END -->
 
+
+<!-- SECTION: ACCOMPLISHED START -->
+<!-- publication-digest: b16b59f4fcbb634441be73f47d0bb9817d28b31fc6a8ed4000fd7e2b517bb35b -->
+<!-- publication-revision: b7883447982c4f7dbc01be6a1524d38a -->
+<!-- accomplished-generated: 2026-11-21T13:40:53.621583+00:00 -->
+
+## Update for 2026-11-20
+
+Evidence captured on 2026-11-21 for this retrospective.
+
+### Period and scope
+
+November 20 moved several operator journeys beyond their earlier owner-mapping work. Venue proposals now have a Scheduling workspace, paid event registration retains purchaser-entered attendee details, and Marketing has source-bound enrollment and lead qualification. I’m reviewing the completed Pacific-day activity across the product and development-orchestrator repositories. These are implementation and scoped qualification results; the first sellable appointment journey still needs its own owner acceptance.
+
+### Venue proposals and recovery
+
+I connected the venue proposal journey from an eligible hold through independently accepted terms, a Commerce deposit and explicit confirmation of the original Calendar occupancy. The Scheduling workspace now exposes those steps to an organizer and reads readiness from the owner receipt and current reservations. Confirmed venue changes and cancellation have their own recovery path, so a lost response can be resolved through the original operation before another write.
+
+The venue work has focused SQLite and native MySQL evidence, keyboard recovery checks and isolated browser accessibility checks. A local payment test-mode exercise also passed. The deployed journey remains pending, and the broader room and resource story still has open acceptance. Compared with yesterday’s plan, this is concrete progress on the new caller and operator workflow, while its local evidence cannot substitute for deployment or the separate appointment journey.
+
+### Event registration and capacity
+
+Paid multi-seat registration now retains one validated attendee submission per purchased slot and binds the complete set to the original paid Booking. Exact retries recover the same checkout and fulfillment; changed attendee input conflicts. The waitlist review path uses its original quantity and deadline. This closes an important gap between buying several seats and knowing which attendee details belong to each seat, with credential and delivery orchestration still unfinished.
+
+Related increments expose a current committed registration for check-in coordination, historical checkout outcomes for an operator, and a live-allocation revision for capacity-impact calculations. Their limits matter: a source read does not issue a credential, historical checkout counts do not clear a current payment, and a quantity revision does not authorize a capacity change. Each gives its next owner better evidence without pretending the remaining user journey is complete.
+
+### Marketing follow-through
+
+Settled form inquiries can now enroll through the existing Marketing lifecycle owner, pinned to the published form definition, original receipt and trigger version. Current consent and retained authority remain necessary before an unsent Email draft is created. Failed downstream publication retains the original retry identity. This makes inquiry follow-through recoverable while keeping review and actual sending under their existing owners.
+
+Lead-score qualification now uses immutable model and evidence snapshots. Approval commits before the CDP handoff; a retry repairs the original failed export, and changed evidence holds the old review. The two completed implementation plans preserve their original tasks and evidence. Contact preference work remains an unfinished checkpoint: the verified-custody foundation is progress, while the public preference journey and its remaining communication steps are still open.
+
+### Publishing and history
+
+Site navigation gained a tenant-owned composition, independent review and release-bound publication or undo through the existing canonical writer. Exact operation replay preserves the original result, and undo changes its own menu placement while preserving later page content. The mounted editor and native database checks are useful implementation evidence, but the merged checkpoint still leaves final telemetry, acceptance and handoff open.
+
+The Article and BlogPosting plan has now completed its preserved closeout after the earlier implementation merge, including regression proof for the null-title concern. Product Surface History also covers more admitted producer outcomes without treating missing individual evidence as resolved. These records improve both what an operator can publish and how an operator can trace it, with each plan’s own acceptance boundary retained.
+
+### Candidate building and release
+
+Candidate building moved to the Mac mini’s Colima build VM. Early runs exposed concrete temporary-directory, build-account and buildx compatibility problems; the subsequent record establishes the first successful remote candidate. This advances yesterday’s capacity-assessment proposal into an implemented build path and a recorded result. The build produces a candidate for review, rather than authority to run it against staging.
+
+Every new candidate now carries both its application and renderer, with a served check of the manifest and every referenced asset. The release implementation can replace the web server alongside the four application roles and roll them back together. That addresses the mismatch between a new app’s asset references and an old renderer. Native changed-image execution still refuses: the next supervised-run admission is a design awaiting the owner’s decisions and later implementation.
+
+### Development tooling
+
+The advisory tree scan completed its first recorded real-tree comparison through both executors on the same source. The owner then chose a timeout based on those samples. A separate direct Git test showed that limiting the pack window reduced peak resident size substantially, leading to a narrowly scoped cap on the export child. The full scan with that cap has not yet been measured, and sequential timings do not establish a speed improvement.
+
+### Static analysis and reliability
+
+The dead-code tooling now loads the application’s compatible analyzer, understands the admin build’s document root and has isolated lint controls with negative tests. The corrected backend rerun completed both profiles without its earlier global failure, but retained diagnostics still make the reports incomplete. I also retired verified disconnected components and registrations while keeping their supported callers. A successful diagnostic run is useful progress, not a passing enforcement qualification.
+
+Tenant-bound writes and pricing caches received owner-scope corrections, and the platform sales path gained deterministic checkpoint ordering and invitation recovery. Billing batch progress, Shopify transforms and provider-health metadata also received focused repairs. Fixture and receipt tests across settings, Email, Decisions, Support and lifecycle retirement strengthen the evidence for retained behavior. These are scoped fixes and checks, with no claim that the full platform suite or production rollout has passed.
+
+### Planning and ownership
+
+The rest of the day reconciled existing owners for search, content import, page retirement, service evidence, vendor commitments and related operational requests. Some decisions deliberately defer implementation; the research sample only records its selection, and the recommendation follow-through archive closes a planning lifecycle. Those distinctions keep source-backed next actions visible without turning every document merge into another delivered feature.
+
+<!-- accomplished-unit-ids: selection-12b0c9903c0f53c0c6417e63661166137c5f942653ab909add6c4ffd3c588ef2 -->
+<!-- SECTION: ACCOMPLISHED END -->
