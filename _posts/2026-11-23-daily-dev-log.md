@@ -38,3 +38,31 @@ Offer preparation remains behind a consenting qualified prospect and review of t
 <!-- plan-unit-ids: selection-6c222f390cbd3b859cd4b6f1d821903fbeecdf7450454098bb4cfda482f31435 -->
 <!-- SECTION: DAILY-PLAN END -->
 
+
+<!-- SECTION: ACCOMPLISHED START -->
+<!-- publication-digest: eb24b20e635307bd1889405b996d2c1202da922574b07a0110c5c800ab8504ed -->
+<!-- publication-revision: c1355a59f0e54f09bd2133eda932337b -->
+<!-- accomplished-generated: 2026-11-24T13:40:33.263118+00:00 -->
+
+## Update for 2026-11-23
+
+Evidence captured on 2026-11-24 for this retrospective.
+
+### Period and scope
+
+The captured November 23 merge-and-closure inventory contains one product change: ordered startup for the existing private staging stack. There were no corresponding events in the development-orchestrator repository. This account covers that completed Pacific-day record and its source evidence; it does not inventory unmerged work. The change adds a recovery foundation to the earlier successful private deployment, with actual boot behavior still awaiting its own observation.
+
+### Ordered startup
+
+I added a boot-start path that brings up the virtual machine, the container engine and the stack in the procedure’s defined order. Each service must become ready before the next starts, and the sequence stops at the first problem or its bounded wait limit. Already-ready services are left alone. That makes the intended recovery sequence explicit instead of relying on the operator to reconstruct the order after a host restart.
+
+The same work connects startup to the release lifecycle. An interrupted or unresolved release leaves an interlock that prevents boot from starting the stack, and recovery remains an explicit owner decision. The install, check and uninstall paths preserve their ordering, with read-only status and file-identity checks available for review. This keeps ordinary startup from being mistaken for a decision to resume an incomplete release.
+
+### Qualification still needed
+
+The retained validation covers simulated container behavior, a fake clock, temporary-root installation and the real shipped guest program’s interlock boundary. Mutation checks also exercise the stop conditions and recovery ordering. Those checks support the implementation, while the host starting a stopped virtual machine and the service running at a real boot remain unverified. No restart or power-cut test was performed for this report.
+
+This work does not add an installed booking-email acceptance case or close the appointment contract gate. Owner-admission remains done; the bounded confirmation and expiry evidence retains its accepted scope, and contracts remains planned. The useful next step is to obtain the missing installed startup evidence and identify the next admitted appointment proof, while keeping those separate from the already recorded private deployment. (`agc-00-owner-admission`, `agc-00-contracts`)
+
+<!-- accomplished-unit-ids: selection-0acedbf21cea2d78d22c2f03e2c07ec914a8cc8211f0e9509002ded60f1a4406 -->
+<!-- SECTION: ACCOMPLISHED END -->
