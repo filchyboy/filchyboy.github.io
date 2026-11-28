@@ -36,3 +36,16 @@ The first free wedge should not be presented as a completed paid Appointment jou
 <!-- plan-unit-ids: selection-03a911a00f681e1d1d54b7a8d0f1bb40d488182e51c0ec62f23472bc555b035c -->
 <!-- SECTION: DAILY-PLAN END -->
 
+
+<!-- SECTION: ACCOMPLISHED START -->
+
+## Update for 2026-11-27
+*What changed on November 27. This covers selected verified merges, not a full tally.*
+
+The biggest change was in paid appointments. A business owner can now configure a paid offering against an existing catalog price in the codebase, and the booking path checks that the tax decision still matches the offering and its service location. That takes us closer to letting a business publish and sell an appointment through its ordinary setup flow. The next proof is to publish through that flow and verify the resulting offer in staging. A merge doesn’t establish that a customer has successfully paid or received a refund. (`agc-02-catalog-binding`, `agc-02-setup-payment-ui`, `agc-02-publication-proof`)
+
+The free and agent-assisted paths moved too. Customers can claim their own imported free waitlist offers, and the cancellation work now distinguishes approval to cancel from consent to process the customer’s data for that action. Both changes make the booking lifecycle more explicit. Neither establishes that an external agent can complete the entire journey today.
+
+Separate platform work strengthened account isolation in billing reconciliation and tightened how privacy restrictions are written when a person signals a preference through their browser. The browser-agent qualification also cleared its build phase, but the next test did not pass. Likewise, the staging rehearsal exposed a gap in how short-lived writes are attributed. A correction merged, but it hasn’t been verified on the staging machine. Both are useful results: they tell us what still needs to be proven before widening either rollout.
+
+<!-- SECTION: ACCOMPLISHED END -->
